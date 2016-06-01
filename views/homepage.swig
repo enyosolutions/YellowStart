@@ -1,0 +1,28 @@
+{% extends "./layout.swig" %}
+
+{% set page = { 'id' : 'homepage' } %}
+
+{% block container_content %}
+
+    <h1><i class="fa fa-home"></i> Start</h1>
+
+    <h2>Container fluid</h2>
+    <div class="container-fluid">
+        <div class="row">
+            <div style="border: 1px solid gray" class="col-md-3">col 1</div>
+            <div style="border: 1px solid gray" class="col-md-3">col 2</div>
+            <div style="border: 1px solid gray" class="col-md-3">col 3</div>
+            <div style="border: 1px solid gray" class="col-md-3">col 4</div>
+        </div>
+    </div>
+
+    <h2>Container</h2>
+    <div class="container">
+        <div class="row">
+            <div style="border: 1px solid gray" class="col-md-3">col 1</div>
+            <div style="border: 1px solid gray" class="col-md-3">col 2</div>
+            <div style="border: 1px solid gray" class="col-md-3">col 3</div>
+            <div style="border: 1px solid gray" class="col-md-3">col 4</div>
+        </div>
+    </div>
+{% endblock %}

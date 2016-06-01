@@ -1,0 +1,470 @@
+// Simplex 3.3.6
+// Variables
+// --------------------------------------------------
+
+//== Navbar
+//
+//## colors
+
+@font-face {
+  font-family: 'atc';
+  src: url("fonts/ATCOverlook-Bold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'atc';
+  src: url("fonts/ATCOverlook-Heavy.ttf");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@keyframes rotateFall {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+    animation-timing-function: ease-out;
+  }
+  40% {
+    transform: rotateZ(17deg);
+  }
+  60% {
+    transform: rotateZ(16deg);
+  }
+  100% {
+    transform: translateY(100%) rotateZ(17deg);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+/* slide in from the bottom */
+@keyframes slideOutLeft {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* rotate out newspaper */
+@keyframes rotateOutNewspaper {
+  to {
+    transform: translateZ(-3000px) rotateZ(360deg);
+    opacity: 0;
+  }
+}
+
+/* entering animations --------------------------------------- */
+/* scale up */
+@keyframes scaleUp {
+  from {
+    opacity: 0.3;
+    -webkit-transform: scale(0.8);
+  }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* slide in from the bottom */
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.ng-enter {
+  animation: fadeIn 0.3s both ease-in;
+  z-index: 8888;
+}
+
+.ng-leave {
+  animation: fadeOut 0.350s both ease-in;
+  z-index: 9999;
+}
+
+.navbar {
+  a.new-startup {
+    border: 1px solid @brand-primary;
+    color: @brand-primary !important;
+    font-weight: 300;
+    border-radius: 50px;
+    margin: 23px;
+    padding: 12px 15px;
+    max-width: 205px;
+    height: 46px;
+
+    text-align: center;
+  }
+
+  ::-webkit-input-placeholder {
+    color: @brand-primary;
+  }
+
+  :-moz-placeholder {
+    /* Firefox 18- */
+    color: @brand-primary;
+  }
+
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: @brand-primary;
+  }
+
+  :-ms-input-placeholder {
+    color: @brand-primary;
+  }
+
+  .border {
+    border-right: 1px solid #EAEAEA;
+
+    &.first {
+      border-left: 1px solid #EAEAEA;
+    }
+  }
+
+  li {
+    min-width: 109px;
+    text-align: center;
+    a {
+      color: #EAEAEA;
+      font-weight: 100;
+      padding-top: 34.75px;
+      padding-bottom: 34.75px;
+      text-align: center;
+    }
+  }
+
+}
+
+.splash {
+  padding: 9em 0 2em;
+  background-image: url(../images/bg2.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+  text-align: center;
+  height: 100vh;
+
+  &.small {
+    height: 330px;
+  }
+
+  &.medium {
+    height: 640px;
+  }
+
+  h1 {
+    font-weight: 700;
+    color: @brand-yellow;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    font-weight: 100;
+    color: #fff;
+    width: 100%;
+    margin: 50px auto;
+    line-height: 1.5;
+  }
+
+  .home-form {
+    max-width: 602px;
+    margin: 0 auto;
+
+    .input-zone {
+      width: 100%;
+
+      input[type=text] {
+        margin: 30px 0;
+        text-align: center;
+        font-size: 2em;
+      }
+
+      button.submit-search,
+      button.submit-search:focus {
+        margin-top: 15px;
+        padding: 10px 45px;
+        outline: none;
+        background-color: @brand-primary;
+      }
+    }
+
+  }
+
+}
+
+section.main {
+  margin-top: 84px;
+}
+
+footer {
+  background-color: @brand-info;
+  padding-top: 31px;
+
+  .copyright {
+    color: #fff;
+
+  }
+}
+
+//== NEW STARTUP FORM
+//
+
+#startup-form {
+
+  .form-body {
+    max-width: 600px;
+    margin: 15px auto;
+
+    p {
+      font-size: 30px;
+      font-weight: 200;
+      margin: 90px 0;
+    }
+
+    .form-control {
+      margin-bottom: 52px;
+      font-size: 20px;
+    }
+    label {
+      font-weight: bold;
+      font-size: 20px;
+      display: block;
+      color: #292B2C;
+    }
+
+    sub {
+      font-size: 12px;
+      color: #666C6F;
+    }
+
+    .checkbox-label {
+      font-size: 12px;
+      font-weight: 400;
+
+    }
+
+    textarea {
+      min-height: 190px;
+      padding: 20px;
+      font-weight: 18px;
+    }
+  }
+}
+
+body.view-page {
+  .startup-tags {
+    .tag {
+      display: inline-block;
+      a {
+        color: @brand-yellow;
+      }
+    }
+  }
+
+  .splash {
+    position: relative;
+
+    .nav-tabs {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+
+  section#main {
+    max-width: 934px;
+    .tab-content {
+      margin: 15px auto;
+    }
+  }
+}
+
+section#sip-note {
+  background-color: @brand-info;
+  height: 548px;
+  padding: 15px;
+  text-align: center;
+
+}
+
+section#map-section {
+  height: 525px;
+  text-align: center;
+  position: relative;
+  #startup-map {
+    width: 100%;
+    height: 100%;
+  }
+
+  .address {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -160px;
+    margin-left: -106px;
+  }
+}
+
+section#more-startups {
+
+}
+
+//FORMS
+
+.form-group {
+  overflow: visible;
+}
+
+.modal-content {
+  .form-group {
+    overflow: scroll;
+  }
+
+}
+
+.ng-invalid:not(.ng-pristine) {
+  border-color: @brand-danger;
+}
+
+.ng-valid:not(.ng-pristine) {
+  border-color: @brand-success;
+}
+
+.btn {
+  &:focus {
+    outline: none;
+
+  }
+  &button
+  &a {
+    i {
+      vertical-align: middle;
+    }
+  }
+}
+
+// BUTTONS
+
+.btn-primary:hover {
+  color: #ffffff;
+  background-color: @brand-primary;
+  border-color: @brand-primary  ;
+}
+
+// FORMS + SELECTIZE
+
+.selectize-input {
+  min-height: 58.5px;
+  padding: 8px 12px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+}
+
+.selectize-control.multi .selectize-input > div {
+  padding: 6px;
+  background: @brand-info;
+  color: white;
+}
+
+.selectize-control.multi .selectize-input.has-items {
+  padding: 10px 12px 2px;
+}
+
+.dropzone {
+  border: 3px dotted @brand-info;
+  padding: 10px;
+}
+
+.dropzone .dz-default.dz-message {
+  background: none;
+  background-image: none;
+  width: 100%;
+  height: auto;
+  margin-left: 0;
+  margin-top: -61.5px;
+  top: 50%;
+  left: 0;
+  text-align: center;
+}
+
+.dropzone .dz-default.dz-message span {
+  display: block;
+}
+//tabs
+
+.nav > li > a.bg-green {
+  background-color: @brand-green;
+}
+
+// CARDS
+.card-img-top {
+  max-height: 200px;
+  min-height: 200px;
+  height: auto;
+  overflow: hidden;
+}
+
+.card-img-top img{
+  width: 100%;
+  height: auto;
+}
+
+.list-page .card {
+  height: 420px;
+}
+
+.list-page .card .card-block {
+  word-break: break-word;
+}
