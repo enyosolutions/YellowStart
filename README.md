@@ -8,11 +8,11 @@ This app is a sailjs app that runs Angular for this UI part.
 
 ## 1. Requirements
 
-* nodejs + npm
-* less
-* sailjs
-* mongodb >= 3.0
-* git
+* nodejs + npm (brew install npm)
+* less (npm i less -g)
+* sailjs (npm i sailjs -g)
+* mongodb >= 3.0 (brew install mongodb) 
+* git (should be installed already)
 * forever  (```npm i forever -g```) 
 
 ## 2. Install
