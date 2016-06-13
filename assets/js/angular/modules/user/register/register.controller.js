@@ -1,23 +1,26 @@
 'use strict';
 
-angular.module('start.controllers').controller("RegisterCtrl", function($location, AuthenticationService) {
-    var vm = this;
+angular.module('start.controllers').controller("RegisterCtrl", function($scope, $state, $location, AuthenticationService, UserService, $rootScope, $ngBootbox ) {
 
-    vm.register = register;
-
-    function register() {
-        vm.dataLoading = true;
+    $scope.register =  function() {
+        $scope.dataLoading = true;
         console.log(UserService);
-        console.log(vm.user);
-        UserService.Create(vm.user)
+
+        UserService.Create($scope.user)
             .then(function (response) {
-                if (response.success) {
-                    FlashService.Success('Registration successful', true);
-                   // $location.path('/login');
-                } else {
-                    FlashService.Error(response.message);
-                    vm.dataLoading = false;
+                console.log(response);
+                $scope.dataLoading = false;
+
+                if(response.error){
+                        console.log(response);
+                    $ngBootbox.alert(response.message);
+                        //FlashService.Error(response.message);
+                }
+                if (response.data) {
+                    $scope.user._id = response.id;
+                    $rootScope.User = $scope.user;
+                    $state.go('home');
                 }
         });
-    }
+    };
 });

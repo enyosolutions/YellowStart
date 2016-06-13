@@ -9,6 +9,7 @@
  */
 
 module.exports = require('waterlock').actions.user({
+
   /* e.g.
     action: function(req, res){
   

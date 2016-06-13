@@ -35,7 +35,7 @@ module.exports.waterlock = {
               pass: 'userpass'
             }
           },
-          from: 'no-reply@yellowidnpm install sails-mongo --save.com',
+          from: 'no-reply@yellowid.fr',
           subject: 'Your password reset!',
           forwardUrl: 'http://localhost:1337'
         },
@@ -56,12 +56,12 @@ module.exports.waterlock = {
   jsonWebTokens:{
 
     // CHANGE THIS SECRET
-    secret: 'this is my secret',
+    secret: 'this is my secret not it"s not',
     expiry:{
       unit: 'days',
       length: '7'
     },
-    audience: 'app name',
+    audience: 'yellowStart',
     subject: 'subject',
 
     // tracks jwt usage if set to true
@@ -84,7 +84,7 @@ module.exports.waterlock = {
     // configure whether or not to include
     // the user in the respnse - this is useful if
     // JWT is the default response for succesfull login
-    includeUserInJwtResponse: false
+    includeUserInJwtResponse: true
   },
 
   // Post Actions

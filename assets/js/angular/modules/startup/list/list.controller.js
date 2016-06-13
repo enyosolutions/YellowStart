@@ -20,35 +20,32 @@ angular.module('start.controllers')
             console.log($scope.searchedStartups);
             $state.go('startup-list', {search: q});
             return;
-            if(!$state.is('startup-list')){
+            if (!$state.is('startup-list')) {
                 $state.go('startup-list', {search: q});
             }
             else if (q && q.length > 0) {
                 $scope.searchedStartups = Startup.query({search: q});
                 console.log($scope.searchedStartups);
             }
+            else {
+                $scope.searchedStartups = Startup.query();
+            }
         };
 
 
         $scope.deleteStartup = function (id) {
-            var c = $scope.startupList.splice(id,1);
+            var c = $scope.startupList.splice(id, 1);
             console.log(c);
             Startup.delete({_id: c[0]._id});
 
         };
 
 
-        if($routeParams.tag){
+        if ($routeParams.tag) {
             query = {tag: $routeParams.tag};
         }
-        else {
-            if($routeParams.search){
-                query = {tag: $routeParams.tag};
-            }
-        }
 
-        if($stateParams.search){
-            console.log($stateParams.search);
+        if ($stateParams.search) {
             $scope.searchedStartups = Startup.query({search: $stateParams.search});
         }
 

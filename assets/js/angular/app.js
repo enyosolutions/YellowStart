@@ -28,5 +28,8 @@ angular
     .constant('CONFIG', {baseUrl: 'http://colette.enyosolutions.com/api', apiUrl: '/api'}).
 run(function(editableOptions) {
     editableOptions.theme = 'bs3';
-})
+}).
+config(['$httpProvider', function($httpProvider) {
+    $httpProvider.defaults.withCredentials = true;
+}])
 ;
