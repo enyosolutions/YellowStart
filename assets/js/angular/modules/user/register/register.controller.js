@@ -1,12 +1,14 @@
 'use strict';
 
-angular.module('start.controllers').controller("RegisterCtrl", function($location, AuthenticationService, FlashService) {
+angular.module('start.controllers').controller("RegisterCtrl", function($location, AuthenticationService) {
     var vm = this;
 
     vm.register = register;
 
     function register() {
         vm.dataLoading = true;
+        console.log(UserService);
+        console.log(vm.user);
         UserService.Create(vm.user)
             .then(function (response) {
                 if (response.success) {
@@ -16,6 +18,6 @@ angular.module('start.controllers').controller("RegisterCtrl", function($locatio
                     FlashService.Error(response.message);
                     vm.dataLoading = false;
                 }
-            });
+        });
     }
 });
