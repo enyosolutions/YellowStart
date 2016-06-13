@@ -57,6 +57,6 @@ module.exports.policies = {
         '*':true
     },
     'Api/CrudController':{
-        '*':['sessionAuth']
+        '*':true
     }
 };
