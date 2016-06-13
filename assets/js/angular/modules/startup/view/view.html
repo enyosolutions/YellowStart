@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-sm-12">
                 <div>
-                    <a class="btn btn-default pull-right" href="#/startup/{{startup._id}}/edit" >
-                        Editer la fiche
+                    <a class="btn btn-default pull-right" href="#/startup/{{ startup._id || startup.id }}/edit" >
+                        Editer la fiche {{ startup._id }}
                     </a>
 
 

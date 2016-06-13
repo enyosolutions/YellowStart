@@ -39,5 +39,5 @@ angular
                 controller: 'ListStartupCtrl'
             })
             .state('user-register', {url: '/user/register', templateUrl: '/js/angular/modules/user/register/register.html', controller: 'RegisterCtrl'})
-            .state('user-login', {url: '/user/login', templateUrl: '/js/angular/modules/user/register/login.html', controller: 'RegisterCtrl'});
+            .state('user-login', {url: '/user/login', templateUrl: '/js/angular/modules/user/login/login.html', controller: 'RegisterCtrl'});
     });

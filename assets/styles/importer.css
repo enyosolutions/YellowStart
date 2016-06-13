@@ -7869,3 +7869,6 @@ section#map-section .address {
   font-size: 2em;
   color: #999;
 }
+.list-page .slick-slide img {
+  width: 100%;
+}

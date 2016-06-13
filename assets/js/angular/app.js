@@ -22,7 +22,8 @@ angular
         'xeditable',
         'ngBootbox',
         'ngDropzone',
-        'selectize'
+        'selectize',
+        'slick'
     ])
     .constant('CONFIG', {baseUrl: 'http://colette.enyosolutions.com/api', apiUrl: '/api'}).
 run(function(editableOptions) {
