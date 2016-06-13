@@ -1,147 +1,60 @@
 <section class="splash medium container-fluid">
+    <div class="slider" home-slider>
+        <div class="slide bg-green">
+            <div class="container">
+                <img alt="" src="/data/slideshow/slide1.jpg" />
+            </div>
+        </div>
+
+        <div class="slide bg-green">
+            <div class="container">
+                <img alt="" src="/data/slideshow/slide1.jpg" />
+            </div>
+        </div>
+
+        <div class="cycle-pager"></div>
+    </div>
+</section>
+
+<section id="main" class="home">
     <div class="container">
-    </div>
-</section>
-
-<section id="main" class="container">
-    <div class="row">
-        <!--
-        <div style="height: 305px">
+        <div class="row">
             <h2 class="text-info">#Recentes</h2>
-            <uib-carousel active="1">
-                <uib-slide ng-repeat="startup in recentStartupList" index="$index" ng-if="$index % 4  == 0"
-                1>
-                <div class="col-sm-3" ng-repeat="startup in recentStartupList"
-                     ng-if="$index >= $parent.$index &&  $index < ($parent.$index+4)">
-                    <img src="{{startup.picture}}" style="margin:auto;">
-
-                    <div class="carousel-caption">
-                        <h4 class="card-title">{{ startup.startupName }}</h4>
-
-                        <p><a href="#/startup?tag={{ tag }}" class="card-link text-info"
-                              ng-repeat="tag in startup.tags">#{{ tag }}</a></p>
-                        <a href="#/startup/{{ startup._id }}/view" class="btn btn-primary-outline"><i
-                                class="fa fa-eye"></i></a>
-                        <a href="#/startup/{{ startup._id }}/edit" class="btn btn-primary-outline"><i
-                                class="fa fa-edit"></i></a>
-
-                        <button class="btn btn-danger pull-right" ng-click="deleteStartup(index)"><i
-                                class="fa fa-times"></i></button>
-                    </div>
-                </div>
-                </uib-slide>
-            </uib-carousel>
         </div>
-        -->
+    </div>
 
-        <div>
-            <h2 class="text-info">#Recentes</h2>
-            <div id="recentStartupsSlider" infinite="true" speed="300" slides-to-show="4" touch-move="false" slides-to-scroll="1"
-                   arrows="true" dots="true"
-                   class="slider lazy" data="recentStartupList">
-                <div ng-repeat="startup in recentStartupList" class="slick-slide">
-                    <div class="caption">
-                        <h4 class="card-title">{{ startup.startupName }}</h4>
+    <div class="startups-wrapper">
+        <div class="startups-list">
+            <div class="startup" ng-repeat="startup in recentStartupList">
+                <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
+                    <img src="{{ startup.picture }}" alt="{{ startup.startupName }}">
+                </a>
 
-                        <p><a href="#/startup?tag={{ tag }}" class="card-link text-info"
-                              ng-repeat="tag in startup.tags">#{{ tag }}</a></p>
-                        <a href="#/startup/{{ startup._id }}/view" class="btn btn-primary-outline"><i
-                                class="fa fa-eye"></i></a>
-                        <a href="#/startup/{{ startup._id }}/edit" class="btn btn-primary-outline"><i
-                                class="fa fa-edit"></i></a>
-
-                        <button class="btn btn-danger pull-right" ng-click="deleteStartup(index)"><i
-                                class="fa fa-times"></i></button>
-                    </div>
-                </div>
+                <h4 class="title">{{ startup.startupName }}</h4>
+                <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
+                    #{{tag }}
+                </a>
             </div>
         </div>
+    </div>
 
-
-        <div>
+    <div class="container">
+        <div class="row">
             <h2 class="text-info">#Trending</h2>
-            <slick infinite="true" speed="300" slides-to-show="4" touch-move="false" slides-to-scroll="1"
-                   arrows="true" dots="true"
-                   class="slider lazy" data="trendingStartupList">
-                <div ng-repeat="startup in trendingStartupList" class="slick-slide">
-                    <div class="image">
-                        <img src="{{ startup.picture }}" style="margin:auto;">
-                    </div>
-                    <div class="caption">
-                        <h4 class="card-title">{{ startup.startupName }}</h4>
-
-                        <p><a href="#/startup?tag={{ tag }}" class="card-link text-info"
-                              ng-repeat="tag in startup.tags">#{{ tag }}</a></p>
-                        <a href="#/startup/{{ startup._id }}/view" class="btn btn-primary-outline"><i
-                                class="fa fa-eye"></i></a>
-                        <a href="#/startup/{{ startup._id }}/edit" class="btn btn-primary-outline"><i
-                                class="fa fa-edit"></i></a>
-
-                        <button class="btn btn-danger pull-right" ng-click="deleteStartup(index)"><i
-                                class="fa fa-times"></i></button>
-                    </div>
-                </div>
-            </slick>
         </div>
     </div>
 
+    <div class="startups-wrapper">
+        <div class="startups-list">
+            <div class="startup" ng-repeat="startup in trendingStartupList">
+                <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
+                    <img src="{{ startup.picture }}" alt="{{ startup.startupName }}">
+                </a>
 
-</section>
-<section id="more-startups" class="container">
-    <h3>Start-ups du même thème</h3>
-
-    <div class="inner row">
-        <div class="col-md-4">
-            <div class="card">
-                <img class="card-img-top" src="http://placehold.it/350x150" alt="Card image cap">
-
-                <div class="card-block">
-                    <h4 class="card-title">NewCoBox</h4>
-
-                    <p class="card-text">100% de chances que vos colis vous attendent désormais en bas de chez vous!</p>
-                    <a href="#" class="card-link text-info">#home</a>
-                    <a href="#" class="card-link text-info">#service</a>
-                    <a href="#" class="card-link text-info">#administration</a>
-                    <a href="#" class="card-link text-info">#b2c</a>
-                    <br/>
-                    <a href="#" class="btn btn-primary-outline">Voir la fiche</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card">
-                <img class="card-img-top" src="http://placehold.it/350x150" alt="Card image cap">
-
-                <div class="card-block">
-                    <h4 class="card-title">NewCoBox</h4>
-
-                    <p class="card-text">100% de chances que vos colis vous attendent désormais en bas de chez vous!</p>
-                    <a href="#" class="card-link text-info">#home</a>
-                    <a href="#" class="card-link text-info">#service</a>
-                    <a href="#" class="card-link text-info">#administration</a>
-                    <a href="#" class="card-link text-info">#b2c</a>
-                    <br/>
-                    <a href="#/startup/10" class="btn btn-primary-outline">Voir la fiche</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card">
-                <img class="card-img-top" src="http://placehold.it/350x150" alt="Card image cap">
-
-                <div class="card-block">
-                    <h4 class="card-title">NewCoBox</h4>
-
-                    <p class="card-text">100% de chances que vos colis vous attendent désormais en bas de chez vous!</p>
-                    <a href="#" class="card-link text-info">#home</a>
-                    <a href="#" class="card-link text-info">#service</a>
-                    <a href="#" class="card-link text-info">#administration</a>
-                    <a href="#" class="card-link text-info">#b2c</a>
-                    <br/>
-                    <a href="#" class="btn btn-primary-outline">Voir la fiche</a>
-                </div>
+                <h4 class="title">{{ startup.startupName }}</h4>
+                <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
+                    #{{tag }}
+                </a>
             </div>
         </div>
     </div>

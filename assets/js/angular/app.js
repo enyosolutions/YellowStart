@@ -22,10 +22,9 @@ angular
         'xeditable',
         'ngBootbox',
         'ngDropzone',
-        'selectize',
-        'slick'
+        'selectize'
     ])
-    .constant('CONFIG', {baseUrl: 'http://colette.enyosolutions.com/api', apiUrl: '/api'}).
+    .constant('CONFIG', {baseUrl: 'http://192.168.12.14:8080', apiUrl: 'http://192.168.12.14:8080/api'}).
 run(function(editableOptions) {
     editableOptions.theme = 'bs3';
 }).

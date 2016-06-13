@@ -134,35 +134,62 @@
 }
 
 .navbar {
-  a.new-startup {
-    border: 1px solid @brand-primary;
-    color: @brand-primary !important;
-    font-weight: 300;
-    border-radius: 50px;
-    margin: 23px;
-    padding: 12px 15px;
-    max-width: 205px;
-    height: 46px;
-
-    text-align: center;
-  }
-
   ::-webkit-input-placeholder {
-    color: @brand-primary;
+    color: #73737f;
   }
 
   :-moz-placeholder {
     /* Firefox 18- */
-    color: @brand-primary;
+    color: #73737f;
   }
 
   ::-moz-placeholder {
     /* Firefox 19+ */
-    color: @brand-primary;
+    color: #73737f;
   }
 
   :-ms-input-placeholder {
-    color: @brand-primary;
+    color: #73737f;
+  }
+
+  li {
+    min-width: 100px;
+    text-align: center;
+    -webkit-transition: max-width 200ms linear;
+    transition: max-width 200ms linear;
+    padding-left: 3px;
+
+    font-size: 10px;
+
+    a {
+      font-weight: 500 !important;
+
+      color: #EAEAEA;
+      padding: 30px 10px;
+      text-align: center;
+      display: inline-block;
+    }
+
+    &.search-form {
+      input {
+        border: none;
+        border-radius: 0;
+        width: 320px;
+        display: inline-block;
+
+        font-size: 12px;
+        font-weight: 500;
+        color: #73737f;
+
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+      }
+
+      button {
+        padding: 42px 0 42px 10px;
+      }
+    }
   }
 
   .border {
@@ -173,35 +200,25 @@
     }
   }
 
-  li {
-    min-width: 109px;
-    text-align: center;
-    -webkit-transition: max-width 200ms linear;
-    transition: max-width 200ms linear;
-    padding-left: 3px;
-
-    &.search-form {
-      max-width: 300px;
-      input {
-        border: none;
-        border-radius: 0;
-        border-bottom: 1px solid @brand-info;
-        width: 190px;
-        display: inline-block;
-      }
-    }
-
-    a, &.search-form button {
-      color: #EAEAEA;
-      font-weight: 100;
-      padding-top: 34.75px;
-      padding-bottom: 34.75px;
-      text-align: center;
-      display: inline-block;
-    }
+  .has-icon .icon {
+    height: 20px;
+    display: block;
+    margin: 0 auto 5px auto;
   }
 
+  .orange {
+    background: @bg-orange;
+  }
+    .orange a {
+      color: #ffffff !important;
+    }
 
+  .blue {
+    background: @bg-blue;
+  }
+    .blue a {
+      color: #ffffff !important;
+    }
 }
 
 .splash {

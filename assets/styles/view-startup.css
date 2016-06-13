@@ -1,0 +1,69 @@
+.view-page .splash {
+  position: relative;
+}
+.view-page .splash .startup-tags .tag {
+  display: inline-block;
+  color: #fff;
+  list-style-type: none;
+  margin-right: 15px;
+}
+.view-page .splash .startup-tags .tag a {
+  color: #fff;
+}
+.view-page .splash .nav-tabs {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+.view-page #main {
+  padding-top: 90px;
+  max-width: 934px;
+  position: relative;
+}
+.view-page h2 {
+  font-family: 'atc';
+  font-size: 50px;
+  font-weight: 700;
+  color: #081433;
+  margin-bottom: 38px;
+}
+.view-page .intro {
+  font-size: 30px;
+  font-weight: lighter;
+  margin-bottom: 38px;
+}
+.sidebar .media-heading {
+  color: #292B2C;
+  line-height: 2;
+  font-size: 20px;
+  font-weight: bold;
+}
+.sidebar .media-object {
+  margin-right: 20px;
+}
+.sidebar .meta .date {
+  color: #666C6F;
+}
+.stack-zone {
+  position: relative;
+  display: block;
+}
+.stack-zone .stacked {
+  position: absolute;
+  right: 8px;
+  bottom: -12px;
+}
+.carousel .item > * {
+  margin: auto;
+}
+.carousel .carousel-control.left,
+.carousel .carousel-control.right {
+  background: none;
+  background-image: none;
+}
+.carousel .carousel-control.left {
+  left: -15%;
+}
+.carousel .carousel-control.right {
+  right: -15%;
+}

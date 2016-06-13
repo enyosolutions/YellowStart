@@ -56,4 +56,20 @@ angular.module('start.controllers')
         delete query['sort[createdAt]'];
         query['sort[tags]'] = 1;
         $scope.trendingStartupList = Startup.query(query);
-    });
+    })
+
+    .directive('homeSlider', function () {
+        return {
+            restrict: 'AC',
+            link: function (scope, element, attrs) {
+                var config = angular.extend({
+                    slides: '.slide',
+                    pager: '> .cycle-pager'
+                }, scope.$eval(attrs.homeSlideshow));
+                setTimeout(function () {
+                    element.cycle(config);
+                }, 0);
+            }
+        };
+    })
+;
