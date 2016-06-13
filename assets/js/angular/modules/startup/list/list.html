@@ -1,0 +1,33 @@
+<section class="splash medium container-fluid">
+    <div class="container">
+    </div>
+</section>
+
+<section id="main" class="container" >
+    <div class="row" >
+        <h2 class="text-info">#Resultats ({{ searchedStartups.length }})</h2>
+        <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="startup in searchedStartups">
+            <div class="card fixed-card">
+                <div class="card-img-top">
+                    <a href="#/startup/{{ startup._id }}/view">
+                        <img src="{{ startup.picture }}" alt="{{ startup.startupName }}">
+                    </a>
+                </div>
+                <div class="card-block">
+                    <h4 class="card-title">{{ startup.startupName }}</h4>
+
+                    <p class="card-text">{{ startup.tagline }}</p>
+                    <a href="#/startup?tag={{ tag }}" class="card-link text-info" ng-repeat="tag in startup.tags">#{{
+                        tag }}</a>
+                    <br/>
+                    <a href="#/startup/{{ startup._id }}/view" class="btn btn-primary-outline"><i class="fa fa-eye"></i></a>
+                    <a href="#/startup/{{ startup._id }}/edit" class="btn btn-primary-outline"><i
+                            class="fa fa-edit"></i></a>
+
+                    <button class="btn btn-danger pull-right" ng-click="deleteStartup(index)"><i
+                            class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -6,7 +6,7 @@
 <section id="main" class="container">
     <div class="row">
         <h2 class="text-info">#Recentes</h2>
-        <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="startup in startupList">
+        <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="startup in recentStartupList">
             <div class="card fixed-card">
                 <div class="card-img-top">
                     <a href="#/startup/{{ startup._id }}/view">
@@ -32,7 +32,7 @@
     </div>
     <div class="row">
         <h2 class="text-info">#Trending</h2>
-        <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="startup in startupList">
+        <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="startup in trendingStartupList">
             <div class="card fixed-card">
                 <div class="card-img-top">
                     <a href="#/startup/{{ startup._id }}/view">
@@ -116,17 +116,3 @@
         </div>
     </div>
 </section>
-
-<script type="text/javascript">
-    var map;
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('startup-map'), {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 8,
-            draggable: false,
-            zoomControl: false,
-            scrollwheel: false
-        });
-    }
-
-</script>

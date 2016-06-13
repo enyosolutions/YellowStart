@@ -1,0 +1,50 @@
+<div class="splash">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <!-- <div><img class="logo" src="assets/img/logo.png"></div> -->
+                <form id="home-form" class="home-form" ng-submit="crawlMeta(startupUrl)">
+                    <h1>SOUMETTRE UNE START-UP</h1>
+
+                    <h2>Première étape, donnez-nous l’url de la start-up. Cela nous permettra de préremplir le
+                        formulaire et de vous faciliter la tâche.</h2>
+
+                    <div class="input-zone">
+                            <input class="url form-control fade" name="website" ng-model="searchName" type="text"
+                                   placeholder="www.urldelastartup.com"/>
+                            <button class="btn btn-primary round-corners submit-search" data-loading="Chargement" ng-click="search(searchName)">
+                                RECHERCHER
+                            </button>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="startup in searchedStartups">
+                        <div class="card fixed-card">
+                            <div class="card-img-top">
+                                <a href="#/startup/{{ startup._id }}/view">
+                                    <img src="{{ startup.picture }}" alt="{{ startup.startupName }}">
+                                </a>
+                            </div>
+                            <div class="card-block">
+                                <h4 class="card-title">{{ startup.startupName }}</h4>
+
+                                <p class="card-text">{{ startup.tagline }}</p>
+                                <a href="#/startup?tag={{ tag }}" class="card-link text-info" ng-repeat="tag in startup.tags">#{{
+                                    tag }}</a>
+                                <br/>
+                                <a href="#/startup/{{ startup._id }}/view" class="btn btn-primary-outline"><i class="fa fa-eye"></i></a>
+                                <a href="#/startup/{{ startup._id }}/edit" class="btn btn-primary-outline"><i
+                                        class="fa fa-edit"></i></a>
+
+                                <button class="btn btn-danger pull-right" ng-click="deleteStartup(index)"><i
+                                        class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

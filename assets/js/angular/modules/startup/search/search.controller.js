@@ -8,7 +8,13 @@
  * Controller of the startApp
  */
 angular.module('start.controllers')
-  .controller('MainCtrl', function ($scope, Crawler) {
+  .controller('SearchStartupCtrl', function ($scope, Crawler, Startup) {
+
+        $scope.search = function (q) {
+            if (q && q.length > 0) {
+                $scope.searchedStartups = Startup.query({search: q});
+            }
+        };
 
         $scope.crawlMeta = function (url) {
             if (url && url.length > 0) {

@@ -34,14 +34,13 @@
 
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/font-awesome.css">
-    <link rel="stylesheet" href="/js/bower_components/selectize/dist/css/selectize.bootstrap3.css">
-    <link rel="stylesheet" href="/js/bower_components/dropzone/downloads/css/dropzone.css">
     <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
-    <link rel="stylesheet"  href="/js/bower_components/angular-xeditable/dist/css/xeditable.min.css">
+    <link rel="stylesheet" href="/js/bower_components/angular-xeditable/dist/css/xeditable.min.css">
 </head>
 
-<body ng-app="startApp" class="<%= locals.page && page.class ? page.class : '' %>" id="<%= locals.page && page.id ? page.id : '' %>">
+<body ng-app="startApp" class="<%= locals.page && page.class ? page.class : '' %>"
+      id="<%= locals.page && page.id ? page.id : '' %>">
 <div class="navbar navbar-default navbar-fixed-top navbar-transparent">
     <div class="container">
         <div class="navbar-header">
@@ -60,10 +59,26 @@
                 <li>
                     <a class="btn btn-primary-outline round-corners new-startup" href="#/startup/new" fadeOut>Soumettre une startup</a>
                 </li>
-                <li class="border first"><a href="search" target="_blank"><img src="/images/icons/search.png"
-                                                                               alt="search"/></a></li>
-                <li class="border"><a href="/users" target="_blank"><img src="/images/icons/user.png" alt="user"/></a>
+                <li class="border first search-form"  ng-controller="ListStartupCtrl as listStartup">
+                    <input class="url form-control" name="website" ng-model="listStartup.searchName"
+                           type="text"
+                           placeholder="rechercher"/>
+                    <button class="btn btn-link" href="search"
+                            ng-click="search(listStartup.searchName)"><img src="/images/icons/search.png"
+                                                               alt="search"/></button>
                 </li>
+                <li class="border" uib-dropdown>
+                    <a uib-dropdown-toggle class="btn btn-default" type="button"  target="_blank"><img src="/images/icons/user.png" alt="user"/></a>
+                    <ul uib-dropdown-menu class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a ui-sref="user-register">Register</a></li>
+                        <li><a ui-sref="user-login">Login</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </li>
+
             </ul>
 
         </div>
@@ -71,9 +86,33 @@
 </div>
 
 <div class="body">
-    <div ng-view="" class="page {{ pageClass }}" ></div>
+    <div  ui-view class="page {{ pageClass }}"></div>
+</div>
 
+<div class="row" id="results-section">
+    <div class="col-xs-12 col-sm-6 col-md-3" ng-controller="SearchStartupCtrl" ng-repeat="startup in searchedStartups">
+        <div class="card fixed-card">
+            <div class="card-img-top">
+                <a href="#/startup/{{ startup._id }}/view">
+                    <img src="{{ startup.picture }}" alt="{{ startup.startupName }}">
+                </a>
+            </div>
+            <div class="card-block">
+                <h4 class="card-title">{{ startup.startupName }}</h4>
+
+                <p class="card-text">{{ startup.tagline }}</p>
+                <a href="#/startup?tag={{ tag }}" class="card-link text-info" ng-repeat="tag in startup.tags">#{{ tag }}</a>
+                <br/>
+                <a href="#/startup/{{ startup._id }}/view" class="btn btn-primary-outline"><i class="fa fa-eye"></i></a>
+                <a href="#/startup/{{ startup._id }}/edit" class="btn btn-primary-outline"><i
+                            class="fa fa-edit"></i></a>
+
+                <button class="btn btn-danger pull-right" ng-click="deleteStartup(index)"><i
+                            class="fa fa-times"></i></button>
+            </div>
+        </div>
     </div>
+</div>
 
 <!--
 
@@ -117,12 +156,13 @@
 <script src="/js/angular.min.js"></script>
 
 
-
 <script src="/js/dependencies/sails.io.js"></script>
 <script src="/js/bower_components/angular-animate/angular-animate.min.js"></script>
 <script src="/js/bower_components/angular-cookies/angular-cookies.min.js"></script>
 <script src="/js/bower_components/angular-resource/angular-resource.min.js"></script>
+<script src="/js/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
 <script src="/js/bower_components/angular-route/angular-route.min.js"></script>
+<script src="/js/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script src="/js/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
 <script src="/js/bower_components/angular-touch/angular-touch.min.js"></script>
 <script src="/js/bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
@@ -134,17 +174,21 @@
 <script type="text/javascript" src="/js/bower_components/selectize/dist/js/standalone/selectize.min.js"></script>
 <script type="text/javascript" src="/js/bower_components/angular-selectize2/dist/angular-selectize.js"></script>
 
-<script src="/js/angular/scripts/app.modules.js"></script>
-<script src="/js/angular/scripts/app.js"></script>
-<script src="/js/angular/scripts/app.routes.js"></script>
+<script src="/js/angular/app.modules.js"></script>
+<script src="/js/angular/app.js"></script>
+<script src="/js/angular/app.routes.js"></script>
 
 
-<script src="/js/angular/scripts/controllers/startup/view.js"></script>
-<script src="/js/angular/scripts/controllers/startup/edit.js"></script>
-<script src="/js/angular/scripts/controllers/startup/list.js"></script>
-<script src="/js/angular/scripts/controllers/main.js"></script>
-<script src="/js/angular/scripts/services/startup.js"></script>
-
+<script src="/js/angular/modules/startup/view/view.controller.js"></script>
+<script src="/js/angular/modules/startup/edit/edit.controller.js"></script>
+<script src="/js/angular/modules/startup/list/list.controller.js"></script>
+<script src="/js/angular/modules/startup/search/search.controller.js"></script>
+<script src="/js/angular/modules/user/login/login.controller.js"></script>
+<script src="/js/angular/modules/user/register/register.controller.js"></script>
+<script src="/js/angular/modules/common/resources.js"></script>
+<script src="/js/angular/modules/common/startup.service.js"></script>
+<script src="/js/angular/modules/common/authentication.service.js"></script>
+<script src="/js/angular/modules/common/user.service.js"></script>
 
 
 <script src="/js/dependencies/homepage.js"></script>

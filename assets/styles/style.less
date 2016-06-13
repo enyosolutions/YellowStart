@@ -176,14 +176,31 @@
   li {
     min-width: 109px;
     text-align: center;
-    a {
+    -webkit-transition: max-width 200ms linear;
+    transition: max-width 200ms linear;
+    padding-left: 3px;
+
+    &.search-form {
+      max-width: 300px;
+      input {
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid @brand-info;
+        width: 190px;
+        display: inline-block;
+      }
+    }
+
+    a, &.search-form button {
       color: #EAEAEA;
       font-weight: 100;
       padding-top: 34.75px;
       padding-bottom: 34.75px;
       text-align: center;
+      display: inline-block;
     }
   }
+
 
 }
 

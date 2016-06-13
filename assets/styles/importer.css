@@ -7559,13 +7559,28 @@ label {
 .navbar li {
   min-width: 109px;
   text-align: center;
+  -webkit-transition: max-width 200ms linear;
+  transition: max-width 200ms linear;
+  padding-left: 3px;
 }
-.navbar li a {
+.navbar li.search-form {
+  max-width: 300px;
+}
+.navbar li.search-form input {
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #0031f7;
+  width: 190px;
+  display: inline-block;
+}
+.navbar li a,
+.navbar li.search-form button {
   color: #EAEAEA;
   font-weight: 100;
   padding-top: 34.75px;
   padding-bottom: 34.75px;
   text-align: center;
+  display: inline-block;
 }
 .splash {
   padding: 9em 0 2em;
@@ -7766,7 +7781,7 @@ section#map-section .address {
   height: auto;
 }
 .list-page .card {
-  height: 500px;
+  height: 420px;
 }
 .list-page .card .card-block {
   word-break: break-word;

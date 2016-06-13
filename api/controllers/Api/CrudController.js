@@ -34,6 +34,7 @@ module.exports = {
             .on('success', function (data) {
                 data[0].statusCode = 200;
                 resp.json(data[0]);
+                Monk.get('access-logs').insert({itemId: req.param('id'), itemCollection: req.param('endpoint'), action: 'view'});
             })
             .on("error", function (err) {
                 resp.json(500, {error: err});
@@ -66,6 +67,7 @@ module.exports = {
                         on("error", function (err) {
                             resp.json(500, {error: err});
                         });
+
                 }
                 else {
                     res.json(404, {statusCode: 404, status: 'Not Found'});

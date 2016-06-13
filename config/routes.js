@@ -22,7 +22,7 @@
 
 module.exports.routes = {
 
-    /***************************************************************************
+    /****************************************************************************
      *                                                                          *
      * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
      * etc. depending on your default view engine) your home page.              *
@@ -30,17 +30,23 @@ module.exports.routes = {
      * (Alternatively, remove this and add an `index.html` file in your         *
      * `assets` directory)                                                      *
      *                                                                          *
-     ***************************************************************************/
+     ****************************************************************************/
 
-    '/': {
-        view: 'homepage'
-    },
-    '/startup/new': {
-        view: 'startup/new'
-    },
+    '/': {view: 'homepage' },
+
+    '/startup/new': {view: 'startup/new'},
+    'GET /api/crud/startup': 'StartupController.list',
     '/startup/upload-picture': 'StartupController.uploadPicture',
-    '/startup/upload-files': 'StartupController.uploadFiles',
+    '/startup/upload-file': 'StartupController.uploadFile',
+    '/startup/delete-file': 'StartupController.deleteFile',
+
+    'GET /startup/:id/bookmark':  'User/BookmarkController.list',
+    'POST /startup/:id/bookmark':  'User/BookmarkController.post',
+    'DELETE /startup/:id/bookmark':  'User/BookmarkController.delete',
+
     '/startup/:id': {view: 'startup/view'},
+
+
     // 'GET /api/crawler/meta': 'Api/CrawlerController.meta',
     'GET /api/crud/:endpoint': 'Api/CrudController.list',
     'GET /api/crud/:endpoint/:id': 'Api/CrudController.get',

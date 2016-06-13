@@ -8,7 +8,7 @@
  * Controller of the startApp
  */
 angular.module('start.controllers')
-    .controller('EditStartupCtrl', function ($scope, $routeParams, $location, $localstorage, $ngBootbox, $log, Startup, StartupContact, Tag, Crawler) {
+    .controller('EditStartupCtrl', function ($scope, $stateParams, $location, $localstorage, $timeout, $ngBootbox, $log, Startup, StartupContact, Tag, Crawler) {
         $scope.pageClass = 'edit-page';
         $scope.startup = {};
         $scope.startupContacts = []; // LIST OF CONTACT OF THE STARTUP
@@ -85,25 +85,32 @@ angular.module('start.controllers')
                 acceptedFiles: 'image/*,application/pdf,.ppt,.pptx,.doc,.docx,.xls,.xlsx,.zip',
                 addRemoveLinks: true,
                 maxFiles: 5,
-                init: function(){
+                init: function () {
+                    console.log('initializing dropzone');
                     var thisDropzone = this;
-                    for (var i in $scope.startup.documents){
-                        var value = $scope.startup.documents[i];
-                        var mockFile = { name: value.name, size: value.size };
-                        thisDropzone.options.addedfile.call(thisDropzone, mockFile);
+                    console.log($scope.startup);
+                    if ($scope.startup._id) {
+                        $timeout(function(){
+                        for (var i in $scope.startup.documents) {
+                            var value = $scope.startup.documents[i];
+                            var mockFile = {name: value.name, size: value.size};
+                            thisDropzone.options.addedfile.call(thisDropzone, mockFile);
 
-                        if(value.file){
-                            thisDropzone.options.thumbnail.call(thisDropzone, mockFile, value.file);
+                            if (value.file) {
+                                thisDropzone.options.thumbnail.call(thisDropzone, mockFile, value.file);
+                            }
                         }
+                        },1000);
                     }
                 }
             }
         };
 
-// IF we are editing a startup
-        if ($routeParams._id) {
+        console.log($stateParams);
+        // IF we are editing a startup
+        if ($stateParams._id) {
 
-            $scope.startup._id = $routeParams._id;
+            $scope.startup._id = $stateParams._id;
             // Load the startup
             $scope.startup = new Startup($scope.startup);
             $scope.startup.$get();
