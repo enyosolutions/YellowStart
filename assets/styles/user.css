@@ -1,0 +1,116 @@
+/*
+ * Register form
+ */
+.page.user-registration .splash {
+  padding: 40px 0 0 0;
+}
+.page.user-registration .splash .left {
+  text-align: left;
+}
+.page.user-registration .splash .left .title {
+  font-size: 48px;
+  line-height: 56px;
+}
+.page.user-registration .splash .left p {
+  display: block;
+  margin: 30px 0 0 0;
+  max-width: 280px;
+  font-size: 22px;
+  line-height: 32px;
+}
+.page.user-registration .splash .right {
+  text-align: left;
+}
+.page.user-registration .splash .right label {
+  font-size: 16px;
+  font-weight: 700;
+}
+.page.user-registration .splash .right .help-block {
+  color: #ffffff !important;
+}
+.page.user-registration .splash .right .form-actions {
+  margin: 10px 0 0 0;
+}
+/*
+ * Profile
+ */
+.page.user-profile .splash {
+  padding: 0;
+  position: relative;
+}
+.page.user-profile .splash .container {
+  height: 100%;
+  position: relative;
+}
+.page.user-profile .splash .user .avatar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.page.user-profile .splash .user .avatar img {
+  width: 250px;
+  height: 250px;
+}
+.page.user-profile .splash .user .data {
+  display: block;
+  text-align: left;
+  margin: 120px 0 0 280px;
+}
+.page.user-profile .splash .user .data .name {
+  font-size: 42px;
+  font-weight: 500;
+}
+.page.user-profile .splash .user .actions {
+  position: absolute;
+  right: 0;
+  bottom: 30px;
+}
+.page.user-profile .starredProjects .heading {
+  display: block;
+  padding: 40px 0 20px 0;
+  position: relative;
+}
+.page.user-profile .starredProjects .heading .title {
+  font-family: 'atc', sans-serif;
+  font-size: 52px;
+  font-weight: 800;
+  color: #333333;
+}
+.page.user-profile .starredProjects .heading .sort {
+  position: absolute;
+  bottom: 20px !important;
+  right: 0;
+}
+.page.user-profile .starredProjects .results {
+  display: block;
+}
+.page.user-profile .starredProjects .results .startup {
+  border: none !important;
+}
+.page.user-profile .starredProjects .results .startup .card-img-top {
+  border-radius: 0;
+}
+.page.user-profile .starredProjects .results .startup .card-block {
+  padding: 15px 0;
+}
+.page.user-profile .starredProjects .results .startup .card-block .card-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+.page.user-profile .starredProjects .results .startup .card-block .card-text {
+  height: 36px !important;
+  font-size: 12px !important;
+}
+.page.user-profile .starredProjects .results .startup .card-block .card-link {
+  font-size: 12px;
+  color: #0031f7;
+}
+.page.user-profile .starredProjects .results .startup .card-block .button-wrapper {
+  display: block;
+  margin: 10px 0 0 0;
+}
+.page.user-profile .starredProjects .results .startup .card-block .button-wrapper .btn {
+  text-transform: uppercase;
+  padding-left: 20px;
+  padding-right: 20px;
+}

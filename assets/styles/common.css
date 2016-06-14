@@ -50,3 +50,98 @@ footer .copyright {
   padding: 0;
   color: #ffffff;
 }
+/*
+ *
+ * UI & Collection
+ *
+ */
+/*
+ * Cycle Slider
+ */
+.cycle-slider {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.cycle-slider .slide {
+  width: 100%;
+}
+.cycle-slider .slide img {
+  width: 100%;
+}
+.cycle-slider .cycle-pager {
+  position: absolute;
+  z-index: 9999;
+  top: 300px;
+  right: 30px;
+}
+.cycle-slider .cycle-pager span {
+  display: block;
+  font-size: 46px;
+  line-height: 26px;
+  text-align: center;
+  color: #fafdd4;
+}
+.cycle-slider .cycle-pager span.cycle-pager-active {
+  font-size: 80px;
+  text-align: center;
+}
+/*
+ * Pagination
+ */
+.pagination-list {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.pagination-list li {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 10px;
+}
+.pagination-list li a {
+  display: block;
+  padding: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #444400;
+}
+.pagination-list li a.active {
+  color: #ff6500;
+}
+.pagination-list li .previous,
+.pagination-list li .next {
+  margin: 0 15px;
+  font-size: 36px;
+  font-weight: 500;
+  color: #ff6500;
+}
+.pagination-list li .previous:hover,
+.pagination-list li .next:hover {
+  text-decoration: none;
+}
+/*
+ * Colors schemes
+ */
+.btn-primary-alternate {
+  background: transparent;
+  color: #ff6500;
+  border: 1px solid #ff6500;
+  font-size: 11px;
+  text-transform: uppercase;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+.btn-primary-alternate:hover {
+  color: #ff6500;
+}
+.btn-alternate {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  font-size: 11px;
+  text-transform: uppercase;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}

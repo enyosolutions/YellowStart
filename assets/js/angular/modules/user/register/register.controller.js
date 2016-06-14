@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('start.controllers').controller("RegisterCtrl", function ($scope, $state, $location, Auth, UserService, $rootScope, $ngBootbox) {
+    $scope.pageClass = 'user-registration';
 
     $scope.register = function () {
         $scope.dataLoading = true;

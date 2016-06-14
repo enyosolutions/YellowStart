@@ -1,12 +1,95 @@
 /*
- * List
+ * Home
+ * Startup List
  */
-.list-page {
+.page.startup-list {
+  /*
+   * Home
+   */
+  .home {
+    .section-title {
+      font-size: 46px;
+      font-weight: 300;
+      color: #0547fd;
 
+      padding: 20px 0;
+    }
+
+    .startups-wrapper {
+      display: block;
+      margin: 0 auto;
+
+      width: 100%;
+
+      .startups-list {
+        display: block;
+        width: 100%;
+        height: 400px;
+
+        padding: 0 0 80px 0;
+        text-align: center;
+
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .startups-list .startup {
+        display: inline-block;
+        vertical-align: top;
+
+        width: 400px;
+        margin: 0 5px;
+
+        &:first-child,
+        &:last-child{
+          opacity: 0.5 !important;
+        }
+
+        .thumbnail {
+          display: block;
+          width: 100%;
+
+          border: none;
+          padding: 0;
+          margin: 0;
+
+          -webkit-border-radius: 0;
+          -moz-border-radius: 0;
+          border-radius: 0;
+
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 220px;
+          }
+        }
+
+        .title {
+          font-family:'atc';
+          font-size:24px;
+          color:#2c2c2c;
+          letter-spacing:0.99px;
+          text-align:left;
+        }
+
+        .tags {
+          margin: 0 5px;
+
+          color: #0547fd;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  /*
+   * List
+   */
   // Heading
   .heading {
     display: block;
     padding: 40px 0;
+    position: relative;
 
     .result-indicator {
       font-size: 52px;
@@ -18,26 +101,58 @@
         vertical-align: baseline;
       }
     }
-  }
-}
 
-/*
- * Edit
- */
-.edit-page {
-  .autocomplete-field {
-    position: relative;
-    &:after {
-      font-family: 'FontAwesome';
-      content: '\f110';
-      -webkit-animation: fa-spin 2s infinite linear;
-      animation: fa-spin 2s infinite linear;
+    .sort {
       position: absolute;
-      top: 10px;
-      right: 25px;
-      font-size: 2em;
-      color: #999;
+      top: 70px !important;
+      right: 0;
     }
+  }
+
+  // Results
+  .results {
+    display: block;
+
+    .startup {
+      border: none !important;
+
+      .card-img-top {
+        border-radius: 0;
+      }
+
+      .card-block {
+        padding: 15px 0;
+
+        .card-title {
+          font-size: 20px;
+          font-weight: 500;
+        }
+        .card-text {
+          height: 36px !important;
+          font-size: 12px !important;
+        }
+        .card-link {
+          font-size: 12px;
+          color: #0031f7;
+        }
+        .button-wrapper {
+          display: block;
+          margin: 10px 0 0 0;
+
+          .btn {
+            text-transform: uppercase;
+            padding-left: 20px;
+            padding-right: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  // Bottom
+  .bottom {
+    padding: 10px 0 40px 0;
+    text-align: center;
   }
 }
 
@@ -45,7 +160,6 @@
  * View
  */
 .view-page {
-
   .splash {
     position: relative;
 
@@ -137,6 +251,26 @@
 
     &.right {
       right: -15%;
+    }
+  }
+}
+
+/*
+ * Edit
+ */
+.edit-page {
+  .autocomplete-field {
+    position: relative;
+    &:after {
+      font-family: 'FontAwesome';
+      content: '\f110';
+      -webkit-animation: fa-spin 2s infinite linear;
+      animation: fa-spin 2s infinite linear;
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      font-size: 2em;
+      color: #999;
     }
   }
 }
