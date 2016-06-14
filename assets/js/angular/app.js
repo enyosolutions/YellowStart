@@ -34,7 +34,7 @@ run(function(editableOptions, $state, $rootScope, Auth, $localstorage) {
             $rootScope.globals.user = user;
         }
         $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-            if (!$rootScope.globals.user  || !Auth.authorize($rootScope.globals.user.roles)) {
+            if (!$rootScope.globals.user  || $rootScope.globals.user.roles || !Auth.authorize($rootScope.globals.user.roles)) {
                 event.preventDefault();
                 $state.go('user-register');
             }
