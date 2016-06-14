@@ -35,6 +35,7 @@
  * Profile
  */
 .page.user-profile .splash {
+  padding: 0;
   position: relative;
 }
 .page.user-profile .splash .container {
