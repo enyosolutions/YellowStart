@@ -9,10 +9,12 @@
             ADMIN : 'ADMIN',
             authorize: function(access) {
                 console.log(access);
-                if (access !== this.ANONYMOUS) {
-                    return this.isAuthenticated();
-                } else {
+                if (access === this.ANONYMOUS) {
                     return true;
+                }
+
+                else {
+                    return this.isAuthenticated();
                 }
             },
             isAuthenticated: function() {
