@@ -41,6 +41,16 @@ angular.module('start.services')
                 "get": {isArray: false, cancellable: false, method: "GET", transformResponse: transformGet}
             })
     })
+    // LIST OF COMMENTS ON THE STARTUP
+    .factory('StartupComment', function ($resource, CONFIG) {
+        return $resource(CONFIG.apiUrl + '/crud/startup-comment/:_id', {_id: '@_id'},
+            {
+                "update": {isArray: false, method: "PUT", transformResponse: transformGet},
+                "save": {isArray: false, cancellable: false, method: "POST", transformResponse: transformGet},
+                "query": {isArray: true,  method: "GET", transformResponse: transformGet},
+                "get": {isArray: false, cancellable: false, method: "GET", transformResponse: transformGet}
+            })
+    })
     .factory('StartupFile', function ($resource, CONFIG) {
         return $resource(CONFIG.apiUrl + '/crud/startup-file/:_id', {_id: '@_id'},
             {

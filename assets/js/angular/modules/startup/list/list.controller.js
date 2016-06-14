@@ -20,16 +20,6 @@ angular.module('start.controllers')
             console.log($scope.searchedStartups);
             $state.go('startup-list', {search: q});
             return;
-            if (!$state.is('startup-list')) {
-                $state.go('startup-list', {search: q});
-            }
-            else if (q && q.length > 0) {
-                $scope.searchedStartups = Startup.query({search: q});
-                console.log($scope.searchedStartups);
-            }
-            else {
-                $scope.searchedStartups = Startup.query();
-            }
         };
 
 
@@ -42,10 +32,12 @@ angular.module('start.controllers')
 
 
         if ($stateParams.tag) {
+            $scope.searchTitle  = '#' + $stateParams.tag;
             $scope.searchedStartups = Startup.query({tag: $stateParams.tag});
         }
 
         if ($stateParams.search) {
+            $scope.searchTitle  = $stateParams.search;
             $scope.searchedStartups = Startup.query({search: $stateParams.search});
         }
 

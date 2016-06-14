@@ -16,7 +16,6 @@ angular
         'ngResource',
         'ngRoute',
         'ui.router',
-        'ui.bootstrap',
         'ngSanitize',
         'ngTouch',
         'xeditable',

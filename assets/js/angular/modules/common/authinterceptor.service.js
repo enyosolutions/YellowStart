@@ -4,7 +4,6 @@
     angular.module('start.services').factory('AuthInterceptor', function ($q, $injector) {
         return {
             request: function (config) {
-                console.log(config);
                 var LocalService = $injector.get('$localstorage');
                 var token;
                 if (LocalService.get('auth_token')) {

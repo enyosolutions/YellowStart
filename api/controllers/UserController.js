@@ -31,5 +31,31 @@ module.exports = {
             });
         });
 
+    },
+
+    update: function (req, res) {
+
+        User.findOne({_id: req.body._id}, function (err, user) {
+            if (!user) {
+                return res.json(401, {error: "Il n'y a pas de compte avec cette adresse mail"});
+            }
+
+            var data = extend(true, {}, original, req.body, {lastModifiedAt: new Date()});
+            User.update(data._id, data).exec(function (err, updated) {
+                if (err) {
+                    return res.json(403, {error: 'forbidden'});
+                }
+
+                if (!updated) {
+                    return res.json(401, {error: 'Email ou mot de passe invalide'});
+                } else {
+                    delete updated.password;
+                    res.json({
+                        user: updated
+                    });
+                }
+            });
+        })
     }
+
 };
