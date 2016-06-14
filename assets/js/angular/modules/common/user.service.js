@@ -32,15 +32,13 @@
         }
 
         function Create(user) {
-            return $http.post('/auth/register', user).then(handleSuccess, handleError('Error creating user'));
+            return $http.post('/auth/register', user).then(handleSuccess, handleError("<h3><b>Nous n'avons pas réussi à créer votre compte.</b></h3>"));
         }
-
         function Login(user) {
-            return $http.post('/auth/register', user).then(handleSuccess, handleError('Error creating user'));
+            return $http.post('/auth/login', user).then(handleSuccess, handleError("Nous n'avons pas réussi à vous identifier"));
         }
-
         function Update(user) {
-            return $http.put('/api/user/' + user.id, user).then(handleSuccess, handleError('Error updating user'));
+            return $http.put('/user/' + user.id, user).then(handleSuccess, handleError('Error updating user'));
         }
 
         function Delete(id) {

@@ -33,6 +33,9 @@ module.exports.routes = {
      ****************************************************************************/
 
     '/': {view: 'homepage' },
+    'POST /auth/register': 'UserController.create',
+    'POST /auth/login': 'AuthController.login',
+    'GET /auth/user': 'AuthController.get',
 
     '/startup/new': {view: 'startup/new'},
     'GET /api/crud/startup': 'StartupController.list',

@@ -1,20 +1,20 @@
 'use strict';
 
-angular.module('start.controllers').controller("LoginCtrl", function($location, AuthenticationService, FlashService) {
+angular.module('start.controllers').controller("LoginCtrl", function($location, Auth, FlashService) {
     var vm = this;
 
     vm.login = login;
 
     (function initController() {
         // reset login status
-        AuthenticationService.ClearCredentials();
+        Auth.ClearCredentials();
     })();
 
     function login() {
         vm.dataLoading = true;
-        AuthenticationService.Login(vm.username, vm.password, function (response) {
+        Auth.login(vm.username, vm.password, function (response) {
             if (response.success) {
-                AuthenticationService.SetCredentials(vm.username, vm.password);
+                Auth.SetCredentials(vm.username, vm.password);
                 $location.path('/');
             } else {
                 FlashService.Error(response.message);

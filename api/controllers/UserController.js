@@ -1,18 +1,35 @@
 /**
- * UserController.js 
- * 
+ * UserController.js
+ *
  * @module      :: Controller
  * @description :: Provides the base user
  *                 actions used to make waterlock work.
- *                 
+ *
  * @docs        :: http://waterlock.ninja/documentation
  */
 
-module.exports = require('waterlock').actions.user({
+module.exports = {
+    create: function (req, res) {
+        /* if (req.body.password !== req.body.confirmPassword) {
+         return res.json(401, {err: 'Password doesn\'t match, What a shame!'});
+         }*/
 
-  /* e.g.
-    action: function(req, res){
-  
+        User.findOne({email: req.body.email}, function (err, user) {
+            if (user) {
+                return res.json(401, {error: "L'adresse email existe déjà"});
+            }
+
+            User.create(req.body).exec(function (err, user) {
+                if (err) {
+                    return res.json(err.status, {err: err});
+                }
+                // If user created successfuly we return user and token as response
+                if (user) {
+                    // NOTE: payload is { id: user.id}
+                    res.json(200, {user: user, token: jwToken.issue({id: user.id})});
+                }
+            });
+        });
+
     }
-  */
-});
+};

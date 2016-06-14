@@ -32,18 +32,23 @@
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
 
-    <link rel="stylesheet" href="/js/bower_components/slick-carousel/slick/slick.css">">
-    <link rel="stylesheet" href="/js/bower_components/slick-carousel/slick/slick-theme.css">">
+    <link rel="stylesheet" href="/js/bower_components/slick-carousel/slick/slick.css">
+    ">
+    <link rel="stylesheet" href="/js/bower_components/slick-carousel/slick/slick-theme.css">
+    ">
     <link rel="stylesheet" href="/js/bower_components/angular-xeditable/dist/css/xeditable.min.css">
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/font-awesome.css">
+    <link rel="stylesheet" href="/styles/home.css">
     <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/list-startup.css">
+    <link rel="stylesheet" href="/styles/view-startup.css">
     <!--STYLES END-->
 
 
 </head>
 
-<body ng-app="startApp" class="<%= locals.page && page.class ? page.class : '' %>"
+<body ng-app="startApp" class="<%= locals.page && page.class ? page.class : '' %>  {{ $state.current.name }} "
       id="<%= locals.page && page.id ? page.id : '' %>">
 <div class="navbar navbar-default navbar-fixed-top navbar-transparent">
     <div class="container">
@@ -55,24 +60,44 @@
                 <span class="icon-bar"></span>
             </button>
         </div>
-        <div class="navbar-collapse collapse" id="navbar-main">
+        <div class="navbar-collapse collapse" ng-if="$state.current.name  === 'user-register'" id="navbar-main">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="border first " >
+                    <form class="form-inline" ng-controller="RegisterCtrl as Register"  ng-submit="login(Register.email, Register.password)">
+                        <input class="url form-control" name="website" ng-model="Register.email"
+                               type="email"
+                               required
+                               placeholder="Adresse email"/>
+                        <input class="url form-control" name="website" ng-model="Register.password"
+                               type="text"
+                               required
+                               placeholder="mot de passe"/>
+                        <button class="btn btn-primary-outline">Login</button>
+                    </form>
+                </li>
+
+            </ul>
+        </div>
+        <div class="navbar-collapse collapse" ng-if="!$state.is('user-register')" id="navbar-main">
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="#/" fadeOut>Toutes les start-ups</a>
                 </li>
                 <li>
-                    <a class="btn btn-primary-outline round-corners new-startup" href="#/startup/new" fadeOut>Soumettre une startup</a>
+                    <a class="btn btn-primary-outline round-corners new-startup" href="#/startup/new" fadeOut>Soumettre
+                        une startup</a>
                 </li>
-                <li class="border first search-form"  ng-controller="ListStartupCtrl as listStartup">
+                <li class="border first search-form" ng-controller="ListStartupCtrl as listStartup">
                     <input class="url form-control" name="website" ng-model="listStartup.searchName"
                            type="text"
                            placeholder="rechercher"/>
                     <button class="btn btn-link" href="search"
                             ng-click="search(listStartup.searchName)"><img src="/images/icons/search.png"
-                                                               alt="search"/></button>
+                                                                           alt="search"/></button>
                 </li>
                 <li class="border" uib-dropdown>
-                    <a uib-dropdown-toggle class="btn btn-default" type="button"  target="_blank"><img src="/images/icons/user.png" alt="user"/></a>
+                    <a uib-dropdown-toggle class="btn btn-default" type="button" target="_blank"><img
+                                src="/images/icons/user.png" alt="user"/></a>
                     <ul uib-dropdown-menu class="dropdown-menu" aria-labelledby="dropdownMenu1">
                         <li><a ui-sref="user-register">Register</a></li>
                         <li><a ui-sref="user-login">Login</a></li>
@@ -90,8 +115,9 @@
 </div>
 
 <div class="body">
-    <div  ui-view class="page {{ pageClass }}"></div>
+    <div ui-view class="page {{ pageClass }}"></div>
 </div>
+<!--
 
 <div class="row" id="results-section">
     <div class="col-xs-12 col-sm-6 col-md-3" ng-controller="SearchStartupCtrl" ng-repeat="startup in searchedStartups">
@@ -117,6 +143,7 @@
         </div>
     </div>
 </div>
+-->
 
 <!--
 
@@ -195,6 +222,7 @@
 <script src="/js/angular/modules/common/resources.js"></script>
 <script src="/js/angular/modules/common/startup.service.js"></script>
 <script src="/js/angular/modules/common/authentication.service.js"></script>
+<script src="/js/angular/modules/common/authinterceptor.service.js"></script>
 <script src="/js/angular/modules/common/user.service.js"></script>
 
 

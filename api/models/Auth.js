@@ -1,21 +1,13 @@
 /**
- * Auth
+ * User
  *
  * @module      :: Model
- * @description :: Holds all authentication methods for a User
+ * @description :: This is the base user model
  * @docs        :: http://waterlock.ninja/documentation
  */
 
-module.exports = {
+'use strict';
+var bcrypt = require('bcrypt');
 
-  attributes: require('waterlock').models.auth.attributes({
-    
-    /* e.g.
-    nickname: 'string'
-    */
-    
-  }),
-  
-  beforeCreate: require('waterlock').models.auth.beforeCreate,
-  beforeUpdate: require('waterlock').models.auth.beforeUpdate
-};
+
+module.exports = {};
