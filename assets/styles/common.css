@@ -1,0 +1,52 @@
+/*
+ * Top navigation
+ */
+.top-navigation {
+  display: block;
+  height: 100px;
+}
+.top-navigation.top-navigation-login {
+  padding: 20px 0;
+}
+.top-navigation.top-navigation-login .brand {
+  float: left;
+}
+.top-navigation.top-navigation-login .form-login {
+  float: right;
+  margin: 6px 0;
+}
+.top-navigation.top-navigation-login .form-login input {
+  margin: 0 5px;
+  padding: 12px 10px;
+  min-width: 190px;
+  height: auto;
+  font-size: 12px !important;
+}
+.top-navigation.top-navigation-default .brand {
+  display: inline-block;
+  padding: 20px 0;
+}
+.top-navigation.top-navigation-default .search-form button {
+  padding: 38px 10px;
+}
+.top-navigation.top-navigation-default li a {
+  padding: 27px 10px;
+}
+/*
+ * Page
+ */
+.page {
+  padding-top: 75px;
+}
+/*
+ * Footer
+ */
+footer {
+  background-color: #0031f7;
+  padding: 30px 0;
+}
+footer .copyright {
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+}
