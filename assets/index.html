@@ -32,20 +32,10 @@
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
 
-    <link rel="stylesheet" href="/js/bower_components/slick-carousel/slick/slick.css">
-    ">
-    <link rel="stylesheet" href="/js/bower_components/slick-carousel/slick/slick-theme.css">
-    ">
-    <link rel="stylesheet" href="/js/bower_components/angular-xeditable/dist/css/xeditable.min.css">
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/font-awesome.css">
-    <link rel="stylesheet" href="/styles/home.css">
     <link rel="stylesheet" href="/styles/importer.css">
-    <link rel="stylesheet" href="/styles/list-startup.css">
-    <link rel="stylesheet" href="/styles/view-startup.css">
     <!--STYLES END-->
-
-
 </head>
 
 <body ng-app="startApp" class="<%= locals.page && page.class ? page.class : '' %> {{ $state.current.name }}" id="<%= locals.page && page.id ? page.id : '' %>">
@@ -57,15 +47,8 @@
         </a>
 
         <form class="form-login form-inline" ng-controller="RegisterCtrl as Register"  ng-submit="login(Register.email, Register.password)">
-            <input class="url form-control" name="website" ng-model="Register.email"
-                   type="email"
-                   required
-                   placeholder="Adresse email"/>
-
-            <input class="url form-control" name="website" ng-model="Register.password"
-                   type="password"
-                   required
-                   placeholder="Mot de passe"/>
+            <input class="url form-control" name="website" ng-model="Register.email" type="email" required placeholder="Adresse email"/>
+            <input class="url form-control" name="website" ng-model="Register.password" type="password" required placeholder="Mot de passe"/>
 
             <button class="btn btn-primary">Connexion</button>
         </form>
@@ -73,7 +56,7 @@
 </div>
 
 <!-- default -->
-<div class="top-navigation top-navigation-default navbar navbar-default navbar-fixed-top" ng-if="!$state.is('user-register')">
+<div id="navbar-main" class="top-navigation top-navigation-default navbar navbar-default navbar-fixed-top" ng-if="!$state.is('user-register')">
     <div class="container">
         <a href="#/" class="brand">
             <img src="/images/logo.png" alt="Yellow Starter"/>
@@ -101,7 +84,7 @@
                 </a>
             </li>
             <li class="border has-icon">
-                <a href="#/startup/new" fadeOut>
+                <a href="#/" fadeOut>
                     <div class="icon">
                         <span class="badge blue">2</span>
                     </div>
@@ -110,7 +93,7 @@
                 </a>
             </li>
             <li class="border has-icon">
-                <a href="#/startup/new" fadeOut>
+                <a href="#/" fadeOut>
                     <img class="icon" alt="" src="images/icons/star.png" />
 
                     Mes favoris
@@ -212,8 +195,6 @@
 <script src="/js/bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
 <script src="/js/bower_components/dropzone/downloads/dropzone.min.js"></script>
 <script src="/js/bower_components/angular-dropzone/lib/angular-dropzone.js"></script>
-<script src="/js/bower_components/slick-carousel/slick/slick.js"></script>
-<script src="/js/bower_components/angular-slick/dist/slick.js"></script>
 <script src="/js/bower_components/jquery.cycle2/index.js"></script>
 
 <script src="/js/bower_components/bootbox/bootbox.js"></script>
