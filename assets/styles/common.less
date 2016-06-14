@@ -66,6 +66,50 @@ footer {
 }
 
 /*
+ *
+ * UI & Collection
+ *
+ */
+
+/*
+ * Cycle Slider
+ */
+.cycle-slider {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+
+  .slide {
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .cycle-pager {
+    position: absolute;
+    z-index: 9999;
+
+    top: 300px;
+    right: 30px;
+  }
+  .cycle-pager span {
+    display: block;
+    font-size: 46px;
+    line-height: 26px;
+    text-align: center;
+    color: #fafdd4;
+
+    &.cycle-pager-active {
+      font-size: 80px;
+      text-align: center;
+    }
+  }
+}
+
+/*
  * Pagination
  */
 .pagination-list {
@@ -103,4 +147,35 @@ footer {
         text-decoration: none;
       }
   }
+}
+
+/*
+ * Colors schemes
+ */
+.btn-primary-alternate {
+  background: transparent;
+  color: #ff6500;
+  border: 1px solid #ff6500;
+
+  font-size: 11px;
+  text-transform: uppercase;
+
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+
+  &:hover {
+    color: #ff6500;
+  }
+}
+
+.btn-alternate {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+
+  font-size: 11px;
+  text-transform: uppercase;
+
+  padding-left: 15px !important;
+  padding-right: 15px !important;
 }

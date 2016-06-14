@@ -7842,6 +7842,43 @@ footer .copyright {
   color: #ffffff;
 }
 /*
+ *
+ * UI & Collection
+ *
+ */
+/*
+ * Cycle Slider
+ */
+.cycle-slider {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.cycle-slider .slide {
+  width: 100%;
+}
+.cycle-slider .slide img {
+  width: 100%;
+}
+.cycle-slider .cycle-pager {
+  position: absolute;
+  z-index: 9999;
+  top: 300px;
+  right: 30px;
+}
+.cycle-slider .cycle-pager span {
+  display: block;
+  font-size: 46px;
+  line-height: 26px;
+  text-align: center;
+  color: #fafdd4;
+}
+.cycle-slider .cycle-pager span.cycle-pager-active {
+  font-size: 80px;
+  text-align: center;
+}
+/*
  * Pagination
  */
 .pagination-list {
@@ -7876,80 +7913,168 @@ footer .copyright {
   text-decoration: none;
 }
 /*
+ * Colors schemes
+ */
+.btn-primary-alternate {
+  background: transparent;
+  color: #ff6500;
+  border: 1px solid #ff6500;
+  font-size: 11px;
+  text-transform: uppercase;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+.btn-primary-alternate:hover {
+  color: #ff6500;
+}
+.btn-alternate {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  font-size: 11px;
+  text-transform: uppercase;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+/*
  * Register form
  */
-.register-zone {
-  padding: 30px 0 0 0;
+.page.user-registration .splash {
+  padding: 40px 0 0 0;
 }
-.register-zone .left {
+.page.user-registration .splash .left {
   text-align: left;
 }
-.register-zone .left .title {
+.page.user-registration .splash .left .title {
   font-size: 48px;
   line-height: 56px;
 }
-.register-zone .left p {
+.page.user-registration .splash .left p {
   display: block;
   margin: 30px 0 0 0;
   max-width: 280px;
   font-size: 22px;
   line-height: 32px;
 }
-.register-zone .right {
+.page.user-registration .splash .right {
   text-align: left;
 }
-.register-zone .right label {
+.page.user-registration .splash .right label {
   font-size: 16px;
   font-weight: 700;
 }
-.register-zone .right .help-block {
+.page.user-registration .splash .right .help-block {
   color: #ffffff !important;
 }
-.register-zone .right .form-actions {
+.page.user-registration .splash .right .form-actions {
   margin: 10px 0 0 0;
 }
-.home h2 {
+/*
+ * Profile
+ */
+.page.user-profile .splash {
+  position: relative;
+}
+.page.user-profile .splash .container {
+  height: 100%;
+  position: relative;
+}
+.page.user-profile .splash .user .avatar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.page.user-profile .splash .user .avatar img {
+  width: 250px;
+  height: 250px;
+}
+.page.user-profile .splash .user .data {
+  display: block;
+  text-align: left;
+  margin: 120px 0 0 280px;
+}
+.page.user-profile .splash .user .data .name {
+  font-size: 42px;
+  font-weight: 500;
+}
+.page.user-profile .splash .user .actions {
+  position: absolute;
+  right: 0;
+  bottom: 30px;
+}
+.page.user-profile .starredProjects .heading {
+  display: block;
+  padding: 40px 0 20px 0;
+  position: relative;
+}
+.page.user-profile .starredProjects .heading .title {
+  font-family: 'atc', sans-serif;
+  font-size: 52px;
+  font-weight: 800;
+  color: #333333;
+}
+.page.user-profile .starredProjects .heading .sort {
+  position: absolute;
+  bottom: 20px !important;
+  right: 0;
+}
+.page.user-profile .starredProjects .results {
+  display: block;
+}
+.page.user-profile .starredProjects .results .startup {
+  border: none !important;
+}
+.page.user-profile .starredProjects .results .startup .card-img-top {
+  border-radius: 0;
+}
+.page.user-profile .starredProjects .results .startup .card-block {
+  padding: 15px 0;
+}
+.page.user-profile .starredProjects .results .startup .card-block .card-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+.page.user-profile .starredProjects .results .startup .card-block .card-text {
+  height: 36px !important;
+  font-size: 12px !important;
+}
+.page.user-profile .starredProjects .results .startup .card-block .card-link {
+  font-size: 12px;
+  color: #0031f7;
+}
+.page.user-profile .starredProjects .results .startup .card-block .button-wrapper {
+  display: block;
+  margin: 10px 0 0 0;
+}
+.page.user-profile .starredProjects .results .startup .card-block .button-wrapper .btn {
+  text-transform: uppercase;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+/*
+ * Home
+ * Startup List
+ */
+.page.startup-list {
+  /*
+   * Home
+   */
+  /*
+   * List
+   */
+}
+.page.startup-list .home .section-title {
   font-size: 46px;
   font-weight: 300;
   color: #0547fd;
   padding: 20px 0;
 }
-.splash {
-  overflow: hidden;
-  padding: 0;
-}
-.splash .slider {
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-}
-.splash .slider .slide {
-  width: 100%;
-}
-.splash .slider .slide img {
-  width: 100%;
-}
-.splash .slider .cycle-pager {
-  position: absolute;
-  z-index: 9999;
-  top: 300px;
-  right: 30px;
-}
-.splash .slider .cycle-pager span {
-  display: block;
-  font-size: 46px;
-  line-height: 26px;
-  color: #fafdd4;
-}
-.splash .slider .cycle-pager span.cycle-pager-active {
-  font-size: 80px;
-}
-.startups-wrapper {
+.page.startup-list .home .startups-wrapper {
   display: block;
   margin: 0 auto;
   width: 100%;
 }
-.startups-wrapper .startups-list {
+.page.startup-list .home .startups-wrapper .startups-list {
   display: block;
   width: 100%;
   height: 400px;
@@ -7958,17 +8083,17 @@ footer .copyright {
   white-space: nowrap;
   overflow: hidden;
 }
-.startups-wrapper .startups-list .startup {
+.page.startup-list .home .startups-wrapper .startups-list .startup {
   display: inline-block;
   vertical-align: top;
   width: 400px;
   margin: 0 5px;
 }
-.startups-wrapper .startups-list .startup:first-child,
-.startups-wrapper .startups-list .startup:last-child {
+.page.startup-list .home .startups-wrapper .startups-list .startup:first-child,
+.page.startup-list .home .startups-wrapper .startups-list .startup:last-child {
   opacity: 0.5 !important;
 }
-.startups-wrapper .startups-list .startup .thumbnail {
+.page.startup-list .home .startups-wrapper .startups-list .startup .thumbnail {
   display: block;
   width: 100%;
   border: none;
@@ -7979,106 +8104,77 @@ footer .copyright {
   border-radius: 0;
   overflow: hidden;
 }
-.startups-wrapper .startups-list .startup .thumbnail img {
+.page.startup-list .home .startups-wrapper .startups-list .startup .thumbnail img {
   width: 100%;
   height: 220px;
 }
-.startups-wrapper .startups-list .startup .title {
+.page.startup-list .home .startups-wrapper .startups-list .startup .title {
   font-family: 'atc';
   font-size: 24px;
   color: #2c2c2c;
   letter-spacing: 0.99px;
   text-align: left;
 }
-.startups-wrapper .startups-list .startup .tags {
+.page.startup-list .home .startups-wrapper .startups-list .startup .tags {
   margin: 0 5px;
   color: #0547fd;
   font-weight: 400;
 }
-/*
- * List
- */
-.list-page .heading {
+.page.startup-list .heading {
   display: block;
   padding: 40px 0;
   position: relative;
 }
-.list-page .heading .result-indicator {
+.page.startup-list .heading .result-indicator {
   font-size: 52px;
   color: #5c5c5c;
 }
-.list-page .heading .result-indicator .numb {
+.page.startup-list .heading .result-indicator .numb {
   font-size: 20px;
   color: #0031f7;
   vertical-align: baseline;
 }
-.list-page .heading .sort {
+.page.startup-list .heading .sort {
   position: absolute;
   top: 70px !important;
   right: 0;
 }
-.list-page .heading .sort .dropdown button {
-  background: transparent;
-  color: #ff6500;
-  border: 1px solid #ff6500;
-  font-size: 12px;
-  text-transform: uppercase;
-  padding-left: 25px !important;
-  padding-right: 25px !important;
-}
-.list-page .results {
+.page.startup-list .results {
   display: block;
 }
-.list-page .results .startup {
+.page.startup-list .results .startup {
   border: none !important;
 }
-.list-page .results .startup .card-img-top {
+.page.startup-list .results .startup .card-img-top {
   border-radius: 0;
 }
-.list-page .results .startup .card-block {
+.page.startup-list .results .startup .card-block {
   padding: 15px 0;
 }
-.list-page .results .startup .card-block .card-title {
+.page.startup-list .results .startup .card-block .card-title {
   font-size: 20px;
   font-weight: 500;
 }
-.list-page .results .startup .card-block .card-text {
+.page.startup-list .results .startup .card-block .card-text {
   height: 36px !important;
   font-size: 12px !important;
 }
-.list-page .results .startup .card-block .card-link {
+.page.startup-list .results .startup .card-block .card-link {
   font-size: 12px;
   color: #0031f7;
 }
-.list-page .results .startup .card-block .button-wrapper {
+.page.startup-list .results .startup .card-block .button-wrapper {
   display: block;
   margin: 10px 0 0 0;
 }
-.list-page .results .startup .card-block .button-wrapper .btn {
+.page.startup-list .results .startup .card-block .button-wrapper .btn {
   text-transform: uppercase;
   padding-left: 20px;
   padding-right: 20px;
 }
-.list-page .bottom {
+.page.startup-list .bottom {
   padding: 10px 0 40px 0;
   text-align: center;
-}
-/*
- * Edit
- */
-.edit-page .autocomplete-field {
-  position: relative;
-}
-.edit-page .autocomplete-field:after {
-  font-family: 'FontAwesome';
-  content: '\f110';
-  -webkit-animation: fa-spin 2s infinite linear;
-  animation: fa-spin 2s infinite linear;
-  position: absolute;
-  top: 10px;
-  right: 25px;
-  font-size: 2em;
-  color: #999;
 }
 /*
  * View
@@ -8151,4 +8247,21 @@ footer .copyright {
 }
 .carousel .carousel-control.right {
   right: -15%;
+}
+/*
+ * Edit
+ */
+.edit-page .autocomplete-field {
+  position: relative;
+}
+.edit-page .autocomplete-field:after {
+  font-family: 'FontAwesome';
+  content: '\f110';
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 2em;
+  color: #999;
 }

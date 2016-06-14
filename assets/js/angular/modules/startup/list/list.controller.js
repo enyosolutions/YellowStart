@@ -9,7 +9,7 @@
  */
 angular.module('start.controllers')
     .controller('ListStartupCtrl', function ($scope, $state, $stateParams, $routeParams, Startup) {
-        $scope.pageClass = 'list-page';
+        $scope.pageClass = 'startup-list';
 
         var query = {};
 

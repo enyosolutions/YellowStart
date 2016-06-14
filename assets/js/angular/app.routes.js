@@ -46,5 +46,10 @@ angular
             .state('user-register', {url: '/user/register', templateUrl: '/js/angular/modules/user/register/register.html',
                 controller: 'RegisterCtrl',
                 data: {access: "ANONYMOUS" }
-            });
+            })
+            .state('user-profile', {url: '/user/profile', templateUrl: '/js/angular/modules/user/profile/profile.html',
+                controller: 'ProfileCtrl',
+                data: {access: "USER" }
+            })
+        ;
     });
