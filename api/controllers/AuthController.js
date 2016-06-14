@@ -11,13 +11,22 @@
 module.exports = {
 
     get: function (req, res) {
-        console.log(req.token);
-        User.findOne({token: req.token}).exec(function (err, message) {
-            res.json({
-                user: message,
-                token: req.token
-            });
+
+        console.log("CURRENT TOKEN", req.token);
+        User.findOne(req.token.id).exec(function (err, message) {
+            if (message) {
+                delete message.password;
+                res.json({
+                    user: message
+                });
+            }
+            else {
+                res.json(404, {
+                    error: "Le user n'a pas été trouvé"
+                });
+            }
         });
+
 
     },
 
@@ -45,8 +54,6 @@ module.exports = {
                     return res.json(401, {error: 'Email ou mot de passe invalide'});
                 } else {
                     var token = jwToken.issue({id: user.id});
-                    user.token = token;
-                    User.update(user.id, token);
                     delete user.password;
                     res.json({
                         user: user,

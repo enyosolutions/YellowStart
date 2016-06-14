@@ -45,6 +45,8 @@ angular.module('start.controllers')
             };
 
         }
+        $scope.isBookmarked =  $rootScope.globals.user.bookmarks && $rootScope.globals.user.bookmarks.indexOf($scope.startup._id) ? true : false;
+
 
         $scope.comments = StartupComment.query({'query[startupId]':  $stateParams._id});
         $scope.saveComment = function(text){
@@ -61,12 +63,15 @@ angular.module('start.controllers')
 
         $scope.bookmarkStartup = function(){
             var index = $rootScope.globals.user.bookmarks.indexOf($stateParams._id);
-            if(!index || index === -1){
+            console.log('removing items ', index);
+
+            if(index === -1){
                 $rootScope.globals.user.bookmarks.push($stateParams._id);
+                $scope.isBookmarked = true;
             }
             else {
-                console.log('removing items ', index);
-                console.log($rootScope.globals.user.bookmarks.splice(index, 1));
+                console.log($rootScope.globals.user.bookmarks.splice(index, 1), $rootScope.globals.user.bookmarks);
+                $scope.isBookmarked = false;
             }
             UserService.Update($rootScope.globals.user);
         };

@@ -9,15 +9,15 @@
 
             <!-- data -->
             <div class="data">
-                <h1 class="name">Kevin Asseraf</h1>
+                <h1 class="name">{{ globals.user.firstname }} {{ globals.user.lastname }}</h1>
                 <p>
-                    DGA StartinPost - ADMIN
+                    {{ globals.user.function }} {{ globals.user.company }} - {{ globals.user.roles[0] }}
                 </p>
                 <p>
-                    k.asseraf@startinpost.com
+                    {{ globals.user.email }}
                 </p>
                 <p>
-                    06 74 03 12 12
+                    {{ globals.user.phonenumber }}
                 </p>
             </div>
 
@@ -54,9 +54,10 @@
 
                         <ul class="dropdown-menu" aria-labelledby="sort">
                             <li>
-                                <a href="#">
-                                    Dummy
-                                </a>
+                                <button>Nom</button>
+                                <button>Date de création</button>
+                                <button>Les plus vues</button>
+                                <button>Les plus bookmarkées</button>
                             </li>
                         </ul>
                     </div>

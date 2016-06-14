@@ -30,7 +30,10 @@ module.exports = {
                 console.dir('startup tag', q, JSON.stringify(query, false, null));
             }
             else if (req.query.ids) {
-                query = {_id: {$in: req.query.ids}};
+                if(!req.query.ids instanceof String){
+                    req.query.ids = [req.query.ids];
+                }
+                query = {$or: req.query.ids.map(function(o){return  {_id: o};}) };
                 console.dir('startup search', q, JSON.stringify(query, false, null));
             }
 

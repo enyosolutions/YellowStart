@@ -32,6 +32,7 @@ module.exports = {
             bcrypt.hash(values.password, salt, function (err, hash) {
                 if(err) return next(err);
                 values.encryptedPassword = hash;
+                delete values.password;
                 next();
             })
         })
