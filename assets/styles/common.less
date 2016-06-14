@@ -64,3 +64,43 @@ footer {
     color: #ffffff;
   }
 }
+
+/*
+ * Pagination
+ */
+.pagination-list {
+  display: block;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 10px;
+
+    a {
+      display: block;
+      padding: 5px;
+
+      font-size: 18px;
+      font-weight: 500;
+      color: #444400;
+
+      &.active {
+        color: #ff6500;
+      }
+    }
+
+    .previous,
+    .next {
+      margin: 0 15px;
+      font-size: 36px;
+      font-weight: 500;
+      color: #ff6500;
+    }
+      .previous:hover,
+      .next:hover {
+        text-decoration: none;
+      }
+  }
+}

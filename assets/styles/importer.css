@@ -7842,6 +7842,40 @@ footer .copyright {
   color: #ffffff;
 }
 /*
+ * Pagination
+ */
+.pagination-list {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.pagination-list li {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 10px;
+}
+.pagination-list li a {
+  display: block;
+  padding: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #444400;
+}
+.pagination-list li a.active {
+  color: #ff6500;
+}
+.pagination-list li .previous,
+.pagination-list li .next {
+  margin: 0 15px;
+  font-size: 36px;
+  font-weight: 500;
+  color: #ff6500;
+}
+.pagination-list li .previous:hover,
+.pagination-list li .next:hover {
+  text-decoration: none;
+}
+/*
  * Register form
  */
 .register-zone {
@@ -7967,6 +8001,7 @@ footer .copyright {
 .list-page .heading {
   display: block;
   padding: 40px 0;
+  position: relative;
 }
 .list-page .heading .result-indicator {
   font-size: 52px;
@@ -7976,6 +8011,57 @@ footer .copyright {
   font-size: 20px;
   color: #0031f7;
   vertical-align: baseline;
+}
+.list-page .heading .sort {
+  position: absolute;
+  top: 70px !important;
+  right: 0;
+}
+.list-page .heading .sort .dropdown button {
+  background: transparent;
+  color: #ff6500;
+  border: 1px solid #ff6500;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+}
+.list-page .results {
+  display: block;
+}
+.list-page .results .startup {
+  border: none !important;
+}
+.list-page .results .startup .card-img-top {
+  border-radius: 0;
+}
+.list-page .results .startup .card-block {
+  padding: 15px 0;
+}
+.list-page .results .startup .card-block .card-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+.list-page .results .startup .card-block .card-text {
+  height: 36px !important;
+  font-size: 12px !important;
+}
+.list-page .results .startup .card-block .card-link {
+  font-size: 12px;
+  color: #0031f7;
+}
+.list-page .results .startup .card-block .button-wrapper {
+  display: block;
+  margin: 10px 0 0 0;
+}
+.list-page .results .startup .card-block .button-wrapper .btn {
+  text-transform: uppercase;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.list-page .bottom {
+  padding: 10px 0 40px 0;
+  text-align: center;
 }
 /*
  * Edit

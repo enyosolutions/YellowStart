@@ -2,11 +2,11 @@
  * List
  */
 .list-page {
-
   // Heading
   .heading {
     display: block;
     padding: 40px 0;
+    position: relative;
 
     .result-indicator {
       font-size: 52px;
@@ -18,6 +18,70 @@
         vertical-align: baseline;
       }
     }
+
+    .sort {
+      position: absolute;
+      top: 70px !important;
+      right: 0;
+
+      .dropdown button {
+        background: transparent;
+        color: #ff6500;
+        border: 1px solid #ff6500;
+
+        font-size: 12px;
+        text-transform: uppercase;
+
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+      }
+    }
+  }
+
+  // Results
+  .results {
+    display: block;
+
+    .startup {
+      border: none !important;
+
+      .card-img-top {
+        border-radius: 0;
+      }
+
+      .card-block {
+        padding: 15px 0;
+
+        .card-title {
+          font-size: 20px;
+          font-weight: 500;
+        }
+        .card-text {
+          height: 36px !important;
+          font-size: 12px !important;
+        }
+        .card-link {
+          font-size: 12px;
+          color: #0031f7;
+        }
+        .button-wrapper {
+          display: block;
+          margin: 10px 0 0 0;
+
+          .btn {
+            text-transform: uppercase;
+            padding-left: 20px;
+            padding-right: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  // Bottom
+  .bottom {
+    padding: 10px 0 40px 0;
+    text-align: center;
   }
 }
 

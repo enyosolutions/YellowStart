@@ -50,3 +50,37 @@ footer .copyright {
   padding: 0;
   color: #ffffff;
 }
+/*
+ * Pagination
+ */
+.pagination-list {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.pagination-list li {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 10px;
+}
+.pagination-list li a {
+  display: block;
+  padding: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #444400;
+}
+.pagination-list li a.active {
+  color: #ff6500;
+}
+.pagination-list li .previous,
+.pagination-list li .next {
+  margin: 0 15px;
+  font-size: 36px;
+  font-weight: 500;
+  color: #ff6500;
+}
+.pagination-list li .previous:hover,
+.pagination-list li .next:hover {
+  text-decoration: none;
+}
