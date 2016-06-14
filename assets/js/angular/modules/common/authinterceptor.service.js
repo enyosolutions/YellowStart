@@ -18,7 +18,7 @@
             responseError: function (response) {
                 var LocalService = $injector.get('$localstorage');
                 if (response.status === 401 || response.status === 403) {
-                    LocalService.unset('auth_token');
+                    LocalService.remove('auth_token');
                     $injector.get('$state').go('user-register');
                 }
                 return $q.reject(response);

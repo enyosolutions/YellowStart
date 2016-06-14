@@ -10,6 +10,9 @@ angular.module('start.services')
             remove: function (key) {
                 return delete $window.localStorage[key] && $window.localStorage;
             },
+            unset: function (key) {
+                return delete $window.localStorage[key] && $window.localStorage;
+            },
             setObject: function (key, value) {
                 $window.localStorage[key] = JSON.stringify(value);
             },
