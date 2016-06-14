@@ -8,6 +8,7 @@
  * @docs        :: http://waterlock.ninja/documentation
  */
 
+var extend = require('extend');
 module.exports = {
     create: function (req, res) {
         /* if (req.body.password !== req.body.confirmPassword) {
@@ -26,7 +27,10 @@ module.exports = {
                 // If user created successfuly we return user and token as response
                 if (user) {
                     // NOTE: payload is { id: user.id}
-                    res.json(200, {user: user, token: jwToken.issue({id: user.id})});
+                    var token = jwToken.issue({id: user.id});
+                    user.token = token;
+                    User.update(user.id, token);
+                    res.json(200, {user: user, token: jwToken.issue({id: token})});
                 }
             });
         });
@@ -34,18 +38,19 @@ module.exports = {
     },
 
     update: function (req, res) {
+        console.log(req.body);
+        User.findOne({id: req.params.id}, function (err, user) {
+            console.log(user);
 
-        User.findOne({_id: req.body._id}, function (err, user) {
             if (!user) {
-                return res.json(401, {error: "Il n'y a pas de compte avec cette adresse mail"});
+                return res.json(401, {error: "Il n'y a pas de compte avec cet identifiant"});
             }
 
-            var data = extend(true, {}, original, req.body, {lastModifiedAt: new Date()});
-            User.update(data._id, data).exec(function (err, updated) {
+            var data = extend(true, {}, user, req.body, {lastModifiedAt: new Date()});
+            User.update(req.params.id, data).exec(function (err, updated) {
                 if (err) {
                     return res.json(403, {error: 'forbidden'});
                 }
-
                 if (!updated) {
                     return res.json(401, {error: 'Email ou mot de passe invalide'});
                 } else {

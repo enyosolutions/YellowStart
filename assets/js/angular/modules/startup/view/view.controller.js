@@ -65,7 +65,8 @@ angular.module('start.controllers')
                 $rootScope.globals.user.bookmarks.push($stateParams._id);
             }
             else {
-                $rootScope.globals.user.bookmarks.splice(index, 1);
+                console.log('removing items ', index);
+                console.log($rootScope.globals.user.bookmarks.splice(index, 1));
             }
             UserService.Update($rootScope.globals.user);
         };

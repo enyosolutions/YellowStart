@@ -12,7 +12,7 @@ module.exports = {
 
     get: function (req, res) {
         console.log(req.token);
-        User.findOne({token:req.token}).exec(function (err, message) {
+        User.findOne({token: req.token}).exec(function (err, message) {
             res.json({
                 user: message,
                 token: req.token

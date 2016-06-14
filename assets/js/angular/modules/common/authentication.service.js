@@ -23,6 +23,8 @@
                 var login = $http.post(CONFIG.baseUrl + '/auth/login', {email:email, password: password});
                 login.success(function(result) {
                     $localstorage.set('auth_token',result.token);
+                    result.user._id = result.user.id;
+                    delete result.user.id;
                     $localstorage.setObject('currentUser', result.user);
                 });
                 return login;

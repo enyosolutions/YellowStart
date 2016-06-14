@@ -35,7 +35,8 @@
         }
         function Update(user) {
             var u = angular.extend(this.currentUser, user);
-            return $http.put('/auth/update/' + user.id, u).then(handleSuccess, handleError('Error updating user'));
+            var that = this;
+            return $http.put('/auth/update/' + user._id, u).then(function(res){service.currentUser = u, handleSuccess(res);}, handleError('Error updating user'));
         }
 
         function Delete(id) {
