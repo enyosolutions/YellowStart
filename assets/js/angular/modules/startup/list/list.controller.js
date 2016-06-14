@@ -41,8 +41,8 @@ angular.module('start.controllers')
         };
 
 
-        if ($routeParams.tag) {
-            query = {tag: $routeParams.tag};
+        if ($stateParams.tag) {
+            $scope.searchedStartups = Startup.query({tag: $stateParams.tag});
         }
 
         if ($stateParams.search) {

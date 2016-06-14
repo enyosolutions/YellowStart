@@ -9,6 +9,7 @@
  */
 
 module.exports = {
+
     get: function (req, res) {
         console.log(req.token);
         User.findOne({token:req.token}).exec(function (err, message) {
@@ -23,6 +24,7 @@ module.exports = {
     login: function (req, res) {
         var email = req.param('email');
         var password = req.param('password');
+
 
         if (!email || !password) {
             return res.json(401, {error: 'email and password required'});

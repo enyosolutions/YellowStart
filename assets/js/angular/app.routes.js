@@ -38,7 +38,7 @@ angular
                 data: {access: "USER" }
             })
             .state('startup-list', {
-                url: '/startup?:search',
+                url: '/startup?:search:tag',
                 templateUrl: '/js/angular/modules/startup/list/list.html',
                 controller: 'ListStartupCtrl',
                 data: {access: "USER" }

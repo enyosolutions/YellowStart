@@ -5,7 +5,7 @@
             <div class="col-sm-12">
                 <div>
                     <a class="btn btn-default pull-right" href="#/startup/{{ startup._id || startup.id }}/edit" >
-                        Editer la fiche {{ startup._id }}
+                        Editer la fiche
                     </a>
 
 
@@ -68,6 +68,18 @@
                             </p>
                             <a href="{{ startup.websiteUrl }}" target="_blank"
                                class="link" >{{ startup.websiteUrl }}</a>
+
+                            <div class="">
+                                <uib-carousel active="1" >
+                                    <uib-slide ng-repeat="document in startup.documents">
+                                        <img ng-src="{{document.file}}" style="margin:auto;">
+                                        <div class="carousel-caption">
+                                            <h4>{{document.name}}</h4>
+                                            <p>{{document.type}}</p>
+                                        </div>
+                                    </uib-slide>
+                                </uib-carousel>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -139,7 +151,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-8 col-md-offset-2">
+
                         <div id="startupCarousel" class="carousel slide" data-ride="carousel">
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner" role="listbox">

@@ -8,12 +8,12 @@
  * Controller of the startApp
  */
 angular.module('start.controllers')
-    .controller('ViewStartupCtrl', function ($scope, $routeParams, Startup) {
+    .controller('ViewStartupCtrl', function ($scope, $stateParams, Startup) {
         $scope.pageClass = 'view-page';
 
-        if ($routeParams._id) {
+        if ($stateParams._id) {
 
-            $scope.startup = new Startup({_id:$routeParams._id});
+            $scope.startup = new Startup({_id:$stateParams._id});
             $scope.startup.$get();
         }
         else {

@@ -22,7 +22,7 @@ angular.module('start.controllers').controller("RegisterCtrl", function ($scope,
                     $state.go('home');
                 }
             }).error(function (response) {
-                if (response.error) {
+                if (response && response.error) {
                     $ngBootbox.alert("<h2 class='text-center text-danger'>" + response.error + "</h2>");
                 }
                 else {
@@ -53,7 +53,7 @@ angular.module('start.controllers').controller("RegisterCtrl", function ($scope,
                 }
             })
             .error(function (response) {
-                if (response.error) {
+                if (response && response.error) {
                     $ngBootbox.alert("<h2 class='text-center text-danger'>" + response.error + "</h2>");
                 }
                 else {

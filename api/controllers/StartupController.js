@@ -21,6 +21,11 @@ module.exports = {
                 query = req.query.query;
 
             }
+            else if (req.query.tag) {
+                var q = req.query.tag;
+                query = {tags: q};
+                console.dir('startup tag', q, JSON.stringify(query, false, null));
+            }
             else if (req.query.search) {
                 var q = req.query.search;
                 query = {$or: [{startupName: {$regex: q, $options: 'i'}}, {websiteUrl: {$regex: q, $options: 'i'}}, {tags: {$regex: q, $options: 'i'}}]};
