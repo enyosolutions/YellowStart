@@ -41,9 +41,8 @@ angular.module('start.controllers').controller("RegisterCtrl", function ($scope,
                 console.log(response);
                 $scope.dataLoading = false;
 
-                if (response.data) {
-                    $scope.user._id = response.id;
-                    $rootScope.User = $scope.user;
+                if (response.user) {
+                    $rootScope.globals.user = response.user;
                     $state.go('home');
                 }
                 else {

@@ -21,8 +21,8 @@
             login: function(email, password) {
                 var login = $http.post('/auth/login', {email:email, password: password});
                 login.success(function(result) {
-                    $localstorage.set('auth_token', JSON.stringify(result));
-                    $localstorage.setItem('currentUser', JSON.stringify(result));
+                    $localstorage.set('auth_token',result.token);
+                    $localstorage.setObject('currentUser', result.user);
                 });
                 return login;
             },

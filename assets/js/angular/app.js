@@ -25,12 +25,16 @@ angular
         'selectize'
     ])
     .constant('CONFIG', {baseUrl: 'http://192.168.12.14:8080', apiUrl: 'http://192.168.12.14:8080/api'}).
-run(function(editableOptions, $state, $rootScope, Auth) {
+run(function(editableOptions, $state, $rootScope, Auth, $localstorage) {
         editableOptions.theme = 'bs3';
         $rootScope.$state = $state;
-
+        $rootScope.globals = {};
+        var user = $localstorage.getObject('currentUser');
+        if(user){
+            $rootScope.globals.user = user;
+        }
         $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-            if (!Auth.authorize(toState.data.access)) {
+            if (!$rootScope.globals.user  || !Auth.authorize($rootScope.globals.user.roles)) {
                 event.preventDefault();
                 $state.go('user-register');
             }
@@ -39,4 +43,7 @@ run(function(editableOptions, $state, $rootScope, Auth) {
 config(['$httpProvider', function($httpProvider) {
     $httpProvider.defaults.withCredentials = true;
 }])
+.config(['$httpProvider', function ($httpProvider) {
+        $httpProvider.interceptors.push('AuthInterceptor');
+}]);
 ;
