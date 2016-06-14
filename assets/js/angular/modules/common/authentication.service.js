@@ -8,7 +8,6 @@
             USER : 'USER',
             ADMIN : 'ADMIN',
             authorize: function(access) {
-                console.log(access);
                 if (access === this.ANONYMOUS) {
                     return true;
                 }
@@ -34,7 +33,7 @@
             },
             register: function(formData) {
                 $localstorage.remove('auth_token');
-                var register = $http.post(CONFIG.baseUrl + '/auth/register', formData);
+                var register = UserService.create(formData);
                 register.success(function(result) {
                     $localstorage.set('auth_token', JSON.stringify(result));
                 });

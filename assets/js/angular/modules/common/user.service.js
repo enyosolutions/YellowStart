@@ -3,10 +3,7 @@
 
     angular
         .module('start.services')
-        .factory('UserService', UserService);
-
-    UserService.$inject = ['$http'];
-    function UserService($http) {
+        .factory('UserService', function ($http, $localstorage , CONFIG) {
         var service = {};
 
         service.GetAll = GetAll;
@@ -14,9 +11,11 @@
         service.GetByUsername = GetByUsername;
         service.Create = Create;
         service.Update = Update;
-        service.Login = Login;
         service.Delete = Delete;
-
+        var u = $localstorage.getObject('currentUser');
+        if(u){
+            service.currentUser = u;
+        }
         return service;
 
         function GetAll() {
@@ -32,13 +31,11 @@
         }
 
         function Create(user) {
-            return $http.post('/auth/register', user).then(handleSuccess, handleError("<h3><b>Nous n'avons pas réussi à créer votre compte.</b></h3>"));
-        }
-        function Login(user) {
-            return $http.post('/auth/login', user).then(handleSuccess, handleError("Nous n'avons pas réussi à vous identifier"));
+            return $http.post(CONFIG.baseUrl + '/auth/register', user);
         }
         function Update(user) {
-            return $http.put('/user/' + user.id, user).then(handleSuccess, handleError('Error updating user'));
+            var u = angular.extend(this.currentUser, user);
+            return $http.put('/auth/update/' + user.id, u).then(handleSuccess, handleError('Error updating user'));
         }
 
         function Delete(id) {
@@ -57,5 +54,5 @@
             };
         }
     }
-
+    );
 })();

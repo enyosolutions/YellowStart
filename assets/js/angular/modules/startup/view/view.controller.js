@@ -8,11 +8,10 @@
  * Controller of the startApp
  */
 angular.module('start.controllers')
-    .controller('ViewStartupCtrl', function ($scope, $stateParams, Startup) {
+    .controller('ViewStartupCtrl', function ($scope, $rootScope, $stateParams, Startup, StartupComment, UserService) {
         $scope.pageClass = 'view-page';
 
         if ($stateParams._id) {
-
             $scope.startup = new Startup({_id:$stateParams._id});
             $scope.startup.$get();
         }
@@ -46,5 +45,29 @@ angular.module('start.controllers')
             };
 
         }
-        console.log($scope.startup);
+
+        $scope.comments = StartupComment.query({'query[startupId]':  $stateParams._id});
+        $scope.saveComment = function(text){
+            var comment = new StartupComment({
+                userName: $rootScope.globals.user.firstname + ' ' + $rootScope.globals.user.lastname,
+                text: text,
+                startupId: $stateParams._id,
+                userId: $rootScope.globals.user._id
+            });
+            comment.$save().then(function(response){
+                $scope.comments.push(response);
+            });
+        };
+
+        $scope.bookmarkStartup = function(){
+            var index = $rootScope.globals.user.bookmarks.indexOf($stateParams._id);
+            if(!index || index === -1){
+                $rootScope.globals.user.bookmarks.push($stateParams._id);
+            }
+            else {
+                $rootScope.globals.user.bookmarks.splice(index, 1);
+            }
+            UserService.Update($rootScope.globals.user);
+        };
+
     });

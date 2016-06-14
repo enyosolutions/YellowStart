@@ -21,6 +21,7 @@ module.exports = {
         email: {'type': 'email', unique:true, required: true},
         phonenumber: {'type': 'string'},
         password: {'type': 'string'},
+        bookmarks: {'type': 'array', defaultsTo:[]},
         roles: {'type': 'array',defaultsTo:['USER']},
         isActive: {'type': 'boolean', defaultsTo: false}
     }),

@@ -44,12 +44,17 @@ module.exports = {
                 if (!valid) {
                     return res.json(401, {error: 'Email ou mot de passe invalide'});
                 } else {
+                    var token = jwToken.issue({id: user.id});
+                    user.token = token;
+                    User.update(user.id, token);
+                    delete user.password;
                     res.json({
                         user: user,
-                        token: jwToken.issue({id: user.id})
+                        token: token
                     });
                 }
             });
         })
     }
+
 };
