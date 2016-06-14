@@ -1,11 +1,13 @@
-<section class="splash medium container-fluid">
-    <div class="container">
-    </div>
-</section>
+<section id="main" class="container">
+    <div class="row">
 
-<section id="main" class="container" >
-    <div class="row" >
-        <h2 class="text-info">#Resultats ({{ searchedStartups.length }})</h2>
+        <div class="heading">
+            <h1 class="result-indicator">
+                Transport
+                <span class="numb">{{ searchedStartups.length }} résultat(s)</span>
+            </h1>
+        </div>
+
         <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="startup in searchedStartups">
             <div class="card fixed-card">
                 <div class="card-img-top">

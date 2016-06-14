@@ -8,8 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII="
-          rel="icon" type="image/x-icon"/>
+    <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon"/>
 
     <!--
         Stylesheets and Preprocessors
@@ -32,105 +31,74 @@
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
 
-    <link rel="stylesheet" href="/js/bower_components/slick-carousel/slick/slick.css">
-    ">
-    <link rel="stylesheet" href="/js/bower_components/slick-carousel/slick/slick-theme.css">
-    ">
-    <link rel="stylesheet" href="/js/bower_components/angular-xeditable/dist/css/xeditable.min.css">
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/font-awesome.css">
-    <link rel="stylesheet" href="/styles/home.css">
     <link rel="stylesheet" href="/styles/importer.css">
-    <link rel="stylesheet" href="/styles/list-startup.css">
-    <link rel="stylesheet" href="/styles/view-startup.css">
     <!--STYLES END-->
-
-
+    <link rel="stylesheet" href="/js/bower_components/angular-xeditable/dist/css/xeditable.min.css">
 </head>
 
-<body ng-app="startApp" class="<%= locals.page && page.class ? page.class : '' %> {{ $state.current.name }}" id="<%= locals.page && page.id ? page.id : '' %>">
-<!-- login -->
-<div class="top-navigation top-navigation-login navbar navbar-default navbar-fixed-top" ng-if="$state.current.name  === 'user-register'">
+<body ng-app="startApp" class="<%= locals.page && page.class ? page.class : '' %>" id="<%= locals.page && page.id ? page.id : '' %>">
+<div class="navbar navbar-default navbar-fixed-top navbar-transparent">
     <div class="container">
-        <a href="#/" class="brand">
-            <img src="/images/logo.png" alt="Yellow Starter"/>
-        </a>
+        <div class="navbar-header">
+            <a href="#/" class="navbar-brand"><img src="/images/logo.png" alt="Yellow Starter"/></a>
 
-        <form class="form-login form-inline" ng-controller="RegisterCtrl as Register"  ng-submit="login(Register.email, Register.password)">
-            <input class="url form-control" name="website" ng-model="Register.email"
-                   type="email"
-                   required
-                   placeholder="Adresse email"/>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
 
-            <input class="url form-control" name="website" ng-model="Register.password"
-                   type="password"
-                   required
-                   placeholder="Mot de passe"/>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="border first search-form" ng-controller="ListStartupCtrl as listStartup">
+                    <button class="btn btn-link" href="search" ng-click="search(listStartup.searchName)">
+                        <img src="/images/icons/search.png" alt="search"/>
+                    </button>
 
-            <button class="btn btn-primary">Connexion</button>
-        </form>
-    </div>
-</div>
+                    <input class="url form-control" name="website" ng-model="listStartup.searchName" type="text" placeholder="Rechercher une start-up"/>
+                </li>
+                <li class="border has-icon">
+                    <a href="#/startup/new" fadeOut>
+                        <img class="icon" alt="" src="images/icons/user.png" />
 
-<!-- default -->
-<div class="top-navigation top-navigation-default navbar navbar-default navbar-fixed-top" ng-if="!$state.is('user-register')">
-    <div class="container">
-        <a href="#/" class="brand">
-            <img src="/images/logo.png" alt="Yellow Starter"/>
-        </a>
+                        Mon profil
+                    </a>
+                </li>
+                <li class="border has-icon">
+                    <a href="#/startup/new" fadeOut>
+                        <div class="icon">
+                            <span class="badge blue">2</span>
+                        </div>
 
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
+                        Mes notifications
+                    </a>
+                </li>
+                <li class="border has-icon">
+                    <a href="#/startup/new" fadeOut>
+                        <img class="icon" alt="" src="images/icons/star.png" />
 
-        <ul class="nav navbar-nav navbar-right">
-            <li class="border first search-form" ng-controller="ListStartupCtrl as listStartup">
-                <input class="url form-control" name="website" ng-model="listStartup.searchName" type="text" placeholder="Rechercher une start-up"/>
+                        Mes favoris
+                    </a>
+                </li>
+                <li class="orange has-icon">
+                    <a href="#/startup/new" fadeOut>
+                        <img class="icon" alt="" src="images/icons/plus.png" />
 
-                <button class="btn btn-link" href="search" ng-click="search(listStartup.searchName)">
-                    <img src="/images/icons/search.png" alt="search"/>
-                </button>
-            </li>
-            <li class="border has-icon">
-                <a href="#/startup/new" fadeOut>
-                    <img class="icon" alt="" src="images/icons/user.png" />
+                        Ajouter une start-up
+                    </a>
+                </li>
+            </ul>
 
-                    Mon profil
-                </a>
-            </li>
-            <li class="border has-icon">
-                <a href="#/startup/new" fadeOut>
-                    <div class="icon">
-                        <span class="badge blue">2</span>
-                    </div>
-
-                    Mes notifications
-                </a>
-            </li>
-            <li class="border has-icon">
-                <a href="#/startup/new" fadeOut>
-                    <img class="icon" alt="" src="images/icons/star.png" />
-
-                    Mes favoris
-                </a>
-            </li>
-            <li class="orange has-icon">
-                <a href="#/startup/new" fadeOut>
-                    <img class="icon" alt="" src="images/icons/plus.png" />
-
-                    Ajouter une start-up
-                </a>
-            </li>
-        </ul>
+        </div>
     </div>
 </div>
 
 <div class="body">
     <div ui-view class="page {{ pageClass }}"></div>
 </div>
-<!--
 
 <div class="row" id="results-section">
     <div class="col-xs-12 col-sm-6 col-md-3" ng-controller="SearchStartupCtrl" ng-repeat="startup in searchedStartups">
@@ -144,19 +112,19 @@
                 <h4 class="card-title">{{ startup.startupName }}</h4>
 
                 <p class="card-text">{{ startup.tagline }}</p>
-                <a href="#/startup?tag={{ tag }}" class="card-link text-info" ng-repeat="tag in startup.tags">#{{ tag }}</a>
+                <a href="#/startup?tag={{ tag }}" class="card-link text-info" ng-repeat="tag in startup.tags">#{{ tag
+                    }}</a>
                 <br/>
                 <a href="#/startup/{{ startup._id }}/view" class="btn btn-primary-outline"><i class="fa fa-eye"></i></a>
                 <a href="#/startup/{{ startup._id }}/edit" class="btn btn-primary-outline"><i
-                            class="fa fa-edit"></i></a>
+                        class="fa fa-edit"></i></a>
 
                 <button class="btn btn-danger pull-right" ng-click="deleteStartup(index)"><i
-                            class="fa fa-times"></i></button>
+                        class="fa fa-times"></i></button>
             </div>
         </div>
     </div>
 </div>
--->
 
 <!--
 
@@ -200,11 +168,10 @@
 <script src="/js/angular.min.js"></script>
 
 
-<!--<script src="/js/dependencies/sails.io.js"></script>-->
 <script src="/js/bower_components/angular-animate/angular-animate.min.js"></script>
 <script src="/js/bower_components/angular-cookies/angular-cookies.min.js"></script>
 <script src="/js/bower_components/angular-resource/angular-resource.min.js"></script>
-<script src="/js/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="/js/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
 <script src="/js/bower_components/angular-route/angular-route.min.js"></script>
 <script src="/js/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script src="/js/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
@@ -212,12 +179,9 @@
 <script src="/js/bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
 <script src="/js/bower_components/dropzone/downloads/dropzone.min.js"></script>
 <script src="/js/bower_components/angular-dropzone/lib/angular-dropzone.js"></script>
-<script src="/js/bower_components/slick-carousel/slick/slick.js"></script>
-<script src="/js/bower_components/angular-slick/dist/slick.js"></script>
-<script src="/js/bower_components/jquery.cycle2/index.js"></script>
-
 <script src="/js/bower_components/bootbox/bootbox.js"></script>
 <script src="/js/bower_components/ngBootbox/dist/ngBootbox.min.js"></script>
+<script src="/js/bower_components/jquery.cycle2/index.js"></script>
 
 <script type="text/javascript" src="/js/bower_components/selectize/dist/js/standalone/selectize.min.js"></script>
 <script type="text/javascript" src="/js/bower_components/angular-selectize2/dist/angular-selectize.js"></script>
@@ -236,7 +200,6 @@
 <script src="/js/angular/modules/common/resources.js"></script>
 <script src="/js/angular/modules/common/startup.service.js"></script>
 <script src="/js/angular/modules/common/authentication.service.js"></script>
-<script src="/js/angular/modules/common/authinterceptor.service.js"></script>
 <script src="/js/angular/modules/common/user.service.js"></script>
 
 

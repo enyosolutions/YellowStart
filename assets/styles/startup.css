@@ -1,3 +1,39 @@
+/*
+ * List
+ */
+.list-page .heading {
+  display: block;
+  padding: 40px 0;
+}
+.list-page .heading .result-indicator {
+  font-size: 52px;
+  color: #5c5c5c;
+}
+.list-page .heading .result-indicator .numb {
+  font-size: 20px;
+  color: #0031f7;
+  vertical-align: baseline;
+}
+/*
+ * Edit
+ */
+.edit-page .autocomplete-field {
+  position: relative;
+}
+.edit-page .autocomplete-field:after {
+  font-family: 'FontAwesome';
+  content: '\f110';
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 2em;
+  color: #999;
+}
+/*
+ * View
+ */
 .view-page .splash {
   position: relative;
 }
