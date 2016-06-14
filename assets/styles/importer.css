@@ -7818,7 +7818,7 @@ section#map-section .address {
   padding: 20px 0;
 }
 .top-navigation.top-navigation-default .search-form button {
-  padding: 38px 10px;
+  padding: 38px 0 38px 10px;
 }
 .top-navigation.top-navigation-default li a {
   padding: 27px 10px;
@@ -7931,7 +7931,6 @@ footer .copyright {
   color: #ffffff;
   border: 1px solid #ffffff;
   font-size: 11px;
-  text-transform: uppercase;
   padding-left: 15px !important;
   padding-right: 15px !important;
 }
@@ -7982,16 +7981,22 @@ footer .copyright {
 .page.user-profile .splash .user .avatar {
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -65px;
+  overflow: hidden;
+  border: 10px solid #FCFCFC;
+  -webkit-border-radius: 999px;
+  -moz-border-radius: 999px;
+  border-radius: 999px;
 }
 .page.user-profile .splash .user .avatar img {
-  width: 250px;
-  height: 250px;
+  width: 230px;
+  height: 230px;
+  position: relative;
 }
 .page.user-profile .splash .user .data {
   display: block;
   text-align: left;
-  margin: 120px 0 0 280px;
+  margin: 170px 0 0 280px;
 }
 .page.user-profile .splash .user .data .name {
   font-size: 42px;
@@ -8004,12 +8009,12 @@ footer .copyright {
 }
 .page.user-profile .starredProjects .heading {
   display: block;
-  padding: 40px 0 20px 0;
+  padding: 80px 0 20px 0;
   position: relative;
 }
 .page.user-profile .starredProjects .heading .title {
   font-family: 'atc', sans-serif;
-  font-size: 52px;
+  font-size: 58px;
   font-weight: 800;
   color: #333333;
 }

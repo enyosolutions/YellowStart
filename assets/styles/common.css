@@ -27,7 +27,7 @@
   padding: 20px 0;
 }
 .top-navigation.top-navigation-default .search-form button {
-  padding: 38px 10px;
+  padding: 38px 0 38px 10px;
 }
 .top-navigation.top-navigation-default li a {
   padding: 27px 10px;
@@ -140,7 +140,6 @@ footer .copyright {
   color: #ffffff;
   border: 1px solid #ffffff;
   font-size: 11px;
-  text-transform: uppercase;
   padding-left: 15px !important;
   padding-right: 15px !important;
 }

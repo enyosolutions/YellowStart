@@ -70,11 +70,11 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li class="border first search-form" ng-controller="ListStartupCtrl as listStartup">
-                <input class="url form-control" name="website" ng-model="listStartup.searchName" type="text" placeholder="Rechercher une start-up"/>
-
                 <button class="btn btn-link" href="search" ng-click="search(listStartup.searchName)">
                     <img src="/images/icons/search.png" alt="search"/>
                 </button>
+
+                <input class="url form-control" name="website" ng-model="listStartup.searchName" type="text" placeholder="Rechercher une start-up"/>
             </li>
             <li class="border has-icon">
                 <a href="#/user/profile" fadeOut>
@@ -90,13 +90,6 @@
                     </div>
 
                     Mes notifications
-                </a>
-            </li>
-            <li class="border has-icon">
-                <a href="#/" fadeOut>
-                    <img class="icon" alt="" src="images/icons/star.png" />
-
-                    Mes favoris
                 </a>
             </li>
             <li class="orange has-icon">
