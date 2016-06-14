@@ -62,7 +62,7 @@ angular.module('start.controllers')
                 paramName: "file",
                 parallelUploads: 1,
                 maxFileSize: 10,
-                dictDefaultMessage: 'Glissez une image pour la rajouter',
+                dictDefaultMessage: "Glissez une image pour l'ajouter",
                 acceptedFiles: 'image/*',
                 headers: { 'Authorization':  'Bearer ' + $localstorage.get('auth_token') }
             }
@@ -137,11 +137,11 @@ angular.module('start.controllers')
                 $scope.startup.status = 'draft';
                 $scope.startup.$save().then(function (data) {
                     $scope.startup._id = data._id;
-                    $localstorage.setObject('startupDraft', {_id: data._id, name: $scope.startup.startupName});
                 });
             }
             else {
                 $scope.startup.$update();
+                $localstorage.setObject('startupDraft', {_id: data._id, name: $scope.startup.startupName});
             }
 
         };
@@ -150,6 +150,7 @@ angular.module('start.controllers')
                 $scope.startup.status = 'published';
                 $scope.startup.publishedAt = new Date();
                 $scope.startup.$update();
+                $localstorage.remove('startupDraft');
             }
 
         };

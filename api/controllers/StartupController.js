@@ -8,13 +8,11 @@
 module.exports = {
 
     'list': function (req, res, next) {
-
-        console.log('STARTUP LIST');
-
         var out = {};
         var query = {};
         var options = {$limit: 30};
 
+        console.log(req.query);
         // Query preparation
         if (req.query) {
             if (req.query.query) {
@@ -26,13 +24,22 @@ module.exports = {
                 query = {tags: q};
                 console.dir('startup tag', q, JSON.stringify(query, false, null));
             }
-            else if (req.query.search) {
-                var q = req.query.search;
-                query = {$or: [{startupName: {$regex: q, $options: 'i'}}, {websiteUrl: {$regex: q, $options: 'i'}}, {tags: {$regex: q, $options: 'i'}}]};
+            else if (req.query.tag) {
+                var q = req.query.tag;
+                query = {tags: q};
+                console.dir('startup tag', q, JSON.stringify(query, false, null));
+            }
+            else if (req.query.ids) {
+                query = {_id: {$in: req.query.ids}};
                 console.dir('startup search', q, JSON.stringify(query, false, null));
             }
+
             if (req.query.sort) {
-                options['$sort'] = options.sort;
+                options['sort'] = {};
+                for(var i in req.query.sort){
+                    options['sort'][i] = parseInt(req.query.sort[i]);
+                }
+
             }
         }
 
@@ -46,10 +53,9 @@ module.exports = {
          resp.json(500, {error: err});
          });
          */
-        console.log(query);
+        console.log(query, options);
         var startupCollection = Monk.get('startup');
-        startupCollection.find(query).then(function (col) {
-            console.log(col.length);
+        startupCollection.find(query, options).success(function (col) {
             if (col && col.length > 0) {
                 res.json({body: col});
             }
@@ -57,7 +63,12 @@ module.exports = {
                 console.log('Startup not found');
                 res.json(404, {error: 'Startup not found'});
             }
-        });
+        })
+            .error(function(err){
+                console.log('Startup not found',err);
+                res.json(404, {error: 'Startup not found'});
+            })
+        ;
 
     },
     'uploadFile': function (req, res, next) {
