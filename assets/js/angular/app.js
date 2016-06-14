@@ -33,6 +33,12 @@ angular
         if (user) {
             $rootScope.globals.user = user;
         }
+
+        $.ajaxSetup({
+            headers: { 'Authorization':  'Bearer ' + $localstorage.get('auth_token') }
+        });
+
+
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             if (!Auth.authorize(toState.data.access)) {
                 event.preventDefault();

@@ -62,9 +62,8 @@
         </div>
         <div class="navbar-collapse collapse" ng-if="$state.current.name  === 'user-register'" id="navbar-main">
             <ul class="nav navbar-nav navbar-right">
-                <li class="border first ">
-                    <form class="form-inline" ng-controller="RegisterCtrl as Register"
-                          ng-submit="login(Register.email, Register.password)">
+                <li class="border first " >
+                    <form class="form-inline" ng-controller="RegisterCtrl as Register"  ng-submit="login(Register.email, Register.password)">
                         <input class="url form-control" name="website" ng-model="Register.email"
                                type="email"
                                required
@@ -89,13 +88,13 @@
                         une startup</a>
                 </li>
                 <li class="border first search-form" ng-controller="ListStartupCtrl as listStartup">
-                    <form ng-submit="search(listStartup.searchName)">
-                        <input class="url form-control" name="website" ng-model="listStartup.searchName"
-                               type="text"
-                               placeholder="rechercher"/>
-                        <button class="btn btn-link" href="search"><img src="/images/icons/search.png"
-                                                                        alt="search"/></button>
-                    </form>
+                    <form ng-submit=""></form>
+                    <input class="url form-control" name="website" ng-model="listStartup.searchName"
+                           type="text"
+                           placeholder="rechercher"/>
+                    <button class="btn btn-link" href="search"
+                            ng-click=><img src="/images/icons/search.png"
+                                                                           alt="search"/></button>
                 </li>
                 <li class="border" uib-dropdown>
                     <a uib-dropdown-toggle class="btn btn-default" type="button" target="_blank"><img

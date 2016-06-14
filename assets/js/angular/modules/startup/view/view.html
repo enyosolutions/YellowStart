@@ -1,10 +1,9 @@
-
-<section class="splash medium container-fluid">
+<section class="splash medium container-fluid" xmlns="http://www.w3.org/1999/html">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
                 <div>
-                    <a class="btn btn-default pull-right" href="#/startup/{{ startup._id || startup.id }}/edit" >
+                    <a class="btn btn-default pull-right" href="#/startup/{{ startup._id || startup.id }}/edit">
                         Editer la fiche
                     </a>
 
@@ -15,7 +14,8 @@
                 <h1 class="text-yellow"
                         >{{ startup.tagline }}</h1>
                 <ul class="startup-tags">
-                    <li class="tag" ng-repeat="tag in startup.tags" href="#/startup?tag={{ tag }}"><a href="">#{{ tag }}</a></li>
+                    <li class="tag" ng-repeat="tag in startup.tags" href="#/startup?tag={{ tag }}"><a href="">#{{ tag
+                        }}</a></li>
                 </ul>
 
                 <ul class="actions-buttons"></ul>
@@ -67,14 +67,16 @@
                                 {{ startup.offerServices }}
                             </p>
                             <a href="{{ startup.websiteUrl }}" target="_blank"
-                               class="link" >{{ startup.websiteUrl }}</a>
+                               class="link">{{ startup.websiteUrl }}</a>
 
-                            <div class="">
-                                <uib-carousel active="1" >
+                            <div class="startup-documents" style="height: 305px">
+                                <uib-carousel>
                                     <uib-slide ng-repeat="document in startup.documents">
                                         <img ng-src="{{document.file}}" style="margin:auto;">
+
                                         <div class="carousel-caption">
                                             <h4>{{document.name}}</h4>
+
                                             <p>{{document.type}}</p>
                                         </div>
                                     </uib-slide>
@@ -148,9 +150,13 @@
                                     étoffer son offre avec les services La Poste.
                                     <a class="contact btn btn-link btn-primary" href="Contacter"></a>
                                 </div>
+
+                                <!-- CREATE NEW COMMENT -->
+
+                                <button class="btn btn-primary-outline badge" data-target="#commentModal">
+                                    <i class="fa fa-plus"></i></button>
                             </div>
                         </div>
-                    </div>
 
                         <div id="startupCarousel" class="carousel slide" data-ride="carousel">
                             <!-- Wrapper for slides -->
@@ -271,6 +277,42 @@
             </div>
         </div>
     </div>
+
+
+    <div id="commentModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true" class="fa-3x">&times;</span></button>
+                    <h4 class="modal-title">Ajouter un commentaire</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-5">
+                                <label for="">Commentaire</label>
+                            </div>
+                            <div class="col-md-7">
+                                <textarea class="form-control" ng-model="newComment.text" type="text"/></textarea>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-link" data-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primary" ng-click="saveComment(newContact._id)"
+                            data-dismiss="modal">Créer
+                    </button>
+                </div>
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
 </section>
 
 <script type="text/javascript">

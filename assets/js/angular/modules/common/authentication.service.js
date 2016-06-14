@@ -8,7 +8,6 @@
             USER : 'USER',
             ADMIN : 'ADMIN',
             authorize: function(access) {
-                console.log(access);
                 if (access === this.ANONYMOUS) {
                     return true;
                 }

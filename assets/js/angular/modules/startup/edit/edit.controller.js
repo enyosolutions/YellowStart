@@ -63,7 +63,8 @@ angular.module('start.controllers')
                 parallelUploads: 1,
                 maxFileSize: 10,
                 dictDefaultMessage: 'Glissez une image pour la rajouter',
-                acceptedFiles: 'image/*'
+                acceptedFiles: 'image/*',
+                headers: { 'Authorization':  'Bearer ' + $localstorage.get('auth_token') }
             }
         };
         $scope.filesZone = {
@@ -85,6 +86,7 @@ angular.module('start.controllers')
                 acceptedFiles: 'image/*,application/pdf,.ppt,.pptx,.doc,.docx,.xls,.xlsx,.zip',
                 addRemoveLinks: true,
                 maxFiles: 5,
+                headers: { 'Authorization':  'Bearer ' + $localstorage.get('auth_token') },
                 init: function () {
                     console.log('initializing dropzone');
                     var thisDropzone = this;
