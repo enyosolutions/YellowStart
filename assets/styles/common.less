@@ -54,6 +54,26 @@
   }
 
 /*
+ * Base
+ */
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+
+#wrapper {
+  min-height: 100%;
+  margin-bottom: -100px;
+}
+  #wrapper:after {
+    content: "";
+    display: block;
+    height: 100px;
+  }
+
+/*
  * Top navigation
  */
 .top-navigation {
@@ -109,6 +129,7 @@
  * Footer
  */
 footer {
+  height: 100px;
   background-color: #0031f7;
   padding: 30px 0;
 

@@ -79,12 +79,12 @@
         <ul class="nav navbar-nav navbar-right">
             <li class="border first search-form" ng-controller="ListStartupCtrl as listStartup">
                 <form ng-click="search(listStartup.searchName)">
-                    <input class="url form-control" name="website" ng-model="listStartup.searchName" type="text"
-                           placeholder="Rechercher une start-up"/>
-
                     <button class="btn btn-link" href="search">
                         <img src="/images/icons/search.png" alt="search"/>
                     </button>
+
+                    <input class="url form-control" name="website" ng-model="listStartup.searchName" type="text"
+                           placeholder="Rechercher une start-up"/>
                 </form>
             </li>
             <li class="border has-icon">
@@ -121,9 +121,12 @@
     </div>
 </div>
 
-<div class="body">
-    <div ui-view class="page {{ pageClass }}"></div>
+<div id="wrapper">
+    <div class="body">
+        <div ui-view class="page {{ pageClass }}"></div>
+    </div>
 </div>
+
 <!--
 
 <div class="row" id="results-section">
