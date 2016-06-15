@@ -196,16 +196,12 @@
                 <textarea class="form-control" ng-model="startup.userOpinion">{{ startup.userOpinion }}</textarea>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-md-7 col-md-offset-5">
-                <div class="btn-group  pull-right">
-                    <button type="button" class="btn btn-info" ng-click="saveStartup()"
-                            data-dismiss="modal">Enregistrer
-                    </button>
-                    <button type="button" class="btn btn-primary" ng-click="publishStartup()"
-                            data-dismiss="modal">Publier
-                    </button>
-                </div>
+        <div class="form-group text-center">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary-outline" ng-click="publishStartup()">Publier en l'état
+                </button>
+                <button type="button" class="btn btn-primary" data-target="#produit" data-toggle="tab">Etape suivante
+                </button>
             </div>
         </div>
     </div>
@@ -271,6 +267,15 @@
             <div class="col-md-12">
                 <textarea class="form-control" ng-model="startup.offerDiff"
                           ng-blur="saveStartup(startup.offerDiff)">{{ startup.offerDiff }}</textarea>
+            </div>
+        </div>
+        <div class="form-group text-center">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary-outline" ng-click="publishStartup()">Publier en l'état
+                </button>
+                <button type="button" class="btn btn-primary" data-target="#marche" data-toggle="tab"
+                        >Etape suivante
+                </button>
             </div>
         </div>
     </div>
@@ -360,6 +365,14 @@
                        ng-blur="saveStartup(startup.raisedFunds)"/>
             </div>
         </div>
+        <div class="form-group text-center">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary-outline" ng-click="publishStartup()">Publier en l'état
+                </button>
+                <button type="button" class="btn btn-primary" data-target="#equipe" data-toggle="tab">Etape suivante
+                </button>
+            </div>
+        </div>
     </div>
 </div>
 <div role="tabpanel" class="tab-pane fade " id="equipe">
@@ -426,6 +439,10 @@
                 </button>
             </div>
         </form>
+        <div class="form-group text-center">
+                <button type="button" class="btn btn-primary-outline" ng-click="publishStartup()">Publier
+                </button>
+        </div>
     </div>
 </div>
 <div role="tabpanel" class="tab-pane fade " id="startinpost">

@@ -156,12 +156,13 @@ angular.module('start.controllers')
         };
 
         $scope.crawlMeta = function (url) {
-            $scope.isAutocompleting = true;
+
             if (url && url.length > 0) {
                 if (url.indexOf('http://') === -1 && url.indexOf('https://') === -1) {
                     url = 'http://' + url;
                 }
                 if (Utils.validateUrl(url)) {
+                    $scope.isAutocompleting = true;
                     try {
                         Crawler.meta({url: url}).$promise.then(function (meta) {
                             console.log(meta);
