@@ -31,23 +31,38 @@ angular.module('start.controllers')
         };
 
 
+        $scope.sortByName = function () {
+           $scope.searchedStartups = Startup.query(angular.extend({ 'sort[startupName]': 1}, query));
+        };
+
+        $scope.sortByViews = function () {
+           $scope.searchedStartups = Startup.query(angular.extend({'sort[meta.views]': -1}, query));
+        };
+        $scope.sortByCreatedDate = function () {
+          $scope.searchedStartups = Startup.query(angular.extend({'sort[createdAt]': -1}, query));
+        };
+
+        $scope.sortByBookmarks = function () {
+           $scope.searchedStartups = Startup.query(angular.extend({ 'sort[meta.bookmarks]': -1}, query));
+        };
+
+
         if ($stateParams.tag) {
             $scope.searchTitle  = '#' + $stateParams.tag;
-            $scope.searchedStartups = Startup.query({tag: $stateParams.tag});
+            query.tag  =  $stateParams.tag;
+            $scope.searchedStartups = Startup.query(query);
         }
 
         if ($stateParams.search) {
             $scope.searchTitle  = $stateParams.search;
-            $scope.searchedStartups = Startup.query({search: $stateParams.search});
+            query.search  =  $stateParams.search;
+            $scope.searchedStartups = Startup.query(query);
         }
 
-        query['sort[createdAt]'] = 1;
-        $scope.recentStartupList = Startup.query(query);
+        $scope.recentStartupList = Startup.query({'sort[createdAt]':1});
         console.log($scope.recentStartupList);
 
-        delete query['sort[createdAt]'];
-        query['sort[tags]'] = 1;
-        $scope.trendingStartupList = Startup.query(query);
+        $scope.trendingStartupList = Startup.query({'sort[tags]':1});
     })
 
     .directive('homeSlider', function () {

@@ -51,5 +51,9 @@ angular
                 controller: 'ProfileCtrl',
                 data: {access: "USER" }
             })
+            .state('admin-list', {url: '/admin/user', templateUrl: '/js/angular/modules/admin-user/list/list.html',
+                controller: 'AdminUserListCtrl',
+                data: {access: "USER" }
+            })
         ;
     });
