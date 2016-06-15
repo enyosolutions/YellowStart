@@ -205,6 +205,15 @@
   color: #FFFFFF;
   font-size: 48px;
 }
+.page.startup-view .splash .actions .action .text-lock {
+  position: relative;
+}
+.page.startup-view .splash .actions .action .text-lock span {
+  text-align: center;
+  position: absolute;
+  display: block;
+  overflow: hidden;
+}
 .page.startup-view .splash .actions .action:hover {
   text-decoration: none;
 }
@@ -250,154 +259,56 @@
   color: #333333;
   border-color: #ff6500;
 }
-.page.startup-view #resume .pitch {
-  padding: 40px 0;
-}
-.page.startup-view #resume .pitch .intro {
+.page.startup-view #resume .intro {
   font-size: 30px;
   font-weight: lighter;
 }
-.page.startup-view #resume .pitch .description {
+.page.startup-view #resume .description {
   margin: 40px 0;
 }
-.page.startup-view #resume .pitch .link {
+.page.startup-view #resume .link {
   text-decoration: underline;
 }
-.page.startup-view #resume .pitch .cycle-slider-media {
-  margin: 50px 0 0 0;
-}
-.page.startup-view #resume .sip-note {
-  background: #0547fd;
-  padding: 80px 0;
-  text-align: center;
-}
-.page.startup-view #resume .sip-note .note {
-  display: block;
-  margin: 30px 0;
-  font-family: 'atc', sans-serif;
-  font-size: 78px;
-  font-weight: 700;
-  color: #fafdd4;
-}
-.page.startup-view #resume .sip-note .evaluation {
-  color: #FFFFFF;
-  margin: 0 auto;
-  max-width: 640px;
-}
-.page.startup-view #resume .related {
-  padding: 80px 0;
-  text-align: center;
-}
-.page.startup-view #resume .related .title {
-  display: block;
-  margin: 0 0 70px 0;
-  font-family: 'atc', sans-serif;
-  font-size: 54px;
-  font-weight: 700;
-  color: #081433;
-}
-.page.startup-view #resume .related .startup {
-  text-align: left;
-  border: none !important;
-}
-.page.startup-view #resume .related .startup .card-img-top {
-  border-radius: 0;
-}
-.page.startup-view #resume .related .startup .card-img-top img {
-  height: 200px;
-}
-.page.startup-view #resume .related .startup .card-block {
-  padding: 15px 0;
-}
-.page.startup-view #resume .related .startup .card-block .card-title {
-  font-size: 20px;
-  font-weight: 500;
-}
-.page.startup-view #resume .related .startup .card-block .card-text {
-  height: 36px !important;
-  font-size: 12px !important;
-}
-.page.startup-view #resume .related .startup .card-block .card-link {
-  font-size: 12px;
-  color: #0031f7;
-}
-.page.startup-view #resume .related .startup .card-block .button-wrapper {
-  display: block;
-  margin: 10px 0 0 0;
-}
-.page.startup-view #resume .related .startup .card-block .button-wrapper .btn {
-  text-transform: uppercase;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-.page.startup-view #resume .know-startup {
-  background: #ff6500;
-  padding: 130px 0;
-  text-align: center;
-}
-.page.startup-view #resume .know-startup .title {
-  display: block;
-  margin: 0 0 30px 0;
-  font-family: 'atc', sans-serif;
-  font-size: 54px;
-  font-weight: 700;
-  color: #fafdd4;
-}
-.page.startup-view #resume .know-startup .btn {
-  padding: auto 30px;
-  font-size: 18px;
-  background: #fafdd4;
-  color: #ff6500;
-}
-.page.startup-view #product .product {
-  padding: 40px 0;
-}
-.page.startup-view #product .product .section {
+.page.startup-view #product .section {
   display: block;
   margin: 0 0 40px 0;
 }
-.page.startup-view #product .product .section .title {
+.page.startup-view #product .section .title {
   display: block;
   font-family: 'atc', sans-serif;
   font-size: 28px;
   font-weight: 700;
   color: #081433;
 }
-.page.startup-view #product .product .section p {
+.page.startup-view #product .section p {
   margin: 20px 0;
 }
-.page.startup-view #market .market {
-  padding: 40px 0;
-}
-.page.startup-view #market .market .section {
+.page.startup-view #market .section {
   display: block;
   margin: 0 0 40px 0;
 }
-.page.startup-view #market .market .section .title {
+.page.startup-view #market .section .title {
   display: block;
   font-family: 'atc', sans-serif;
   font-size: 28px;
   font-weight: 700;
   color: #081433;
 }
-.page.startup-view #market .market .section p {
+.page.startup-view #market .section p {
   margin: 20px 0;
 }
-.page.startup-view #startup .startup {
-  padding: 40px 0;
-}
-.page.startup-view #startup .startup .section {
+.page.startup-view #startup .section {
   display: block;
   margin: 0 0 40px 0;
 }
-.page.startup-view #startup .startup .section .title {
+.page.startup-view #startup .section .title {
   display: block;
   font-family: 'atc', sans-serif;
   font-size: 28px;
   font-weight: 700;
   color: #081433;
 }
-.page.startup-view #startup .startup .section p {
+.page.startup-view #startup .section p {
   margin: 20px 0;
 }
 .page.startup-view .section-title {
@@ -408,6 +319,12 @@
   line-height: 50px;
   font-weight: 700;
   color: #081433;
+}
+.page.startup-view .generic {
+  padding: 40px 0;
+}
+.page.startup-view .cycle-slider-media {
+  margin: 50px 0 0 0;
 }
 .page.startup-view .sidebar-wall .media {
   padding: 20px 0;
@@ -461,6 +378,89 @@
 .page.startup-view .sidebar-wall .media .contact:hover {
   color: #ff6500;
   text-decoration: none;
+}
+.page.startup-view .sip-note {
+  background: #0547fd;
+  padding: 80px 0;
+  text-align: center;
+}
+.page.startup-view .sip-note .note {
+  display: block;
+  margin: 30px 0;
+  font-family: 'atc', sans-serif;
+  font-size: 78px;
+  font-weight: 700;
+  color: #fafdd4;
+}
+.page.startup-view .sip-note .evaluation {
+  color: #FFFFFF;
+  margin: 0 auto;
+  max-width: 640px;
+}
+.page.startup-view .related {
+  padding: 80px 0;
+  text-align: center;
+}
+.page.startup-view .related .title {
+  display: block;
+  margin: 0 0 70px 0;
+  font-family: 'atc', sans-serif;
+  font-size: 54px;
+  font-weight: 700;
+  color: #081433;
+}
+.page.startup-view .related .startup {
+  text-align: left;
+  border: none !important;
+}
+.page.startup-view .related .startup .card-img-top {
+  border-radius: 0;
+}
+.page.startup-view .related .startup .card-img-top img {
+  height: 200px;
+}
+.page.startup-view .related .startup .card-block {
+  padding: 15px 0;
+}
+.page.startup-view .related .startup .card-block .card-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+.page.startup-view .related .startup .card-block .card-text {
+  height: 36px !important;
+  font-size: 12px !important;
+}
+.page.startup-view .related .startup .card-block .card-link {
+  font-size: 12px;
+  color: #0031f7;
+}
+.page.startup-view .related .startup .card-block .button-wrapper {
+  display: block;
+  margin: 10px 0 0 0;
+}
+.page.startup-view .related .startup .card-block .button-wrapper .btn {
+  text-transform: uppercase;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.page.startup-view .know-startup {
+  background: #ff6500;
+  padding: 130px 0;
+  text-align: center;
+}
+.page.startup-view .know-startup .title {
+  display: block;
+  margin: 0 0 30px 0;
+  font-family: 'atc', sans-serif;
+  font-size: 54px;
+  font-weight: 700;
+  color: #fafdd4;
+}
+.page.startup-view .know-startup .btn {
+  padding: auto 30px;
+  font-size: 18px;
+  background: #fafdd4;
+  color: #ff6500;
 }
 /*
  * Edit

@@ -112,8 +112,41 @@ html, body {
       padding: 38px 0 38px 10px;
     }
 
-    li a {
-      padding: 27px 10px;
+    li {
+      a {
+        cursor: pointer;
+        padding: 27px 10px;
+      }
+
+      .dropdown-menu {
+        min-width: 100px;
+        margin: -1px 0 0 0;
+        border: 1px solid #EAEAEA;
+
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+
+        -webkit-box-shadow: 0 0 0 0 !important;
+        -moz-box-shadow: 0 0 0 0 !important;
+        box-shadow: 0 0 0 0 !important;
+
+        li {
+          min-width: 0;
+
+          a {
+            width: 100%;
+            height: auto;
+            padding: 10px 0;
+
+            color: #333333;
+
+            &:hover {
+              color: #ffffff;
+            }
+          }
+        }
+      }
     }
   }
 }

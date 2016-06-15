@@ -87,12 +87,21 @@
                            placeholder="Rechercher une start-up"/>
                 </form>
             </li>
-            <li class="border has-icon">
-                <a href="#/user/profile" fadeOut>
+            <li class="dropdown border has-icon">
+                <a id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" fadeOut>
                     <img class="icon" alt="" src="/images/icons/user.png"/>
 
                     Mon profil
                 </a>
+
+                <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                    <li>
+                        <a href="#/user/profile">Mon profil</a>
+                    </li>
+                    <li>
+                        <a ng-click="logout()" ng-controller="RegisterCtrl">Déconnexion</a>
+                    </li>
+                </ul>
             </li>
             <li class="border has-icon">
                 <a href="#/" fadeOut>

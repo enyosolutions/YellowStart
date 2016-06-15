@@ -240,6 +240,18 @@
           color: #FFFFFF;
           font-size: 48px;
         }
+        
+        .text-lock {
+          position: relative;
+
+          span {
+            text-align: center;
+            position: absolute;
+
+            display: block;
+            overflow: hidden;
+          }
+        }
 
         &:hover {
           text-decoration: none;
@@ -306,132 +318,17 @@
    * Tab: Resume
    */
   #resume {
-    // pitch
-    .pitch {
-      padding: 40px 0;
-
-      .intro {
-        font-size: 30px;
-        font-weight: lighter;
-      }
-
-      .description {
-        margin: 40px 0;
-      }
-
-      .link {
-        text-decoration: underline;
-      }
-
-      // slider
-      .cycle-slider-media {
-        margin: 50px 0 0 0;
-      }
+    .intro {
+      font-size: 30px;
+      font-weight: lighter;
     }
 
-    // sip-note
-    .sip-note {
-      background: #0547fd;
-      padding: 80px 0;
-      text-align: center;
-
-      .note {
-        display: block;
-        margin: 30px 0;
-
-        font-family: 'atc', sans-serif;
-        font-size: 78px;
-        font-weight: 700;
-        color: #fafdd4;
-      }
-
-      .evaluation {
-        color: #FFFFFF;
-
-        margin: 0 auto;
-        max-width: 640px;
-      }
+    .description {
+      margin: 40px 0;
     }
 
-    // related
-    .related {
-      padding: 80px 0;
-      text-align: center;
-
-      .title {
-        display: block;
-        margin: 0 0 70px 0;
-
-        font-family: 'atc', sans-serif;
-        font-size: 54px;
-        font-weight: 700;
-        color: #081433;
-      }
-
-      .startup {
-        text-align: left;
-        border: none !important;
-
-        .card-img-top {
-          border-radius: 0;
-
-          img {
-            height: 200px;
-          }
-        }
-
-        .card-block {
-          padding: 15px 0;
-
-          .card-title {
-            font-size: 20px;
-            font-weight: 500;
-          }
-          .card-text {
-            height: 36px !important;
-            font-size: 12px !important;
-          }
-          .card-link {
-            font-size: 12px;
-            color: #0031f7;
-          }
-          .button-wrapper {
-            display: block;
-            margin: 10px 0 0 0;
-
-            .btn {
-              text-transform: uppercase;
-              padding-left: 20px;
-              padding-right: 20px;
-            }
-          }
-        }
-      }
-    }
-
-    // know-startup
-    .know-startup {
-      background: #ff6500;
-      padding: 130px 0;
-      text-align: center;
-
-      .title {
-        display: block;
-        margin: 0 0 30px 0;
-
-        font-family: 'atc', sans-serif;
-        font-size: 54px;
-        font-weight: 700;
-        color: #fafdd4;
-      }
-
-      .btn {
-        padding: auto 30px;
-        font-size: 18px;
-
-        background: #fafdd4;
-        color: #ff6500;
-      }
+    .link {
+      text-decoration: underline;
     }
   }
 
@@ -439,26 +336,21 @@
    * Tab: Product
    */
   #product {
-    // pitch
-    .product {
-      padding: 40px 0;
+    .section {
+      display: block;
+      margin: 0 0 40px 0;
 
-      .section {
+      .title {
         display: block;
-        margin: 0 0 40px 0;
 
-        .title {
-          display: block;
+        font-family: 'atc', sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: #081433;
+      }
 
-          font-family: 'atc', sans-serif;
-          font-size: 28px;
-          font-weight: 700;
-          color: #081433;
-        }
-
-        p {
-          margin: 20px 0;
-        }
+      p {
+        margin: 20px 0;
       }
     }
   }
@@ -467,26 +359,21 @@
    * Tab: Market
    */
   #market {
-    // market
-    .market {
-      padding: 40px 0;
+    .section {
+      display: block;
+      margin: 0 0 40px 0;
 
-      .section {
+      .title {
         display: block;
-        margin: 0 0 40px 0;
 
-        .title {
-          display: block;
+        font-family: 'atc', sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: #081433;
+      }
 
-          font-family: 'atc', sans-serif;
-          font-size: 28px;
-          font-weight: 700;
-          color: #081433;
-        }
-
-        p {
-          margin: 20px 0;
-        }
+      p {
+        margin: 20px 0;
       }
     }
   }
@@ -495,26 +382,21 @@
    * Tab: Startup
    */
   #startup {
-    // market
-    .startup {
-      padding: 40px 0;
+    .section {
+      display: block;
+      margin: 0 0 40px 0;
 
-      .section {
+      .title {
         display: block;
-        margin: 0 0 40px 0;
 
-        .title {
-          display: block;
+        font-family: 'atc', sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: #081433;
+      }
 
-          font-family: 'atc', sans-serif;
-          font-size: 28px;
-          font-weight: 700;
-          color: #081433;
-        }
-
-        p {
-          margin: 20px 0;
-        }
+      p {
+        margin: 20px 0;
       }
     }
   }
@@ -533,6 +415,17 @@
     color: #081433;
   }
 
+  // generic
+  .generic {
+    padding: 40px 0;
+  }
+
+  // slider
+  .cycle-slider-media {
+    margin: 50px 0 0 0;
+  }
+
+  // wall
   .sidebar-wall {
     .media {
       &:first-child {
@@ -595,6 +488,111 @@
           text-decoration: none;
         }
       }
+    }
+  }
+
+  // sip-note
+  .sip-note {
+    background: #0547fd;
+    padding: 80px 0;
+    text-align: center;
+
+    .note {
+      display: block;
+      margin: 30px 0;
+
+      font-family: 'atc', sans-serif;
+      font-size: 78px;
+      font-weight: 700;
+      color: #fafdd4;
+    }
+
+    .evaluation {
+      color: #FFFFFF;
+
+      margin: 0 auto;
+      max-width: 640px;
+    }
+  }
+
+  // related
+  .related {
+    padding: 80px 0;
+    text-align: center;
+
+    .title {
+      display: block;
+      margin: 0 0 70px 0;
+
+      font-family: 'atc', sans-serif;
+      font-size: 54px;
+      font-weight: 700;
+      color: #081433;
+    }
+
+    .startup {
+      text-align: left;
+      border: none !important;
+
+      .card-img-top {
+        border-radius: 0;
+
+        img {
+          height: 200px;
+        }
+      }
+
+      .card-block {
+        padding: 15px 0;
+
+        .card-title {
+          font-size: 20px;
+          font-weight: 500;
+        }
+        .card-text {
+          height: 36px !important;
+          font-size: 12px !important;
+        }
+        .card-link {
+          font-size: 12px;
+          color: #0031f7;
+        }
+        .button-wrapper {
+          display: block;
+          margin: 10px 0 0 0;
+
+          .btn {
+            text-transform: uppercase;
+            padding-left: 20px;
+            padding-right: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  // know-startup
+  .know-startup {
+    background: #ff6500;
+    padding: 130px 0;
+    text-align: center;
+
+    .title {
+      display: block;
+      margin: 0 0 30px 0;
+
+      font-family: 'atc', sans-serif;
+      font-size: 54px;
+      font-weight: 700;
+      color: #fafdd4;
+    }
+
+    .btn {
+      padding: auto 30px;
+      font-size: 18px;
+
+      background: #fafdd4;
+      color: #ff6500;
     }
   }
 }
