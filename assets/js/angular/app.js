@@ -21,7 +21,8 @@ angular
         'xeditable',
         'ngBootbox',
         'ngDropzone',
-        'selectize'
+        'selectize',
+        'datePicker'
     ])
     .constant('CONFIG', {baseUrl: 'http://192.168.12.14:8080', apiUrl: 'http://192.168.12.14:8080/api'}).
     run(function (editableOptions, $state, $rootScope, Auth, $localstorage) {

@@ -8,7 +8,7 @@
  * Controller of the startApp
  */
 angular.module('start.controllers')
-    .controller('EditStartupCtrl', function ($scope, $stateParams, $location, $localstorage, $timeout, $ngBootbox, $log, Startup, StartupContact, Tag, Crawler) {
+    .controller('EditStartupCtrl', function ($scope, $stateParams, $location, $localstorage, $timeout, $ngBootbox, $log, Startup, StartupContact, Utils, Tag, Crawler) {
         $scope.pageClass = 'edit-page';
         $scope.startup = {};
         $scope.startupContacts = []; // LIST OF CONTACT OF THE STARTUP
@@ -64,7 +64,7 @@ angular.module('start.controllers')
                 maxFileSize: 10,
                 dictDefaultMessage: "Glissez une image pour l'ajouter",
                 acceptedFiles: 'image/*',
-                headers: { 'Authorization':  'Bearer ' + $localstorage.get('auth_token') }
+                headers: {'Authorization': 'Bearer ' + $localstorage.get('auth_token')}
             }
         };
         $scope.filesZone = {
@@ -86,23 +86,23 @@ angular.module('start.controllers')
                 acceptedFiles: 'image/*,application/pdf,.ppt,.pptx,.doc,.docx,.xls,.xlsx,.zip',
                 addRemoveLinks: true,
                 maxFiles: 5,
-                headers: { 'Authorization':  'Bearer ' + $localstorage.get('auth_token') },
+                headers: {'Authorization': 'Bearer ' + $localstorage.get('auth_token')},
                 init: function () {
                     console.log('initializing dropzone');
                     var thisDropzone = this;
                     console.log($scope.startup);
                     if ($scope.startup._id) {
-                        $timeout(function(){
-                        for (var i in $scope.startup.documents) {
-                            var value = $scope.startup.documents[i];
-                            var mockFile = {name: value.name, size: value.size};
-                            thisDropzone.options.addedfile.call(thisDropzone, mockFile);
+                        $timeout(function () {
+                            for (var i in $scope.startup.documents) {
+                                var value = $scope.startup.documents[i];
+                                var mockFile = {name: value.name, size: value.size};
+                                thisDropzone.options.addedfile.call(thisDropzone, mockFile);
 
-                            if (value.file) {
-                                thisDropzone.options.thumbnail.call(thisDropzone, mockFile, value.file);
+                                if (value.file) {
+                                    thisDropzone.options.thumbnail.call(thisDropzone, mockFile, value.file);
+                                }
                             }
-                        }
-                        },1000);
+                        }, 1000);
                     }
                 }
             }
@@ -141,7 +141,7 @@ angular.module('start.controllers')
             }
             else {
                 $scope.startup.$update();
-                $localstorage.setObject('startupDraft', {_id: data._id, name: $scope.startup.startupName});
+                $localstorage.setObject('startupDraft', {_id: $scope.startup._id, name: $scope.startup.startupName});
             }
 
         };
@@ -161,29 +161,39 @@ angular.module('start.controllers')
                 if (url.indexOf('http://') === -1 && url.indexOf('https://') === -1) {
                     url = 'http://' + url;
                 }
-                Crawler.meta({url: url}).$promise.then(function (meta) {
-
-                    console.log($scope.startup);
-                    if (!$scope.startup.projectTweet || $scope.startup.projectTweet.length < 1) {
-                        $scope.startup.projectTweet = meta.result.summary;
-                    }
-
-                    if (!$scope.startup.tagline || $scope.startup.tagline.length < 1) {
-                        $scope.startup.tagline = meta.result.title;
-                    }
-
-                    if (!$scope.startup.picture || $scope.startup.picture.length < 1) {
-                        if (meta.result.image) {
-                            var img = meta.result.image;
-                            if (img.indexOf('http') === -1) {
-                                img = meta.links.base + '/' + img;
+                if (Utils.validateUrl(url)) {
+                    try {
+                        Crawler.meta({url: url}).$promise.then(function (meta) {
+                            console.log(meta);
+                            if (!$scope.startup.projectTweet || $scope.startup.projectTweet.length < 1) {
+                                $scope.startup.projectTweet = meta.result.summary;
                             }
-                        }
-                        $scope.startup.picture = img;
+
+                            if (!$scope.startup.tagline || $scope.startup.tagline.length < 1) {
+                                $scope.startup.tagline = meta.result.title;
+                            }
+
+                            if (!$scope.startup.picture || $scope.startup.picture.length < 1) {
+                                if (meta.result.image) {
+                                    var img = meta.result.image;
+                                    if (img.indexOf('http') === -1) {
+                                        img = meta.links.base + '/' + img;
+                                    }
+                                }
+                                //  $scope.startup.picture = img;
+                            }
+                            $scope.isAutocompleting = false;
+                            $scope.saveStartup($scope.startup.websiteUrl);
+                        }).error(function (err) {
+                                $scope.isAutocompleting = false;
+                            }
+                        );
                     }
-                    $scope.isAutocompleting = false;
-                    $scope.saveStartup($scope.startup.websiteUrl);
-                });
+                    catch (e) {
+                        console.log(e);
+                        $scope.isAutocompleting = false;
+                    }
+                }
             }
         };
 
@@ -203,5 +213,23 @@ angular.module('start.controllers')
             var c = $scope.startupContacts.splice(id, 1);
             StartupContact.delete({_id: c[0]._id});
         }
+
+        $scope.addMember = function () {
+            console.log('adding member');
+            // if($scope.newContact._id && $scope.newContact._id !== ''){}
+            if (!$scope.startup.members) {
+                $scope.startup.members = [];
+            }
+            $scope.startup.members.push($scope.newMember);
+            $scope.newMember = {};
+            $scope.startup.$update();
+        };
+
+
+        $scope.deleteMember = function (id) {
+            var c = $scope.startup.members.splice(id, 1);
+            $scope.startup.$update();
+        }
+
     })
 ;

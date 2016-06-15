@@ -102,7 +102,7 @@ angular.module('start.services')
 
     })
     .factory('Crawler', function ($resource, CONFIG) {
-        return $resource(CONFIG.apiUrl + '/curd/crawler/:action', {action:''},
+        return $resource(CONFIG.apiUrl + '/crawler/:action', {action:''},
             {
                 "meta": {isArray: false, cancellable: false, method: "GET", params:{action:'meta'}, transformResponse: transformGet},
                 "google": {isArray: false, cancellable: false, method: "GET", params:{action:'google'}, transformResponse: transformGet}
