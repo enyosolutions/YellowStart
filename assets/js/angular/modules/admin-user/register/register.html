@@ -1,0 +1,86 @@
+<section class="splash">
+    <div class="container">
+
+        <div class="row">
+            <!-- left -->
+            <div class="left col-md-6">
+                <h1 class="title">
+                    PAS ENCORE <br /> INSCRIT ?
+                </h1>
+
+                <p>
+                    Accédez à la base de données communes des startups rencontrées par la Poste.
+                </p>
+            </div>
+
+            <!-- right -->
+            <div class="right col-md-6">
+                <form name="form" ng-submit="register()" role="form">
+                    <div class="form-group col-xs-6"
+                         ng-class="{ 'has-error': form.lastname.$dirty && form.lastname.$error.required }">
+                        <label for="lastname">Nom</label>
+                        <input type="text" name="lastname" id="Text1" class="form-control" ng-model="user.lastname"
+                               required/>
+                        <span ng-show="form.lastname.$dirty && form.lastname.$error.required" class="help-block">Last name is required</span>
+                    </div>
+
+                    <div class="form-group col-xs-6"
+                         ng-class="{ 'has-error': form.firstname.$dirty && form.firstname.$error.required }">
+                        <label for="firstname">Prénom</label>
+                        <input type="text" name="firstname" id="firstname" class="form-control"
+                               ng-model="user.firstname"
+                               required/>
+                        <span ng-show="form.firstname.$dirty && form.firstname.$error.required"
+                        class="help-block">Obligatoire</span>
+                    </div>
+
+                    <div class="form-group col-xs-12"
+                         ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+                        <label for="email">Adresse e-mail</label>
+                        <input type="text" name="email" id="email" class="form-control" ng-model="user.email"
+                               required/>
+                        <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">L'adresse email est obligatoire</span>
+                    </div>
+                    <div class="form-group  col-xs-12"
+                         ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+                        <label for="branche">Branche</label>
+                        <input type="text" name="branche" id="branche" class="form-control" ng-model="user.branch"
+                               required/>
+                        <span ng-show="form.branch.$dirty && form.branch.$error.required" class="help-block"></span>
+                    </div>
+                    <div class="form-group  col-xs-12"
+                         ng-class="{ 'has-error': form.company.$dirty && form.company.$error.required }">
+                        <label for="email">Société</label>
+                        <input type="text" name="company" id="company" class="form-control" ng-model="user.company"
+                               required/>
+                        <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">L'adresse email est obligatoire</span>
+                    </div>
+                    <div class="form-group  col-xs-12"
+                         ng-class="{ 'has-error': form.company.$dirty && form.company.$error.required }">
+                        <label for="email">Fonction</label>
+                        <input type="text" name="function" id="function" class="form-control" ng-model="user.function"
+                               required/>
+                        <span ng-show="form.function.$dirty && form.function.$error.required" class="help-block">L'adresse email est obligatoire</span>
+                    </div>
+                    <div class="form-group  col-xs-12"
+                         ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" name="password" id="password" class="form-control"
+                               ng-model="user.password"
+                               required/>
+                        <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Le mot de passe est obligatoire</span>
+                    </div>
+
+                    <div class="form-group form-actions col-xs-12">
+                        <img ng-if="dataLoading"
+                             src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+                        <button type="submit" ng-disabled="form.$invalid || dataLoading" class="btn btn-primary">
+                            Créer mon compte
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>

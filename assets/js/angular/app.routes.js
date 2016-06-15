@@ -38,7 +38,7 @@ angular
                 data: {access: "USER" }
             })
             .state('startup-list', {
-                url: '/startup?:search:tag',
+                url: '/startup?:search:tag:page',
                 templateUrl: '/js/angular/modules/startup/list/list.html',
                 controller: 'ListStartupCtrl',
                 data: {access: "USER" }
@@ -49,6 +49,10 @@ angular
             })
             .state('user-profile', {url: '/user/profile', templateUrl: '/js/angular/modules/user/profile/profile.html',
                 controller: 'ProfileCtrl',
+                data: {access: "USER" }
+            })
+            .state('admin-list', {url: '/admin/user', templateUrl: '/js/angular/modules/admin-user/list/list.html',
+                controller: 'AdminUserListCtrl',
                 data: {access: "USER" }
             })
         ;

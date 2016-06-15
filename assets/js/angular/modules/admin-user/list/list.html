@@ -16,10 +16,9 @@
 
                     <ul class="dropdown-menu" aria-labelledby="sort">
                         <li>
-                            <a ng-click="sortByName()">Nom</a>
-                            <a ng-click="sortByCreatedDate()">Date de création</a>
-                            <a ng-click="sortByCreatedDate()">Les plus vues</a>
-                            <a ng-click="sortByBookmarks()">Les plus bookmarkées</a>
+                            <a href="#">
+                                Dummy
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -29,33 +28,37 @@
         <!-- results -->
         <div class="results">
             <div class="container">
-                <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="startup in searchedStartups">
-                    <!-- startup -->
-                    <div class="startup card fixed-card">
-                        <div class="card-img-top">
-                            <a href="#/startup/{{ startup._id }}/view">
-                                <img src="{{ startup.picture }}" alt="{{ startup.startupName }}">
-                            </a>
-                        </div>
-                        <div class="card-block">
-                            <h4 class="card-title">{{ startup.startupName }}</h4>
-
-                            <p class="card-text">
-                                {{ startup.tagline }}
-                            </p>
-
-                            <a href="#/startup?tag={{ tag }}" class="card-link text-info" ng-repeat="tag in startup.tags">
-                                #{{tag }}
-                            </a>
-
-                            <div class="button-wrapper">
-                                <a class="btn btn-primary-outline" href="#/startup/{{ startup._id }}/view">
-                                    Voir la fiche
-                                </a>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="user in users">
+                        <td>{{ user.firstname }} </td>
+                        <td>{{ user.lastname }} </td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.isActive ? 'Activé' : 'Non activé' }}</td>
+                        <td>{{ user.roles }}</td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-info btn-xs" ng-click="EditUser(user._id)"> ACTIVATE </button>
+                                <button class="btn btn-primary btn-xs" ng-click="EditUser(user._id)"> EDIT </button>
+                                <button class="btn btn-danger btn-xs" ng-click="EditUser(user._id)"> DELETE </button>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+
             </div>
         </div>
 

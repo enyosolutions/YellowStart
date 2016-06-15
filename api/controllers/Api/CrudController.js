@@ -45,7 +45,8 @@ module.exports = {
         console.log(data, req.param('endpoint'));
         Monk.get(req.param('endpoint')).insert(data)
             .on('success', function (d) {
-                resp.json({body:d })
+                resp.json({body:d });
+                Monk.get('access-logs').insert({itemId: req.param('id'), itemCollection: req.param('endpoint'), action: 'create'});
             })
             .on("error", function (err,err2) {
                 console.log(err, err2);
@@ -63,6 +64,7 @@ module.exports = {
                         .on('success', function (d) {
                             data.statusCode = 200;
                             resp.json(data.statusCode, {body: data});
+                            Monk.get('access-logs').insert({itemId: req.param('id'), itemCollection: req.param('endpoint'), action: 'update'});
                         }).
                         on("error", function (err) {
                             resp.json(500, {error: err});

@@ -31,6 +31,10 @@ angular
         var user = $localstorage.getObject('currentUser');
         if (user) {
             $rootScope.globals.user = user;
+            Auth.refresh().success(function(response){
+                console.log(response);
+                $rootScope.globals.user = response.user;
+            });
         }
 
         $.ajaxSetup({

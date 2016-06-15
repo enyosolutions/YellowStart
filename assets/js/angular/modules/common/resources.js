@@ -82,7 +82,17 @@ angular.module('start.services')
 
     })
     .factory('User', function ($resource, CONFIG) {
-        return $resource(CONFIG.apiUrl + '/api/user/:_id', {_id: '@_id'},
+        return $resource(CONFIG.apiUrl + '/crud/user/:_id', {_id: '@_id'},
+            {
+                "update": {isArray: false, method: "PUT", transformResponse: transformGet},
+                "save": {isArray: false, cancellable: false, method: "POST", transformResponse: transformGet},
+                "query": {isArray: true,  method: "GET", transformResponse: transformGet},
+                "get": {isArray: false, cancellable: false, method: "GET", transformResponse: transformGet}
+            })
+
+    })
+    .factory('AdminUser', function ($resource, CONFIG) {
+        return $resource(CONFIG.apiUrl + '/crud/user/:_id', {_id: '@_id'},
             {
                 "update": {isArray: false, method: "PUT", transformResponse: transformGet},
                 "save": {isArray: false, cancellable: false, method: "POST", transformResponse: transformGet},
@@ -92,7 +102,7 @@ angular.module('start.services')
 
     })
     .factory('Crawler', function ($resource, CONFIG) {
-        return $resource(CONFIG.apiUrl + '/crawler/:action', {action:''},
+        return $resource(CONFIG.apiUrl + '/curd/crawler/:action', {action:''},
             {
                 "meta": {isArray: false, cancellable: false, method: "GET", params:{action:'meta'}, transformResponse: transformGet},
                 "google": {isArray: false, cancellable: false, method: "GET", params:{action:'google'}, transformResponse: transformGet}

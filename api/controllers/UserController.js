@@ -28,8 +28,6 @@ module.exports = {
                 if (user) {
                     // NOTE: payload is { id: user.id}
                     var token = jwToken.issue({id: user.id});
-                    user.token = token;
-                    User.update(user.id, token);
                     res.json(200, {user: user, token: jwToken.issue({id: token})});
                 }
             });

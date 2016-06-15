@@ -19,7 +19,8 @@
         return service;
 
         function GetAll() {
-            return $http.get('/api/user').then(handleSuccess, handleError('Error getting all users'));
+            console.log("list all");
+            return $http.get('/api/crud/user').then(handleSuccess, handleError('Error getting all users'));
         }
 
         function GetById(id) {
