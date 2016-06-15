@@ -9,7 +9,7 @@
  */
 angular.module('start.controllers')
     .controller('ViewStartupCtrl', function ($scope, $rootScope, $stateParams, Startup, StartupComment, UserService) {
-        $scope.pageClass = 'view-page';
+        $scope.pageClass = 'startup-view';
 
         if ($stateParams._id) {
             $scope.startup = new Startup({_id:$stateParams._id});

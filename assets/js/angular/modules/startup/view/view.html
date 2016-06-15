@@ -1,33 +1,33 @@
-<section class="splash medium container-fluid" xmlns="http://www.w3.org/1999/html">
+<section class="splash medium">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <div>
+                <img class="logo" ng-src="{{ startup.picture}}" />
 
+                <h1 class="title">
+                    {{ startup.startupName}}
+                </h1>
+
+                <h2 class="subtitle">
+                    {{ startup.tagline }}
+                </h2>
+
+                <ul class="startup-tags">
+                    <li class="tag" ng-repeat="tag in startup.tags">
+                        <a href="#/startup?tag={{ tag }}">#{{ tag }}</a>
+                    </li>
+                </ul>
+
+                <div class="actions">
                     <a class="btn btn-default pull-right" href="#/startup/{{ startup._id || startup.id }}/edit">
                         Editer la fiche
                     </a>
-                </div>
-                <!-- <div><img class="logo" src="assets/img/logo.png"></div> -->
-                <div class="logo text-center col-md-4 col-md-offset-4"  ><img ng-src="{{ startup.picture}}"  width="100%" /></div>
-                <div class="clearfix"></div>
-                <div class="title">{{ startup.startupName}}</div>
-                <h1 class="text-yellow"
-                        >{{ startup.tagline }}</h1>
-                <ul class="startup-tags">
-                    <li class="tag" ng-repeat="tag in startup.tags" ><a href="#/startup?tag={{ tag }}">#{{ tag
-                        }}</a></li>
-                </ul>
 
-
-                <div class="actions-buttons btn-group">
-                    <button class="btn btn-primary-outline" data-target="#commentModal"
-                            data-toggle="modal">
+                    <button class="btn btn-primary-outline" data-target="#commentModal" data-toggle="modal">
                         <i class="fa fa-plus"></i>
                     </button>
-                    <button class="btn btn-primary-outline"
-                            ng-click="bookmarkStartup()"
-                            data-toggle="modal">
+
+                    <button class="btn btn-primary-outline" ng-click="bookmarkStartup()" data-toggle="modal">
                         <i class="fa " ng-class="{'fa-star text-primary': isBookmarked, 'fa-star-o text-info': !isBookmarked}"></i>
                     </button>
                 </div>
@@ -36,270 +36,298 @@
         </div>
     </div>
 
-    </div>
     <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#resume" aria-controls="home" role="tab"
-                                                  data-toggle="tab">Résumé</a></li>
-        <li role="presentation">
-            <a data-target="#startup" aria-controls="marche" role="tab" data-toggle="tab">
-                La start-up</a>
+        <li role="presentation" class="active">
+            <a data-target="#resume" aria-controls="resume" role="tab" data-toggle="tab">
+                Résumé
+            </a>
         </li>
         <li role="presentation">
+            <a data-target="#product" aria-controls="product" role="tab" data-toggle="tab">
+                Le produit
+            </a>
+        </li>
+        <li class="unpadded" role="presentation">
             <a data-target="#marche" aria-controls="marche" role="tab" data-toggle="tab">
-                Marché</a>
+                chiffres clés <br />
+                et Marché
+            </a>
         </li>
         <li role="presentation">
-            <a data-target="#produit" aria-controls="produit" role="tab" data-toggle="tab">
-                Le produit</a>
+            <a data-target="#startup" aria-controls="startup" role="tab" data-toggle="tab">
+                La start-up
+            </a>
         </li>
-        <li role="presentation">
-            <a data-target="#documents" aria-controls="documents" role="tab" data-toggle="tab">
-                Documents</a>
-        </li>
-        <li role="presentation" class="alternate ">
-            <a data-target="#documents" aria-controls="documents" role="tab"
-               data-toggle="tab" class="bg-green">
-                + de start-ups</a>
+        <li role="presentation" class="alternate">
+            <a data-target="#more" aria-controls="more" role="tab" data-toggle="tab" class="bg-green">
+                + de start-ups
+            </a>
         </li>
     </ul>
 </section>
 
-<section id="main" class="container">
-    <div class="row">
-
-
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane fade active in" id="resume">
+<section>
+    <div class="tab-content">
+        <!-- resume -->
+        <div role="tabpanel" class="tab-pane fade active in" id="resume">
+            <!-- pitch-wall -->
+            <div class="container pitch-wall">
                 <div class="row">
                     <div class="col-md-8">
                         <div class="content">
-                            <h2>Le pitch</h2>
+                            <h2 class="title">Le pitch</h2>
 
-                            <p class="intro">{{ startup.projectTweet }}</p>
+                            <p class="intro">
+                                {{ startup.projectTweet }}
+                            </p>
 
                             <p class="description">
                                 {{ startup.offerServices }}
                             </p>
-                            <a href="{{ startup.websiteUrl }}" target="_blank"
-                               class="link">{{ startup.websiteUrl }}</a>
 
-
-                            <div class="col-xs-10 col-xs-offset-1">
-                                <div id="startupDocuments" class="carousel startup-documents slide" data-ride="carousel"
-                                     data-inverval="3000">
-                                    <!-- Wrapper for slides -->
-                                    <div class="carousel-inner" role="listbox">
-                                        <div class="item " ng-class="{active: $index === 0}"
-                                             ng-repeat="document in startup.documents">
-                                            <img ng-src="{{document.file}}"
-                                                 alt="{{document.name}}">
-                                            <h4>{{document.name}}</h4>
-
-                                            <p>{{document.type}}</p>
-                                        </div>
-
-                                    </div>
-
-                                    <!-- Left and right controls -->
-                                <span class="left carousel-control" data-target="#startupDocuments" role="button"
-                                      data-slide="prev">
-                                    <img src="/images/icons/carousel-arrow-left.png" alt="Previous"/>
-                                </span>
-                                <span class="right carousel-control" data-target="#startupDocuments" role="button"
-                                      data-slide="next">
-                                    <img src="/images/icons/carousel-arrow-right.png" alt="Next"/>
-                                </span>
-                                </div>
-                            </div>
+                            <a href="{{ startup.websiteUrl }}" target="_blank" class="link">{{ startup.websiteUrl }}
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-4">
+                        <!-- sidebar -->
                         <div class="sidebar">
-                            <h2>Le wall</h2>
+                            <h2 class="title">Le wall</h2>
 
                             <div class="media" ng-repeat="comment in comments">
                                 <div class="media-left">
                                     <a href="#" class="stack-zone">
-                                        <img class="media-object img-circle"
-                                             src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTRjODMzNjVmOSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NGM4MzM2NWY5Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4="
-                                             alt="">
-                                        <img src="http://placehold.it/32x32/FFBC00?text=BSCC&txtsize=20"
-                                             class="stacked img-circle"/>
+                                        <img class="media-object img-circle" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTRjODMzNjVmOSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NGM4MzM2NWY5Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" alt="">
+                                        <img src="http://placehold.it/32x32/FFBC00?text=BSCC&txtsize=20" class="stacked img-circle"/>
                                     </a>
                                 </div>
+
                                 <div class="media-body meta">
                                     <h4 class="media-heading">{{ comment.userName }}</h4>
-                                    <span class="meta date">{{ comment.createdAt | date: longDate }}</span> {{
-                                    comment.text }}
-                                    <a class="contact btn btn-info btn-primary"
-                                       href="#/user/{{comment.userId}}/profile">Contacter</a>
+                                    <span class="meta date">{{ comment.createdAt | date: longDate }}</span> {{ comment.text }}
+
+                                    J’ai rencontré le fondateur lors d’une
+                                    évènementde la bourse du commerce de Nantes. Il cherche à entrer en contact avec le
+                                    groupe pour étoffer son offre avec les services La Poste.
+
+                                    <a class="contact" href="#/user/{{comment.userId}}/profile">
+                                        <i class="icon-contact"></i>
+                                        Contacter
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <!--
+                        <div class=" slide" data-ride="carousel" data-inverval="3000">
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item " ng-class="{active: $index === 0}"
+                                     ng-repeat="document in startup.documents">
+                                    <img ng-src="{{document.file}}"
+                                         alt="{{document.name}}">
+                                    <h4>{{document.name}}</h4>
+
+                                    <p>{{document.type}}</p>
                                 </div>
                             </div>
 
+                        <span class="left carousel-control" data-target="#startupDocuments" role="button" data-slide="prev">
+                            <img src="/images/icons/carousel-arrow-left.png" alt="Previous"/>
+                        </span>
+                        <span class="right carousel-control" data-target="#startupDocuments" role="button" data-slide="next">
+                            <img src="/images/icons/carousel-arrow-right.png" alt="Next"/>
+                        </span>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
 
+            <!-- sip-note -->
+            <div class="sip-note">
+                <div class="container">
+                    <div class="inner">
+                        <img src="/images/la-note-sip.png" alt=""/>
 
+                        <div class="note">
+                            8/10
+                        </div>
 
+                        <p class="evaluation">
+                            Souscritoo s’attaque à un marché en pleine croissance étant donné la mobilité des foyers
+                            aujourd’hui en France. Son créateur n’en est pas à son coup d’essai (myidealo.com) et profite de son réseau
+                            étendu (ex-ENA).
+                            Si vous cherchez un partenaire administratif, vous pouvez y aller les yeux fermés !
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#" class="stack-zone">
-                                        <img class="media-object img-circle"
-                                             src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTRjODMzNjVmOSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NGM4MzM2NWY5Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4="
-                                             alt="">
-                                        <img src="http://placehold.it/32x32/FFBC00?text=BSCC&txtsize=20"
-                                             class="stacked img-circle pull-right"/>
+            <!-- related -->
+            <div class="related">
+                <div class="container">
+                    <h3 class="title">
+                        Start-ups du même thème
+                    </h3>
+
+                    <div class="inner row">
+                        <div class="col-md-4">
+                            <!-- startup -->
+                            <div class="startup card fixed-card">
+                                <div class="card-img-top">
+                                    <a href="#">
+                                        <img src="http://placehold.it/350x200" alt="">
                                     </a>
                                 </div>
-                                <div class="media-body meta">
-                                    <h4 class="media-heading">Laurent Lipiner</h4>
-                                    <span class="meta date">6 mai 2016</span> J’ai rencontré le fondateur lors d’une
-                                    évènement
-                                    de la bourse du commerce de Nantes. Il cherche à entrer en contact avec le
-                                    groupe
-                                    pour
-                                    étoffer son offre avec les services La Poste.
-                                    <a class="contact btn btn-link btn-primary" href="Contacter"></a>
-                                </div>
+                                <div class="card-block">
+                                    <h4 class="card-title">Startup name</h4>
 
+                                    <p class="card-text">
+                                        100% de chances que vos colis vous attendent désormais en bas de chez vous!
+                                    </p>
+
+                                    <a href="#" class="card-link text-info">
+                                        #tag #tag #tag
+                                    </a>
+
+                                    <div class="button-wrapper">
+                                        <a class="btn btn-primary-outline" href="#">
+                                            Voir la fiche
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <!-- startup -->
+                            <div class="startup card fixed-card">
+                                <div class="card-img-top">
+                                    <a href="#">
+                                        <img src="http://placehold.it/350x200" alt="">
+                                    </a>
+                                </div>
+                                <div class="card-block">
+                                    <h4 class="card-title">Startup name</h4>
+
+                                    <p class="card-text">
+                                        100% de chances que vos colis vous attendent désormais en bas de chez vous!
+                                    </p>
+
+                                    <a href="#" class="card-link text-info">
+                                        #tag #tag #tag
+                                    </a>
+
+                                    <div class="button-wrapper">
+                                        <a class="btn btn-primary-outline" href="#">
+                                            Voir la fiche
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <!-- startup -->
+                            <div class="startup card fixed-card">
+                                <div class="card-img-top">
+                                    <a href="#">
+                                        <img src="http://placehold.it/350x200" alt="">
+                                    </a>
+                                </div>
+                                <div class="card-block">
+                                    <h4 class="card-title">Startup name</h4>
+
+                                    <p class="card-text">
+                                        100% de chances que vos colis vous attendent désormais en bas de chez vous!
+                                    </p>
+
+                                    <a href="#" class="card-link text-info">
+                                        #tag #tag #tag
+                                    </a>
+
+                                    <div class="button-wrapper">
+                                        <a class="btn btn-primary-outline" href="#">
+                                            Voir la fiche
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div role="tabpanel" class="tab-pane fade " id="marche">...</div>
-            <div role="tabpanel" class="tab-pane fade " id="produit">...</div>
-            <div role="tabpanel" class="tab-pane fade " id="documents">...</div>
-        </div>
-    </div>
-</section>
-<section id="sip-note" class="container-fluid">
-    <div class="inner">
-        <img src="/images/la-note-sip.png" alt=""/>
 
-        <div class="note">8/10</div>
-        <p class="evaluation">Souscritoo s’attaque à un marché en pleine croissance étant donné la mobilité des foyers
-            aujourd’hui en France. Son créateur n’en est pas à son coup d’essai (myidealo.com) et profite de son réseau
-            étendu
-            (ex-ENA).
-            Si vous cherchez un partenaire administratif, vous pouvez y aller les yeux fermés !</p>
-    </div>
-</section>
-<section id="map-section" class="row">
-    <div id="startup-map">
-    </div>
-    <div class="address"><img src="/images/infobox.png" alt=""/></div>
-</section>
-</form>
-<section id="more-startups" class="container">
-    <h3>Start-ups du même thème</h3>
+            <!-- know-startup -->
+            <div class="know-startup">
+                <div class="container">
+                    <span class="title">Vous conaissez une start-up ?</span>
 
-    <div class="inner row">
-        <div class="col-md-4">
-            <div class="card">
-                <img class="card-img-top" src="http://placehold.it/350x150" alt="Card image cap">
-
-                <div class="card-block">
-                    <h4 class="card-title">NewCoBox</h4>
-
-                    <p class="card-text">100% de chances que vos colis vous attendent désormais en bas de chez vous!</p>
-                    <a href="#" class="card-link text-info">#home</a>
-                    <a href="#" class="card-link text-info">#service</a>
-                    <a href="#" class="card-link text-info">#administration</a>
-                    <a href="#" class="card-link text-info">#b2c</a>
-                    <br/>
-                    <a href="#/Startup/" class="btn btn-primary-outline">Voir la fiche</a>
+                    <a href="#" class="btn btn-lg">
+                        Soumettre une start-up
+                    </a>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card">
-                <img class="card-img-top" src="http://placehold.it/350x150" alt="Card image cap">
+        <!-- product -->
+        <div role="tabpanel" class="tab-pane fade" id="product">
 
-                <div class="card-block">
-                    <h4 class="card-title">NewCoBox</h4>
-
-                    <p class="card-text">100% de chances que vos colis vous attendent désormais en bas de chez vous!</p>
-                    <a href="#" class="card-link text-info">#home</a>
-                    <a href="#" class="card-link text-info">#service</a>
-                    <a href="#" class="card-link text-info">#administration</a>
-                    <a href="#" class="card-link text-info">#b2c</a>
-                    <br/>
-                    <a href="#" class="btn btn-primary-outline">Voir la fiche</a>
-                </div>
-            </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card">
-                <img class="card-img-top" src="http://placehold.it/350x150" alt="Card image cap">
+        <!-- marche -->
+        <div role="tabpanel" class="tab-pane fade" id="marche">
 
-                <div class="card-block">
-                    <h4 class="card-title">NewCoBox</h4>
+        </div>
 
-                    <p class="card-text">100% de chances que vos colis vous attendent désormais en bas de chez vous!</p>
-                    <a href="#" class="card-link text-info">#home</a>
-                    <a href="#" class="card-link text-info">#service</a>
-                    <a href="#" class="card-link text-info">#administration</a>
-                    <a href="#" class="card-link text-info">#b2c</a>
-                    <br/>
-                    <a href="#" class="btn btn-primary-outline">Voir la fiche</a>
-                </div>
-            </div>
+        <!-- startup -->
+        <div role="tabpanel" class="tab-pane fade" id="startup">
+
+        </div>
+
+        <!-- more -->
+        <div role="tabpanel" class="tab-pane fade" id="more">
+
         </div>
     </div>
+</section>
 
+<div id="commentModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
 
-    <div id="commentModal" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true" class="fa-3x">&times;</span></button>
+                <h4 class="modal-title">Ajouter un commentaire</h4>
+            </div>
+            <div class="modal-body">
+                <form ng-click="saveComment(newCommentText)">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-5">
 
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true" class="fa-3x">&times;</span></button>
-                    <h4 class="modal-title">Ajouter un commentaire</h4>
-                </div>
-                <div class="modal-body">
-                    <form ng-click="saveComment(newCommentText)">
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col-md-5">
-
-                                </div>
-                                <div class="col-md-12">
-                                    <label for="">Votre commentaire</label>
-                                    <textarea class="form-control" ng-model="newCommentText" type="text"
-                                              rows="8à"/></textarea>
-
-                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label>Votre commentaire</label>
+                                <textarea class="form-control" ng-model="newCommentText" type="text" rows="8"/></textarea>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default btn-link" data-dismiss="modal">Annuler</button>
-                            <button type="button" class="btn btn-primary"
-                                    data-dismiss="modal">Créer
-                            </button>
-                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-link" data-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-primary"
+                                data-dismiss="modal">Créer
+                        </button>
+                    </div>
 
-                    </form>
-                </div>
-                <!-- /.modal-content -->
+                </form>
             </div>
-            <!-- /.modal-dialog -->
+            <!-- /.modal-content -->
         </div>
-
-</section>
-
-<script type="text/javascript">
-    var map;
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('startup-map'), {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 8,
-            draggable: false,
-            zoomControl: false,
-            scrollwheel: false
-        });
-    }
-
-</script>
+        <!-- /.modal-dialog -->
+    </div>
+</div>

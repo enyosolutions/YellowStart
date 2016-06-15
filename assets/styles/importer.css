@@ -8138,6 +8138,56 @@ section#map-section .address {
   word-break: break-word;
 }
 /*
+ * Glyphs
+ */
+@font-face {
+  font-family: 'icomoon';
+  src: url('fonts/icomoon.eot?ixjcmn');
+  src: url('fonts/icomoon.eot?ixjcmn#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?ixjcmn') format('truetype'), url('fonts/icomoon.woff?ixjcmn') format('woff'), url('fonts/icomoon.svg?ixjcmn#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-bromance:before {
+  content: "\e900";
+}
+.icon-favotireAdd:before {
+  content: "\e901";
+}
+.icon-favotireCheck:before {
+  content: "\e902";
+}
+.icon-favorite:before {
+  content: "\e903";
+}
+.icon-settings:before {
+  content: "\e904";
+}
+.icon-add:before {
+  content: "\e905";
+}
+.icon-contact:before {
+  content: "\e906";
+}
+.icon-search:before {
+  content: "\e907";
+}
+.icon-account:before {
+  content: "\e908";
+}
+/*
  * Top navigation
  */
 .top-navigation {
@@ -8175,7 +8225,7 @@ section#map-section .address {
  * Page
  */
 .page {
-  padding-top: 75px;
+  padding-top: 100px;
 }
 /*
  * Footer
@@ -8271,7 +8321,8 @@ footer .copyright {
   padding-left: 15px !important;
   padding-right: 15px !important;
 }
-.btn-primary-alternate:hover {
+.btn-primary-alternate:hover,
+.btn-primary-alternate:focus {
   color: #ff6500;
 }
 .btn-alternate {
@@ -8319,6 +8370,7 @@ footer .copyright {
  * Profile
  */
 .page.user-profile .splash {
+  height: auto;
   padding: 0;
   position: relative;
 }
@@ -8330,21 +8382,52 @@ footer .copyright {
   position: absolute;
   left: 0;
   bottom: -65px;
-  overflow: hidden;
   border: 10px solid #FCFCFC;
   -webkit-border-radius: 999px;
   -moz-border-radius: 999px;
   border-radius: 999px;
 }
-.page.user-profile .splash .user .avatar img {
+.page.user-profile .splash .user .avatar img.picture {
   width: 230px;
   height: 230px;
   position: relative;
+  -webkit-border-radius: 999px;
+  -moz-border-radius: 999px;
+  border-radius: 999px;
+}
+.page.user-profile .splash .user .avatar:hover .overlay {
+  visibility: visible;
+}
+.page.user-profile .splash .user .avatar .overlay {
+  visibility: hidden;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding: 110px 0;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  background: rgba(0, 49, 247, 0.7);
+  -webkit-border-radius: 999px;
+  -moz-border-radius: 999px;
+  border-radius: 999px;
+}
+.page.user-profile .splash .user .avatar img.status {
+  display: block;
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  -webkit-border-radius: 999px;
+  -moz-border-radius: 999px;
+  border-radius: 999px;
+  pointer-events: none;
 }
 .page.user-profile .splash .user .data {
   display: block;
   text-align: left;
-  margin: 170px 0 0 280px;
+  margin: 140px 0 30px 280px;
 }
 .page.user-profile .splash .user .data .name {
   font-size: 42px;
@@ -8405,7 +8488,7 @@ footer .copyright {
   padding-right: 20px;
 }
 /*
- * Home
+ * Home &
  * Startup List
  */
 .page.startup-list {
@@ -8532,82 +8615,262 @@ footer .copyright {
 /*
  * View
  */
-.view-page .splash {
-  position: relative;
+.page.startup-view {
+  /*
+   * Splash
+   */
+  /*
+   * Tab: Resume
+   */
 }
-.view-page .splash .startup-tags .tag {
+.page.startup-view .splash {
+  height: auto;
+  position: relative;
+  padding: 50px 0 0 0;
+}
+.page.startup-view .splash .logo {
+  width: 300px;
+}
+.page.startup-view .splash .title {
+  font-size: 48px;
+  font-weight: 800;
+  margin: 30px 0 0 0;
+}
+.page.startup-view .splash .subtitle {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 15px 0 20px 0;
+}
+.page.startup-view .splash .startup-tags .tag {
   display: inline-block;
-  color: #fff;
   list-style-type: none;
   margin-right: 15px;
+  font-size: 18px;
+  color: #ffffff;
 }
-.view-page .splash .startup-tags .tag a {
-  color: #fff;
+.page.startup-view .splash .startup-tags .tag a {
+  color: #ffffff;
 }
-.view-page .splash .nav-tabs {
-  position: absolute;
+.page.startup-view .splash .nav {
   width: 100%;
-  bottom: 0;
+  border: none;
+  margin: 50px 0 0 0;
 }
-.view-page #main {
-  padding-top: 90px;
-  max-width: 934px;
-  position: relative;
+.page.startup-view .splash .nav li {
+  vertical-align: bottom;
+  background: #ff6500;
+  height: 55px;
+  cursor: pointer;
+  margin: 0 10px 0 10px;
+  padding: 0 23px;
 }
-.view-page h2 {
-  font-family: 'atc';
+.page.startup-view .splash .nav li a {
+  height: 55px;
+  background: transparent;
+  color: #ffffff;
+  border: none;
+  border-bottom: 4px solid transparent;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px 5px;
+}
+.page.startup-view .splash .nav li.unpadded a {
+  padding: 8px 5px;
+}
+.page.startup-view .splash .nav li.alternate {
+  background: #87deb0;
+}
+.page.startup-view .splash .nav li:hover {
+  background: #FCFCFC;
+}
+.page.startup-view .splash .nav li:hover a {
+  color: #333333;
+}
+.page.startup-view .splash .nav li.active {
+  background: #FCFCFC;
+}
+.page.startup-view .splash .nav li.active a {
+  color: #333333;
+  border-color: #ff6500;
+}
+.page.startup-view #resume .pitch-wall {
+  padding: 40px 0;
+}
+.page.startup-view #resume .pitch-wall .title {
+  display: block;
+  margin: 0 0 30px 0;
+  font-family: 'atc', sans-serif;
   font-size: 50px;
   font-weight: 700;
   color: #081433;
-  margin-bottom: 38px;
 }
-.view-page .intro {
+.page.startup-view #resume .pitch-wall .intro {
   font-size: 30px;
   font-weight: lighter;
-  margin-bottom: 38px;
 }
-.sidebar .media-heading {
+.page.startup-view #resume .pitch-wall .description {
+  margin: 40px 0;
+}
+.page.startup-view #resume .pitch-wall .link {
+  text-decoration: underline;
+}
+.page.startup-view #resume .pitch-wall .sidebar .media {
+  padding: 20px 0;
+  border-bottom: 1px solid #e3edef;
+}
+.page.startup-view #resume .pitch-wall .sidebar .media:first-child {
+  padding-top: 0;
+}
+.page.startup-view #resume .pitch-wall .sidebar .media:last-child {
+  border-bottom: none;
+}
+.page.startup-view #resume .pitch-wall .sidebar .media .media-heading {
   color: #292B2C;
   line-height: 2;
   font-size: 20px;
   font-weight: bold;
 }
-.sidebar .media-object {
+.page.startup-view #resume .pitch-wall .sidebar .media .media-object {
   margin-right: 20px;
 }
-.sidebar .meta .date {
-  color: #666C6F;
+.page.startup-view #resume .pitch-wall .sidebar .media .meta {
+  font-size: 12px;
+  line-height: 16px;
 }
-.stack-zone {
+.page.startup-view #resume .pitch-wall .sidebar .media .meta .date {
+  color: #666C6F;
+  font-weight: 600;
+}
+.page.startup-view #resume .pitch-wall .sidebar .media .stack-zone {
   position: relative;
   display: block;
 }
-.stack-zone .stacked {
+.page.startup-view #resume .pitch-wall .sidebar .media .stack-zone .stacked {
   position: absolute;
   right: 8px;
   bottom: -12px;
 }
-.carousel .item > * {
+.page.startup-view #resume .pitch-wall .sidebar .media .contact {
+  display: block;
+  margin: 20px 0 0 0;
+  color: #666c6f;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.page.startup-view #resume .pitch-wall .sidebar .media .contact i {
+  font-size: 20px;
+  vertical-align: top;
+}
+.page.startup-view #resume .pitch-wall .sidebar .media .contact:hover {
+  color: #ff6500;
+  text-decoration: none;
+}
+.page.startup-view #resume .pitch-wall .carousel .item > * {
   margin: auto;
 }
-.carousel .carousel-control.left,
-.carousel .carousel-control.right {
+.page.startup-view #resume .pitch-wall .carousel .carousel-control.left,
+.page.startup-view #resume .pitch-wall .carousel .carousel-control.right {
   background: none;
   background-image: none;
 }
-.carousel .carousel-control.left {
+.page.startup-view #resume .pitch-wall .carousel .carousel-control.left {
   left: -15%;
 }
-.carousel .carousel-control.right {
+.page.startup-view #resume .pitch-wall .carousel .carousel-control.right {
   right: -15%;
+}
+.page.startup-view #resume .sip-note {
+  background: #0547fd;
+  padding: 80px 0;
+  text-align: center;
+}
+.page.startup-view #resume .sip-note .note {
+  display: block;
+  margin: 30px 0;
+  font-family: 'atc', sans-serif;
+  font-size: 78px;
+  font-weight: 700;
+  color: #fafdd4;
+}
+.page.startup-view #resume .sip-note .evaluation {
+  color: #FFFFFF;
+  margin: 0 auto;
+  max-width: 640px;
+}
+.page.startup-view #resume .related {
+  padding: 80px 0;
+  text-align: center;
+}
+.page.startup-view #resume .related .title {
+  display: block;
+  margin: 0 0 70px 0;
+  font-family: 'atc', sans-serif;
+  font-size: 54px;
+  font-weight: 700;
+  color: #081433;
+}
+.page.startup-view #resume .related .startup {
+  text-align: left;
+  border: none !important;
+}
+.page.startup-view #resume .related .startup .card-img-top {
+  border-radius: 0;
+}
+.page.startup-view #resume .related .startup .card-img-top img {
+  height: 200px;
+}
+.page.startup-view #resume .related .startup .card-block {
+  padding: 15px 0;
+}
+.page.startup-view #resume .related .startup .card-block .card-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+.page.startup-view #resume .related .startup .card-block .card-text {
+  height: 36px !important;
+  font-size: 12px !important;
+}
+.page.startup-view #resume .related .startup .card-block .card-link {
+  font-size: 12px;
+  color: #0031f7;
+}
+.page.startup-view #resume .related .startup .card-block .button-wrapper {
+  display: block;
+  margin: 10px 0 0 0;
+}
+.page.startup-view #resume .related .startup .card-block .button-wrapper .btn {
+  text-transform: uppercase;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.page.startup-view #resume .know-startup {
+  background: #ff6500;
+  padding: 130px 0;
+  text-align: center;
+}
+.page.startup-view #resume .know-startup .title {
+  display: block;
+  margin: 0 0 30px 0;
+  font-family: 'atc', sans-serif;
+  font-size: 54px;
+  font-weight: 700;
+  color: #fafdd4;
+}
+.page.startup-view #resume .know-startup .btn {
+  padding: auto 30px;
+  font-size: 18px;
+  background: #fafdd4;
+  color: #ff6500;
 }
 /*
  * Edit
  */
-.edit-page .autocomplete-field {
+.page.startup-edit .autocomplete-field {
   position: relative;
 }
-.edit-page .autocomplete-field:after {
+.page.startup-edit .autocomplete-field:after {
   font-family: 'FontAwesome';
   content: '\f110';
   -webkit-animation: fa-spin 2s infinite linear;

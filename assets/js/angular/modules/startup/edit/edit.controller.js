@@ -9,6 +9,7 @@
  */
 angular.module('start.controllers')
     .controller('EditStartupCtrl', function ($scope, $stateParams, $location, $localstorage, $timeout, $ngBootbox, $log, Startup, StartupContact, Utils, Tag, Crawler) {
+        $scope.pageClass = 'startup-edit';
         $scope.pageClass = 'edit-page';
         $scope.startup = {};
         $scope.startupContacts = []; // LIST OF CONTACT OF THE STARTUP
