@@ -602,7 +602,76 @@
 /*
  * Edit
  */
-.page.startup-edit {
+.page.startup-edit,
+.page.edit-page {
+  .nav {
+    width: 100%;
+    border: none;
+    margin: 60px 0 0 0;
+
+    border-bottom: 1px solid #d9d9de;
+
+    li {
+      vertical-align: bottom;
+      cursor: pointer;
+
+      margin: 0 25px;
+
+      a {
+        background: transparent;
+        color: #081433;
+
+        border: none;
+        border-bottom: 4px solid transparent;
+
+        font-size: 14px;
+        font-weight: 500;
+        padding: 15px 5px;
+
+        .step-number {
+          display: block;
+
+          width: 50px;
+          height: 50px;
+
+          margin: 0 auto 15px auto;
+          padding: 5px 0;
+          border: 1px solid #0547fd;
+
+          color: #0547fd;
+          font-size: 24px;
+          font-weight: 600;
+        }
+      }
+
+      &:hover {
+        background: #FCFCFC;
+
+        a {
+          color: #333333;
+
+          .step-number {
+            color: #FFFFFF;
+            background: #0547fd;
+          }
+        }
+      }
+      &.active {
+        background: #FCFCFC;
+
+        a {
+          color: #333333;
+          border-color: #ff6500;
+
+          .step-number {
+            color: #FFFFFF;
+            background: #0547fd;
+          }
+        }
+      }
+    }
+  }
+
   .autocomplete-field {
     position: relative;
     &:after {

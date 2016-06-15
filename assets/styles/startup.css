@@ -465,10 +465,74 @@
 /*
  * Edit
  */
-.page.startup-edit .autocomplete-field {
+.page.startup-edit .nav,
+.page.edit-page .nav {
+  width: 100%;
+  border: none;
+  margin: 60px 0 0 0;
+  border-bottom: 1px solid #d9d9de;
+}
+.page.startup-edit .nav li,
+.page.edit-page .nav li {
+  vertical-align: bottom;
+  cursor: pointer;
+  margin: 0 25px;
+}
+.page.startup-edit .nav li a,
+.page.edit-page .nav li a {
+  background: transparent;
+  color: #081433;
+  border: none;
+  border-bottom: 4px solid transparent;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px 5px;
+}
+.page.startup-edit .nav li a .step-number,
+.page.edit-page .nav li a .step-number {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 15px auto;
+  padding: 5px 0;
+  border: 1px solid #0547fd;
+  color: #0547fd;
+  font-size: 24px;
+  font-weight: 600;
+}
+.page.startup-edit .nav li:hover,
+.page.edit-page .nav li:hover {
+  background: #FCFCFC;
+}
+.page.startup-edit .nav li:hover a,
+.page.edit-page .nav li:hover a {
+  color: #333333;
+}
+.page.startup-edit .nav li:hover a .step-number,
+.page.edit-page .nav li:hover a .step-number {
+  color: #FFFFFF;
+  background: #0547fd;
+}
+.page.startup-edit .nav li.active,
+.page.edit-page .nav li.active {
+  background: #FCFCFC;
+}
+.page.startup-edit .nav li.active a,
+.page.edit-page .nav li.active a {
+  color: #333333;
+  border-color: #ff6500;
+}
+.page.startup-edit .nav li.active a .step-number,
+.page.edit-page .nav li.active a .step-number {
+  color: #FFFFFF;
+  background: #0547fd;
+}
+.page.startup-edit .autocomplete-field,
+.page.edit-page .autocomplete-field {
   position: relative;
 }
-.page.startup-edit .autocomplete-field:after {
+.page.startup-edit .autocomplete-field:after,
+.page.edit-page .autocomplete-field:after {
   font-family: 'FontAwesome';
   content: '\f110';
   -webkit-animation: fa-spin 2s infinite linear;
