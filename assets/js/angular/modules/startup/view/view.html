@@ -29,6 +29,10 @@
                         Contacter
                     </a>
 
+                    <button class="btn btn-link" data-target="#commentModal" data-toggle="modal" class="action">
+                        <i class="fa fa-comment-o"></i>
+                        Commenter
+                    </a>
                 </div>
             </div>
 
@@ -101,12 +105,7 @@
                                 <div class="media-body meta">
                                     <h4 class="media-heading">{{ comment.userName }}</h4>
                                     <span class="meta date">{{ comment.createdAt | date: longDate }}</span> {{ comment.text }}
-
-                                    J’ai rencontré le fondateur lors d’une
-                                    évènementde la bourse du commerce de Nantes. Il cherche à entrer en contact avec le
-                                    groupe pour étoffer son offre avec les services La Poste.
-
-                                    <a class="contact" href="#/user/{{comment.userId}}/profile">
+                                    <a class="contact" href="#/user/{{ comment.userId }}/profile">
                                         <i class="icon-contact"></i>
                                         Contacter
                                     </a>
@@ -148,10 +147,7 @@
                         </div>
 
                         <p class="evaluation">
-                            Souscritoo s’attaque à un marché en pleine croissance étant donné la mobilité des foyers
-                            aujourd’hui en France. Son créateur n’en est pas à son coup d’essai (myidealo.com) et profite de son réseau
-                            étendu (ex-ENA).
-                            Si vous cherchez un partenaire administratif, vous pouvez y aller les yeux fermés !
+                           {{ startup.sipAnalysis }}
                         </p>
                     </div>
                 </div>
@@ -280,14 +276,7 @@
                                         </div>
 
                                         <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Fusce nec mattis mi. Morbi placerat neque metus, in rhoncus
-                                            ex pellentesque elementum. Pellentesque vulputate efficitur
-                                            nulla, eget auctor nisi consectetur sit amet. Aenean sollicitudin
-                                            tellus eu sagittis rutrum. Nunc in purus quis velit pharetra ullamcorper
-                                            at ultrices sapien. Aenean eget neque dictum, porta risus sit amet, sagittis eros.
-                                            Mauris aliquet feugiat lectus quis cursus. Mauris sapien metus, dapibus nec mauris vel,
-                                            faucibus volutpat purus. Aliquam et mi dolor.
+                                           {{ startup.offerDetails }}
                                         </p>
                                     </div>
 
@@ -298,14 +287,7 @@
                                         </div>
 
                                         <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                            Fusce nec mattis mi. Morbi placerat neque metus, in rhoncus
-                                            ex pellentesque elementum. Pellentesque vulputate efficitur
-                                            nulla, eget auctor nisi consectetur sit amet. Aenean sollicitudin
-                                            tellus eu sagittis rutrum. Nunc in purus quis velit pharetra ullamcorper
-                                            at ultrices sapien. Aenean eget neque dictum, porta risus sit amet, sagittis eros.
-                                            Mauris aliquet feugiat lectus quis cursus. Mauris sapien metus, dapibus nec mauris vel,
-                                            faucibus volutpat purus. Aliquam et mi dolor.
+                                            {{ startup.offerBusiness }}
                                         </p>
                                     </div>
 
