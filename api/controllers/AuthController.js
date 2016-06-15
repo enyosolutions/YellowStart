@@ -11,8 +11,6 @@
 module.exports = {
 
     get: function (req, res) {
-
-        console.log("CURRENT TOKEN", req.token);
         User.findOne(req.token.id).exec(function (err, message) {
             if (message) {
                 delete message.password;

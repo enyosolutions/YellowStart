@@ -12,7 +12,6 @@ module.exports = {
         var query = {};
         var options = {$limit: 30};
 
-        console.log(req.query);
         // Query preparation
         if (req.query) {
             if (req.query.query) {
@@ -22,19 +21,20 @@ module.exports = {
             else if (req.query.tag) {
                 var q = req.query.tag;
                 query = {tags: q};
-                console.dir('startup tag', q, JSON.stringify(query, false, null));
+            }
+            else if (req.query.check) {
+                var q = req.query.check;
+                query = {startupName: {$regex: '^'+q, $options: 'i'}};
             }
             else if (req.query.search) {
                 var q = req.query.search;
                 query = {$or: [{startupName: {$regex: q, $options: 'i'}}, {websiteUrl: {$regex: q, $options: 'i'}}, {tags: {$regex: q, $options: 'i'}}]};
-                console.dir('startup search', q, JSON.stringify(query, false, null));
             }
             else if (req.query.ids) {
                 if(!req.query.ids instanceof String){
                     req.query.ids = [req.query.ids];
                 }
                 query = {$or: req.query.ids.map(function(o){return  {_id: o};}) };
-                console.dir('startup search', q, JSON.stringify(query, false, null));
             }
 
             if (req.query.sort) {
@@ -56,19 +56,18 @@ module.exports = {
          resp.json(500, {error: err});
          });
          */
-        console.log(query, options);
         var startupCollection = Monk.get('startup');
         startupCollection.find(query, options).success(function (col) {
             if (col && col.length > 0) {
                 res.json({body: col});
             }
             else {
-                console.log('Startup not found');
-                res.json(404, {error: 'Startup not found'});
+                console.log('No results', query, options);
+                res.json(404, {body: []});
             }
         })
             .error(function(err){
-                console.log('Startup not found',err);
+                console.log('ERROR WHILE SEARCHING',err);
                 res.json(404, {error: 'Startup not found'});
             })
         ;
@@ -126,12 +125,9 @@ module.exports = {
     },
     'deleteFile': function (req, res, next) {
 
-        console.log('upload files');
-
         var id = req.body._id;
         var fileId = req.body.fileId;
-        console.log('startup id', id);
-        console.log('startup id', file);
+
         var startupCollection = Monk.get('startup');
         startupCollection.find({_id: id}).then(function (col) {
             console.log(col);
@@ -182,9 +178,7 @@ module.exports = {
 
 
                     // Save the "fd" and the url where the avatar for a user can be accessed
-                    console.log(uploadedFiles[0]);
                     var filename = uploadedFiles[0].fd.split('/').pop();
-                    console.log(filename);
                     startup.picture = '/data/startup/images/' + filename;
                     startupCollection.update({_id: id}, startup).then(function () {
                         res.json(200, {body: startup.picture});

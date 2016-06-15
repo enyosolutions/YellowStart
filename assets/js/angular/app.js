@@ -25,10 +25,11 @@ angular
         'datePicker'
     ])
     .constant('CONFIG', {baseUrl: 'http://192.168.12.14:8080', apiUrl: 'http://192.168.12.14:8080/api'}).
-    run(function (editableOptions, $state, $rootScope, Auth, $localstorage) {
+    run(function (editableOptions, $state, $rootScope, Auth, $localstorage, $ngBootbox) {
         editableOptions.theme = 'bs3';
         $rootScope.$state = $state;
         $rootScope.globals = {};
+        $ngBootbox.hideAll();
         var user = $localstorage.getObject('currentUser');
         if (user) {
             $rootScope.globals.user = user;
@@ -53,6 +54,11 @@ angular
     config(['$httpProvider', function ($httpProvider) {
         $httpProvider.defaults.withCredentials = true;
     }])
+    .config(function($ngBootboxConfigProvider) {
+        $ngBootboxConfigProvider.addLocale('fr', { OK: 'OK', CANCEL: 'Annuler', CONFIRM: 'Confirmer' });
+        $ngBootboxConfigProvider.setDefaultLocale('fr');
+
+    })
     .config(['$httpProvider', function ($httpProvider) {
         $httpProvider.interceptors.push('AuthInterceptor');
     }]);

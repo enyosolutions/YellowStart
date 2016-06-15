@@ -36,20 +36,19 @@ module.exports.routes = {
     'POST /auth/register': 'UserController.create',
     'POST /auth/login': 'AuthController.login',
     '/auth/user': 'AuthController.get',
-
     'PUT /auth/update/:id': 'UserController.update',
 
-    '/startup/new': {view: 'startup/new'},
+
     'GET /api/crud/startup': 'StartupController.list',
+    '/startup/new': {view: 'startup/new'},
     '/startup/upload-picture': 'StartupController.uploadPicture',
     '/startup/upload-file': 'StartupController.uploadFile',
     '/startup/delete-file': 'StartupController.deleteFile',
-
     'GET /startup/:id/bookmark':  'User/BookmarkController.list',
     'POST /startup/:id/bookmark':  'User/BookmarkController.post',
     'DELETE /startup/:id/bookmark':  'User/BookmarkController.delete',
-
     '/startup/:id': {view: 'startup/view'},
+
 
 
     // 'GET /api/crawler/meta': 'Api/CrawlerController.meta',
@@ -58,9 +57,10 @@ module.exports.routes = {
     'POST /api/crud/:endpoint': 'Api/CrudController.post',
     'PUT /api/crud/:endpoint/:id': 'Api/CrudController.put',
     'PATCH /api/crud/:endpoint/:id': 'Api/CrudController.patch',
-    'DELETE /api/crud/:endpoint/:id': 'Api/CrudController.delete'
+    'DELETE /api/crud/:endpoint/:id': 'Api/CrudController.delete',
 
 
+    '/user/upload-picture': 'UserController.uploadFile'
     /***************************************************************************
      *                                                                          *
      * Custom routes here...                                                    *

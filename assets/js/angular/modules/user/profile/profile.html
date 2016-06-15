@@ -8,7 +8,7 @@
                     Editer ma photo de profil
                 </a>
 
-                <img class="picture" alt="" src="http://dummyimage.com/250x250/cecece/ffffff" />
+                <img class="picture" alt="{{ globals.user.firstname }}" src="{{ globals.user.picture }}" />
                 <img class="status" alt="" src="http://dummyimage.com/80x80/ff6500/ffffff" />
             </div>
 
@@ -16,7 +16,7 @@
             <div class="data">
                 <h1 class="name">{{ globals.user.firstname }} {{ globals.user.lastname }}</h1>
                 <p>
-                    {{ globals.user.function }} {{ globals.user.company }} - {{ globals.user.roles[0] }}
+                    {{ globals.user.role }} {{ globals.user.company }} - {{ globals.user.roles[0] }}
                 </p>
                 <p>
                     {{ globals.user.email }}
@@ -28,11 +28,10 @@
 
             <!-- actions -->
             <div class="actions">
-                <a class="btn btn-alternate">
+                <button class="btn btn-alternate" data-target="#userProfileModal" data-toggle="modal">
                     <i class="fa fa-cog"></i>
-
                     Editer mon profil
-                </a>
+                </button>
             </div>
         </div>
     </div>
@@ -62,7 +61,7 @@
                                 <a ng-click="sortByName()">Nom</a>
                                 <a ng-click="sortByCreatedDate()">Date de création</a>
                                 <a ng-click="sortByCreatedDate()">Les plus vues</a>
-                                <a ng-click="">Les plus bookmarkées</a>
+                                <a ng-click="sortByBookmarks()">Les plus bookmarkées</a>
                             </li>
                         </ul>
                     </div>
@@ -102,5 +101,105 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="userProfileModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true" class="fa-3x">&times;</span></button>
+                    <h4 class="modal-title">Editer mon profil</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group">
+
+                            <div class="col-md-6 col-md-offset-3">
+                                <div class="">
+                                    <label for="">Image de profil</label>
+                                    <sub>Lorem upsum parabelmmu ista blah blah</sub>
+                                </div>
+                                <form class="dropzone"
+                                      method="post"
+                                      enctype="multipart/form-data"
+                                      action="/user/upload-picture"
+                                      ng-dropzone
+                                      dropzone="pictureZone.dropzone"
+                                      dropzone-config="pictureZone.dropzoneConfig"
+                                      event-handlers="{ 'addedfile': pictureZone.addedFile, 'error': pictureZone.error,
+                                       'success': pictureZone.success }">
+                                    <input type="hidden" name="_id" value="{{ startup._id }}"/>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-6"
+                             ng-class="{ 'has-error': form.lastname.$dirty && form.lastname.$error.required }">
+                            <label for="lastname">Nom</label>
+                            <input type="text" name="lastname" id="lastname" class="form-control" ng-model="globals.user.lastname"
+                                   required/>
+                            <span ng-show="form.lastname.$dirty && form.lastname.$error.required" class="help-block">Last name is required</span>
+                        </div>
+
+                        <div class="form-group col-xs-6"
+                             ng-class="{ 'has-error': form.firstname.$dirty && form.firstname.$error.required }">
+                            <label for="firstname">Prénom</label>
+                            <input type="text" name="firstname" id="firstname" class="form-control"
+                                   ng-model="globals.user.firstname"
+                                   required/>
+                        <span ng-show="form.firstname.$dirty && form.firstname.$error.required"
+                              class="help-block">Obligatoire</span>
+                        </div>
+
+                        <div class="form-group col-xs-12"
+                             ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+                            <label for="email">Adresse e-mail</label>
+                            <input type="text" name="email" id="email" class="form-control" ng-model="globals.user.email"
+                                   required/>
+                            <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">L'adresse email est obligatoire</span>
+                        </div>
+                        <div class="form-group  col-xs-12"
+                             ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+                            <label for="branche">Branche</label>
+                            <input type="text" name="branche" id="branche" class="form-control" ng-model="globals.user.branch"
+                                   required/>
+                            <span ng-show="form.branch.$dirty && form.branch.$error.required" class="help-block"></span>
+                        </div>
+                        <div class="form-group  col-xs-12"
+                             ng-class="{ 'has-error': form.company.$dirty && form.company.$error.required }">
+                            <label for="email">Société</label>
+                            <input type="text" name="company" id="company" class="form-control" ng-model="globals.user.company"
+                                   required/>
+                            <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">L'adresse email est obligatoire</span>
+                        </div>
+                        <div class="form-group  col-xs-12"
+                             ng-class="{ 'has-error': form.company.$dirty && form.company.$error.required }">
+                            <label for="email">Fonction</label>
+                            <input type="text" name="role" id="function" class="form-control" ng-model="globals.user.role"
+                                   required/>
+                            <span ng-show="form.role.$dirty && form.role.$error.required" class="help-block">La fonction est obligatoire</span>
+                        </div>
+                        <div class="form-group  col-xs-12"
+                             ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                            <label for="password">Mot de passe</label>
+                            <input type="password" name="password" id="password" class="form-control"
+                                   ng-model="globals.user.password"
+                                   required/>
+                            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Le mot de passe est obligatoire</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-link" data-dismiss="modal">Annuler</button>
+                    <button  class="btn btn-primary" type="button" ng-click="updateProfile()"
+                            data-dismiss="modal">Enregister
+                    </button>
+                </div>
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
     </div>
 </section>

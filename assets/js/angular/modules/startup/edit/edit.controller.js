@@ -8,7 +8,7 @@
  * Controller of the startApp
  */
 angular.module('start.controllers')
-    .controller('EditStartupCtrl', function ($scope, $stateParams, $location, $localstorage, $timeout, $ngBootbox, $log, Startup, StartupContact, Utils, Tag, Crawler) {
+    .controller('EditStartupCtrl', function ($scope, $rootScope, $stateParams, $location, $localstorage, $timeout, $ngBootbox, $compile,  $log, Startup, StartupContact, Utils, Tag, Crawler) {
         $scope.pageClass = 'startup-edit';
         $scope.pageClass = 'edit-page';
         $scope.startup = {};
@@ -61,6 +61,7 @@ angular.module('start.controllers')
             },
             dropzoneConfig: {
                 paramName: "file",
+                maxFiles: 1,
                 parallelUploads: 1,
                 maxFileSize: 10,
                 dictDefaultMessage: "Glissez une image pour l'ajouter",
@@ -68,6 +69,7 @@ angular.module('start.controllers')
                 headers: {'Authorization': 'Bearer ' + $localstorage.get('auth_token')}
             }
         };
+
         $scope.filesZone = {
             addedFile: function (file) {
                 $log.log(file);
@@ -132,9 +134,48 @@ angular.module('start.controllers')
                 });
             }
         }
-        $scope.saveStartup = function () {
+
+
+        //CHECK IF THE STARTUP YOU ARE TRYING TO CREATE DOES NOT ALREADY EXISTS
+        $scope.checkExistingStartup = function (name) {
+            if (!$scope.startup._id) {
+                Startup.query({'search': name}).$promise.then(function (res) {
+                    if (res && res.length > 0) {
+                        var tpl = "Nous avons trouvé des startups qui ressemblent à la startup que vous souhaiter créer. Peut-être souhaitez-vous editer une de ces fiches à la place ? <hr/>"
+                            + res.map(function (e) {
+                                return "<div><h3><a href='#/startup/" + e._id + "/edit'>" + e.startupName +
+                                "<img class='media-object pull-right' style='height: 50px; width: 50px;' src='" + e.picture + "' alt=''>" +
+                                "</a></h3></div>";
+                            }).join('<br/>') + "";
+
+                        $ngBootbox.customDialog({
+                            message: tpl,
+                            title: "Fiches similaires",
+                            buttons: {
+                                success: {
+                                    label: "Fermer",
+                                    className: "btn-primary"
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+            else {
+                $scope.saveStartup();
+            }
+        };
+
+        $scope.openStartup = function(id){
+            console.log('contact'  + id);
+            $location.path('/startup/' + id +'/edit');
+        };
+
+        //SAVE EDITED STARTUP PROGRESS
+        $scope.saveStartup = function (value) {
             if (!$scope.startup._id) {
                 $scope.startup = new Startup($scope.startup);
+                $scope.startup.createdBy = $rootScope.globals.user._id;
                 $scope.startup.status = 'draft';
                 $scope.startup.$save().then(function (data) {
                     $scope.startup._id = data._id;
@@ -142,10 +183,18 @@ angular.module('start.controllers')
             }
             else {
                 $scope.startup.$update();
-                $localstorage.setObject('startupDraft', {_id: $scope.startup._id, name: $scope.startup.startupName});
+                if ($scope.startup.status != 'published') {
+                    $localstorage.setObject('startupDraft', {
+                        _id: $scope.startup._id,
+                        name: $scope.startup.startupName
+                    });
+                }
+
             }
 
         };
+
+        // CHANGE THE STATUS OF THE STARTUP TO PUBLISHED, MAKING IT AVAILABLE TO EVERYONE
         $scope.publishStartup = function () {
             if ($scope.startup._id) {
                 $scope.startup.status = 'published';
@@ -186,10 +235,7 @@ angular.module('start.controllers')
                             }
                             $scope.isAutocompleting = false;
                             $scope.saveStartup($scope.startup.websiteUrl);
-                        }).error(function (err) {
-                                $scope.isAutocompleting = false;
-                            }
-                        );
+                        });
                     }
                     catch (e) {
                         console.log(e);

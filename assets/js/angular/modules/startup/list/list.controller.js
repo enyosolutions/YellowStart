@@ -15,9 +15,6 @@ angular.module('start.controllers')
 
         // global search function
         $scope.search = function (q) {
-            console.log(q);
-            console.log($state.current);
-            console.log($scope.searchedStartups);
             $state.go('startup-list', {search: q});
             return;
         };
