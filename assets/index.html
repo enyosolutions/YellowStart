@@ -32,10 +32,12 @@
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
 
-    <!--STYLES-->
+    <link rel="stylesheet" href="/js/bower_components/angular-xeditable/dist/css/xeditable.min.css">
+    <link rel="stylesheet" href="/js/bower_components/dropzone/downloads/css/dropzone.css">
+    <link rel="stylesheet" href="/js/bower_components/selectize/dist/css/selectize.bootstrap3.css">
+    <link rel="stylesheet" href="/js/bower_components/angular-datepicker/dist/angular-datepicker.min.css">
     <link rel="stylesheet" href="/styles/font-awesome.css">
     <link rel="stylesheet" href="/styles/importer.css">
-    <!--STYLES END-->
 </head>
 
 <body ng-app="startApp" class="<%= locals.page && page.class ? page.class : '' %> {{ $state.current.name }}" id="<%= locals.page && page.id ? page.id : '' %>">
@@ -176,7 +178,8 @@
 <script src="/js/angular.min.js"></script>
 
 
-<!--<script src="/js/dependencies/sails.io.js"></script>-->
+<script src="/js/dependencies/sails.io.js"></script>
+<script src="/js/bower_components/moment/min/moment-with-locales.min.js"></script>
 <script src="/js/bower_components/angular-animate/angular-animate.min.js"></script>
 <script src="/js/bower_components/angular-cookies/angular-cookies.min.js"></script>
 <script src="/js/bower_components/angular-resource/angular-resource.min.js"></script>
@@ -188,6 +191,7 @@
 <script src="/js/bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
 <script src="/js/bower_components/dropzone/downloads/dropzone.min.js"></script>
 <script src="/js/bower_components/angular-dropzone/lib/angular-dropzone.js"></script>
+<script src="/js/bower_components/angular-datepicker/dist/angular-datepicker.min.js"></script>
 <script src="/js/bower_components/jquery.cycle2/index.js"></script>
 
 <script src="/js/bower_components/bootbox/bootbox.js"></script>
@@ -201,18 +205,23 @@
 <script src="/js/angular/app.routes.js"></script>
 
 
+<script src="/js/angular/modules/admin-user/list/list.controller.js"></script>
+
 <script src="/js/angular/modules/startup/view/view.controller.js"></script>
 <script src="/js/angular/modules/startup/edit/edit.controller.js"></script>
 <script src="/js/angular/modules/startup/list/list.controller.js"></script>
 <script src="/js/angular/modules/startup/search/search.controller.js"></script>
+
 <script src="/js/angular/modules/user/login/login.controller.js"></script>
 <script src="/js/angular/modules/user/register/register.controller.js"></script>
 <script src="/js/angular/modules/user/profile/profile.controller.js"></script>
+
 <script src="/js/angular/modules/common/resources.js"></script>
 <script src="/js/angular/modules/common/startup.service.js"></script>
 <script src="/js/angular/modules/common/authentication.service.js"></script>
 <script src="/js/angular/modules/common/authinterceptor.service.js"></script>
 <script src="/js/angular/modules/common/user.service.js"></script>
+<script src="/js/angular/modules/common/utils.service.js"></script>
 
 
 <script src="/js/dependencies/homepage.js"></script>

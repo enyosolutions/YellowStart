@@ -162,6 +162,40 @@
 .page.startup-view .splash .startup-tags .tag a {
   color: #ffffff;
 }
+.page.startup-view .splash .actions {
+  margin: 30px 0 0 0;
+}
+.page.startup-view .splash .actions .action {
+  padding: 30px;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+.page.startup-view .splash .actions .action .circle {
+  display: block;
+  margin: 0 auto 5px auto;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 500;
+  width: 45px;
+  height: 45px;
+  border: 3px solid #ffffff;
+  -webkit-border-radius: 999px;
+  -moz-border-radius: 999px;
+  border-radius: 999px;
+}
+.page.startup-view .splash .actions .action i {
+  display: block;
+  margin: 0 0 5px 0;
+  color: #FFFFFF;
+  font-size: 48px;
+}
+.page.startup-view .splash .actions .action:hover {
+  text-decoration: none;
+}
 .page.startup-view .splash .nav {
   width: 100%;
   border: none;

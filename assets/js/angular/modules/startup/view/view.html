@@ -19,17 +19,16 @@
                 </ul>
 
                 <div class="actions">
-                    <a class="btn btn-default pull-right" href="#/startup/{{ startup._id || startup.id }}/edit">
-                        Editer la fiche
+                    <div ng-click="bookmarkStartup()" class="action">
+                        <i ng-class="{'icon-favoriteAdd text-primary': isBookmarked, 'icon-favorite text-info': !isBookmarked}"></i>
+                        Suivre
+                    </div>
+
+                    <a href="#" class="action">
+                        <i class="icon-contact"></i>
+                        Contacter
                     </a>
 
-                    <button class="btn btn-primary-outline" data-target="#commentModal" data-toggle="modal">
-                        <i class="fa fa-plus"></i>
-                    </button>
-
-                    <button class="btn btn-primary-outline" ng-click="bookmarkStartup()" data-toggle="modal">
-                        <i class="fa " ng-class="{'fa-star text-primary': isBookmarked, 'fa-star-o text-info': !isBookmarked}"></i>
-                    </button>
                 </div>
             </div>
 
