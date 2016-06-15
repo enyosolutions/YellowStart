@@ -7790,6 +7790,56 @@ section#map-section .address {
   word-break: break-word;
 }
 /*
+ * Glyphs
+ */
+@font-face {
+  font-family: 'icomoon';
+  src: url('fonts/icomoon.eot?ixjcmn');
+  src: url('fonts/icomoon.eot?ixjcmn#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?ixjcmn') format('truetype'), url('fonts/icomoon.woff?ixjcmn') format('woff'), url('fonts/icomoon.svg?ixjcmn#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-bromance:before {
+  content: "\e900";
+}
+.icon-favotireAdd:before {
+  content: "\e901";
+}
+.icon-favotireCheck:before {
+  content: "\e902";
+}
+.icon-favorite:before {
+  content: "\e903";
+}
+.icon-settings:before {
+  content: "\e904";
+}
+.icon-add:before {
+  content: "\e905";
+}
+.icon-contact:before {
+  content: "\e906";
+}
+.icon-search:before {
+  content: "\e907";
+}
+.icon-account:before {
+  content: "\e908";
+}
+/*
  * Top navigation
  */
 .top-navigation {
@@ -8088,7 +8138,7 @@ footer .copyright {
   padding-right: 20px;
 }
 /*
- * Home
+ * Home &
  * Startup List
  */
 .page.startup-list {
@@ -8215,36 +8265,63 @@ footer .copyright {
 /*
  * View
  */
-.view-page .splash {
+.page.startup-view .splash {
+  height: auto;
   position: relative;
+  padding-bottom: 0;
 }
-.view-page .splash .startup-tags .tag {
+.page.startup-view .splash .startup-tags .tag {
   display: inline-block;
   color: #fff;
   list-style-type: none;
   margin-right: 15px;
 }
-.view-page .splash .startup-tags .tag a {
+.page.startup-view .splash .startup-tags .tag a {
   color: #fff;
 }
-.view-page .splash .nav-tabs {
-  position: absolute;
+.page.startup-view .splash .nav {
   width: 100%;
-  bottom: 0;
+  border: none;
 }
-.view-page #main {
-  padding-top: 90px;
-  max-width: 934px;
-  position: relative;
+.page.startup-view .splash .nav li {
+  background: #ff6500;
+  padding: 0 23px;
+  cursor: pointer;
+  margin-bottom: 0;
 }
-.view-page h2 {
+.page.startup-view .splash .nav li a {
+  background: transparent;
+  color: #ffffff;
+  border: none;
+  border-bottom: 4px solid transparent;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 5px;
+}
+.page.startup-view .splash .nav li:hover {
+  background: #ffffff;
+}
+.page.startup-view .splash .nav li:hover a {
+  color: #333333;
+}
+.page.startup-view .splash .nav li.active {
+  background: #ffffff;
+}
+.page.startup-view .splash .nav li.active a {
+  color: #333333;
+  border-color: #ff6500;
+}
+.page.startup-view .section {
+  padding: 90px 0;
+}
+.page.startup-view h2 {
   font-family: 'atc';
   font-size: 50px;
   font-weight: 700;
   color: #081433;
   margin-bottom: 38px;
 }
-.view-page .intro {
+.page.startup-view .intro {
   font-size: 30px;
   font-weight: lighter;
   margin-bottom: 38px;
@@ -8287,10 +8364,10 @@ footer .copyright {
 /*
  * Edit
  */
-.edit-page .autocomplete-field {
+.page.startup-edit .autocomplete-field {
   position: relative;
 }
-.edit-page .autocomplete-field:after {
+.page.startup-edit .autocomplete-field:after {
   font-family: 'FontAwesome';
   content: '\f110';
   -webkit-animation: fa-spin 2s infinite linear;

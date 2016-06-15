@@ -9,7 +9,7 @@
  */
 angular.module('start.controllers')
     .controller('EditStartupCtrl', function ($scope, $stateParams, $location, $localstorage, $timeout, $ngBootbox, $log, Startup, StartupContact, Tag, Crawler) {
-        $scope.pageClass = 'edit-page';
+        $scope.pageClass = 'startup-edit';
         $scope.startup = {};
         $scope.startupContacts = []; // LIST OF CONTACT OF THE STARTUP
         $scope.newContact = {}; // NEW CONTACT FOR ADDING AND EDITING FORM

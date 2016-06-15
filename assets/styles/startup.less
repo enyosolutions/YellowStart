@@ -1,5 +1,5 @@
 /*
- * Home
+ * Home &
  * Startup List
  */
 .page.startup-list {
@@ -159,9 +159,13 @@
 /*
  * View
  */
-.view-page {
+.page.startup-view {
+  // splash
   .splash {
+    height: auto;
     position: relative;
+
+    padding-bottom: 0;
 
     .startup-tags {
       .tag {
@@ -175,18 +179,53 @@
         }
       }
     }
-    .nav-tabs {
-      position: absolute;
+
+    .nav {
       width: 100%;
-      bottom: 0;
+      border: none;
+
+      li {
+        background: #ff6500;
+        padding: 0 23px;
+        cursor: pointer;
+
+        margin-bottom: 0;
+
+        a {
+          background: transparent;
+          color: #ffffff;
+
+          border: none;
+          border-bottom: 4px solid transparent;
+
+          font-size: 14px;
+          font-weight: 500;
+          padding: 14px 5px;
+        }
+
+        &:hover {
+          background: #ffffff;
+
+          a {
+            color: #333333;
+          }
+        }
+
+        &.active {
+          background: #ffffff;
+
+          a {
+            color: #333333;
+            border-color: #ff6500;
+          }
+        }
+      }
     }
   }
 
-  #main {
-    padding-top: 90px;
-    max-width: 934px;
-    position: relative;
-
+  // generic section
+  .section {
+    padding: 90px 0;
   }
 
   h2 {
@@ -206,7 +245,6 @@
 }
 
 .sidebar {
-
   .media-heading {
     color: #292B2C;
     line-height: 2;
@@ -258,7 +296,7 @@
 /*
  * Edit
  */
-.edit-page {
+.page.startup-edit {
   .autocomplete-field {
     position: relative;
     &:after {
