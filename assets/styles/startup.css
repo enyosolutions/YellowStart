@@ -133,6 +133,18 @@
   /*
    * Tab: Resume
    */
+  /*
+   * Tab: Product
+   */
+  /*
+   * Tab: Market
+   */
+  /*
+   * Tab: Startup
+   */
+  /*
+   * Common
+   */
 }
 .page.startup-view .splash {
   height: auto;
@@ -161,6 +173,40 @@
 }
 .page.startup-view .splash .startup-tags .tag a {
   color: #ffffff;
+}
+.page.startup-view .splash .actions {
+  margin: 30px 0 0 0;
+}
+.page.startup-view .splash .actions .action {
+  padding: 30px;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+.page.startup-view .splash .actions .action .circle {
+  display: block;
+  margin: 0 auto 5px auto;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 500;
+  width: 45px;
+  height: 45px;
+  border: 3px solid #ffffff;
+  -webkit-border-radius: 999px;
+  -moz-border-radius: 999px;
+  border-radius: 999px;
+}
+.page.startup-view .splash .actions .action i {
+  display: block;
+  margin: 0 0 5px 0;
+  color: #FFFFFF;
+  font-size: 48px;
+}
+.page.startup-view .splash .actions .action:hover {
+  text-decoration: none;
 }
 .page.startup-view .splash .nav {
   width: 100%;
@@ -204,93 +250,21 @@
   color: #333333;
   border-color: #ff6500;
 }
-.page.startup-view #resume .pitch-wall {
+.page.startup-view #resume .pitch {
   padding: 40px 0;
 }
-.page.startup-view #resume .pitch-wall .title {
-  display: block;
-  margin: 0 0 30px 0;
-  font-family: 'atc', sans-serif;
-  font-size: 50px;
-  font-weight: 700;
-  color: #081433;
-}
-.page.startup-view #resume .pitch-wall .intro {
+.page.startup-view #resume .pitch .intro {
   font-size: 30px;
   font-weight: lighter;
 }
-.page.startup-view #resume .pitch-wall .description {
+.page.startup-view #resume .pitch .description {
   margin: 40px 0;
 }
-.page.startup-view #resume .pitch-wall .link {
+.page.startup-view #resume .pitch .link {
   text-decoration: underline;
 }
-.page.startup-view #resume .pitch-wall .sidebar .media {
-  padding: 20px 0;
-  border-bottom: 1px solid #e3edef;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media:first-child {
-  padding-top: 0;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media:last-child {
-  border-bottom: none;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media .media-heading {
-  color: #292B2C;
-  line-height: 2;
-  font-size: 20px;
-  font-weight: bold;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media .media-object {
-  margin-right: 20px;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media .meta {
-  font-size: 12px;
-  line-height: 16px;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media .meta .date {
-  color: #666C6F;
-  font-weight: 600;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media .stack-zone {
-  position: relative;
-  display: block;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media .stack-zone .stacked {
-  position: absolute;
-  right: 8px;
-  bottom: -12px;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media .contact {
-  display: block;
-  margin: 20px 0 0 0;
-  color: #666c6f;
-  font-size: 12px;
-  line-height: 20px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media .contact i {
-  font-size: 20px;
-  vertical-align: top;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media .contact:hover {
-  color: #ff6500;
-  text-decoration: none;
-}
-.page.startup-view #resume .pitch-wall .carousel .item > * {
-  margin: auto;
-}
-.page.startup-view #resume .pitch-wall .carousel .carousel-control.left,
-.page.startup-view #resume .pitch-wall .carousel .carousel-control.right {
-  background: none;
-  background-image: none;
-}
-.page.startup-view #resume .pitch-wall .carousel .carousel-control.left {
-  left: -15%;
-}
-.page.startup-view #resume .pitch-wall .carousel .carousel-control.right {
-  right: -15%;
+.page.startup-view #resume .pitch .cycle-slider-media {
+  margin: 50px 0 0 0;
 }
 .page.startup-view #resume .sip-note {
   background: #0547fd;
@@ -375,13 +349,190 @@
   background: #fafdd4;
   color: #ff6500;
 }
+.page.startup-view #product .product {
+  padding: 40px 0;
+}
+.page.startup-view #product .product .section {
+  display: block;
+  margin: 0 0 40px 0;
+}
+.page.startup-view #product .product .section .title {
+  display: block;
+  font-family: 'atc', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #081433;
+}
+.page.startup-view #product .product .section p {
+  margin: 20px 0;
+}
+.page.startup-view #market .market {
+  padding: 40px 0;
+}
+.page.startup-view #market .market .section {
+  display: block;
+  margin: 0 0 40px 0;
+}
+.page.startup-view #market .market .section .title {
+  display: block;
+  font-family: 'atc', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #081433;
+}
+.page.startup-view #market .market .section p {
+  margin: 20px 0;
+}
+.page.startup-view #startup .startup {
+  padding: 40px 0;
+}
+.page.startup-view #startup .startup .section {
+  display: block;
+  margin: 0 0 40px 0;
+}
+.page.startup-view #startup .startup .section .title {
+  display: block;
+  font-family: 'atc', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #081433;
+}
+.page.startup-view #startup .startup .section p {
+  margin: 20px 0;
+}
+.page.startup-view .section-title {
+  display: block;
+  margin: 0 0 30px 0;
+  font-family: 'atc', sans-serif;
+  font-size: 50px;
+  line-height: 50px;
+  font-weight: 700;
+  color: #081433;
+}
+.page.startup-view .sidebar-wall .media {
+  padding: 20px 0;
+  border-bottom: 1px solid #e3edef;
+}
+.page.startup-view .sidebar-wall .media:first-child {
+  padding-top: 0;
+}
+.page.startup-view .sidebar-wall .media:last-child {
+  border-bottom: none;
+}
+.page.startup-view .sidebar-wall .media .media-heading {
+  color: #292B2C;
+  line-height: 2;
+  font-size: 20px;
+  font-weight: bold;
+}
+.page.startup-view .sidebar-wall .media .media-object {
+  margin-right: 20px;
+}
+.page.startup-view .sidebar-wall .media .meta {
+  font-size: 12px;
+  line-height: 16px;
+}
+.page.startup-view .sidebar-wall .media .meta .date {
+  color: #666C6F;
+  font-weight: 600;
+}
+.page.startup-view .sidebar-wall .media .stack-zone {
+  position: relative;
+  display: block;
+}
+.page.startup-view .sidebar-wall .media .stack-zone .stacked {
+  position: absolute;
+  right: 8px;
+  bottom: -12px;
+}
+.page.startup-view .sidebar-wall .media .contact {
+  display: block;
+  margin: 20px 0 0 0;
+  color: #666c6f;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.page.startup-view .sidebar-wall .media .contact i {
+  font-size: 20px;
+  vertical-align: top;
+}
+.page.startup-view .sidebar-wall .media .contact:hover {
+  color: #ff6500;
+  text-decoration: none;
+}
 /*
  * Edit
  */
-.page.startup-edit .autocomplete-field {
+.page.startup-edit .nav,
+.page.edit-page .nav {
+  width: 100%;
+  border: none;
+  margin: 60px 0 0 0;
+  border-bottom: 1px solid #d9d9de;
+}
+.page.startup-edit .nav li,
+.page.edit-page .nav li {
+  vertical-align: bottom;
+  cursor: pointer;
+  margin: 0 25px;
+}
+.page.startup-edit .nav li a,
+.page.edit-page .nav li a {
+  background: transparent;
+  color: #081433;
+  border: none;
+  border-bottom: 4px solid transparent;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px 5px;
+}
+.page.startup-edit .nav li a .step-number,
+.page.edit-page .nav li a .step-number {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 15px auto;
+  padding: 5px 0;
+  border: 1px solid #0547fd;
+  color: #0547fd;
+  font-size: 24px;
+  font-weight: 600;
+}
+.page.startup-edit .nav li:hover,
+.page.edit-page .nav li:hover {
+  background: #FCFCFC;
+}
+.page.startup-edit .nav li:hover a,
+.page.edit-page .nav li:hover a {
+  color: #333333;
+}
+.page.startup-edit .nav li:hover a .step-number,
+.page.edit-page .nav li:hover a .step-number {
+  color: #FFFFFF;
+  background: #0547fd;
+}
+.page.startup-edit .nav li.active,
+.page.edit-page .nav li.active {
+  background: #FCFCFC;
+}
+.page.startup-edit .nav li.active a,
+.page.edit-page .nav li.active a {
+  color: #333333;
+  border-color: #ff6500;
+}
+.page.startup-edit .nav li.active a .step-number,
+.page.edit-page .nav li.active a .step-number {
+  color: #FFFFFF;
+  background: #0547fd;
+}
+.page.startup-edit .autocomplete-field,
+.page.edit-page .autocomplete-field {
   position: relative;
 }
-.page.startup-edit .autocomplete-field:after {
+.page.startup-edit .autocomplete-field:after,
+.page.edit-page .autocomplete-field:after {
   font-family: 'FontAwesome';
   content: '\f110';
   -webkit-animation: fa-spin 2s infinite linear;

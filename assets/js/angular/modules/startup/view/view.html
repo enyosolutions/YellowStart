@@ -19,17 +19,16 @@
                 </ul>
 
                 <div class="actions">
-                    <a class="btn btn-default pull-right" href="#/startup/{{ startup._id || startup.id }}/edit">
-                        Editer la fiche
+                    <div ng-click="bookmarkStartup()" class="action">
+                        <i ng-class="{'icon-favoriteAdd text-primary': isBookmarked, 'icon-favorite text-info': !isBookmarked}"></i>
+                        Suivre
+                    </div>
+
+                    <a href="#" class="action">
+                        <i class="icon-contact"></i>
+                        Contacter
                     </a>
 
-                    <button class="btn btn-primary-outline" data-target="#commentModal" data-toggle="modal">
-                        <i class="fa fa-plus"></i>
-                    </button>
-
-                    <button class="btn btn-primary-outline" ng-click="bookmarkStartup()" data-toggle="modal">
-                        <i class="fa " ng-class="{'fa-star text-primary': isBookmarked, 'fa-star-o text-info': !isBookmarked}"></i>
-                    </button>
                 </div>
             </div>
 
@@ -48,7 +47,7 @@
             </a>
         </li>
         <li class="unpadded" role="presentation">
-            <a data-target="#marche" aria-controls="marche" role="tab" data-toggle="tab">
+            <a data-target="#market" aria-controls="market" role="tab" data-toggle="tab">
                 chiffres clés <br />
                 et Marché
             </a>
@@ -70,29 +69,26 @@
     <div class="tab-content">
         <!-- resume -->
         <div role="tabpanel" class="tab-pane fade active in" id="resume">
-            <!-- pitch-wall -->
-            <div class="container pitch-wall">
+            <!-- pitch -->
+            <div class="container pitch">
                 <div class="row">
                     <div class="col-md-8">
-                        <div class="content">
-                            <h2 class="title">Le pitch</h2>
+                        <h2 class="section-title">Le pitch</h2>
 
-                            <p class="intro">
-                                {{ startup.projectTweet }}
-                            </p>
+                        <p class="intro">
+                            {{ startup.projectTweet }}
+                        </p>
 
-                            <p class="description">
-                                {{ startup.offerServices }}
-                            </p>
+                        <p class="description">
+                            {{ startup.offerServices }}
+                        </p>
 
-                            <a href="{{ startup.websiteUrl }}" target="_blank" class="link">{{ startup.websiteUrl }}
-                            </a>
-                        </div>
+                        <a href="{{ startup.websiteUrl }}" target="_blank" class="link">{{ startup.websiteUrl }}</a>
                     </div>
                     <div class="col-md-4">
                         <!-- sidebar -->
-                        <div class="sidebar">
-                            <h2 class="title">Le wall</h2>
+                        <div class="sidebar-wall">
+                            <h2 class="section-title">Le wall</h2>
 
                             <div class="media" ng-repeat="comment in comments">
                                 <div class="media-left">
@@ -122,26 +118,21 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <!--
-                        <div class=" slide" data-ride="carousel" data-inverval="3000">
-                            <div class="carousel-inner" role="listbox">
-                                <div class="item " ng-class="{active: $index === 0}"
-                                     ng-repeat="document in startup.documents">
-                                    <img ng-src="{{document.file}}"
-                                         alt="{{document.name}}">
-                                    <h4>{{document.name}}</h4>
-
-                                    <p>{{document.type}}</p>
-                                </div>
+                        <!-- slider -->
+                        <div class="cycle-slider-media" media-slider>
+                            <div class="slide">
+                                <img alt="" src="/data/slideshow/slide1.jpg" />
                             </div>
 
-                        <span class="left carousel-control" data-target="#startupDocuments" role="button" data-slide="prev">
-                            <img src="/images/icons/carousel-arrow-left.png" alt="Previous"/>
-                        </span>
-                        <span class="right carousel-control" data-target="#startupDocuments" role="button" data-slide="next">
-                            <img src="/images/icons/carousel-arrow-right.png" alt="Next"/>
-                        </span>
-                        </div>-->
+                            <div class="slide">
+                                <img alt="" src="/data/slideshow/slide1.jpg" />
+                            </div>
+
+                            <div class="controls">
+                                <img id="media-slider-prev" class="prev" src="/images/icons/carousel-arrow-left.png" />
+                                <img id="media-slider-next" class="next" src="/images/icons/carousel-arrow-right.png" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -275,17 +266,286 @@
 
         <!-- product -->
         <div role="tabpanel" class="tab-pane fade" id="product">
+            <!-- product -->
+            <div class="container product">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <!-- section -->
+                                    <div class="section">
+                                        <div class="title">
+                                            Description détaillée du produit
+                                        </div>
 
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            Fusce nec mattis mi. Morbi placerat neque metus, in rhoncus
+                                            ex pellentesque elementum. Pellentesque vulputate efficitur
+                                            nulla, eget auctor nisi consectetur sit amet. Aenean sollicitudin
+                                            tellus eu sagittis rutrum. Nunc in purus quis velit pharetra ullamcorper
+                                            at ultrices sapien. Aenean eget neque dictum, porta risus sit amet, sagittis eros.
+                                            Mauris aliquet feugiat lectus quis cursus. Mauris sapien metus, dapibus nec mauris vel,
+                                            faucibus volutpat purus. Aliquam et mi dolor.
+                                        </p>
+                                    </div>
+
+                                    <!-- section -->
+                                    <div class="section">
+                                        <div class="title">
+                                            Business model
+                                        </div>
+
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            Fusce nec mattis mi. Morbi placerat neque metus, in rhoncus
+                                            ex pellentesque elementum. Pellentesque vulputate efficitur
+                                            nulla, eget auctor nisi consectetur sit amet. Aenean sollicitudin
+                                            tellus eu sagittis rutrum. Nunc in purus quis velit pharetra ullamcorper
+                                            at ultrices sapien. Aenean eget neque dictum, porta risus sit amet, sagittis eros.
+                                            Mauris aliquet feugiat lectus quis cursus. Mauris sapien metus, dapibus nec mauris vel,
+                                            faucibus volutpat purus. Aliquam et mi dolor.
+                                        </p>
+                                    </div>
+
+                                    <!-- section -->
+                                    <div class="section">
+                                        <div class="title">
+                                            Positionnement
+                                        </div>
+
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            Fusce nec mattis mi. Morbi placerat neque metus, in rhoncus
+                                            ex pellentesque elementum. Pellentesque vulputate efficitur
+                                            nulla, eget auctor nisi consectetur sit amet. Aenean sollicitudin
+                                            tellus eu sagittis rutrum. Nunc in purus quis velit pharetra ullamcorper
+                                            at ultrices sapien. Aenean eget neque dictum, porta risus sit amet, sagittis eros.
+                                            Mauris aliquet feugiat lectus quis cursus. Mauris sapien metus, dapibus nec mauris vel,
+                                            faucibus volutpat purus. Aliquam et mi dolor.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <!-- section -->
+                                    <div class="section">
+                                        <div class="title">
+                                            Force
+                                        </div>
+
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            Fusce nec mattis mi. Morbi placerat neque metus, in rhoncus
+                                            ex pellentesque elementum. Pellentesque vulputate efficitur
+                                            nulla, eget auctor nisi consectetur sit amet. Aenean sollicitudin
+                                            tellus eu sagittis rutrum. Nunc in purus quis velit pharetra ullamcorper
+                                            at ultrices sapien. Aenean eget neque dictum, porta risus sit amet, sagittis eros.
+                                            Mauris aliquet feugiat lectus quis cursus. Mauris sapien metus, dapibus nec mauris vel,
+                                            faucibus volutpat purus. Aliquam et mi dolor.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <!-- section -->
+                                    <div class="section">
+                                        <div class="title">
+                                            Faiblesse
+                                        </div>
+
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            Fusce nec mattis mi. Morbi placerat neque metus, in rhoncus
+                                            ex pellentesque elementum. Pellentesque vulputate efficitur
+                                            nulla, eget auctor nisi consectetur sit amet. Aenean sollicitudin
+                                            tellus eu sagittis rutrum. Nunc in purus quis velit pharetra ullamcorper
+                                            at ultrices sapien. Aenean eget neque dictum, porta risus sit amet, sagittis eros.
+                                            Mauris aliquet feugiat lectus quis cursus. Mauris sapien metus, dapibus nec mauris vel,
+                                            faucibus volutpat purus. Aliquam et mi dolor.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <!-- section -->
+                                    <div class="section">
+                                        <div class="title">
+                                            Atout différenciant
+                                        </div>
+
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                            Fusce nec mattis mi. Morbi placerat neque metus, in rhoncus
+                                            ex pellentesque elementum. Pellentesque vulputate efficitur
+                                            nulla, eget auctor nisi consectetur sit amet. Aenean sollicitudin
+                                            tellus eu sagittis rutrum. Nunc in purus quis velit pharetra ullamcorper
+                                            at ultrices sapien. Aenean eget neque dictum, porta risus sit amet, sagittis eros.
+                                            Mauris aliquet feugiat lectus quis cursus. Mauris sapien metus, dapibus nec mauris vel,
+                                            faucibus volutpat purus. Aliquam et mi dolor.
+                                        </p>
+                                    </div>
+
+                                    <a data-target="#market" aria-controls="market" role="tab" data-toggle="tab" class="btn btn-primary-outline">
+                                        Chiffres clés et marché
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <!-- sidebar -->
+                        <div class="sidebar-wall">
+                            <h2 class="section-title">Le wall</h2>
+
+                            <div class="media" ng-repeat="comment in comments">
+                                <div class="media-left">
+                                    <a href="#" class="stack-zone">
+                                        <img class="media-object img-circle" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTRjODMzNjVmOSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NGM4MzM2NWY5Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" alt="">
+                                        <img src="http://placehold.it/32x32/FFBC00?text=BSCC&txtsize=20" class="stacked img-circle"/>
+                                    </a>
+                                </div>
+
+                                <div class="media-body meta">
+                                    <h4 class="media-heading">{{ comment.userName }}</h4>
+                                    <span class="meta date">{{ comment.createdAt | date: longDate }}</span> {{ comment.text }}
+
+                                    J’ai rencontré le fondateur lors d’une
+                                    évènementde la bourse du commerce de Nantes. Il cherche à entrer en contact avec le
+                                    groupe pour étoffer son offre avec les services La Poste.
+
+                                    <a class="contact" href="#/user/{{comment.userId}}/profile">
+                                        <i class="icon-contact"></i>
+                                        Contacter
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- marche -->
-        <div role="tabpanel" class="tab-pane fade" id="marche">
+        <!-- market -->
+        <div role="tabpanel" class="tab-pane fade" id="market">
+            <!-- market -->
+            <div class="container market">
+                <div class="row">
+                    <div class="col-md-8">
+                        <!-- section -->
+                        <div class="section">
+                            <div class="section-title">
+                                Chiffres clés et marché
+                            </div>
 
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Fusce nec mattis mi. Morbi placerat neque metus, in rhoncus
+                                ex pellentesque elementum. Pellentesque vulputate efficitur
+                                nulla, eget auctor nisi consectetur sit amet. Aenean sollicitudin
+                                tellus eu sagittis rutrum. Nunc in purus quis velit pharetra ullamcorper
+                                at ultrices sapien. Aenean eget neque dictum, porta risus sit amet, sagittis eros.
+                                Mauris aliquet feugiat lectus quis cursus. Mauris sapien metus, dapibus nec mauris vel,
+                                faucibus volutpat purus. Aliquam et mi dolor.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <!-- sidebar -->
+                        <div class="sidebar-wall">
+                            <h2 class="section-title">Le wall</h2>
+
+                            <div class="media" ng-repeat="comment in comments">
+                                <div class="media-left">
+                                    <a href="#" class="stack-zone">
+                                        <img class="media-object img-circle" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTRjODMzNjVmOSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NGM4MzM2NWY5Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" alt="">
+                                        <img src="http://placehold.it/32x32/FFBC00?text=BSCC&txtsize=20" class="stacked img-circle"/>
+                                    </a>
+                                </div>
+
+                                <div class="media-body meta">
+                                    <h4 class="media-heading">{{ comment.userName }}</h4>
+                                    <span class="meta date">{{ comment.createdAt | date: longDate }}</span> {{ comment.text }}
+
+                                    J’ai rencontré le fondateur lors d’une
+                                    évènementde la bourse du commerce de Nantes. Il cherche à entrer en contact avec le
+                                    groupe pour étoffer son offre avec les services La Poste.
+
+                                    <a class="contact" href="#/user/{{comment.userId}}/profile">
+                                        <i class="icon-contact"></i>
+                                        Contacter
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- startup -->
         <div role="tabpanel" class="tab-pane fade" id="startup">
+            <!-- startup -->
+            <div class="container startup">
+                <div class="row">
+                    <div class="col-md-8">
+                        <!-- section -->
+                        <div class="section">
+                            <div class="section-title">
+                                La start-up
+                            </div>
 
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Fusce nec mattis mi. Morbi placerat neque metus, in rhoncus
+                                ex pellentesque elementum. Pellentesque vulputate efficitur
+                                nulla, eget auctor nisi consectetur sit amet. Aenean sollicitudin
+                                tellus eu sagittis rutrum. Nunc in purus quis velit pharetra ullamcorper
+                                at ultrices sapien. Aenean eget neque dictum, porta risus sit amet, sagittis eros.
+                                Mauris aliquet feugiat lectus quis cursus. Mauris sapien metus, dapibus nec mauris vel,
+                                faucibus volutpat purus. Aliquam et mi dolor.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <!-- sidebar -->
+                        <div class="sidebar-wall">
+                            <h2 class="section-title">Le wall</h2>
+
+                            <div class="media" ng-repeat="comment in comments">
+                                <div class="media-left">
+                                    <a href="#" class="stack-zone">
+                                        <img class="media-object img-circle" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTRjODMzNjVmOSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NGM4MzM2NWY5Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" alt="">
+                                        <img src="http://placehold.it/32x32/FFBC00?text=BSCC&txtsize=20" class="stacked img-circle"/>
+                                    </a>
+                                </div>
+
+                                <div class="media-body meta">
+                                    <h4 class="media-heading">{{ comment.userName }}</h4>
+                                    <span class="meta date">{{ comment.createdAt | date: longDate }}</span> {{ comment.text }}
+
+                                    J’ai rencontré le fondateur lors d’une
+                                    évènementde la bourse du commerce de Nantes. Il cherche à entrer en contact avec le
+                                    groupe pour étoffer son offre avec les services La Poste.
+
+                                    <a class="contact" href="#/user/{{comment.userId}}/profile">
+                                        <i class="icon-contact"></i>
+                                        Contacter
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- more -->

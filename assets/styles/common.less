@@ -28,10 +28,10 @@
   .icon-bromance:before {
     content: "\e900";
   }
-  .icon-favotireAdd:before {
+  .icon-favoriteAdd:before {
     content: "\e901";
   }
-  .icon-favotireCheck:before {
+  .icon-favoriteCheck:before {
     content: "\e902";
   }
   .icon-favorite:before {
@@ -127,9 +127,9 @@ footer {
  */
 
 /*
- * Cycle Slider
+ * Cycle Sliders
  */
-.cycle-slider {
+.cycle-slider-home {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -159,6 +159,44 @@ footer {
 
     &.cycle-pager-active {
       font-size: 80px;
+    }
+  }
+}
+
+.cycle-slider-media {
+  width: 100%;
+  height: 300px;
+
+  overflow: hidden;
+  position: relative;
+
+  .slide {
+    width: 100%;
+    text-align: center;
+
+    img {
+      margin: 0 auto;
+      height: 300px;
+    }
+  }
+
+  .controls {
+    cursor: pointer;
+
+    .prev {
+      position: absolute;
+      z-index: 9999;
+
+      left: 0;
+      top: 50px;
+    }
+
+    .next {
+      position: absolute;
+      z-index: 9999;
+
+      right: 0;
+      top: 50px;
     }
   }
 }

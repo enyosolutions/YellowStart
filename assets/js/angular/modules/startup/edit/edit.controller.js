@@ -144,7 +144,7 @@ angular.module('start.controllers')
                         var tpl = "Nous avons trouvé des startups qui ressemblent à la startup que vous souhaiter créer. Peut-être souhaitez-vous editer une de ces fiches à la place ? <hr/>"
                             + res.map(function (e) {
                                 return "<div><h3><a href='#/startup/" + e._id + "/edit'>" + e.startupName +
-                                "<img class='media-object pull-right' style='height: 50px; width: 50px;' src='" + e.picture + "' alt=''>" +
+                                (e.picture &&  e.picture.length > 0 ? "<img class='media-object pull-right' alt='"+ e.startupName+"' style='height: 50px; width: 50px;' src='" + e.picture + "' alt=''>" : "" )+
                                 "</a></h3></div>";
                             }).join('<br/>') + "";
 

@@ -79,4 +79,21 @@ angular.module('start.controllers')
             UserService.Update($rootScope.globals.user);
         };
 
-    });
+    })
+
+    .directive('mediaSlider', function () {
+        return {
+            restrict: 'AC',
+            link: function (scope, element, attrs) {
+                var config = angular.extend({
+                    slides: '.slide',
+                    prev: "#media-slider-prev",
+                    next: "#media-slider-next",
+                }, scope.$eval(attrs.mediaSlider));
+                setTimeout(function () {
+                    element.cycle(config);
+                }, 0);
+            }
+        };
+    })
+;
