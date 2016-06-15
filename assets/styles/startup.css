@@ -133,6 +133,18 @@
   /*
    * Tab: Resume
    */
+  /*
+   * Tab: Product
+   */
+  /*
+   * Tab: Market
+   */
+  /*
+   * Tab: Startup
+   */
+  /*
+   * Common
+   */
 }
 .page.startup-view .splash {
   height: auto;
@@ -238,93 +250,21 @@
   color: #333333;
   border-color: #ff6500;
 }
-.page.startup-view #resume .pitch-wall {
+.page.startup-view #resume .pitch {
   padding: 40px 0;
 }
-.page.startup-view #resume .pitch-wall .title {
-  display: block;
-  margin: 0 0 30px 0;
-  font-family: 'atc', sans-serif;
-  font-size: 50px;
-  font-weight: 700;
-  color: #081433;
-}
-.page.startup-view #resume .pitch-wall .intro {
+.page.startup-view #resume .pitch .intro {
   font-size: 30px;
   font-weight: lighter;
 }
-.page.startup-view #resume .pitch-wall .description {
+.page.startup-view #resume .pitch .description {
   margin: 40px 0;
 }
-.page.startup-view #resume .pitch-wall .link {
+.page.startup-view #resume .pitch .link {
   text-decoration: underline;
 }
-.page.startup-view #resume .pitch-wall .sidebar .media {
-  padding: 20px 0;
-  border-bottom: 1px solid #e3edef;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media:first-child {
-  padding-top: 0;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media:last-child {
-  border-bottom: none;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media .media-heading {
-  color: #292B2C;
-  line-height: 2;
-  font-size: 20px;
-  font-weight: bold;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media .media-object {
-  margin-right: 20px;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media .meta {
-  font-size: 12px;
-  line-height: 16px;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media .meta .date {
-  color: #666C6F;
-  font-weight: 600;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media .stack-zone {
-  position: relative;
-  display: block;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media .stack-zone .stacked {
-  position: absolute;
-  right: 8px;
-  bottom: -12px;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media .contact {
-  display: block;
-  margin: 20px 0 0 0;
-  color: #666c6f;
-  font-size: 12px;
-  line-height: 20px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media .contact i {
-  font-size: 20px;
-  vertical-align: top;
-}
-.page.startup-view #resume .pitch-wall .sidebar .media .contact:hover {
-  color: #ff6500;
-  text-decoration: none;
-}
-.page.startup-view #resume .pitch-wall .carousel .item > * {
-  margin: auto;
-}
-.page.startup-view #resume .pitch-wall .carousel .carousel-control.left,
-.page.startup-view #resume .pitch-wall .carousel .carousel-control.right {
-  background: none;
-  background-image: none;
-}
-.page.startup-view #resume .pitch-wall .carousel .carousel-control.left {
-  left: -15%;
-}
-.page.startup-view #resume .pitch-wall .carousel .carousel-control.right {
-  right: -15%;
+.page.startup-view #resume .pitch .cycle-slider-media {
+  margin: 50px 0 0 0;
 }
 .page.startup-view #resume .sip-note {
   background: #0547fd;
@@ -408,6 +348,119 @@
   font-size: 18px;
   background: #fafdd4;
   color: #ff6500;
+}
+.page.startup-view #product .product {
+  padding: 40px 0;
+}
+.page.startup-view #product .product .section {
+  display: block;
+  margin: 0 0 40px 0;
+}
+.page.startup-view #product .product .section .title {
+  display: block;
+  font-family: 'atc', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #081433;
+}
+.page.startup-view #product .product .section p {
+  margin: 20px 0;
+}
+.page.startup-view #market .market {
+  padding: 40px 0;
+}
+.page.startup-view #market .market .section {
+  display: block;
+  margin: 0 0 40px 0;
+}
+.page.startup-view #market .market .section .title {
+  display: block;
+  font-family: 'atc', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #081433;
+}
+.page.startup-view #market .market .section p {
+  margin: 20px 0;
+}
+.page.startup-view #startup .startup {
+  padding: 40px 0;
+}
+.page.startup-view #startup .startup .section {
+  display: block;
+  margin: 0 0 40px 0;
+}
+.page.startup-view #startup .startup .section .title {
+  display: block;
+  font-family: 'atc', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #081433;
+}
+.page.startup-view #startup .startup .section p {
+  margin: 20px 0;
+}
+.page.startup-view .section-title {
+  display: block;
+  margin: 0 0 30px 0;
+  font-family: 'atc', sans-serif;
+  font-size: 50px;
+  line-height: 50px;
+  font-weight: 700;
+  color: #081433;
+}
+.page.startup-view .sidebar-wall .media {
+  padding: 20px 0;
+  border-bottom: 1px solid #e3edef;
+}
+.page.startup-view .sidebar-wall .media:first-child {
+  padding-top: 0;
+}
+.page.startup-view .sidebar-wall .media:last-child {
+  border-bottom: none;
+}
+.page.startup-view .sidebar-wall .media .media-heading {
+  color: #292B2C;
+  line-height: 2;
+  font-size: 20px;
+  font-weight: bold;
+}
+.page.startup-view .sidebar-wall .media .media-object {
+  margin-right: 20px;
+}
+.page.startup-view .sidebar-wall .media .meta {
+  font-size: 12px;
+  line-height: 16px;
+}
+.page.startup-view .sidebar-wall .media .meta .date {
+  color: #666C6F;
+  font-weight: 600;
+}
+.page.startup-view .sidebar-wall .media .stack-zone {
+  position: relative;
+  display: block;
+}
+.page.startup-view .sidebar-wall .media .stack-zone .stacked {
+  position: absolute;
+  right: 8px;
+  bottom: -12px;
+}
+.page.startup-view .sidebar-wall .media .contact {
+  display: block;
+  margin: 20px 0 0 0;
+  color: #666c6f;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.page.startup-view .sidebar-wall .media .contact i {
+  font-size: 20px;
+  vertical-align: top;
+}
+.page.startup-view .sidebar-wall .media .contact:hover {
+  color: #ff6500;
+  text-decoration: none;
 }
 /*
  * Edit
