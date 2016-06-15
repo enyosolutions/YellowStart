@@ -40,25 +40,31 @@
     <link rel="stylesheet" href="/styles/importer.css">
 </head>
 
-<body ng-app="startApp" class="<%= locals.page && page.class ? page.class : '' %> {{ $state.current.name }}" id="<%= locals.page && page.id ? page.id : '' %>">
+<body ng-app="startApp" class="<%= locals.page && page.class ? page.class : '' %>  {{ $state.current.name }} "
+      id="<%= locals.page && page.id ? page.id : '' %>">
 <!-- login -->
-<div class="top-navigation top-navigation-login navbar navbar-default navbar-fixed-top" ng-if="$state.current.name  === 'user-register'">
+<div class="top-navigation top-navigation-login navbar navbar-default navbar-fixed-top"
+     ng-if="$state.current.name  === 'user-register'">
     <div class="container">
         <a href="#/" class="brand">
             <img src="/images/logo.png" alt="Yellow Starter"/>
         </a>
 
-        <form class="form-login form-inline" ng-controller="RegisterCtrl as Register"  ng-submit="login(Register.email, Register.password)">
-            <input class="url form-control" name="website" ng-model="Register.email" type="email" required placeholder="Adresse email"/>
-            <input class="url form-control" name="website" ng-model="Register.password" type="password" required placeholder="Mot de passe"/>
+        <form class="form-login form-inline" ng-controller="RegisterCtrl as Register"
+              ng-submit="login(Register.email, Register.password)">
+            <input class="url form-control" name="email" ng-model="Register.email" type="email" required
+                   placeholder="Adresse email"/>
+            <input class="url form-control" name="password" ng-model="Register.password" type="password" required
+                   placeholder="Mot de passe"/>
 
-            <button class="btn btn-primary">Connexion</button>
+            <button class="btn btn-primary" type="submit">Connexion</button>
         </form>
     </div>
 </div>
 
 <!-- default -->
-<div id="navbar-main" class="top-navigation top-navigation-default navbar navbar-default navbar-fixed-top" ng-if="!$state.is('user-register')">
+<div id="navbar-main" class="top-navigation top-navigation-default navbar navbar-default navbar-fixed-top"
+     ng-if="!$state.is('user-register')">
     <div class="container">
         <a href="#/" class="brand">
             <img src="/images/logo.png" alt="Yellow Starter"/>
@@ -72,15 +78,18 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li class="border first search-form" ng-controller="ListStartupCtrl as listStartup">
-                <button class="btn btn-link" href="search" ng-click="search(listStartup.searchName)">
-                    <img src="/images/icons/search.png" alt="search"/>
-                </button>
+                <form ng-click="search(listStartup.searchName)">
+                    <input class="url form-control" name="website" ng-model="listStartup.searchName" type="text"
+                           placeholder="Rechercher une start-up"/>
 
-                <input class="url form-control" name="website" ng-model="listStartup.searchName" type="text" placeholder="Rechercher une start-up"/>
+                    <button class="btn btn-link" href="search">
+                        <img src="/images/icons/search.png" alt="search"/>
+                    </button>
+                </form>
             </li>
             <li class="border has-icon">
                 <a href="#/user/profile" fadeOut>
-                    <img class="icon" alt="" src="images/icons/user.png" />
+                    <img class="icon" alt="" src="/images/icons/user.png"/>
 
                     Mon profil
                 </a>
@@ -94,9 +103,16 @@
                     Mes notifications
                 </a>
             </li>
+            <li class="border has-icon">
+                <a href="#/" fadeOut>
+                    <img class="icon" alt="" src="/images/icons/star.png"/>
+
+                    Mes favoris
+                </a>
+            </li>
             <li class="orange has-icon">
                 <a href="#/startup/new" fadeOut>
-                    <img class="icon" alt="" src="images/icons/plus.png" />
+                    <img class="icon" alt="" src="/images/icons/plus.png"/>
 
                     Ajouter une start-up
                 </a>
