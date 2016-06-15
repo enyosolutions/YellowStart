@@ -1,0 +1,96 @@
+<section class="container">
+    <div class="row">
+        <!-- heading -->
+        <div class="heading">
+            <h1 class="result-indicator">
+                {{ searchTitle }}
+                <span class="numb">{{ searchedStartups.length }} résultat(s)</span>
+            </h1>
+
+            <div class="sort">
+                <div class="dropdown">
+                    <button class="btn btn-primary-alternate dropdown-toggle" type="button" id="sort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Trier
+                        <span class="caret"></span>
+                    </button>
+
+                    <ul class="dropdown-menu" aria-labelledby="sort">
+                        <li>
+                            <a href="#">
+                                Dummy
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- results -->
+        <div class="results">
+            <div class="container">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="user in users">
+                        <td>{{ user.firstname }} </td>
+                        <td>{{ user.lastname }} </td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.isActive ? 'Activé' : 'Non activé' }}</td>
+                        <td>{{ user.roles }}</td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-info btn-xs" ng-click="activateUser($index)"> ACTIVATE </button>
+                                <button class="btn btn-primary btn-xs" ng-click="EditUser(user._id)"> EDIT </button>
+                                <button class="btn btn-danger btn-xs" ng-click="EditUser(user._id)"> DELETE </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+        <!-- bottom -->
+        <div class="bottom">
+            <ul class="pagination-list">
+                <li>
+                    <a class="previous" href="#">
+                        <
+                    </a>
+                </li>
+                <li>
+                    <a class="active" href="#">
+                        1
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        2
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        3
+                    </a>
+                </li>
+                <li>
+                    <a class="next" href="#">
+                        >
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
