@@ -10,7 +10,8 @@ module.exports = {
     'list': function (req, res, next) {
         var out = {};
         var query = {};
-        var options = {$limit: 30};
+        var startPage = req.query.page ? req.query.page : 0;
+        var options = {$limit: 30, skip: startPage * 30 };
 
         // Query preparation
         if (req.query) {

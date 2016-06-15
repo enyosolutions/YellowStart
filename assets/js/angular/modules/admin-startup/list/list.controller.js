@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('start.controllers').controller("AdminStartupListCtrl", function($scope, $location, Auth, AdminUser, Startup) {
-   $scope.users = Startup.query();
+angular.module('start.controllers').controller("AdminStartupListCtrl", function($scope, $location,   Startup) {
+
+    $scope.startup = Startup.query();
 
 });

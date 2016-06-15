@@ -31,8 +31,8 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
+                        <th>Startup Name</th>
+                        <th>status </th>
                         <th>Email</th>
                         <th>Status</th>
                         <th>Role</th>
@@ -40,9 +40,9 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="user in users">
-                        <td>{{ user.firstname }} </td>
-                        <td>{{ user.lastname }} </td>
+                    <tr ng-repeat="startup in startups">
+                        <td>{{ startup.startupName }} </td>
+                        <td>{{ startup.status }} </td>
                         <td>{{ user.email }}</td>
                         <td>{{ user.isActive ? 'Activé' : 'Non activé' }}</td>
                         <td>{{ user.roles }}</td>

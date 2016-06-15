@@ -7,16 +7,15 @@
 var extend = require('extend');
 
 module.exports = {
-
     list: function (req, resp) {
         var out = {};
         var query = {};
-        var options = {$limit:30};
-        if(req.query){
-            if( req.query.query){
-            query =  req.query.query;
+        var options = {$limit: 30};
+        if (req.query) {
+            if (req.query.query) {
+                query = req.query.query;
             }
-            if(req.query.sort){
+            if (req.query.sort) {
                 options['$sort'] = options.sort;
             }
         }
@@ -35,7 +34,15 @@ module.exports = {
                 data[0].statusCode = 200;
                 resp.json(data[0]);
                 var id = req.token ? req.token.id : 'ANONYMOUS';
-                Monk.get('access-logs').insert({userId: id, itemId: req.param('id'), itemCollection: req.param('endpoint'), action: 'view'});
+                Monk.get('access-logs').insert({
+                    userId: id,
+                    itemId: req.param('id'),
+                    itemCollection: req.param('endpoint'),
+                    action: 'view'
+                });
+                if(req.param('endpoint') === 'startup') {
+                    Monk.get(req.param('endpoint')).update({_id: req.param('id')}, {$inc: {'meta.views':1}});
+                }
             })
             .on("error", function (err) {
                 resp.json(500, {error: err});
@@ -46,12 +53,17 @@ module.exports = {
         console.log(data, req.param('endpoint'));
         Monk.get(req.param('endpoint')).insert(data)
             .on('success', function (d) {
-                resp.json({body:d });
+                resp.json({body: d});
                 var id = req.token ? req.token.id : 'ANONYMOUS';
 
-                Monk.get('access-logs').insert({userId: id, itemId: req.param('id'), itemCollection: req.param('endpoint'), action: 'create'});
+                Monk.get('access-logs').insert({
+                    userId: id,
+                    itemId: req.param('id'),
+                    itemCollection: req.param('endpoint'),
+                    action: 'create'
+                });
             })
-            .on("error", function (err,err2) {
+            .on("error", function (err, err2) {
                 console.log(err, err2);
                 resp.json(500, {error: [err, err2]});
             });
@@ -62,13 +74,18 @@ module.exports = {
                 if (data) {
                     var collection = Monk.get(req.param('endpoint'));
                     var original = data[0];
-                    var data = extend(true, {}, original, req.body,{lastModifiedAt: new Date()});
-                    collection.update({_id: data._id},data)
+                    var data = extend(true, {}, original, req.body, {lastModifiedAt: new Date()});
+                    collection.update({_id: data._id}, data)
                         .on('success', function (d) {
                             data.statusCode = 200;
                             resp.json(data.statusCode, {body: data});
                             var id = req.token ? req.token.id : 'ANONYMOUS';
-                            Monk.get('access-logs').insert({userId: id, itemId: req.param('id'), itemCollection: req.param('endpoint'), action: 'update'});
+                            Monk.get('access-logs').insert({
+                                userId: id,
+                                itemId: req.param('id'),
+                                itemCollection: req.param('endpoint'),
+                                action: 'update'
+                            });
                         }).
                         on("error", function (err) {
                             resp.json(500, {error: err});
@@ -90,11 +107,16 @@ module.exports = {
                     var collection = Monk.get(req.param('endpoint'));
                     var original = data[0];
                     var data = extend(true, {}, original, req.body, {lastModifiedAt: new Date()});
-                    collection.update({_id: data._id},data).then(function (d) {
+                    collection.update({_id: data._id}, data).then(function (d) {
                         data.statusCode = 200;
                         resp.json(data.statusCode, {body: d});
                         var id = req.token ? req.token.id : 'ANONYMOUS';
-                        Monk.get('access-logs').insert({userId: id, itemId: req.param('id'), itemCollection: req.param('endpoint'), action: 'patch'});
+                        Monk.get('access-logs').insert({
+                            userId: id,
+                            itemId: req.param('id'),
+                            itemCollection: req.param('endpoint'),
+                            action: 'patch'
+                        });
                     });
                 }
                 else {
@@ -110,7 +132,12 @@ module.exports = {
             .on('success', function (data) {
                 resp.json(200, {});
                 var id = req.token ? req.token.id : 'ANONYMOUS';
-                Monk.get('access-logs').insert({userId: id, itemId: req.param('id'), itemCollection: req.param('endpoint'), action: 'delete'});
+                Monk.get('access-logs').insert({
+                    userId: id,
+                    itemId: req.param('id'),
+                    itemCollection: req.param('endpoint'),
+                    action: 'delete'
+                });
             })
             .on("error", function (err) {
                 resp.json(500, {error: err});
