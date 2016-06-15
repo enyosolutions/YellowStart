@@ -29,7 +29,7 @@ angular
         editableOptions.theme = 'bs3';
         $rootScope.$state = $state;
         $rootScope.globals = {};
-        $ngBootbox.hideAll();
+
         var user = $localstorage.getObject('currentUser');
         if (user) {
             $rootScope.globals.user = user;
@@ -45,6 +45,7 @@ angular
 
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+            $ngBootbox.hideAll();
             if (!Auth.authorize(toState.data.access)) {
                 event.preventDefault();
                 $state.go('user-register');

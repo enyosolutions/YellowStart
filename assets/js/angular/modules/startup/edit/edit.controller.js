@@ -139,7 +139,7 @@ angular.module('start.controllers')
         //CHECK IF THE STARTUP YOU ARE TRYING TO CREATE DOES NOT ALREADY EXISTS
         $scope.checkExistingStartup = function (name) {
             if (!$scope.startup._id) {
-                Startup.query({'search': name}).$promise.then(function (res) {
+                Startup.query({'check': name}).$promise.then(function (res) {
                     if (res && res.length > 0) {
                         var tpl = "Nous avons trouvé des startups qui ressemblent à la startup que vous souhaiter créer. Peut-être souhaitez-vous editer une de ces fiches à la place ? <hr/>"
                             + res.map(function (e) {
