@@ -7923,7 +7923,8 @@ footer .copyright {
   padding-left: 15px !important;
   padding-right: 15px !important;
 }
-.btn-primary-alternate:hover {
+.btn-primary-alternate:hover,
+.btn-primary-alternate:focus {
   color: #ff6500;
 }
 .btn-alternate {
@@ -7982,16 +7983,46 @@ footer .copyright {
   position: absolute;
   left: 0;
   bottom: -65px;
-  overflow: hidden;
   border: 10px solid #FCFCFC;
   -webkit-border-radius: 999px;
   -moz-border-radius: 999px;
   border-radius: 999px;
 }
-.page.user-profile .splash .user .avatar img {
+.page.user-profile .splash .user .avatar img.picture {
   width: 230px;
   height: 230px;
   position: relative;
+  -webkit-border-radius: 999px;
+  -moz-border-radius: 999px;
+  border-radius: 999px;
+}
+.page.user-profile .splash .user .avatar:hover .overlay {
+  visibility: visible;
+}
+.page.user-profile .splash .user .avatar .overlay {
+  visibility: hidden;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding: 110px 0;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  background: rgba(0, 49, 247, 0.7);
+  -webkit-border-radius: 999px;
+  -moz-border-radius: 999px;
+  border-radius: 999px;
+}
+.page.user-profile .splash .user .avatar img.status {
+  display: block;
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  -webkit-border-radius: 999px;
+  -moz-border-radius: 999px;
+  border-radius: 999px;
 }
 .page.user-profile .splash .user .data {
   display: block;

@@ -132,7 +132,8 @@ footer .copyright {
   padding-left: 15px !important;
   padding-right: 15px !important;
 }
-.btn-primary-alternate:hover {
+.btn-primary-alternate:hover,
+.btn-primary-alternate:focus {
   color: #ff6500;
 }
 .btn-alternate {
