@@ -1,34 +1,41 @@
 /*
  * Register form
  */
-.page.user-registration .splash {
-  padding: 40px 0 0 0;
+.page.user-registration {
+  color: #ffffff;
+  text-align: center;
+  background-image: url(../images/bg2.jpg);
+  background-size: cover;
 }
-.page.user-registration .splash .left {
+.page.user-registration .left {
+  padding: 40px 0;
   text-align: left;
 }
-.page.user-registration .splash .left .title {
+.page.user-registration .left .title {
+  color: #ffffff;
   font-size: 48px;
+  font-weight: 600;
   line-height: 56px;
 }
-.page.user-registration .splash .left p {
+.page.user-registration .left p {
   display: block;
   margin: 30px 0 0 0;
   max-width: 280px;
   font-size: 22px;
   line-height: 32px;
 }
-.page.user-registration .splash .right {
+.page.user-registration .right {
+  padding: 40px 0;
   text-align: left;
 }
-.page.user-registration .splash .right label {
+.page.user-registration .right label {
   font-size: 16px;
   font-weight: 700;
 }
-.page.user-registration .splash .right .help-block {
+.page.user-registration .right .help-block {
   color: #ffffff !important;
 }
-.page.user-registration .splash .right .form-actions {
+.page.user-registration .right .form-actions {
   margin: 10px 0 0 0;
 }
 /*
@@ -151,4 +158,10 @@
   text-transform: uppercase;
   padding-left: 20px;
   padding-right: 20px;
+}
+@media screen and (max-width: 768px) {
+  .page.user-registration .left,
+  .page.user-registration .right {
+    padding: 20px 0;
+  }
 }
