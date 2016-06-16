@@ -8,7 +8,7 @@
  * Controller of the startApp
  */
 angular.module('start.controllers')
-    .controller('ListStartupCtrl', function ($scope, $state, $stateParams, $routeParams, Startup) {
+    .controller('ListStartupCtrl', function ($scope, $state, $stateParams, $timeout, $routeParams, Startup) {
         $scope.pageClass = 'startup-list';
 
         var query = {};
@@ -57,7 +57,6 @@ angular.module('start.controllers')
         }
 
         $scope.recentStartupList = Startup.query({'sort[createdAt]':1});
-        console.log($scope.recentStartupList);
 
         $scope.trendingStartupList = Startup.query({'sort[tags]':1});
     })
@@ -73,6 +72,23 @@ angular.module('start.controllers')
                 setTimeout(function () {
                     element.cycle(config);
                 }, 0);
+            }
+        };
+    })
+
+    .directive('startupSlider', function () {
+        return {
+            restrict: 'AC',
+            link: function (scope, element, attrs) {
+                var config = angular.extend({
+                 infinite: true,
+                 speed: 300,
+                 slidesToShow: 3,
+                 centerMode: false
+                 }, scope.$eval(attrs.startupSlider));
+                 setTimeout(function () {
+                     element.slick(config);
+                 }, 2000);
             }
         };
     })

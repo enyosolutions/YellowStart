@@ -22,7 +22,7 @@
     </div>
 
     <div class="startups-wrapper">
-        <div class="startups-list">
+        <div class="startups-list" startup-slider>
             <div class="startup" ng-repeat="startup in recentStartupList">
                 <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
                     <img src="{{ startup.picture }}" alt="{{ startup.startupName }}">
