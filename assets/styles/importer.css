@@ -8602,7 +8602,7 @@ footer .copyright {
 .page.startup-list .home .startups-wrapper .startups-list .startup {
   display: inline-block;
   vertical-align: top;
-  width: 400px;
+  width: auto;
   margin: 0 5px;
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup:first-child,

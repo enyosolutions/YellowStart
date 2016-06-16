@@ -8,7 +8,8 @@
  * Controller of the startApp
  */
 angular.module('start.controllers')
-    .controller('ListStartupCtrl', function ($scope, $state, $stateParams, $location, $routeParams, Startup) {
+
+    .controller('ListStartupCtrl', function ($scope, $state, $stateParams, $location, $timeout, $routeParams, Startup) {
         $scope.pageClass = 'startup-list';
         $scope.currentPage = 0;
         $scope.q = '';
@@ -116,6 +117,23 @@ angular.module('start.controllers')
                 setTimeout(function () {
                     element.cycle(config);
                 }, 0);
+            }
+        };
+    })
+
+    .directive('startupSlider', function () {
+        return {
+            restrict: 'AC',
+            link: function (scope, element, attrs) {
+                var config = angular.extend({
+                 infinite: true,
+                 speed: 300,
+                 slidesToShow: 3,
+                 centerMode: false
+                 }, scope.$eval(attrs.startupSlider));
+                 setTimeout(function () {
+                     element.slick(config);
+                 }, 2000);
             }
         };
     })
