@@ -1,5 +1,6 @@
 'use strict';
 
+
 /**
  * @ngdoc overview
  * @name startApp
@@ -22,7 +23,8 @@ angular
         'ngBootbox',
         'ngDropzone',
         'selectize',
-        'datePicker'
+        'datePicker',
+        'angucomplete-alt'
     ])
     .constant('CONFIG', {baseUrl: 'http://192.168.12.14:8080', apiUrl: 'http://192.168.12.14:8080/api'}).
     run(function (editableOptions, $state, $rootScope, Auth, $localstorage, $ngBootbox) {
@@ -63,4 +65,4 @@ angular
     .config(['$httpProvider', function ($httpProvider) {
         $httpProvider.interceptors.push('AuthInterceptor');
     }]);
-;
+

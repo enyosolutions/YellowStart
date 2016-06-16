@@ -6,6 +6,36 @@
  */
 
 module.exports = {
+    autocomplete: function (req, resp) {
+        console.log(req.query.q);
+        if (req.query.q === undefined) {
+            return resp.json({error: 'There was an error, no search parameters are provided'})
+        }
+
+        var startupCollection = Monk.get('startup');
+        var tagCollection = Monk.get('tag');
+        var results = [];
+        tagCollection.find({label: {$regex: req.query.q, $options: 'i'}}).success(function (col) {
+            if (col && col.length > 0) {
+                results = col.map(function (e) {
+                    return {label: e.label, type: 'tag', id: e._id};
+                });
+            }
+
+            startupCollection.find({startupName: {$regex: req.query.q, $options: 'i'}}).success(function (col2) {
+                console.log(col2);
+                if(col2 && col2.length > 0){
+                    results = results.concat( col2.map(function(e){ return {label: e.startupName, id: e._id,  type: 'startup'};}) );
+                }
+                resp.json({body: results});
+            }).error(function (err) {
+                resp.json({body: results});
+            });;
+
+        }).error(function (err) {
+            resp.json({error: err});
+        });
+    },
 
     meta: function (req, resp) {
         if (req.query === undefined) {

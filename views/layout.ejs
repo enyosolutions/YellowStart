@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="/js/bower_components/dropzone/downloads/css/dropzone.css">
     <link rel="stylesheet" href="/js/bower_components/selectize/dist/css/selectize.bootstrap3.css">
     <link rel="stylesheet" href="/js/bower_components/angular-datepicker/dist/angular-datepicker.min.css">
+    <link rel="stylesheet" href="/js/bower_components/angucomplete-alt/angucomplete-alt.css">
     <link rel="stylesheet" href="/styles/font-awesome.css">
     <link rel="stylesheet" href="/styles/importer.css">
 </head>
@@ -78,13 +79,27 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li class="border first search-form" ng-controller="ListStartupCtrl as listStartup">
-                <form ng-click="search(listStartup.searchName)">
+                <form ng-submit="search(listStartup.searchName)">
                     <button class="btn btn-link" href="search">
                         <img src="/images/icons/search.png" alt="search"/>
                     </button>
 
-                    <input class="url form-control" name="website" ng-model="listStartup.searchName" type="text"
+                    <input class="url form-control hidden" name="website" ng-model="listStartup.searchName" type="text"
                            placeholder="Rechercher une start-up"/>
+
+                    <angucomplete-alt id="search"
+                                      placeholder="Rechercher une start-up"
+                                      pause="400"
+                                      text-searching="..."
+                                      text-no-results=""
+                                      selected-object="searchAutocomplete"
+                                      input-changed="searchAutocompleteCHG"
+                                      remote-url="/api/crawler/autocomplete?q="
+                                      remote-url-data-field="body"
+                                      title-field="label"
+                                      description-field="label"
+                                      input-class="url form-control"/>
+
                 </form>
             </li>
             <li class="dropdown border has-icon">
@@ -95,15 +110,14 @@
                 </a>
 
                 <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                    <li class="dropdown-header" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">Adminstration</li>
                     <li>
-                        <a href="#/admin/user">Utilisateurs</a>
+                        <a href="#/admin/user" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">Utilisateurs</a>
                     </li>
-                    <li>
+                    <li ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
                         <a href="#/admin/startup">Start-ups</a>
                     </li>
-                    <li>
-                        <hr />
-                    </li>
+                    <li ng-show="globals.user.roles.indexOf('ADMIN') !== -1" role="separator" class="divider"></li>
                     <li>
                         <a href="#/user/profile">Mon profil</a>
                     </li>
@@ -228,6 +242,7 @@
 <script src="/js/bower_components/dropzone/downloads/dropzone.min.js"></script>
 <script src="/js/bower_components/angular-dropzone/lib/angular-dropzone.js"></script>
 <script src="/js/bower_components/angular-datepicker/dist/angular-datepicker.min.js"></script>
+<script src="/js/bower_components/angucomplete-alt/dist/angucomplete-alt.min.js"></script>
 <script src="/js/bower_components/jquery.cycle2/index.js"></script>
 
 <script src="/js/bower_components/bootbox/bootbox.js"></script>
