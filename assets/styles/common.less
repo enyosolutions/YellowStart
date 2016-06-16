@@ -8,6 +8,10 @@ html, body {
   height: 100%;
 }
 
+body {
+  overflow: hidden;
+}
+
 /*
  * Glyphs
  */
@@ -62,6 +66,40 @@ html, body {
   .icon-account:before {
     content: "\e908";
   }
+
+/*
+ * Loading screen
+ */
+body.unlocked {
+  overflow: auto;
+}
+
+.loading-screen {
+  position: fixed;
+  z-index: 999999;
+
+  width: 100%;
+  height: 100%;
+
+  text-align: center;
+  background: #ffffff;
+
+  img {
+    margin-top: 50vh;
+
+    transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+  }
+
+  &.fade {
+    transition: opacity .5s ease-out;
+    -moz-transition: opacity .5s ease-out;
+    -webkit-transition: opacity .5s ease-out;
+
+    opacity: 0;
+  }
+}
 
 /*
  * Top navigation
