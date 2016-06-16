@@ -81,18 +81,14 @@ angular.module('start.controllers')
 
     })
 
-    .directive('mediaSlider', function () {
-        return {
-            restrict: 'AC',
-            link: function (scope, element, attrs) {
-                var config = angular.extend({
+    .directive('mediaSlider', function() {
+        return function(scope, element) {
+            if (scope.$last){
+                element.parent().cycle({
                     slides: '.slide',
                     prev: "#media-slider-prev",
-                    next: "#media-slider-next",
-                }, scope.$eval(attrs.mediaSlider));
-                setTimeout(function () {
-                    element.cycle(config);
-                }, 0);
+                    next: "#media-slider-next"
+                });
             }
         };
     })

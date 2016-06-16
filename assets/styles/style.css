@@ -1,25 +1,15 @@
-// Simplex 3.3.6
-// Variables
-// --------------------------------------------------
-
-//== Navbar
-//
-//## colors
-
 @font-face {
   font-family: 'atc';
   src: url("fonts/ATCOverlook-Bold.ttf");
   font-weight: 600;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'atc';
   src: url("fonts/ATCOverlook-Heavy.ttf");
   font-weight: 800;
   font-style: normal;
 }
-
 @keyframes rotateFall {
   0% {
     transform: rotateZ(0deg);
@@ -38,29 +28,24 @@
     transform: translateY(100%) rotateZ(17deg);
   }
 }
-
 @keyframes fadeOut {
   0% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
   }
 }
-
 .fadeOut {
   -webkit-animation-name: fadeOut;
   animation-name: fadeOut;
 }
-
 /* slide in from the bottom */
 @keyframes slideOutLeft {
   to {
     transform: translateX(-100%);
   }
 }
-
 /* rotate out newspaper */
 @keyframes rotateOutNewspaper {
   to {
@@ -68,7 +53,6 @@
     opacity: 0;
   }
 }
-
 /* entering animations --------------------------------------- */
 /* scale up */
 @keyframes scaleUp {
@@ -77,7 +61,6 @@
     -webkit-transform: scale(0.8);
   }
 }
-
 /* slide in from the right */
 @keyframes slideInRight {
   from {
@@ -87,7 +70,6 @@
     transform: translateX(0);
   }
 }
-
 /* slide in from the bottom */
 @keyframes slideInUp {
   from {
@@ -97,270 +79,196 @@
     transform: translateY(0);
   }
 }
-
 @-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
   }
-
   100% {
     opacity: 1;
   }
 }
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
   }
-
   100% {
     opacity: 1;
   }
 }
-
 .fadeIn {
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
 }
-
 .ng-enter {
   animation: fadeIn 0.3s both ease-in;
   z-index: 8888;
 }
-
 .ng-leave {
-  animation: fadeOut 0.350s both ease-in;
+  animation: fadeOut 0.35s both ease-in;
   z-index: 9999;
 }
-
 .splash {
   padding: 9em 0 2em;
   background-image: url(../images/bg2.jpg);
   background-size: cover;
   color: #fff;
   text-align: center;
-
-  &.small {
-    height: 330px;
-  }
-
-  &.medium {
-    height: 640px;
-  }
-
-  h1 {
-    font-weight: 700;
-    color: #FAFDD4;
-  }
-
-  h2 {
-    font-size: 1.5em;
-    font-weight: 100;
-    color: #fff;
-    width: 100%;
-    margin: 50px auto;
-    line-height: 1.5;
-  }
-
-  .home-form {
-    max-width: 602px;
-    margin: 0 auto;
-
-    .input-zone {
-      width: 100%;
-
-      input[type=text] {
-        margin: 30px 0;
-        text-align: center;
-        font-size: 2em;
-      }
-
-      button.submit-search,
-      button.submit-search:focus {
-        margin-top: 15px;
-        padding: 10px 45px;
-        outline: none;
-        background-color: #ff6500;
-      }
-    }
-
-  }
-
 }
-
+.splash.small {
+  height: 330px;
+}
+.splash.medium {
+  height: 640px;
+}
+.splash h1 {
+  font-weight: 700;
+  color: #FAFDD4;
+}
+.splash h2 {
+  font-size: 1.5em;
+  font-weight: 100;
+  color: #fff;
+  width: 100%;
+  margin: 50px auto;
+  line-height: 1.5;
+}
+.splash .home-form {
+  max-width: 602px;
+  margin: 0 auto;
+}
+.splash .home-form .input-zone {
+  width: 100%;
+}
+.splash .home-form .input-zone input[type=text] {
+  margin: 30px 0;
+  text-align: center;
+  font-size: 2em;
+}
+.splash .home-form .input-zone button.submit-search,
+.splash .home-form .input-zone button.submit-search:focus {
+  margin-top: 15px;
+  padding: 10px 45px;
+  outline: none;
+  background-color: #ff6500;
+}
 section.main {
   margin-top: 84px;
 }
-
-//== NEW STARTUP FORM
-//
-
-#startup-form {
-
-  .form-body {
-    max-width: 600px;
-    margin: 15px auto;
-
-    p {
-      font-size: 30px;
-      font-weight: 200;
-      margin: 90px 0;
-    }
-
-    .form-control {
-      margin-bottom: 52px;
-      font-size: 20px;
-    }
-    label {
-      font-weight: bold;
-      font-size: 20px;
-      display: block;
-      color: #292B2C;
-    }
-
-    sub {
-      font-size: 12px;
-      color: #666C6F;
-    }
-
-    .checkbox-label {
-      font-size: 12px;
-      font-weight: 400;
-
-    }
-
-    textarea {
-      min-height: 190px;
-      padding: 20px;
-      font-weight: 18px;
-    }
-  }
+#startup-form .form-body {
+  max-width: 600px;
+  margin: 15px auto;
 }
-
-body.view-page {
-  .startup-tags {
-    .tag {
-      display: inline-block;
-      a {
-        color: #FAFDD4;
-      }
-    }
-  }
-
-  .splash {
-    position: relative;
-
-    .nav-tabs {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-    }
-  }
-
-  section#main {
-    max-width: 934px;
-    .tab-content {
-      margin: 15px auto;
-    }
-  }
+#startup-form .form-body p {
+  font-size: 30px;
+  font-weight: 200;
+  margin: 90px 0;
 }
-
+#startup-form .form-body .form-control {
+  margin-bottom: 52px;
+  font-size: 20px;
+}
+#startup-form .form-body label {
+  font-weight: bold;
+  font-size: 20px;
+  display: block;
+  color: #292B2C;
+}
+#startup-form .form-body sub {
+  font-size: 12px;
+  color: #666C6F;
+}
+#startup-form .form-body .checkbox-label {
+  font-size: 12px;
+  font-weight: 400;
+}
+#startup-form .form-body textarea {
+  min-height: 190px;
+  padding: 20px;
+  font-weight: 18px;
+}
+body.view-page .startup-tags .tag {
+  display: inline-block;
+}
+body.view-page .startup-tags .tag a {
+  color: #FAFDD4;
+}
+body.view-page .splash {
+  position: relative;
+}
+body.view-page .splash .nav-tabs {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+body.view-page section#main {
+  max-width: 934px;
+}
+body.view-page section#main .tab-content {
+  margin: 15px auto;
+}
 section#sip-note {
   background-color: #0031f7;
   height: 548px;
   padding: 15px;
   text-align: center;
-
 }
-
 section#map-section {
   height: 525px;
   text-align: center;
   position: relative;
-  #startup-map {
-    width: 100%;
-    height: 100%;
-  }
-
-  .address {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -160px;
-    margin-left: -106px;
-  }
 }
-
-section#more-startups {
-
+section#map-section #startup-map {
+  width: 100%;
+  height: 100%;
 }
-
-//FORMS
-
+section#map-section .address {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -160px;
+  margin-left: -106px;
+}
 .form-group {
   overflow: visible;
 }
-
-.modal-content {
-  .form-group {
-    overflow: scroll;
-  }
-
+.modal-content .form-group {
+  overflow: scroll;
 }
-
 .ng-invalid:not(.ng-pristine) {
   border-color: #D9831F;
 }
-
 .ng-valid:not(.ng-pristine) {
   border-color: #469408;
 }
-
-.btn {
-  &:focus {
-    outline: none;
-
-  }
-  &button
-  &a {
-    i {
-      vertical-align: middle;
-    }
-  }
+.btn:focus {
+  outline: none;
 }
-
-// BUTTONS
-
+.btnbutton .btna i {
+  vertical-align: middle;
+}
 .btn-primary:hover {
   color: #ffffff;
   background-color: #ff6500;
   border-color: #ff6500;
 }
-
-// FORMS + SELECTIZE
-
 .selectize-input {
   min-height: 58.5px;
   padding: 8px 12px;
   border: 1px solid #dddddd;
   border-radius: 8px;
 }
-
 .selectize-control.multi .selectize-input > div {
   padding: 6px;
   background: #0031f7;
   color: white;
 }
-
 .selectize-control.multi .selectize-input.has-items {
   padding: 10px 12px 2px;
 }
-
 .dropzone {
   border: 3px dotted #0031f7;
   padding: 10px;
 }
-
 .dropzone .dz-default.dz-message {
   background: none;
   background-image: none;
@@ -372,33 +280,25 @@ section#more-startups {
   left: 0;
   text-align: center;
 }
-
 .dropzone .dz-default.dz-message span {
   display: block;
 }
-//tabs
-
 .nav > li > a.bg-green {
   background-color: #87DEB0;
 }
-
-// CARDS
 .card-img-top {
   max-height: 200px;
   min-height: 200px;
   height: auto;
   overflow: hidden;
 }
-
-.card-img-top img{
+.card-img-top img {
   width: 100%;
   height: auto;
 }
-
 .list-page .card {
   height: 420px;
 }
-
 .list-page .card .card-block {
   word-break: break-word;
 }
