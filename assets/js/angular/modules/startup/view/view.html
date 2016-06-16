@@ -27,15 +27,14 @@
                             <span ng-if="isBookmarked == 1">Suivi</span>
                         </div>
                     </div>
-                    <a  class="action" data-target="#commentModal" data-toggle="modal" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
-                        <i class="fa fa-comment-0 fa-2x"></i> <br/>
-                        <div class="text-lock">
-                            <span>Commenter</span>>
-                        </div>
+                    <a  class="action btn" href="#/startup/{{startup._id}}/edit" data-toggle="modal" ng-show="startup.status === 'draft' || globals.user.roles.indexOf('ADMIN') !== -1">
+                        <i class="fa fa-edit"></i> <div class="text-lock">Editer</div>
+                    </a>
+                    <a  class="action btn" data-target="#commentModal" data-toggle="modal" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
+                        <i class="fa fa-comment-o"></i> <div class="text-lock">Commenter</div>
                     </a>
                 </div>
             </div>
-
         </div>
     </div>
 
