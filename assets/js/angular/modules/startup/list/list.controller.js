@@ -10,6 +10,7 @@
 angular.module('start.controllers')
 
     .controller('ListStartupCtrl', function ($scope, $state, $stateParams, $location, $timeout, $routeParams, Startup) {
+        $scope.recentStartupList = {};
         $scope.pageClass = 'startup-list';
         $scope.currentPage = 0;
         $scope.q = '';
@@ -39,12 +40,12 @@ angular.module('start.controllers')
                     $scope.search(selection.title);
                 }
             }
-        }
+        };
 
         $scope.searchAutocompleteCHG = function (q) {
             console.log('AUTOCOMPLETE CHANGED', q);
             $scope.searchName = q;
-        }
+        };
 
 
         $scope.deleteStartup = function (id) {
@@ -101,39 +102,30 @@ angular.module('start.controllers')
         }
 
         $scope.recentStartupList = Startup.query({'sort[createdAt]': 1});
-        console.log($scope.recentStartupList);
 
         $scope.trendingStartupList = Startup.query({'sort[tags]': 1});
     })
 
-    .directive('homeSlider', function () {
-        return {
-            restrict: 'AC',
-            link: function (scope, element, attrs) {
-                var config = angular.extend({
+    .directive('homeSlider', function() {
+        return function(scope, element) {
+            if (scope.$last){
+                element.parent().cycle({
                     slides: '.slide',
                     pager: '> .cycle-pager'
-                }, scope.$eval(attrs.homeSlideshow));
-                setTimeout(function () {
-                    element.cycle(config);
-                }, 0);
+                });
             }
         };
     })
 
-    .directive('startupSlider', function () {
-        return {
-            restrict: 'AC',
-            link: function (scope, element, attrs) {
-                var config = angular.extend({
-                 infinite: true,
-                 speed: 300,
-                 slidesToShow: 3,
-                 centerMode: false
-                 }, scope.$eval(attrs.startupSlider));
-                 setTimeout(function () {
-                     element.slick(config);
-                 }, 2000);
+    .directive('startupSlider', function() {
+        return function(scope, element) {
+            if (scope.$last){
+                element.parent().slick({
+                    infinite: true,
+                    speed: 300,
+                    slidesToShow: 3,
+                    centerMode: false
+                });
             }
         };
     })

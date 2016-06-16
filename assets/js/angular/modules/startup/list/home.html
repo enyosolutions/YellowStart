@@ -1,11 +1,5 @@
-<section class="cycle-slider-home" home-slider>
-    <div class="slide bg-green">
-        <div class="container">
-            <img alt="" src="/data/slideshow/slide1.jpg" />
-        </div>
-    </div>
-
-    <div class="slide bg-green">
+<section class="cycle-slider-home">
+    <div class="slide bg-green" ng-repeat="slide in recentStartupList" home-slider>
         <div class="container">
             <img alt="" src="/data/slideshow/slide1.jpg" />
         </div>
@@ -22,8 +16,8 @@
     </div>
 
     <div class="startups-wrapper">
-        <div class="startups-list" startup-slider>
-            <div class="startup" ng-repeat="startup in recentStartupList">
+        <div class="startups-list">
+            <div class="startup" ng-repeat="startup in recentStartupList" startup-slider>
                 <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
                     <img src="{{ startup.picture }}" alt="{{ startup.startupName }}">
                 </a>
@@ -63,7 +57,7 @@
         </div>
     </div>
     <div class="startups-wrapper">
-        <div class="startups-list">
+        <div class="startups-list" startup-slider>
             <div class="startup" ng-repeat="startup in trendingStartupList">
                 <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
                     <img src="{{ startup.picture }}" alt="{{ startup.startupName }}">
