@@ -8,6 +8,8 @@
 module.exports = {
 
     'list': function (req, res, next) {
+
+        MailService.sendActivitySummary();
         var out = {};
         var query = {};
         var startPage = req.query.page ? req.query.page : 0;
