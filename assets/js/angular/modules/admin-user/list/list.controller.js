@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('start.controllers').controller("AdminUserListCtrl", function($scope, $location, $filter, Auth, AdminUser, UserService) {
+angular.module('start.controllers').controller("AdminUserListCtrl", function($scope, $location, $filter, Auth, AdminUser, UserService, $ngBootbox) {
    $scope.users = AdminUser.query();
-
+    $scope.currentUser = {};
     $scope.activateUser = function(index){
         $scope.users[index].isActive = true;
         $scope.users[index].$update();
@@ -14,7 +14,11 @@ angular.module('start.controllers').controller("AdminUserListCtrl", function($sc
     };
 
     $scope.editUser = function(index){
-        $scope.users[index].isActive = true;
+        $scope.currentUser = $scope.users[index];
+    };
+
+    $scope.updateUser = function(index){
+        $scope.currentUser.$update();
     };
 
 

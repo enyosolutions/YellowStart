@@ -11,7 +11,7 @@ module.exports = {
         var out = {};
         var query = {};
         var startPage = req.query.page ? req.query.page : 0;
-        var options = {$limit: 30, skip: startPage * 30 };
+        var options = {limit: 12, skip: startPage * 4 };
 
         // Query preparation
         if (req.query) {

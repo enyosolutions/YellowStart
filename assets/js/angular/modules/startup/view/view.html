@@ -27,6 +27,12 @@
                             <span ng-if="isBookmarked == 1">Suivi</span>
                         </div>
                     </div>
+                    <a  class="action" data-target="#commentModal" data-toggle="modal" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
+                        <i class="fa fa-comment-0 fa-2x"></i> <br/>
+                        <div class="text-lock">
+                            <span>Commenter</span>>
+                        </div>
+                    </a>
                 </div>
             </div>
 
@@ -53,6 +59,11 @@
         <li role="presentation">
             <a data-target="#startup" aria-controls="startup" role="tab" data-toggle="tab">
                 La start-up
+            </a>
+        </li>
+        <li role="presentation">
+            <a href="#/startup/{{ startup._id }}/edit" aria-controls="startup" role="tab" class=" bg-info">
+                Editer la fiche
             </a>
         </li>
     </ul>
@@ -368,7 +379,7 @@
         <div class="container">
             <span class="title">Vous conaissez une start-up ?</span>
 
-            <a href="#" class="btn btn-lg">
+            <a href="#/startup/new" class="btn btn-lg">
                 Soumettre une start-up
             </a>
         </div>
