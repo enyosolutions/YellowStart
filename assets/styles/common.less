@@ -108,8 +108,28 @@ html, body {
       padding: 20px 0;
     }
 
-    .search-form button {
-      padding: 38px 0 38px 10px;
+    .search-form {
+      .angucomplete-holder {
+        display: inline-block;
+      }
+
+      input {
+        width: 620px;
+      }
+
+      button {
+        padding: 38px 0 38px 10px;
+      }
+    }
+
+    // angucomplete override
+    .angucomplete-dropdown {
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+
+      top: 86px;
+      left: -34px;
     }
 
     li {

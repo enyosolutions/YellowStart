@@ -80,7 +80,7 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li class="border first search-form" ng-controller="ListStartupCtrl as listStartup">
-                <form ng-submit="search(listStartup.searchName)">
+                <form class="search-form" ng-submit="search(listStartup.searchName)">
                     <button class="btn btn-link" href="search">
                         <img src="/images/icons/search.png" alt="search"/>
                     </button>
@@ -134,13 +134,6 @@
                     </div>
 
                     Mes notifications
-                </a>
-            </li>
-            <li class="border has-icon">
-                <a href="#/" fadeOut>
-                    <img class="icon" alt="" src="/images/icons/star.png"/>
-
-                    Mes favoris
                 </a>
             </li>
             <li class="orange has-icon">
@@ -229,7 +222,6 @@
 <script src="/js/angular.min.js"></script>
 
 
-<script src="/js/dependencies/sails.io.js"></script>
 <script src="/js/bower_components/moment/min/moment-with-locales.min.js"></script>
 <script src="/js/bower_components/angular-animate/angular-animate.min.js"></script>
 <script src="/js/bower_components/angular-cookies/angular-cookies.min.js"></script>

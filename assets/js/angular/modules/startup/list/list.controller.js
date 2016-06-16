@@ -123,7 +123,7 @@ angular.module('start.controllers')
                 element.parent().slick({
                     infinite: true,
                     speed: 300,
-                    slidesToShow: 3,
+                    slidesToShow: 4,
                     centerMode: false
                 });
             }
