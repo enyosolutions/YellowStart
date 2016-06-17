@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('start.controllers').controller("ProfileCtrl", function ($scope, $rootScope, Startup, $log, $localstorage, $ngBootbox, UserService) {
+angular.module('start.controllers').controller("ProfileCtrl", function ($scope, $rootScope, Startup, $log, $localstorage, $ngBootbox, UserService, CONFIG) {
 
     $scope.pictureZone = {
         addedFile: function (file, error) {
@@ -17,8 +17,8 @@ angular.module('start.controllers').controller("ProfileCtrl", function ($scope, 
             }
         },
         dropzoneConfig: {
+            url: CONFIG.baseUrl + "/user/upload-picture",
             paramName: "file",
-            maxFiles: 1,
             parallelUploads: 1,
             maxFileSize: 10,
             dictDefaultMessage: "Glissez une image pour l'ajouter",

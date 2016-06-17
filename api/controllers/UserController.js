@@ -62,7 +62,7 @@ module.exports = {
 
     'uploadFile': function (req, res, next) {
 
-        console.log('upload files');
+        console.log('upload files', req.token);
 
         var id = req.token.id;
         console.log('startup id', id);

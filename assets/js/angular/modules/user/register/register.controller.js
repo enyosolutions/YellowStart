@@ -70,6 +70,6 @@ angular.module('start.controllers').controller("RegisterCtrl", function ($scope,
 
     $scope.logout = function () {
         Auth.logout();
-        $location.path('/');
+        $state.go('home');
     };
 });
