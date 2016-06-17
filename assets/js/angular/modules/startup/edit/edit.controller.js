@@ -8,7 +8,7 @@
  * Controller of the startApp
  */
 angular.module('start.controllers')
-    .controller('EditStartupCtrl', function ($scope, $rootScope, $stateParams, $location, $localstorage, $timeout, $ngBootbox, $compile, $log, Startup, StartupContact, Utils, Tag, Crawler) {
+    .controller('EditStartupCtrl', function ($scope, $rootScope, $stateParams, $location, $localstorage, $timeout, $ngBootbox, $compile, $log, Startup, StartupContact, Utils, Tag, Crawler, CONFIG) {
         $scope.pageClass = 'startup-edit';
         $scope.pageClass = 'edit-page';
         $scope.startup = {};
@@ -61,7 +61,7 @@ angular.module('start.controllers')
             },
             dropzoneConfig: {
                 paramName: "file",
-                maxFiles: 1,
+                url: CONFIG.baseUrl + "/startup/upload-picture",
                 parallelUploads: 1,
                 maxFileSize: 10,
                 dictDefaultMessage: "Glissez une image pour l'ajouter",
@@ -82,6 +82,7 @@ angular.module('start.controllers')
 
             },
             dropzoneConfig: {
+                url: CONFIG.baseUrl + "/startup/upload-file",
                 paramName: "file",
                 parallelUploads: 4,
                 maxFileSize: 10,

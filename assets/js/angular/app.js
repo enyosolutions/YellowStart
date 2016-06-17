@@ -26,8 +26,9 @@ angular
         'datePicker',
         'angucomplete-alt'
     ])
-    .constant('CONFIG', {baseUrl: 'http://192.168.12.14:8080', apiUrl: 'http://192.168.12.14:8080/api'}).
-    run(function (editableOptions, $state, $rootScope, Auth, $localstorage, $ngBootbox) {
+    // .constant('CONFIG', {baseUrl: 'http://start.dev:8080', apiUrl: 'http://yellowstart.enyosolutions.com/api'})
+    .constant('CONFIG', {baseUrl: 'http://yellowstart.enyosolutions.com', apiUrl: 'http://yellowstart.enyosolutions.com/api'})
+    .run(function (editableOptions, $state, $rootScope, Auth, $localstorage, $ngBootbox, CONFIG) {
         editableOptions.theme = 'bs3';
         $rootScope.$state = $state;
         $rootScope.globals = {};

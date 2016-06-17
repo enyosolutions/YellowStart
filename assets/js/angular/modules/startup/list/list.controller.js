@@ -9,10 +9,11 @@
  */
 angular.module('start.controllers')
 
-    .controller('ListStartupCtrl', function ($scope, $state, $stateParams, $location, $timeout, $routeParams, Startup) {
+    .controller('ListStartupCtrl', function ($scope, $state, $stateParams, $location, $timeout, $routeParams, Startup, CONFIG) {
         $scope.recentStartupList = {};
         $scope.pageClass = 'startup-list';
         $scope.currentPage = 0;
+        $scope.remoteHost = CONFIG.baseUrl;
         $scope.q = '';
         var query = {};
 

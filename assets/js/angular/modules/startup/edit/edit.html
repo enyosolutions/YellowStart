@@ -96,7 +96,6 @@
                 <form class="dropzone"
                       method="post"
                       enctype="multipart/form-data"
-                      action="/startup/upload-picture"
                       ng-dropzone
                       dropzone="pictureZone.dropzone"
                       dropzone-config="pictureZone.dropzoneConfig"
@@ -160,7 +159,6 @@
                 <form class="dropzone"
                       method="post"
                       enctype="multipart/form-data"
-                      action="/startup/upload-file"
                       ng-dropzone
                       dropzone="filesZone.dropzone"
                       dropzone-config="filesZone.dropzoneConfig"
@@ -517,7 +515,7 @@
                             <label>LinkedIn</label>
                         </div>
                         <div class="col-md-7">
-                            <input type="url" class="form-control" ng-model="newContact.linkedIn" />
+                            <input type="url" class="form-control" ng-model="newContact.linkedIn"/>
                         </div>
                     </div>
                     <div class="form-group">
