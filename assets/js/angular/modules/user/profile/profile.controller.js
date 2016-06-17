@@ -18,7 +18,6 @@ angular.module('start.controllers').controller("ProfileCtrl", function ($scope, 
         },
         dropzoneConfig: {
             paramName: "file",
-            maxFiles: 1,
             parallelUploads: 1,
             maxFileSize: 10,
             dictDefaultMessage: "Glissez une image pour l'ajouter",
