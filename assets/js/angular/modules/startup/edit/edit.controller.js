@@ -207,6 +207,11 @@ angular.module('start.controllers')
                 });
             }
             else {
+                if($scope.startup.videoPresentation){
+                    console.log($scope.startup);
+                    $scope.startup.youtubeId =
+                        Utils.getYoutubeIds($scope.startup.videoPresentation)[1];
+                }
                 $scope.startup.$update();
                 if ($scope.startup.status != 'published') {
                     $localstorage.setObject('startupDraft', {

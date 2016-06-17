@@ -8969,6 +8969,7 @@ footer .brand {
 }
 .page.startup-view .splash {
   height: auto;
+  min-height: 300px;
   position: relative;
   padding: 50px 0 0 0;
 }
