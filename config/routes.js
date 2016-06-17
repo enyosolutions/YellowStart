@@ -41,6 +41,7 @@ module.exports.routes = {
 
     'GET /api/crud/startup': 'StartupController.list',
     '/startup/new': {view: 'startup/new'},
+    'GET /api/crud/startup-luna': 'StartupController.listLuna',
     '/startup/upload-picture': 'StartupController.uploadPicture',
     '/startup/upload-file': 'StartupController.uploadFile',
     '/startup/delete-file': 'StartupController.deleteFile',

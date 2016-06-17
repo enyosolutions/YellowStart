@@ -49,7 +49,7 @@ angular.module('start.controllers')
             };
 
         }
-        $scope.isBookmarked =  $rootScope.globals.user.bookmarks && $rootScope.globals.user.bookmarks.indexOf($scope.startup._id) ? true : false;
+        $scope.isBookmarked =  $rootScope.globals.user.bookmarks && $rootScope.globals.user.bookmarks.indexOf($scope.startup._id) > -1 ? true : false;
 
 
         $scope.comments = StartupComment.query({'query[startupId]':  $stateParams._id});

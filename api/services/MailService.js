@@ -1,5 +1,6 @@
 
 var nodemailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
 
 module.exports = {
     sendPendingMail : function(){},
@@ -14,20 +15,15 @@ module.exports = {
 
     sendMail: function(email, subject, body , done){
 
-        var smtpTransport = nodemailer.createTransport(sails.config.mail.protocol, {
-            service: sails.config.mail.options.service,
-            auth: {
-                user: sails.config.mail.options.user,
-                pass: sails.config.mail.options.pass
-            }
-        });
+        var smtpTransport = nodemailer.createTransport(sails.config.mail.options);
         var mailOptions = {
             to: email,
             from: sails.config.mail.from,
             subject: subject,
-            text: body
+            html: body
         };
         smtpTransport.sendMail(mailOptions, function(err) {
+            console.log(err);
           //  req.flash('info', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
             done ? done(err, 'done') : '';
         });

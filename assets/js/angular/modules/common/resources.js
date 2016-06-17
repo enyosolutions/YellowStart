@@ -31,6 +31,16 @@ angular.module('start.services')
                 "get": {isArray: false, cancellable: false, method: "GET", transformResponse: transformGet}
             })
     })
+       // LIST OF STARTUPS
+    .factory('LunaStartup', function ($resource, CONFIG) {
+        return $resource(CONFIG.apiUrl + '/crud/startup-luna/:_id', {_id: '@_id'},
+            {
+                "update": {isArray: false, method: "PUT", transformResponse: transformGet},
+                "save": {isArray: false, cancellable: false, method: "POST", transformResponse: transformGet},
+                "query": {isArray: true,  method: "GET", transformResponse: transformGet},
+                "get": {isArray: false, cancellable: false, method: "GET", transformResponse: transformGet}
+            })
+    })
     // LIST OF CONTACTS FOR THE STARTUP
     .factory('StartupContact', function ($resource, CONFIG) {
         return $resource(CONFIG.apiUrl + '/crud/startup-contact/:_id', {_id: '@_id'},
