@@ -37,7 +37,7 @@
 
     <div class="startups-wrapper">
         <div class="startups-list">
-            <div class="startup" ng-repeat="startup in mostViewedStartupList">
+            <div class="startup" ng-repeat="startup in mostViewedStartupList" startup-slider>
                 <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
                     <img src="{{ startup.picture ? startup.picture : '/images/placeholder.jpg' }}" alt="{{ startup.startupName }}">
                     <div class="caption" ng-if="!startup.picture" >{{ startup.startupName }}</div>
@@ -58,7 +58,7 @@
     </div>
     <div class="startups-wrapper">
         <div class="startups-list" startup-slider>
-            <div class="startup" ng-repeat="startup in bestScoreStartupList">
+            <div class="startup" ng-repeat="startup in bestScoreStartupList" startup-slider>
                 <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
                     <img src="{{ startup.picture ? startup.picture : '/images/placeholder.jpg' }}" alt="{{ startup.startupName }}">
                     <div class="caption" ng-if="!startup.picture" >{{ startup.startupName }}</div>
@@ -80,7 +80,7 @@
     </div>
     <div class="startups-wrapper">
         <div class="startups-list">
-            <div class="startup" ng-repeat="startup in mostBookmarkedStartupList">
+            <div class="startup" ng-repeat="startup in mostBookmarkedStartupList" startup-slider>
                 <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
                     <img src="{{ startup.picture ? startup.picture : '/images/placeholder.jpg' }}" alt="{{ startup.startupName }}">
                     <div class="caption" ng-if="!startup.picture" >{{ startup.startupName }}</div>
@@ -102,7 +102,7 @@
 
     <div class="startups-wrapper">
         <div class="startups-list">
-            <div class="startup" ng-repeat="startup in lessViewedStartupList">
+            <div class="startup" ng-repeat="startup in lessViewedStartupList" startup-slider>
                 <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
                     <img src="{{ startup.picture ? startup.picture : '/images/placeholder.jpg' }}" alt="{{ startup.startupName }}">
                     <div class="caption" ng-if="!startup.picture" >{{ startup.startupName }}</div>

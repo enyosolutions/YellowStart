@@ -8746,6 +8746,7 @@ footer .brand {
   display: block;
   margin: 0 auto;
   width: 100%;
+  max-width: 1280px;
 }
 .page.startup-list .home .startups-wrapper .startups-list {
   display: block;
@@ -8756,10 +8757,34 @@ footer .brand {
   white-space: nowrap;
   overflow: hidden;
 }
+.page.startup-list .home .startups-wrapper .slick-prev,
+.page.startup-list .home .startups-wrapper .slick-next {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 220px;
+  width: 60px;
+  border: none !important;
+  background: rgba(255, 255, 255, 0.8);
+}
+.page.startup-list .home .startups-wrapper .slick-next {
+  left: auto;
+  right: 0;
+  width: 60px;
+}
+.page.startup-list .home .startups-wrapper .slick-prev:after,
+.page.startup-list .home .startups-wrapper .slick-next:before {
+  content: ">";
+  color: orange;
+  font-size: 60px;
+}
+.page.startup-list .home .startups-wrapper .slick-prev:after {
+  content: "<";
+}
 .page.startup-list .home .startups-wrapper .startups-list .startup {
   display: inline-block;
   vertical-align: top;
-  width: auto;
+  width: 320px;
   margin: 0 5px;
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup:first-child,

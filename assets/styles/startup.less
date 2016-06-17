@@ -20,6 +20,7 @@
       margin: 0 auto;
 
       width: 100%;
+      max-width: 1280px;
 
       .startups-list {
         display: block;
@@ -32,11 +33,43 @@
         white-space: nowrap;
         overflow: hidden;
       }
+
+      // pagination
+      .slick-prev,
+      .slick-next {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        height: 220px;
+        width: 60px;
+
+        border: none !important;
+        background: rgba(255, 255, 255, 0.8);
+      }
+      .slick-next {
+        left: auto;
+        right: 0;
+
+        width: 60px;
+      }
+      .slick-prev:after,
+      .slick-next:before {
+        content: ">";
+        color: orange;
+        font-size: 60px;
+      }
+      .slick-prev:after {
+        content: "<";
+      }
+
+      // element
       .startups-list .startup {
         display: inline-block;
         vertical-align: top;
 
-        width: auto;
+        width: 320px;
         margin: 0 5px;
 
         &:first-child,

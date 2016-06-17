@@ -118,10 +118,12 @@ angular.module('start.controllers')
         return function(scope, element) {
             if (scope.$last){
                 element.parent().slick({
-                    infinite: true,
+                    infinite: false,
+                    variableWidth: true,
                     speed: 300,
+                    centerMode: false,
                     slidesToShow: 4,
-                    centerMode: false
+                    slidesToScroll: 1
                 });
             }
         };
