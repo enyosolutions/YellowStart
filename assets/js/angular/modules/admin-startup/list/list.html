@@ -8,7 +8,8 @@
 
             <div class="sort">
                 <div class="dropdown">
-                    <button class="btn btn-primary-alternate dropdown-toggle" type="button" id="sort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <button class="btn btn-primary-alternate dropdown-toggle" type="button" id="sort"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         Trier
                         <span class="caret"></span>
                     </button>
@@ -31,7 +32,7 @@
                     <thead>
                     <tr>
                         <th>Startup Name</th>
-                        <th>Tag line </th>
+                        <th>Tag line</th>
                         <th>Creation date</th>
                         <th>Status</th>
                         <th>Actions</th>
@@ -39,8 +40,8 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="startup in startups">
-                        <td>{{ startup.startupName }} </td>
-                        <td>{{ startup.tagline }} </td>
+                        <td>{{ startup.startupName }}</td>
+                        <td>{{ startup.tagline }}</td>
                         <td>{{ startup.createdAt | date : longDate }}</td>
                         <td>
                             <span class='text-success' ng-if="startup.status == 'published'">Publié</span>
@@ -48,9 +49,9 @@
                         </td>
                         <td>
                             <div class="btn-group">
-                                <a  class="btn btn-primary btn-xs" href="#/startup/{{ startup._id }}/view">VIEW</a>
-                                <a  class="btn btn-warning btn-xs" href="#/startup/{{ startup._id }}/edit">EDIT</a>
-                                <button class="btn btn-danger btn-xs" ng-click="deleteStartup($index)"> DELETE </button>
+                                <a class="btn btn-primary btn-xs" href="#/startup/{{ startup._id }}/view">VIEW</a>
+                                <a class="btn btn-warning btn-xs" href="#/startup/{{ startup._id }}/edit">EDIT</a>
+                                <button class="btn btn-danger btn-xs" ng-click="deleteStartup($index)"> DELETE</button>
                             </div>
                         </td>
                     </tr>
@@ -58,6 +59,35 @@
                     </tbody>
                 </table>
 
+
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Startup Name</th>
+                        <th>Description</th>
+                        <th>Creation date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="startup in startupsLuna">
+                        <td>{{ startup.StartupName }}</td>
+                        <td><p>{{ startup.ProjectTweet }}</p></td>
+                        <td>{{ startup.added_at | date : longDate }}</td>
+                        <td>
+                            <span class='text-success' ng-if="startup.status == 'published'">Publié</span>
+                            <span class="text-warning" ng-if="startup.status != 'published'">Brouillon</span>
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <a class="btn btn-primary btn-xs" href="#/startup/{{ startup._id }}/view">IMPORTER</a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
 
             </div>
         </div>
@@ -81,6 +111,23 @@
                     </a>
                 </li>
             </ul>
+        </div>
+
+
+        <div id="startupProfileModal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true" class="fa-3x">&times;</span></button>
+                        <h4 class="modal-title">Detail de la startup</h4>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

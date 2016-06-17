@@ -9,7 +9,6 @@ module.exports = {
 
     'list': function (req, res, next) {
 
-        MailService.sendActivitySummary();
         var out = {};
         var query = {};
         var startPage = req.query.page ? req.query.page : 0;
@@ -74,7 +73,7 @@ module.exports = {
             }
         }
 
-        if(status){
+        if (status) {
             query.status = status;
         }
         /*
@@ -104,6 +103,24 @@ module.exports = {
         ;
 
     },
+
+
+    'listLuna': function (req, res, next) {
+        MailService.sendActivitySummary();
+        console.log('luna sucking');
+        var request = require('request');
+        request('http://luna.startinpost.com/project/apilisttititata', function (error, response, body) {
+            if (error) {
+                res.json({error: error});
+            }
+            else {
+                res.json({body: JSON.parse(body)});
+            }
+
+        });
+    },
+
+
     'uploadFile': function (req, res, next) {
 
         console.log('upload files');

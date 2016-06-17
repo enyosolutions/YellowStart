@@ -31,6 +31,7 @@
     "mongodb": "^1.4.40",
     "monk": "^1.0.1",
     "nodemailer": "^2.4.2",
+    "nodemailer-smtp-transport": "^2.5.0",
     "q": "^1.4.1",
     "rc": "~0.5.0",
     "request": "^2.72.0",

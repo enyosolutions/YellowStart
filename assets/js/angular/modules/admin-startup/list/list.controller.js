@@ -1,9 +1,10 @@
 'use strict';
 
-angular.module('start.controllers').controller("AdminStartupListCtrl", function($scope, $location, Startup) {
+angular.module('start.controllers').controller("AdminStartupListCtrl", function($scope, $location, Startup, LunaStartup) {
 
     $scope.currentPage = 0;
     $scope.startups = Startup.query();
+    $scope.startupsLuna = LunaStartup.query();
     var query = {};
     $scope.prevPage = function () {
         if ($scope.currentPage > 0) {
