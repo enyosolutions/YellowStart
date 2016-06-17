@@ -16,14 +16,13 @@ body {
  */
 @font-face {
   font-family: 'icomoon';
-  src: url('fonts/icomoon.eot?ixjcmn');
-  src: url('fonts/icomoon.eot?ixjcmn#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?ixjcmn') format('truetype'), url('fonts/icomoon.woff?ixjcmn') format('woff'), url('fonts/icomoon.svg?ixjcmn#icomoon') format('svg');
+  src: url('fonts/icomoon.eot?y163zq');
+  src: url('fonts/icomoon.eot?y163zq#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?y163zq') format('truetype'), url('fonts/icomoon.woff?y163zq') format('woff'), url('fonts/icomoon.svg?y163zq#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 [class^="icon-"],
 [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: none;
   font-style: normal;
@@ -34,32 +33,41 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.icon-bromance:before {
+.icon-Badge:before {
   content: "\e900";
 }
-.icon-favoriteAdd:before {
+.icon-AddComment:before {
   content: "\e901";
 }
-.icon-favoriteCheck:before {
+.icon-EditPage:before {
   content: "\e902";
 }
-.icon-favorite:before {
+.icon-bromance:before {
   content: "\e903";
 }
-.icon-settings:before {
+.icon-favoriteAdd:before {
   content: "\e904";
 }
-.icon-add:before {
+.icon-favoriteCheck:before {
   content: "\e905";
 }
-.icon-contact:before {
+.icon-favorite:before {
   content: "\e906";
 }
-.icon-search:before {
+.icon-settings:before {
   content: "\e907";
 }
-.icon-account:before {
+.icon-add:before {
   content: "\e908";
+}
+.icon-contact:before {
+  content: "\e909";
+}
+.icon-search:before {
+  content: "\e90a";
+}
+.icon-account:before {
+  content: "\e90b";
 }
 /*
  * Loading screen
@@ -116,8 +124,9 @@ body.unlocked {
   position: relative;
 }
 .top-navigation.top-navigation-default .search-form {
-  overflow: hidden;
+  float: left;
   position: relative;
+  width: 50%;
 }
 .top-navigation.top-navigation-default .search-form input {
   display: block;
@@ -138,14 +147,21 @@ body.unlocked {
   z-index: 2;
   top: 0;
   left: 0;
+  font-size: 20px;
+  line-height: 20px;
   padding: 38px 0 38px 10px;
+}
+.top-navigation.top-navigation-default .search-form button:hover,
+.top-navigation.top-navigation-default .search-form button:focus {
+  color: #73737f;
+  text-decoration: none;
 }
 .top-navigation.top-navigation-default .search-form .angucomplete-dropdown {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  top: 86px;
-  left: -34px;
+  top: 105px;
+  left: -1px;
 }
 .top-navigation.top-navigation-default .navigation {
   position: absolute;
@@ -185,13 +201,15 @@ body.unlocked {
   color: #73737f;
   text-align: center;
 }
-.top-navigation.top-navigation-default .navigation li a:hover {
+.top-navigation.top-navigation-default .navigation li a:hover,
+.top-navigation.top-navigation-default .navigation li a:focus {
   text-decoration: none;
 }
 .top-navigation.top-navigation-default .navigation li a .icon {
-  height: 20px;
+  font-size: 24px;
+  line-height: 24px;
   display: block;
-  margin: 0 auto 5px auto;
+  margin: 0 auto 1px auto;
 }
 .top-navigation.top-navigation-default .navigation li .dropdown-menu {
   min-width: 100px;
@@ -344,7 +362,6 @@ footer .brand {
  */
 .cycle-slider-home {
   width: 100%;
-  height: 100%;
   overflow: hidden;
   position: relative;
 }
@@ -357,8 +374,11 @@ footer .brand {
 .cycle-slider-home .cycle-pager {
   position: absolute;
   z-index: 10000;
-  top: 300px;
+  top: 50%;
   right: 30px;
+  transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
 }
 .cycle-slider-home .cycle-pager span {
   display: block;
@@ -369,6 +389,11 @@ footer .brand {
 }
 .cycle-slider-home .cycle-pager span.cycle-pager-active {
   font-size: 80px;
+}
+@media screen and (max-width: 1024px) {
+  .cycle-pager {
+    right: 15px !important;
+  }
 }
 .cycle-slider-media {
   width: 100%;
