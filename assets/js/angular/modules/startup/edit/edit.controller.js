@@ -8,7 +8,7 @@
  * Controller of the startApp
  */
 angular.module('start.controllers')
-    .controller('EditStartupCtrl', function ($scope, $rootScope, $stateParams, $location, $localstorage, $timeout, $ngBootbox, $compile,  $log, Startup, StartupContact, Utils, Tag, Crawler) {
+    .controller('EditStartupCtrl', function ($scope, $rootScope, $stateParams, $location, $localstorage, $timeout, $ngBootbox, $compile, $log, Startup, StartupContact, Utils, Tag, Crawler) {
         $scope.pageClass = 'startup-edit';
         $scope.pageClass = 'edit-page';
         $scope.startup = {};
@@ -144,7 +144,7 @@ angular.module('start.controllers')
                         var tpl = "Nous avons trouvé des startups qui ressemblent à la startup que vous souhaiter créer. Peut-être souhaitez-vous editer une de ces fiches à la place ? <hr/>"
                             + res.map(function (e) {
                                 return "<div><h3><a href='#/startup/" + e._id + "/edit'>" + e.startupName +
-                                (e.picture &&  e.picture.length > 0 ? "<img class='media-object pull-right' alt='"+ e.startupName+"' style='height: 50px; width: 50px;' src='" + e.picture + "' alt=''>" : "" )+
+                                (e.picture && e.picture.length > 0 ? "<img class='media-object pull-right' alt='" + e.startupName + "' style='height: 50px; width: 50px;' src='" + e.picture + "' alt=''>" : "" ) +
                                 "</a></h3></div>";
                             }).join('<br/>') + "";
 
@@ -166,9 +166,33 @@ angular.module('start.controllers')
             }
         };
 
-        $scope.openStartup = function(id){
-            console.log('contact'  + id);
-            $location.path('/startup/' + id +'/edit');
+        var checkRequiredFields = function () {
+            var requiredFields = [
+                {field:'startupName', label:'Nom de la startup'},
+                {field:'tagline', label:'Tag line de la startup'},
+                {field:'websiteUrl', label:'Url du site'},
+                {field:'projectTweet', label:'Le résumé en 140 caractères'}
+            ];
+            var missingFields = [];
+            for (var i in requiredFields) {
+                if (!$scope.startup[requiredFields[i].field] || $scope.startup[requiredFields[i].field].length < 1) {
+                    missingFields.push(requiredFields[i]);
+                }
+            }
+            if (missingFields.length > 0) {
+                $ngBootbox.alert('<h3>Il manque des champs pour valider votre fiche</h3>' + missingFields.map(function (e) {
+                    return '<div class="info">' + e.label + '</div>';
+                }).join(''));
+                return false;
+            }
+            else {
+                return true;
+            }
+
+        };
+        $scope.openStartup = function (id) {
+            console.log('contact' + id);
+            $location.path('/startup/' + id + '/edit');
         };
 
         //SAVE EDITED STARTUP PROGRESS
@@ -196,7 +220,7 @@ angular.module('start.controllers')
 
         // CHANGE THE STATUS OF THE STARTUP TO PUBLISHED, MAKING IT AVAILABLE TO EVERYONE
         $scope.publishStartup = function () {
-            if ($scope.startup._id) {
+            if ($scope.startup._id && checkRequiredFields()) {
                 $scope.startup.status = 'published';
                 $scope.startup.publishedAt = new Date();
                 $scope.startup.$update();

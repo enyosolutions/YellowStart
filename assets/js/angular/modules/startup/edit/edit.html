@@ -110,9 +110,10 @@
             <div class="col-md-5">
                 <label>Résumé en 140 caractères</label>
                 <sub>Lorem upsum parabelmmu ista blah blah</sub>
+                <sub>{{ startup.projectTweet.length || '0' }}/140</sub>
             </div>
             <div class="col-md-7" ng-class="{'autocomplete-field': isAutocompleting }">
-                <textarea class="form-control" ng-model="startup.projectTweet"
+                <textarea class="form-control" ng-model="startup.projectTweet" maxlength="140"
                           ng-blur="saveStartup()">{{ startup.projectTweet }}</textarea>
             </div>
         </div>
