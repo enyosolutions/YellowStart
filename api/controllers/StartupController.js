@@ -13,7 +13,7 @@ module.exports = {
         var out = {};
         var query = {};
         var startPage = req.query.page ? req.query.page : 0;
-        var options = {limit: 12, skip: startPage * 4 };
+        var options = {limit: req.query.limit ? req.query.limit : 12, skip: startPage * 4};
 
         // Query preparation
         if (req.query) {
@@ -26,22 +26,46 @@ module.exports = {
             }
             else if (req.query.check) {
                 var q = req.query.check;
-                query = {startupName: {$regex: '^'+q, $options: 'i'}};
+                query = {startupName: {$regex: '^' + q, $options: 'i'}};
             }
             else if (req.query.search) {
                 var q = req.query.search;
-                query = {$or: [{startupName: {$regex: q, $options: 'i'}}, {websiteUrl: {$regex: q, $options: 'i'}}, {tags: {$regex: q, $options: 'i'}}]};
+                query = {
+                    $or: [{startupName: {$regex: q, $options: 'i'}}, {
+                        websiteUrl: {
+                            $regex: q,
+                            $options: 'i'
+                        }
+                    }, {tags: {$regex: q, $options: 'i'}}]
+                };
+            }
+            else if (req.query.related) {
+                var q = req.query.related;
+                var startupCollection = Monk.get('startup');
+                startupCollection.find({_id: q}).then(function (col) {
+                    if (col && col.length > 0) {
+                        var maxId = col.tags.length;
+                        var tagId = Math.floor(Math.random() * (maxId - 0));
+                        query = {
+                            tags: col.tags[tagId]
+                        };
+                    }
+                });
             }
             else if (req.query.ids) {
-                if(!req.query.ids instanceof String){
+                if (!req.query.ids instanceof String) {
                     req.query.ids = [req.query.ids];
                 }
-                query = {$or: req.query.ids.map(function(o){return  {_id: o};}) };
+                query = {
+                    $or: req.query.ids.map(function (o) {
+                        return {_id: o};
+                    })
+                };
             }
 
             if (req.query.sort) {
                 options['sort'] = {};
-                for(var i in req.query.sort){
+                for (var i in req.query.sort) {
                     options['sort'][i] = parseInt(req.query.sort[i]);
                 }
 
@@ -68,8 +92,8 @@ module.exports = {
                 res.json(404, {body: []});
             }
         })
-            .error(function(err){
-                console.log('ERROR WHILE SEARCHING',err);
+            .error(function (err) {
+                console.log('ERROR WHILE SEARCHING', err);
                 res.json(404, {error: 'Startup not found'});
             })
         ;

@@ -101,9 +101,11 @@ angular.module('start.controllers')
             $scope.searchedStartups = Startup.query(query);
         }
 
-        $scope.recentStartupList = Startup.query({'sort[createdAt]': 1});
-
-        $scope.trendingStartupList = Startup.query({'sort[tags]': 1});
+        $scope.recentStartupList = Startup.query({'sort[createdAt]': -1});
+        $scope.mostViewedStartupList = Startup.query({'sort[meta.views]': -1});
+        $scope.bestScoreStartupList = Startup.query({'sort[sipScore]': -1});
+        $scope.mostBookmarkedStartupList = Startup.query({'sort[meta.bookmarks]': -1});
+        $scope.lessViewedStartupList = Startup.query({'sort[meta.views]': -1});
     })
 
     .directive('homeSlider', function() {
