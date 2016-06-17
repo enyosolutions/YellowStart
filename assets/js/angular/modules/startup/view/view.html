@@ -292,7 +292,7 @@
                 <ul class="list-group" >
                     <li class="list-group-item col-md-6" ng-repeat="contact in startupContacts">
                         <h4 class="list-group-item-heading"><strong>{{ contact.firstname }} {{ contact.lastname }}</strong>
-                            <span class="label label-info">{{ contact.role }}</span>
+                            <span class="label label-info pull-right">{{ contact.role }}</span>
                         </h4>
 
                         <p class="list-group-item-text">
@@ -365,7 +365,7 @@
             <img src="/images/la-note-sip.png" alt=""/>
 
             <div class="note">
-                {{ startup.sipScore }}/10
+                {{ startup.sipScore || '0' }}/10
             </div>
 
             <p class="evaluation">
