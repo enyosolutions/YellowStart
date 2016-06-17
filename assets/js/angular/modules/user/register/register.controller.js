@@ -4,28 +4,28 @@ angular.module('start.controllers').controller("RegisterCtrl", function ($scope,
     $scope.pageClass = 'user-registration';
 
     $scope.register = function () {
-        $scope.dataLoading = true;
-        console.log(UserService);
+
         if($scope.user.password !== $scope.user.confirmPassword){
-            $ngBootbox.alert('<h3>Le mot de passe et sa confirmation ne correspondent pas');
+            $ngBootbox.alert('<h3>Le mot de passe et sa confirmation ne correspondent pas</h3>');
         }
         else {
+            $scope.dataLoading = true;
             Auth.register($scope.user)
                 .success(function (response) {
                     console.log(response);
                     $scope.dataLoading = false;
 
-                    if (response.error) {
+                    if (!response || response.error) {
                         console.log(response);
                         $ngBootbox.alert(response.message);
                         //FlashService.Error(response.message);
                     }
-                    if (response.data) {
-                        $scope.user._id = response.id;
-                        $rootScope.User = $scope.user;
+                    if (response && response.user) {
+                        $rootScope.globals.user = response.user;
                         $state.go('home');
                     }
                 }).error(function (response) {
+                    $scope.dataLoading = true;
                     if (response && response.error) {
                         $ngBootbox.alert("<h2 class='text-center text-danger'>" + response.error + "</h2>");
                     }
@@ -70,5 +70,6 @@ angular.module('start.controllers').controller("RegisterCtrl", function ($scope,
 
     $scope.logout = function () {
         Auth.logout();
+        $location.path('/');
     };
 });

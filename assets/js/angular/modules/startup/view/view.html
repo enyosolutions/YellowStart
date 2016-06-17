@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <img class="logo" ng-src="{{ startup.picture}}" />
+                <img class="logo" ng-src="{{ startup.picture}}"/>
 
                 <h1 class="title">
                     {{ startup.startupName}}
@@ -27,11 +27,17 @@
                             <span ng-if="isBookmarked == 1">Suivi</span>
                         </div>
                     </div>
-                    <a  class="action btn" href="#/startup/{{startup._id}}/edit" data-toggle="modal" ng-show="startup.status === 'draft' || globals.user.roles.indexOf('ADMIN') !== -1">
-                        <i class="fa fa-edit"></i> <div class="text-lock">Editer</div>
+                    <a class="action btn" href="#/startup/{{startup._id}}/edit" data-toggle="modal"
+                       ng-show="startup.status === 'draft' || globals.user.roles.indexOf('ADMIN') !== -1">
+                        <i class="fa fa-edit"></i>
+
+                        <div class="text-lock">Editer</div>
                     </a>
-                    <a  class="action btn" data-target="#commentModal" data-toggle="modal" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
-                        <i class="fa fa-comment-o"></i> <div class="text-lock">Commenter</div>
+                    <a class="action btn" data-target="#commentModal" data-toggle="modal"
+                       ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
+                        <i class="fa fa-comment-o"></i>
+
+                        <div class="text-lock">Commenter</div>
                     </a>
                 </div>
             </div>
@@ -51,7 +57,7 @@
         </li>
         <li class="unpadded" role="presentation">
             <a data-target="#market" aria-controls="market" role="tab" data-toggle="tab">
-                chiffres clés <br />
+                Chiffres clés <br/>
                 et Marché
             </a>
         </li>
@@ -60,269 +66,364 @@
                 La start-up
             </a>
         </li>
-        <li role="presentation">
-            <a href="#/startup/{{ startup._id }}/edit" aria-controls="startup" role="tab" class=" bg-info">
-                Editer la fiche
-            </a>
-        </li>
     </ul>
 </section>
 
 <section>
-    <!-- generic -->
-    <div class="generic">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <!-- tabs -->
-                    <div class="tab-content">
-                        <!-- resume -->
-                        <div role="tabpanel" class="tab-pane fade active in" id="resume">
-                            <h2 class="section-title">Le pitch</h2>
+<!-- generic -->
+<div class="generic">
+<div class="container">
+<div class="row">
+<div class="col-md-8">
+<!-- tabs -->
+<div class="tab-content">
+<!-- resume -->
+<div role="tabpanel" class="tab-pane fade active in" id="resume">
+    <h2 class="section-title">Le pitch</h2>
 
-                            <p class="intro">
-                                {{ startup.projectTweet }}
-                            </p>
+    <p class="intro">
+        {{ startup.projectTweet }}
+    </p>
 
-                            <p class="description">
-                                {{ startup.offerServices }}
-                            </p>
+    <p class="description">
+        {{ startup.offerServices }}
+    </p>
 
-                            <a href="{{ startup.websiteUrl }}" target="_blank" class="link">{{ startup.websiteUrl }}</a>
-                        </div>
+    <a href="{{ startup.websiteUrl }}" target="_blank" class="link">{{ startup.websiteUrl }}</a>
+</div>
 
-                        <!-- product -->
-                        <div role="tabpanel" class="tab-pane fade" id="product">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <!-- section -->
-                                    <div class="section">
-                                        <div class="title">
-                                            Description détaillée du produit
-                                        </div>
-
-                                        <p>
-                                            {{ startup.offerDetails }}
-                                        </p>
-                                    </div>
-
-                                    <!-- section -->
-                                    <div class="section">
-                                        <div class="title">
-                                            Business model
-                                        </div>
-
-                                        <p>
-                                            {{ startup.offerBusiness }}
-                                        </p>
-                                    </div>
-
-                                    <!-- section -->
-                                    <div class="section">
-                                        <div class="title">
-                                            Positionnement
-                                        </div>
-
-                                        <p>
-                                            {{ startup.offerPositionning }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <!-- section -->
-                                    <div class="section">
-                                        <div class="title">
-                                            Force
-                                        </div>
-
-                                        <p>
-                                            {{ startup.offerStrengths }}
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <!-- section -->
-                                    <div class="section">
-                                        <div class="title">
-                                            Faiblesse
-                                        </div>
-
-                                        <p>
-                                            {{ startup.offerWeaknesses }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <!-- section -->
-                                    <div class="section">
-                                        <div class="title">
-                                            Atout différenciant
-                                        </div>
-
-                                        <p>
-                                            {{ startup.offerDiff }}
-                                        </p>
-                                    </div>
-
-                                    <a data-target="#market" aria-controls="market" role="tab" data-toggle="tab" class="btn btn-primary-outline">
-                                        Chiffres clés et marché
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- market -->
-                        <div role="tabpanel" class="tab-pane fade" id="market">
-                            <!-- section -->
-                            <div class="section">
-                                <div class="section-title">
-                                    Chiffres clés et marché
-                                </div>
-
-                                <p>
-                                    {{ startup.marketCompetitors }}
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- startup -->
-                        <div role="tabpanel" class="tab-pane fade" id="startup">
-                            <!-- section -->
-                            <div class="section">
-                                <div class="section-title">
-                                    La start-up
-                                </div>
-
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Fusce nec mattis mi. Morbi placerat neque metus, in rhoncus
-                                    ex pellentesque elementum. Pellentesque vulputate efficitur
-                                    nulla, eget auctor nisi consectetur sit amet. Aenean sollicitudin
-                                    tellus eu sagittis rutrum. Nunc in purus quis velit pharetra ullamcorper
-                                    at ultrices sapien. Aenean eget neque dictum, porta risus sit amet, sagittis eros.
-                                    Mauris aliquet feugiat lectus quis cursus. Mauris sapien metus, dapibus nec mauris vel,
-                                    faucibus volutpat purus. Aliquam et mi dolor.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- slider -->
-                    <div class="cycle-slider-media">
-                        <div class="slide" ng-repeat="slide in [1,2,3]" media-slider>
-                            <img alt="" src="/data/slideshow/slide1.jpg" />
-                        </div>
-
-                        <div class="controls">
-                            <img id="media-slider-prev" class="prev" src="/images/icons/carousel-arrow-left.png" />
-                            <img id="media-slider-next" class="next" src="/images/icons/carousel-arrow-right.png" />
-                        </div>
-                    </div>
-                </div>
-
-                <!-- wall -->
-                <div class="col-md-4">
-                    <!-- sidebar -->
-                    <div class="sidebar-wall">
-                        <h2 class="section-title">Le wall</h2>
-
-                        <div class="media" ng-repeat="comment in comments">
-                            <div class="media-left">
-                                <a href="#" class="stack-zone">
-                                    <img class="media-object img-circle" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTRjODMzNjVmOSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NGM4MzM2NWY5Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" alt="">
-                                    <img src="http://placehold.it/32x32/FFBC00?text=BSCC&txtsize=20" class="stacked img-circle"/>
-                                </a>
-                            </div>
-
-                            <div class="media-body meta">
-                                <h4 class="media-heading">{{ comment.userName }}</h4>
-                                <span class="meta date">{{ comment.createdAt | date: longDate }}</span> {{ comment.text }}
-
-                                <a class="contact" href="#/user/{{ comment.userId }}/profile">
-                                    <i class="icon-contact"></i>
-                                    Contacter
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- product -->
+<div role="tabpanel" class="tab-pane fade" id="product">
+    <div class="row">
+        <div class="section-title">
+            Le produit
         </div>
-    </div>
-
-    <!-- sip-note -->
-    <div class="sip-note">
-        <div class="container">
-            <div class="inner">
-                <img src="/images/la-note-sip.png" alt=""/>
-
-                <div class="note">
-                    8/10
+        <div class="col-md-12">
+            <!-- section -->
+            <div class="section">
+                <div class="title">
+                    Description détaillée du produit
                 </div>
 
-                <p class="evaluation">
-                    {{ startup.sipAnalysis }}
+                <p>
+                    {{ startup.offerDetails }}
+                </p>
+            </div>
+
+            <!-- section -->
+            <div class="section">
+                <div class="title">
+                    Business model
+                </div>
+
+                <p>
+                    {{ startup.offerBusiness }}
+                </p>
+            </div>
+
+            <!-- section -->
+            <div class="section">
+                <div class="title">
+                    Positionnement
+                </div>
+
+                <p>
+                    {{ startup.offerPositionning }}
                 </p>
             </div>
         </div>
     </div>
 
-    <!-- related -->
-    <div class="related">
-        <div class="container">
-            <h3 class="title">
-                Start-ups du même thème
-            </h3>
+    <div class="row">
+        <div class="col-md-6">
+            <!-- section -->
+            <div class="section">
+                <div class="title">
+                    Force
+                </div>
 
-            <div class="inner row">
-                <div class="col-md-4" ng-repeat="relatedStartup in relatedStartups">
-                    <!-- startup -->
-                    <div class="startup card fixed-card">
-                        <div class="card-img-top">
-                            <a href="#">
-                                <img src="{{ relatedStartup.picture }}" alt="{{ relatedStartup.startupName }}">
+                <p>
+                    {{ startup.offerStrengths }}
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <!-- section -->
+            <div class="section">
+                <div class="title">
+                    Faiblesse
+                </div>
+
+                <p>
+                    {{ startup.offerWeaknesses }}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- section -->
+            <div class="section">
+                <div class="title">
+                    Atout différenciant
+                </div>
+
+                <p>
+                    {{ startup.offerDiff }}
+                </p>
+            </div>
+
+            <a data-target="#market" aria-controls="market" role="tab" data-toggle="tab"
+               class="btn btn-primary-outline">
+                Chiffres clés et marché
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- market -->
+<div role="tabpanel" class="tab-pane fade" id="market">
+    <div class="row">
+        <div class="section-title">
+            Chiffres clés et marché
+        </div>
+        <div class="col-md-12">
+            <!-- section -->
+            <div class="section">
+                <div class="title">
+                    Description du marché ciblé
+                </div>
+
+                <p>
+                    {{ startup.marketDescription }}
+                </p>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <!-- section -->
+            <div class="section">
+                <div class="title">
+                    Qui sont les clients ?
+                </div>
+
+                <p>
+                    {{ startup.marketClients }}
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <!-- section -->
+            <div class="section">
+                <div class="title">
+                    Qui sont les concurrents ?
+                </div>
+
+                <p>
+                    {{ startup.marketCompetitors }}
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="section">
+                <h3 class="title">Chiffre d'affaires</h3>
+
+                <p>
+                    {{ startup.revenues }}
+                </p>
+            </div>
+            <div class="section">
+                <h3 class="title">Nombre de clients</h3>
+
+                <p>
+                    {{ startup.ortherRevenues }}
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6">
+
+            <div class="section">
+                <div class="title">Fonds propres</div>
+                <p>
+                    {{ startup.funds }}
+                </p>
+
+                <div class="section">
+                    <div class="title">Fonds levés</div>
+                    <p>
+                        {{ startup.raisedFunds }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- startup -->
+<div role="tabpanel" class="tab-pane fade" id="startup">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="section-title">
+                La start-up
+            </div>
+
+            <!-- section -->
+            <div class="section">
+                <h3 class="title">Date de création</h3>
+
+                <p>
+                    {{ startup.creationDate | date : 'longDate'}}
+                </p>
+            </div>
+
+        </div>
+        <div class="col-md-12">
+
+            <!-- section -->
+            <div class="section">
+                <h3 class="title">Les membres</h3>
+
+
+                <ul class="list-group" >
+                    <li class="list-group-item col-md-6" ng-repeat="contact in startupContacts">
+                        <h4 class="list-group-item-heading"><strong>{{ contact.firstname }} {{ contact.lastname }}</strong>
+                            <span class="label label-info">{{ contact.role }}</span>
+                        </h4>
+
+                        <p class="list-group-item-text">
+                            <div><strong>Email:</strong> <a target="_blank" href="mailto:{{ contact.email }}">{{ contact.email }}</a></div>
+                            <div><strong>Numero de téléphone :</strong> <a target="_blank"  href="tel:{{ contact.phonenumber }}">{{ contact.phonenumber }}</a></div>
+                            <div><strong>LinkedIn:</strong> <a target="_blank"  href="{{ contact.linkeIn }}">{{ contact.linkedIn }}</a></div>
+                        </p>
+                    </li>
+                </ul>
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+</div>
+<div class="clear-fix"></div>
+<!-- slider -->
+<div class="cycle-slider-media">
+    <div class="slide" ng-repeat="slide in [1,2,3]" media-slider>
+        <img alt="" src="/data/slideshow/slide1.jpg"/>
+    </div>
+
+    <div class="controls">
+        <img id="media-slider-prev" class="prev" src="/images/icons/carousel-arrow-left.png"/>
+        <img id="media-slider-next" class="next" src="/images/icons/carousel-arrow-right.png"/>
+    </div>
+</div>
+</div>
+
+<!-- wall -->
+<div class="col-md-4">
+    <!-- sidebar -->
+    <div class="sidebar-wall">
+        <h2 class="section-title">Le wall</h2>
+
+        <div class="media" ng-repeat="comment in comments">
+            <div class="media-left">
+                <a href="#" class="stack-zone">
+                    <img class="media-object img-circle"
+                         src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTRjODMzNjVmOSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NGM4MzM2NWY5Ij48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4="
+                         alt="">
+                    <img src="http://placehold.it/32x32/FFBC00?text=BSCC&txtsize=20" class="stacked img-circle"/>
+                </a>
+            </div>
+
+            <div class="media-body meta">
+                <h4 class="media-heading">{{ comment.userName }}</h4>
+                <span class="meta date">{{ comment.createdAt | date: longDate }}</span> {{ comment.text }}
+
+                <a class="contact" href="#/user/{{ comment.userId }}/profile">
+                    <i class="icon-contact"></i>
+                    Contacter
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- sip-note -->
+<div class="sip-note">
+    <div class="container">
+        <div class="inner">
+            <img src="/images/la-note-sip.png" alt=""/>
+
+            <div class="note">
+                {{ startup.sipScore }}/10
+            </div>
+
+            <p class="evaluation">
+                {{ startup.sipAnalysis }}
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- related -->
+<div class="related">
+    <div class="container">
+        <h3 class="title">
+            Start-ups du même thème
+        </h3>
+
+        <div class="inner row">
+            <div class="col-md-4" ng-repeat="relatedStartup in relatedStartups">
+                <!-- startup -->
+                <div class="startup card fixed-card">
+                    <div class="card-img-top">
+                        <a href="#">
+                            <img src="{{ relatedStartup.picture }}" alt="{{ relatedStartup.startupName }}">
+                        </a>
+                    </div>
+                    <div class="card-block">
+                        <h4 class="card-title">{{ relatedStartup.startupName }}</h4>
+
+                        <p class="card-text">
+                            {{ relatedStartup.tagline }}
+                        </p>
+
+                        <a href="#" class="card-link text-info" ng-repeat="tag in relatedStartup.tags">
+                            #{{ tag }}
+                        </a>
+
+                        <div class="button-wrapper">
+                            <a class="btn btn-primary-outline" href="#/startup/{{ relatedStartup._id }}/view">
+                                Voir la fiche
                             </a>
-                        </div>
-                        <div class="card-block">
-                            <h4 class="card-title">{{ relatedStartup.startupName }}</h4>
-
-                            <p class="card-text">
-                                {{ relatedStartup.tagline }}
-                            </p>
-
-                            <a href="#" class="card-link text-info" ng-repeat="tag in relatedStartup.tags">
-                                #{{ tag }}
-                            </a>
-
-                            <div class="button-wrapper">
-                                <a class="btn btn-primary-outline" href="#/startup/{{ relatedStartup._id }}">
-                                    Voir la fiche
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- know-startup -->
-    <div class="know-startup">
-        <div class="container">
-            <span class="title">Vous conaissez une start-up ?</span>
+<!-- know-startup -->
+<div class="know-startup">
+    <div class="container">
+        <span class="title">Vous conaissez une start-up ?</span>
 
-            <a href="#/startup/new" class="btn btn-lg">
-                Soumettre une start-up
-            </a>
-        </div>
+        <a href="#/startup/new" class="btn btn-lg">
+            Soumettre une start-up
+        </a>
     </div>
+</div>
 </section>
 
 <div id="commentModal" class="modal fade" tabindex="-1" role="dialog">
@@ -343,7 +444,8 @@
                             </div>
                             <div class="col-md-12">
                                 <label>Votre commentaire</label>
-                                <textarea class="form-control" ng-model="newCommentText" type="text" rows="8"/></textarea>
+                                <textarea class="form-control" ng-model="newCommentText" type="text"
+                                          rows="8"/></textarea>
                             </div>
                         </div>
                     </div>

@@ -77,8 +77,8 @@
         </a>
 
         <div class="search-form">
-            <form ng-submit="search(listStartup.searchName)">
-                <button class="btn btn-link" href="search">
+            <form ng-submit="search(listStartup.searchName)" ng-controller="ListStartupCtrl as listStartup">
+                <button class="btn btn-link" type="submit">
                     <i class="icon icon-search"></i>
                 </button>
 
@@ -96,7 +96,7 @@
                                   remote-url-data-field="body"
                                   minlength="1"
                                   title-field="label"
-                                  description-field="label"
+                                  description-field="type"
                                   input-class="url form-control"/>
             </form>
         </div>
@@ -221,6 +221,7 @@
 <script>window.jQuery || document.write('<script src="/js/bower_components/jquery/dist/jquery.min.js">\x3C/script>')</script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/angular.min.js"></script>
+<script src="/js/angular.fr-FR.js"></script>
 
 
 <script src="/js/dependencies/sails.io.js"></script>

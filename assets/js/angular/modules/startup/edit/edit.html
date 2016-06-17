@@ -258,7 +258,7 @@
                     <sub>Lorem upsum parabelmmu ista blah blah</sub>
                 </div>
                 <textarea class="form-control" type="text" ng-model="startup.offerStrengths"
-                          ng-blur="saveStartup(startup.offerStrengths)">{{ startup.offerStrengths }}</textarea>
+                          ng-blur="saveStartup(startup.offerStrengths)"></textarea>
             </div>
         </div>
         <div class="form-group">
@@ -267,8 +267,8 @@
                     <label>Faiblesses</label>
                     <sub>Lorem upsum parabelmmu ista blah blah</sub>
                 </div>
-                <textarea class="form-control" ng-model="startup.projectTweet"
-                          ng-blur="saveStartup()">{{ startup.offerWeaknesses }}</textarea>
+                <textarea class="form-control" ng-model="startup.offerWeaknesses"
+                          ng-blur="saveStartup()"></textarea>
             </div>
         </div>
 
@@ -279,7 +279,7 @@
             </div>
             <div class="col-md-12">
                 <textarea class="form-control" ng-model="startup.offerDiff"
-                          ng-blur="saveStartup(startup.offerDiff)">{{ startup.offerDiff }}</textarea>
+                          ng-blur="saveStartup(startup.offerDiff)"></textarea>
             </div>
         </div>
         <div class="form-group text-center">
@@ -303,8 +303,8 @@
                 <sub>Lorem upsum parabelmmu ista blah blah</sub>
             </div>
             <div class="col-md-12">
-                <textarea class="form-control" type="text" ng-model="startup.MarketDescription"
-                          ng-blur="saveStartup(startup.MarketDescription)">{{ startup.marketDescription }}</textarea>
+                <textarea class="form-control" type="text" ng-model="startup.marketDescription"
+                          ng-blur="saveStartup(startup.marketDescription)"></textarea>
             </div>
         </div>
         <div class="form-group">
@@ -313,8 +313,8 @@
                     <label>Qui sont les clients ?</label>
                     <sub>Lorem upsum parabelmmu ista blah blah</sub>
                 </div>
-                <textarea class="form-control" type="text" ng-model="startup.MarketClients"
-                          ng-blur="saveStartup(startup.MarketClients)">{{ startup.marketClients }}</textarea>
+                <textarea class="form-control" type="text" ng-model="startup.marketClients"
+                          ng-blur="saveStartup()"></textarea>
             </div>
         </div>
         <div class="form-group">
@@ -323,8 +323,8 @@
                     <label>Qui sont les concurrents ?</label>
                     <sub>Lorem upsum parabelmmu ista blah blah</sub>
                 </div>
-                <textarea class="form-control" ng-model="startup.MarketCompetitors"
-                          ng-blur="saveStartup()">{{ startup.marketCompetitors }}</textarea>
+                <textarea class="form-control" ng-model="startup.marketCompetitors"
+                          ng-blur="saveStartup()"></textarea>
             </div>
         </div>
 
@@ -336,12 +336,12 @@
             <div class="col-md-7">
                 <div date-picker="start" min-view="date" class="form-control" type="text"
                      ng-model="startup.creationDate"
-                     ng-date-change="saveStartup(startup.creationDate)" format="dd-MM-yyyy"></div>
+                     ng-date-change="saveStartup()" format="dd-MM-yyyy"></div>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-5">
-                <label>Chiffres d'affaires</label>
+                <label>Chiffre d'affaires</label>
                 <sub>Lorem upsum parabelmmu ista blah blah</sub>
             </div>
             <div class="col-md-7">
@@ -517,7 +517,7 @@
                             <label>LinkedIn</label>
                         </div>
                         <div class="col-md-7">
-                            <textarea class="form-control" ng-model="newContact.linkedIn"></textarea>
+                            <input type="url" class="form-control" ng-model="newContact.linkedIn" />
                         </div>
                     </div>
                     <div class="form-group">

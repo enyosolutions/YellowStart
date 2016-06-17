@@ -23,11 +23,6 @@ angular.module('start.controllers')
             return;
         };
 
-        $scope.formSearch = function (q) {
-            $state.go('startup-list', {search: q});
-            return;
-        };
-
         $scope.searchAutocomplete = function (selection) {
             console.log('AUTOCOMPLETE SELECTED', selection);
             if (selection) {

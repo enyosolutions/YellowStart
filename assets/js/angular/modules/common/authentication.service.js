@@ -45,9 +45,9 @@
             },
             register: function(formData) {
                 $localstorage.remove('auth_token');
-                var register = UserService.create(formData);
+                var register = UserService.Create(formData);
                 register.success(function(result) {
-                    $localstorage.set('auth_token', JSON.stringify(result));
+                    $localstorage.set('auth_token', result.token);
                 });
                 return register;
             }

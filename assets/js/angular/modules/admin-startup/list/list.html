@@ -31,25 +31,26 @@
                     <thead>
                     <tr>
                         <th>Startup Name</th>
-                        <th>status </th>
-                        <th>Email</th>
+                        <th>Tag line </th>
+                        <th>Creation date</th>
                         <th>Status</th>
-                        <th>Role</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="startup in startups">
                         <td>{{ startup.startupName }} </td>
-                        <td>{{ startup.status }} </td>
-                        <td>{{ user.email }}</td>
-                        <td>{{ user.isActive ? 'Activé' : 'Non activé' }}</td>
-                        <td>{{ user.roles }}</td>
+                        <td>{{ startup.tagline }} </td>
+                        <td>{{ startup.createdAt | date : longDate }}</td>
+                        <td>
+                            <span class='text-success' ng-if="startup.status == 'published'">Publié</span>
+                            <span class="text-warning" ng-if="startup.status != 'published'">Brouillon</span>
+                        </td>
                         <td>
                             <div class="btn-group">
-                                <button class="btn btn-info btn-xs" ng-click="activateUser($index)"> ACTIVATE </button>
-                                <button class="btn btn-primary btn-xs" ng-click="EditUser(user._id)"> EDIT </button>
-                                <button class="btn btn-danger btn-xs" ng-click="EditUser(user._id)"> DELETE </button>
+                                <a  class="btn btn-primary btn-xs" href="#/startup/{{ startup._id }}/view">VIEW</a>
+                                <a  class="btn btn-warning btn-xs" href="#/startup/{{ startup._id }}/edit">EDIT</a>
+                                <button class="btn btn-danger btn-xs" ng-click="deleteStartup($index)"> DELETE </button>
                             </div>
                         </td>
                     </tr>
@@ -62,30 +63,20 @@
         </div>
 
         <!-- bottom -->
-        <div class="bottom">
+        <div class="bottom text-center">
             <ul class="pagination-list">
                 <li>
-                    <a class="previous" href="#">
+                    <a class="previous" ng-click="prevPage()" ng-if="currentPage > 0">
                         <
                     </a>
                 </li>
                 <li>
                     <a class="active" href="#">
-                        1
+                        {{ currentPage + 1 }}
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        2
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        3
-                    </a>
-                </li>
-                <li>
-                    <a class="next" href="#">
+                    <a class="next" ng-click="nextPage()" ng-if="startups.length > 11">
                         >
                     </a>
                 </li>

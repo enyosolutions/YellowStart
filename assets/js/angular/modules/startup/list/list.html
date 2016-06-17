@@ -61,7 +61,7 @@
         </div>
 
         <!-- bottom -->
-        <div class="bottom">
+        <div class="bottom text-center">
             <ul class="pagination-list">
                 <li>
                     <a class="previous" ng-click="prevPage()" ng-if="currentPage > 0">
@@ -69,12 +69,12 @@
                     </a>
                 </li>
                 <li>
-                    <a class="active" href="#">
+                    <a class="active" >
                         {{ currentPage + 1 }}
                     </a>
                 </li>
                 <li>
-                    <a class="next" ng-click="nextPage()" ng-if="searchedStartups.length > 3">
+                    <a class="next" ng-click="nextPage()" ng-if="searchedStartups.length > 12">
                         >
                     </a>
                 </li>

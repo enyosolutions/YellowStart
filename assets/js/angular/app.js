@@ -31,6 +31,9 @@ angular
         editableOptions.theme = 'bs3';
         $rootScope.$state = $state;
         $rootScope.globals = {};
+        $rootScope.$on("$routeChangeSuccess", function (event, currentRoute, previousRoute) {
+            console.log('routechange success');
+        });
 
         var user = $localstorage.getObject('currentUser');
         if (user) {
@@ -47,6 +50,7 @@ angular
 
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+            window.scrollTo(0, 0);
             $ngBootbox.hideAll();
             if (!Auth.authorize(toState.data.access)) {
                 event.preventDefault();
