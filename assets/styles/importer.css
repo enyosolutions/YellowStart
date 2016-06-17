@@ -8803,6 +8803,7 @@ footer .brand {
 .page.startup-list .home .startups-wrapper .slick-prev,
 .page.startup-list .home .startups-wrapper .slick-next {
   position: absolute;
+  z-index: 10;
   top: 0;
   left: 0;
   height: 220px;
