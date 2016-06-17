@@ -8,9 +8,9 @@
  * Controller of the startApp
  */
 angular.module('start.controllers')
-    .controller('ViewStartupCtrl', function ($scope, $rootScope, $stateParams, Startup, StartupComment, StartupContact, UserService) {
+    .controller('ViewStartupCtrl', function ($scope, $rootScope, $stateParams, $sce, Startup, StartupComment, StartupContact, UserService) {
         $scope.pageClass = 'startup-view';
-
+      
         if ($stateParams._id) {
             $scope.startup = new Startup({_id:$stateParams._id});
             $scope.startupContacts = StartupContact.query({'query[startupId]': $stateParams._id});
@@ -81,6 +81,5 @@ angular.module('start.controllers')
             }
             UserService.Update($rootScope.globals.user);
         };
-
     })
 ;

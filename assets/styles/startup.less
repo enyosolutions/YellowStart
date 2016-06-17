@@ -40,7 +40,7 @@
         left: 0;
 
         height: 220px;
-        width: 60px;
+        width: 75px;
 
         border: none !important;
         background: rgba(255, 255, 255, 0.8);
@@ -48,17 +48,19 @@
       .slick-next {
         left: auto;
         right: 0;
-
-        width: 60px;
       }
       .slick-prev:after,
       .slick-next:before {
-        content: ">";
+        font-family: 'icomoon';
+        content: "\e90d";
+
+        text-align: center;
         color: orange;
         font-size: 60px;
       }
       .slick-prev:after {
-        content: "<";
+        font-family: 'icomoon';
+        content: "\e90c";
       }
 
       // element
@@ -425,13 +427,18 @@
         display: block;
 
         font-family: 'atc', sans-serif;
-        font-size: 28px;
-        font-weight: 700;
+        font-size: 20px;
+        font-weight: 500;
         color: #081433;
+
+        &.upper {
+          font-size: 48px;
+          font-weight: 300;
+        }
       }
 
       p {
-        margin: 20px 0;
+        margin: 25px 0;
       }
     }
   }
@@ -440,21 +447,46 @@
    * Tab: Market
    */
   #market {
-    .section {
-      display: block;
-      margin: 0 0 40px 0;
-
-      .title {
+    .left {
+      .section {
         display: block;
+        margin: 0 0 40px 0;
 
-        font-family: 'atc', sans-serif;
-        font-size: 28px;
-        font-weight: 700;
-        color: #081433;
+        .title {
+          display: block;
+
+          font-family: 'atc', sans-serif;
+          font-size: 18px;
+          font-weight: 100;
+          color: #081433;
+        }
+
+        p {
+          font-size: 38px;
+          font-weight: 800;
+
+          margin: 0 0 40px 0;
+        }
       }
+    }
 
-      p {
-        margin: 20px 0;
+    .right {
+      .section {
+        display: block;
+        margin: 0 0 40px 0;
+
+        .title {
+          display: block;
+
+          font-family: 'atc', sans-serif;
+          font-size: 18px;
+          font-weight: 100;
+          color: #081433;
+        }
+
+        p {
+          margin: 20px 0;
+        }
       }
     }
   }
