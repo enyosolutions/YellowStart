@@ -373,7 +373,7 @@ footer .brand {
 }
 .cycle-slider-home .cycle-pager {
   position: absolute;
-  z-index: 10000;
+  z-index: 101;
   top: 50%;
   right: 30px;
   transform: translateY(-50%);

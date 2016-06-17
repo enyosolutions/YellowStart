@@ -8448,7 +8448,7 @@ footer .brand {
 }
 .cycle-slider-home .cycle-pager {
   position: absolute;
-  z-index: 10000;
+  z-index: 101;
   top: 50%;
   right: 30px;
   transform: translateY(-50%);
@@ -8631,10 +8631,11 @@ footer .brand {
 }
 .page.user-profile .splash .user .avatar .overlay {
   visibility: hidden;
+  cursor: pointer;
   position: absolute;
   z-index: 2;
-  width: 100%;
-  height: 100%;
+  width: 230px;
+  height: 230px;
   padding: 110px 0;
   text-align: center;
   text-decoration: none;
@@ -8719,6 +8720,33 @@ footer .brand {
   padding-right: 20px;
 }
 @media screen and (max-width: 768px) {
+  .page.user-profile .user .avatar {
+    display: inline-block;
+    margin: 20px 0 0 0;
+    position: relative !important;
+    bottom: auto !important;
+  }
+  .page.user-profile .user .data {
+    display: block;
+    text-align: center !important;
+    position: static !important;
+    margin: 20px 0 !important;
+  }
+  .page.user-profile .user .actions {
+    position: static !important;
+    margin: 20px 0;
+  }
+  .page.user-profile .starredProjects .heading .title {
+    font-size: 32px;
+  }
+  .page.user-profile .starredProjects .heading .sort {
+    display: block;
+    margin: 15px 0;
+    position: static;
+  }
+  .page.user-profile .startup .card-img-top {
+    max-height: none !important;
+  }
   .page.user-registration .left,
   .page.user-registration .right {
     padding: 20px 0;
@@ -8753,9 +8781,6 @@ footer .brand {
   width: 100%;
   height: 400px;
   padding: 0 0 80px 0;
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
 }
 .page.startup-list .home .startups-wrapper .slick-prev,
 .page.startup-list .home .startups-wrapper .slick-next {
@@ -8787,10 +8812,6 @@ footer .brand {
   width: 320px;
   margin: 0 5px;
 }
-.page.startup-list .home .startups-wrapper .startups-list .startup:first-child,
-.page.startup-list .home .startups-wrapper .startups-list .startup:last-child {
-  opacity: 0.5 !important;
-}
 .page.startup-list .home .startups-wrapper .startups-list .startup .thumbnail {
   display: block;
   width: 100%;
@@ -8805,7 +8826,6 @@ footer .brand {
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup .thumbnail img {
   width: 100%;
-  min-height: 220px;
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup .title {
   font-family: 'atc';
@@ -8874,6 +8894,28 @@ footer .brand {
 .page.startup-list .bottom {
   padding: 10px 0 40px 0;
   text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .page.startup-list .heading .numb {
+    display: block;
+    margin: 10px 0 20px 0;
+  }
+  .page.startup-list .heading .sort {
+    display: block;
+    position: static;
+  }
+}
+@media screen and (max-width: 640px) {
+  .page.startups-list .home .section-title {
+    font-size: 32px;
+  }
+  .page.startups-list .slick-prev,
+  .page.startups-list .slick-next {
+    display: none !important;
+  }
+  .page.startups-list .startup .card-img-top {
+    max-height: none !important;
+  }
 }
 /*
  * View
@@ -9294,4 +9336,20 @@ footer .brand {
   right: 25px;
   font-size: 2em;
   color: #999;
+}
+@media screen and (max-width: 768px) {
+  .page.edit-page .nav,
+  .page.startup-edit .nav {
+    text-align: left;
+  }
+  .page.edit-page .nav li,
+  .page.startup-edit .nav li {
+    width: 50%;
+    margin: 0 -5px 20px 0;
+    text-align: center;
+  }
+  .page.edit-page .nav li:last-child,
+  .page.startup-edit .nav li:last-child {
+    margin-bottom: 0;
+  }
 }

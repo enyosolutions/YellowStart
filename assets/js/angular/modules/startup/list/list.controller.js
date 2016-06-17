@@ -108,7 +108,8 @@ angular.module('start.controllers')
             if (scope.$last){
                 element.parent().cycle({
                     slides: '.slide',
-                    pager: '> .cycle-pager'
+                    pager: '> .cycle-pager',
+                    maxZ: 100
                 });
             }
         };
