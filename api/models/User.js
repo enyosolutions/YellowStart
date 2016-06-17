@@ -12,7 +12,7 @@ var bcrypt = require('bcrypt');
 
 module.exports = {
 
-    attributes: require('waterlock').models.user.attributes({
+    attributes: {
         firstname: {'type': 'string'},
         lastname: {'type': 'string'},
         function: {'type': 'string'},
@@ -24,7 +24,7 @@ module.exports = {
         bookmarks: {'type': 'array', defaultsTo: []},
         roles: {'type': 'array', defaultsTo: ['USER']},
         isActive: {'type': 'boolean', defaultsTo: false}
-    }),
+    },
 
     beforeCreate: function (values, next) {
         bcrypt.genSalt(10, function (err, salt) {

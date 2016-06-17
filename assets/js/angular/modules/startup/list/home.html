@@ -17,7 +17,8 @@
         <div class="startups-list">
             <div class="startup" ng-repeat="startup in recentStartupList" startup-slider>
                 <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
-                    <img src="{{ startup.picture }}" alt="{{ startup.startupName }}">
+                    <img src="{{ startup.picture ? startup.picture : '/images/placeholder.jpg' }}" alt="{{ startup.startupName }}">
+                    <div class="caption" ng-if="!startup.picture" >{{ startup.startupName }}</div>
                 </a>
 
                 <h4 class="title">{{ startup.startupName }}</h4>
@@ -36,9 +37,10 @@
 
     <div class="startups-wrapper">
         <div class="startups-list">
-            <div class="startup" ng-repeat="startup in trendingStartupList">
+            <div class="startup" ng-repeat="startup in mostViewedStartupList">
                 <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
-                    <img src="{{ startup.picture }}" alt="{{ startup.startupName }}">
+                    <img src="{{ startup.picture ? startup.picture : '/images/placeholder.jpg' }}" alt="{{ startup.startupName }}">
+                    <div class="caption" ng-if="!startup.picture" >{{ startup.startupName }}</div>
                 </a>
 
                 <h4 class="title">{{ startup.startupName }}</h4>
@@ -56,9 +58,10 @@
     </div>
     <div class="startups-wrapper">
         <div class="startups-list" startup-slider>
-            <div class="startup" ng-repeat="startup in trendingStartupList">
+            <div class="startup" ng-repeat="startup in bestScoreStartupList">
                 <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
-                    <img src="{{ startup.picture }}" alt="{{ startup.startupName }}">
+                    <img src="{{ startup.picture ? startup.picture : '/images/placeholder.jpg' }}" alt="{{ startup.startupName }}">
+                    <div class="caption" ng-if="!startup.picture" >{{ startup.startupName }}</div>
                 </a>
 
                 <h4 class="title">{{ startup.startupName }}</h4>
@@ -77,9 +80,10 @@
     </div>
     <div class="startups-wrapper">
         <div class="startups-list">
-            <div class="startup" ng-repeat="startup in trendingStartupList">
+            <div class="startup" ng-repeat="startup in mostBookmarkedStartupList">
                 <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
-                    <img src="{{ startup.picture }}" alt="{{ startup.startupName }}">
+                    <img src="{{ startup.picture ? startup.picture : '/images/placeholder.jpg' }}" alt="{{ startup.startupName }}">
+                    <div class="caption" ng-if="!startup.picture" >{{ startup.startupName }}</div>
                 </a>
 
                 <h4 class="title">{{ startup.startupName }}</h4>
@@ -98,9 +102,10 @@
 
     <div class="startups-wrapper">
         <div class="startups-list">
-            <div class="startup" ng-repeat="startup in trendingStartupList">
+            <div class="startup" ng-repeat="startup in lessViewedStartupList">
                 <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
-                    <img src="{{ startup.picture }}" alt="{{ startup.startupName }}">
+                    <img src="{{ startup.picture ? startup.picture : '/images/placeholder.jpg' }}" alt="{{ startup.startupName }}">
+                    <div class="caption" ng-if="!startup.picture" >{{ startup.startupName }}</div>
                 </a>
 
                 <h4 class="title">{{ startup.startupName }}</h4>

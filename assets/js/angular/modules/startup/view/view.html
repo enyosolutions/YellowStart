@@ -282,83 +282,27 @@
             </h3>
 
             <div class="inner row">
-                <div class="col-md-4">
+                <div class="col-md-4" ng-repeat="relatedStartup in relatedStartups">
                     <!-- startup -->
                     <div class="startup card fixed-card">
                         <div class="card-img-top">
                             <a href="#">
-                                <img src="http://placehold.it/350x200" alt="">
+                                <img src="{{ relatedStartup.picture }}" alt="{{ relatedStartup.startupName }}">
                             </a>
                         </div>
                         <div class="card-block">
-                            <h4 class="card-title">Startup name</h4>
+                            <h4 class="card-title">{{ relatedStartup.startupName }}</h4>
 
                             <p class="card-text">
-                                100% de chances que vos colis vous attendent désormais en bas de chez vous!
+                                {{ relatedStartup.tagline }}
                             </p>
 
-                            <a href="#" class="card-link text-info">
-                                #tag #tag #tag
+                            <a href="#" class="card-link text-info" ng-repeat="tag in relatedStartup.tags">
+                                #{{ tag }}
                             </a>
 
                             <div class="button-wrapper">
-                                <a class="btn btn-primary-outline" href="#">
-                                    Voir la fiche
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <!-- startup -->
-                    <div class="startup card fixed-card">
-                        <div class="card-img-top">
-                            <a href="#">
-                                <img src="http://placehold.it/350x200" alt="">
-                            </a>
-                        </div>
-                        <div class="card-block">
-                            <h4 class="card-title">Startup name</h4>
-
-                            <p class="card-text">
-                                100% de chances que vos colis vous attendent désormais en bas de chez vous!
-                            </p>
-
-                            <a href="#" class="card-link text-info">
-                                #tag #tag #tag
-                            </a>
-
-                            <div class="button-wrapper">
-                                <a class="btn btn-primary-outline" href="#">
-                                    Voir la fiche
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <!-- startup -->
-                    <div class="startup card fixed-card">
-                        <div class="card-img-top">
-                            <a href="#">
-                                <img src="http://placehold.it/350x200" alt="">
-                            </a>
-                        </div>
-                        <div class="card-block">
-                            <h4 class="card-title">Startup name</h4>
-
-                            <p class="card-text">
-                                100% de chances que vos colis vous attendent désormais en bas de chez vous!
-                            </p>
-
-                            <a href="#" class="card-link text-info">
-                                #tag #tag #tag
-                            </a>
-
-                            <div class="button-wrapper">
-                                <a class="btn btn-primary-outline" href="#">
+                                <a class="btn btn-primary-outline" href="#/startup/{{ relatedStartup._id }}">
                                     Voir la fiche
                                 </a>
                             </div>
