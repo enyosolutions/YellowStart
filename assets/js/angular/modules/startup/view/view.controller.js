@@ -83,16 +83,4 @@ angular.module('start.controllers')
         };
 
     })
-
-    .directive('mediaSlider', function() {
-        return function(scope, element) {
-            if (scope.$last){
-                element.parent().cycle({
-                    slides: '.slide',
-                    prev: "#media-slider-prev",
-                    next: "#media-slider-next"
-                });
-            }
-        };
-    })
 ;

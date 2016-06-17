@@ -77,8 +77,8 @@
         </a>
 
         <div class="search-form">
-            <form ng-submit="search(listStartup.searchName)">
-                <button class="btn btn-link" href="search">
+            <form ng-submit="search(listStartup.searchName)" ng-controller="ListStartupCtrl as listStartup">
+                <button class="btn btn-link" type="submit">
                     <i class="icon icon-search"></i>
                 </button>
 
@@ -92,10 +92,11 @@
                                   text-no-results=""
                                   selected-object="searchAutocomplete"
                                   input-changed="searchAutocompleteCHG"
-                                  remote-url="http://192.168.12.14:8080/api/crawler/autocomplete?q="
+                                  remote-url="{{ ::remoteHost }}/api/crawler/autocomplete?q="
                                   remote-url-data-field="body"
+                                  minlength="1"
                                   title-field="label"
-                                  description-field="label"
+                                  description-field="type"
                                   input-class="url form-control"/>
             </form>
         </div>
@@ -220,6 +221,7 @@
 
 <script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-2.0.0.min.js"></script>
 <script>window.jQuery || document.write('<script src="/js/bower_components/jquery/dist/jquery.min.js">\x3C/script>')</script>
+<script src="//maps.googleapis.com/maps/api/js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/angular.min.js"></script>
 
@@ -240,6 +242,7 @@
 <script src="/js/bower_components/angucomplete-alt/dist/angucomplete-alt.min.js"></script>
 <script src="/js/bower_components/jquery.cycle2/index.js"></script>
 <script src="/js/bower_components/slick-carousel/slick/slick.min.js"></script>
+<script src="/js/bower_components/js-info-bubble/src/infobubble.js"></script>
 
 <script src="/js/bower_components/bootbox/bootbox.js"></script>
 <script src="/js/bower_components/ngBootbox/dist/ngBootbox.min.js"></script>
