@@ -100,9 +100,6 @@
 <!-- product -->
 <div role="tabpanel" class="tab-pane fade" id="product">
     <div class="row">
-        <div class="section-title">
-            Le produit
-        </div>
         <div class="col-md-12">
             <!-- section -->
             <div class="section">
@@ -143,8 +140,8 @@
         <div class="col-md-6">
             <!-- section -->
             <div class="section">
-                <div class="title">
-                    Force
+                <div class="title upper">
+                    +
                 </div>
 
                 <p>
@@ -156,8 +153,8 @@
         <div class="col-md-6">
             <!-- section -->
             <div class="section">
-                <div class="title">
-                    Faiblesse
+                <div class="title upper">
+                    -
                 </div>
 
                 <p>
@@ -191,14 +188,54 @@
 <!-- market -->
 <div role="tabpanel" class="tab-pane fade" id="market">
     <div class="row">
-        <div class="section-title">
-            Chiffres clés et marché
-        </div>
-        <div class="col-md-12">
+        <div class="col-md-6 left">
             <!-- section -->
             <div class="section">
                 <div class="title">
-                    Description du marché ciblé
+                    Date de création
+                </div>
+
+                <p>
+                    {{ startup.marketClients }}
+                </p>
+            </div>
+
+            <div class="section">
+                <div class="title">Fonds propres (€)</div>
+                <p>
+                    {{ startup.funds }}
+                </p>
+            </div>
+
+            <div class="section">
+                <h3 class="title">Clients</h3>
+
+                <p>
+                    {{ startup.ortherRevenues }}
+                </p>
+            </div>
+
+            <div class="section">
+                <h3 class="title">Chiffre d'affaires (€)</h3>
+
+                <p>
+                    {{ startup.revenues }}
+                </p>
+            </div>
+
+            <div class="section">
+                <div class="title">Fonds levés (€)</div>
+                <p>
+                    {{ startup.raisedFunds }}
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-6 right">
+            <!-- section -->
+            <div class="section">
+                <div class="title">
+                    Le marché cible
                 </div>
 
                 <p>
@@ -206,63 +243,26 @@
                 </p>
             </div>
 
-        </div>
-        <div class="col-md-6">
             <!-- section -->
             <div class="section">
                 <div class="title">
-                    Qui sont les clients ?
+                    Nos clients
                 </div>
 
                 <p>
                     {{ startup.marketClients }}
                 </p>
             </div>
-        </div>
 
-        <div class="col-md-6">
             <!-- section -->
             <div class="section">
                 <div class="title">
-                    Qui sont les concurrents ?
+                    Les concurrents
                 </div>
 
                 <p>
                     {{ startup.marketCompetitors }}
                 </p>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="section">
-                <h3 class="title">Chiffre d'affaires</h3>
-
-                <p>
-                    {{ startup.revenues }}
-                </p>
-            </div>
-            <div class="section">
-                <h3 class="title">Nombre de clients</h3>
-
-                <p>
-                    {{ startup.ortherRevenues }}
-                </p>
-            </div>
-        </div>
-        <div class="col-md-6">
-
-            <div class="section">
-                <div class="title">Fonds propres</div>
-                <p>
-                    {{ startup.funds }}
-                </p>
-
-                <div class="section">
-                    <div class="title">Fonds levés</div>
-                    <p>
-                        {{ startup.raisedFunds }}
-                    </p>
-                </div>
             </div>
         </div>
     </div>
@@ -294,22 +294,16 @@
                 <h3 class="title">Les membres</h3>
 
 
-                <ul class="list-group">
+                <ul class="list-group" >
                     <li class="list-group-item col-md-6" ng-repeat="contact in startupContacts">
-                        <h4 class="list-group-item-heading"><strong>{{ contact.firstname }} {{ contact.lastname
-                            }}</strong>
+                        <h4 class="list-group-item-heading"><strong>{{ contact.firstname }} {{ contact.lastname }}</strong>
                             <span class="label label-info pull-right">{{ contact.role }}</span>
                         </h4>
 
                         <p class="list-group-item-text">
-
-                        <div><strong>Email:</strong> <a target="_blank" href="mailto:{{ contact.email }}">{{
-                            contact.email }}</a></div>
-                        <div><strong>Numero de téléphone :</strong> <a target="_blank"
-                                                                       href="tel:{{ contact.phonenumber }}">{{
-                            contact.phonenumber }}</a></div>
-                        <div><strong>LinkedIn:</strong> <a target="_blank" href="{{ contact.linkeIn }}">{{
-                            contact.linkedIn }}</a></div>
+                        <div><strong>Email:</strong> <a target="_blank" href="mailto:{{ contact.email }}">{{ contact.email }}</a></div>
+                        <div><strong>Numero de téléphone :</strong> <a target="_blank"  href="tel:{{ contact.phonenumber }}">{{ contact.phonenumber }}</a></div>
+                        <div><strong>LinkedIn:</strong> <a target="_blank"  href="{{ contact.linkeIn }}">{{ contact.linkedIn }}</a></div>
                         </p>
                     </li>
                 </ul>
@@ -358,7 +352,7 @@
 
 <div class="row">
     <div class="video-container">
-        <iframe ng-src="{{ startup.videoPresentation }}" frameborder="0" allowfullscreen></iframe>
+        <iframe ng-src="{{ iframeSrc }}" frameborder="0" allowfullscreen></iframe>
     </div>
 </div>
 </div>
@@ -472,7 +466,6 @@
         <!-- /.modal-dialog -->
     </div>
 </div>
-
 
 <div id="documentsModal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog">

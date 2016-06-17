@@ -35,23 +35,25 @@
   top: 0;
   left: 0;
   height: 220px;
-  width: 60px;
+  width: 75px;
   border: none !important;
   background: rgba(255, 255, 255, 0.8);
 }
 .page.startup-list .home .startups-wrapper .slick-next {
   left: auto;
   right: 0;
-  width: 60px;
 }
 .page.startup-list .home .startups-wrapper .slick-prev:after,
 .page.startup-list .home .startups-wrapper .slick-next:before {
-  content: ">";
+  font-family: 'icomoon';
+  content: "\e90d";
+  text-align: center;
   color: orange;
   font-size: 60px;
 }
 .page.startup-list .home .startups-wrapper .slick-prev:after {
-  content: "<";
+  font-family: 'icomoon';
+  content: "\e90c";
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup {
   display: inline-block;
@@ -327,25 +329,45 @@
 .page.startup-view #product .section .title {
   display: block;
   font-family: 'atc', sans-serif;
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 500;
   color: #081433;
 }
-.page.startup-view #product .section p {
-  margin: 20px 0;
+.page.startup-view #product .section .title.upper {
+  font-size: 48px;
+  font-weight: 300;
 }
-.page.startup-view #market .section {
+.page.startup-view #product .section p {
+  margin: 25px 0;
+}
+.page.startup-view #market .left .section {
   display: block;
   margin: 0 0 40px 0;
 }
-.page.startup-view #market .section .title {
+.page.startup-view #market .left .section .title {
   display: block;
   font-family: 'atc', sans-serif;
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 100;
   color: #081433;
 }
-.page.startup-view #market .section p {
+.page.startup-view #market .left .section p {
+  font-size: 38px;
+  font-weight: 800;
+  margin: 0 0 40px 0;
+}
+.page.startup-view #market .right .section {
+  display: block;
+  margin: 0 0 40px 0;
+}
+.page.startup-view #market .right .section .title {
+  display: block;
+  font-family: 'atc', sans-serif;
+  font-size: 18px;
+  font-weight: 100;
+  color: #081433;
+}
+.page.startup-view #market .right .section p {
   margin: 20px 0;
 }
 .page.startup-view #startup .section {

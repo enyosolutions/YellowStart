@@ -16,8 +16,8 @@ body {
  */
 @font-face {
   font-family: 'icomoon';
-  src: url('fonts/icomoon.eot?y163zq');
-  src: url('fonts/icomoon.eot?y163zq#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?y163zq') format('truetype'), url('fonts/icomoon.woff?y163zq') format('woff'), url('fonts/icomoon.svg?y163zq#icomoon') format('svg');
+  src: url('fonts/icomoon.eot?snb6p1');
+  src: url('fonts/icomoon.eot?snb6p1#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?snb6p1') format('truetype'), url('fonts/icomoon.woff?snb6p1') format('woff'), url('fonts/icomoon.svg?snb6p1#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -32,6 +32,12 @@ body {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.icon-arrowLeft:before {
+  content: "\e90c";
+}
+.icon-arrowRight:before {
+  content: "\e90d";
 }
 .icon-Badge:before {
   content: "\e900";
