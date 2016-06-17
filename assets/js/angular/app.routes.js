@@ -56,7 +56,7 @@ angular
                 data: {access: "USER" }
             })
             .state('admin-startup', {url: '/admin/startup', templateUrl: '/js/angular/modules/admin-startup/list/list.html',
-                controller: 'AdminUserListCtrl',
+                controller: 'AdminStartupListCtrl',
                 data: {access: "USER" }
             })
         ;
