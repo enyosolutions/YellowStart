@@ -33,6 +33,7 @@ module.exports = {
                 if (err) return next(err);
                 values.encryptedPassword = hash;
                 delete values.password;
+                delete values.confirmPassword;
                 next();
             })
         })
@@ -48,6 +49,7 @@ module.exports = {
                     if (err) return next(err);
                     values.encryptedPassword = hash;
                     delete values.password;
+                    delete values.confirmPassword;
                     next();
                 });
             }
