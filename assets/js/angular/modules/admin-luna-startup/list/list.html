@@ -1,0 +1,115 @@
+<section class="container">
+    <div class="row">
+        <!-- heading -->
+        <div class="heading">
+            <h1 class="result-indicator">
+                Liste des start-ups dans luna
+            </h1>
+
+            <div class="sort">
+                <!-- <div class="dropdown">
+                     <button class="btn btn-primary-alternate dropdown-toggle" type="button" id="sort"
+                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                         Trier
+                         <span class="caret"></span>
+                     </button>
+
+                     <ul class="dropdown-menu" aria-labelledby="sort">
+                         <li>
+                             <a href="#">
+                                 Dummy
+                             </a>
+                         </li>
+                     </ul>
+                 </div> -->
+                <button class="btn btn-primary-outline pull-right btn-sm" ng-click="downloadStartups()"><i
+                        class="fa fa-cloud-download"></i> Télécharger les startups depuis Luna
+                </button>
+                <button class="btn btn-primary-outline pull-right btn-sm" ng-click="importStartup('all')"><i
+                        class="fa fa-cloud-download"></i> Importer tout
+                </button>
+                <i class="fa fa-spinner fa-spin fade fa-2x pull-right" ng-class="{in: queryIsLoading}"></i>
+            </div>
+        </div>
+
+        <!-- results -->
+        <div class="results">
+            <div class="container">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Startup Name</th>
+                        <th>Description</th>
+                        <th>Creation date</th>
+                        <th>ID LUNA</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="startup in startupsLuna">
+                        <td><input type="checkbox"
+                                   name="selectedStartups[]"
+                                   value="{{ startup._id }}"
+                                   ng-checked="selection.indexOf(fruitName) > -1"
+                                   ng-click="toggleSelection(fruitName)"
+                                /></td>
+                        <td>{{ startup.StartupName }}</td>
+                        <td><p>{{ startup.ProjectTweet }}</p></td>
+                        <td>{{ startup.added_at | date : longDate }}</td>
+                        <td>
+                            {{ startup.id }}
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-primary btn-xs" ng-click="importStartup(startup._id)">IMPORTER
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+        <!-- bottom -->
+        <div class="bottom text-center">
+            <ul class="pagination-list">
+                <li>
+                    <a class="previous" ng-click="prevPage()" ng-if="currentPage > 0">
+                        <
+                    </a>
+                </li>
+                <li>
+                    <a class="active" href="#">
+                        {{ currentPage + 1 }}
+                    </a>
+                </li>
+                <li>
+                    <a class="next" ng-click="nextPage()" ng-if="startupsLuna.length > 19">
+                        >
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div id="startupProfileModal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true" class="fa-3x">&times;</span></button>
+                        <h4 class="modal-title">Detail de la startup</h4>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
