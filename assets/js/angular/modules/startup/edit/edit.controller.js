@@ -64,7 +64,7 @@ angular.module('start.controllers')
                 url: CONFIG.baseUrl + "/startup/upload-picture",
                 parallelUploads: 1,
                 maxFileSize: 10,
-                dictDefaultMessage: "Glissez une image pour l'ajouter",
+                dictDefaultMessage: "Cliquez ou Glissez une image pour l'ajouter",
                 acceptedFiles: 'image/*',
                 headers: {'Authorization': 'Bearer ' + $localstorage.get('auth_token')}
             }
@@ -86,7 +86,7 @@ angular.module('start.controllers')
                 paramName: "file",
                 parallelUploads: 4,
                 maxFileSize: 10,
-                dictDefaultMessage: 'Glissez des fichiers pour les rajouter',
+                dictDefaultMessage: 'Cliquez ou Glissez des fichiers pour les rajouter',
                 acceptedFiles: 'image/*,application/pdf,.ppt,.pptx,.doc,.docx,.xls,.xlsx,.zip',
                 addRemoveLinks: true,
                 maxFiles: 5,
@@ -221,7 +221,7 @@ angular.module('start.controllers')
                 });
             }
             else {
-                if ($scope.creationDate.day || $scope.creationDate.month || $scope.creationDate.year) {
+                if ($scope.startup.creationDate && ($scope.startup.creationDate.day || $scopestartup.creationDate.month || $scope.startup.reationDate.year)) {
                     $scope.startup.creationDate = $scope.creationDate.day + '-' + $scope.creationDate.month + '-' + $scope.creationDate.year;
                 }
                 if ($scope.startup.videoPresentation) {

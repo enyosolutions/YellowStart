@@ -270,7 +270,7 @@ module.exports = {
     },
     // UPLOAD OF STARTUP MAIN PICTURE
     'uploadPicture': function (req, res) {
-        var gm = require('gm');
+        var gm = require('gm').subClass({imageMagick: true});
         console.log('upload picture');
 
         var id = req.body._id;
@@ -296,13 +296,16 @@ module.exports = {
 
                     // Save the "fd" and the url where the avatar for a user can be accessed
                     var filename = uploadedFiles[0].fd.split('/').pop();
+                    console.log(process.cwd());
                     var original = '/data/startup/images/' + filename;
                     startup.picture = '/data/startup/images/thumb-' + filename;
-                    gm(original)
+                    gm(process.cwd() + '/assets' + original)
                         .resize('500', '333', '^')
                         .gravity('Center')
                         .crop('500', '333')
-                        .write(startup.picture, function (err) {
+                        .write(process.cwd()  + '/assets'
+ + startup.picture, function (err) {
+                            console.log(err);
                             startupCollection.update({_id: id}, startup).then(function () {
                                 res.json(200, {body: startup.picture});
                             });

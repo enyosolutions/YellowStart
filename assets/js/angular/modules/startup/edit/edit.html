@@ -6,6 +6,12 @@
         <h1>
             {{ startup.startupName ? startup.startupName :'SOUMETTRE UNE START-UP' }}
         </h1>
+        <button class="action btn btn-link"  ng-click="deleteStartup()"
+                ng-if="globals.user.roles.indexOf('ADMIN') !== -1">
+            <i class="fa fa-times"></i>
+
+            <div class="text-lock">Supprimer</div>
+        </button>
     </div>
 </section>
 
