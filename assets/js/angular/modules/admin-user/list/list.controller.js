@@ -1,10 +1,11 @@
 'use strict';
 
-angular.module('start.controllers').controller("AdminUserListCtrl", function($scope, $location, $filter, Auth, AdminUser, UserService, $ngBootbox) {
+angular.module('start.controllers').controller("AdminUserListCtrl", function($scope, $location, $filter, Auth, AdminUser, UserService, NotificationService,  $ngBootbox) {
    $scope.users = AdminUser.query();
     $scope.currentUser = {};
     $scope.activateUser = function(index){
         $scope.users[index].isActive = true;
+        NotificationService.accountActivated({userId: $scope.users[index]._id});
         $scope.users[index].$update();
     };
     $scope.deleteUser = function(index){

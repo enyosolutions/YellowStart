@@ -26,10 +26,10 @@ angular
         'datePicker',
         'angucomplete-alt'
     ])
-    // .constant('CONFIG', {baseUrl: 'http://start.dev:8080', apiUrl: 'http://start.dev:8080/api', lunaUrl: 'http://luna.startinpost.com/project/apilisttititata'})
+     .constant('CONFIG', {baseUrl: 'http://start.dev:8080', apiUrl: 'http://start.dev:8080/api', lunaUrl: 'http://luna.startinpost.com/project/apilisttititata'})
     // .constant('CONFIG', {baseUrl: 'http://192.168.12.14:8080', apiUrl: 'http://192.168.12.14:8080/api'})
-     .constant('CONFIG', {baseUrl: 'http://yellowstart.enyosolutions.com', apiUrl: 'http://yellowstart.enyosolutions.com/api'})
-    .run(function (editableOptions, $state, $rootScope, Auth, $localstorage, $ngBootbox, Notification, NotificationService, CONFIG) {
+   //  .constant('CONFIG', {baseUrl: 'http://yellowstart.enyosolutions.com', apiUrl: 'http://yellowstart.enyosolutions.com/api'})
+    .run(function (editableOptions, $state, $rootScope, $interval, Auth, $localstorage, $ngBootbox, Notification, NotificationService, CONFIG) {
         editableOptions.theme = 'bs3';
         $rootScope.$state = $state;
         $rootScope.globals = {};
@@ -44,6 +44,9 @@ angular
                 console.log(response);
                 $rootScope.globals.user = response.user;
                 $rootScope.notifications = Notification.query({'query[userId]': $rootScope.globals.user._id});
+                $interval(function(){
+                $rootScope.notifications = Notification.query({'query[userId]': $rootScope.globals.user._id});
+                },60000);
                 $rootScope.clearNotifications = function(){
                     NotificationService.clear({startupId: $rootScope.globals.user._id})
                 }

@@ -15,6 +15,10 @@
                             action: 'newUser'
                         }
                     },
+                    accountActivated: {
+                        method: 'GET',
+                        params: {action: 'accountActivated'}
+                    },
                     startupPublished: {
                         method: 'GET',
                         params: {action: 'startupPublished'}
