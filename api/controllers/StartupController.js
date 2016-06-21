@@ -296,9 +296,9 @@ module.exports = {
 
                     // Save the "fd" and the url where the avatar for a user can be accessed
                     var filename = uploadedFiles[0].fd.split('/').pop();
-                    startup.picture = '/data/startup/images/' + filename;
-
-                    gm(startup.picture)
+                    var original = '/data/startup/images/' + filename;
+                    startup.picture = '/data/startup/images/thumb-' + filename;
+                    gm(original)
                         .resize('500', '333', '^')
                         .gravity('Center')
                         .crop('500', '333')
