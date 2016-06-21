@@ -45,7 +45,7 @@ angular.module('start.controllers').controller("RegisterCtrl", function ($scope,
                 console.log(response);
                 $scope.dataLoading = false;
 
-                if (response.user && (response.user.roles.indexOf('USER') > -1 || response.user.roles.indexOf('ADMIN') > -1)) {
+                if (response.user && response.user.isActive && (response.user.roles.indexOf('USER') > -1 || response.user.roles.indexOf('ADMIN') > -1)) {
                     $rootScope.globals.user = response.user;
                     $state.go('home');
                 }
