@@ -362,11 +362,10 @@
             <div class="col-md-7">
                 <div class="form-inline dates">
                     <select class="form-control day" type="number" ng-model="creationDate.day"
-                            ng-blur="saveStartup();">
+                            ng-change="saveStartup();">
                         <option ng-repeat="n in range(1,31)" value="{{ n }}">{{ n }}</option>
                     </select>
-                    <select ng-model="creationDate.month" class="form-control month" required>
-                        <option></option>
+                    <select ng-change="saveStartup();"  ng-model="creationDate.month"  class="form-control month">
                         <option>Janvier</option>
                         <option>Fevrier</option>
                         <option>Mars</option>
@@ -380,8 +379,7 @@
                         <option>Novembre</option>
                         <option>Décembre</option>
                     </select>
-                    <select ng-model="creationDate.year" class="form-control year" required>
-                        <option></option>
+                    <select ng-model="creationDate.year" ng-change="saveStartup();" class="form-control year">
                         <option ng-repeat="n in range(2000, 2016)">{{n}}</option>
                     </select>
                 </div>

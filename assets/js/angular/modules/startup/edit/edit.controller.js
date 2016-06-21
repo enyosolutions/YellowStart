@@ -221,7 +221,7 @@ angular.module('start.controllers')
                 });
             }
             else {
-                if ($scope.startup.creationDate && ($scope.startup.creationDate.day || $scopestartup.creationDate.month || $scope.startup.reationDate.year)) {
+                if ($scope.creationDate && ($scope.creationDate.day || $scope.creationDate.month || $scope.creationDate.year)) {
                     $scope.startup.creationDate = $scope.creationDate.day + '-' + $scope.creationDate.month + '-' + $scope.creationDate.year;
                 }
                 if ($scope.startup.videoPresentation) {
