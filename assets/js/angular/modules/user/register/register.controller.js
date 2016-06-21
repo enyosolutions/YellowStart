@@ -21,11 +21,10 @@ angular.module('start.controllers').controller("RegisterCtrl", function ($scope,
                         //FlashService.Error(response.message);
                     }
                     if (response && response.user) {
-                        $rootScope.globals.user = response.user;
-                        $state.go('home');
+                        $ngBootbox.alert("<h2 class='text-center text-success'>Merci pour votre inscription.<br/>Vous allez recevoir un mail d'activation dès que votre compte sera activé.</h2>");
                     }
                 }).error(function (response) {
-                    $scope.dataLoading = true;
+                    $scope.dataLoading = false;
                     if (response && response.error) {
                         $ngBootbox.alert("<h2 class='text-center text-danger'>" + response.error + "</h2>");
                     }
@@ -46,7 +45,7 @@ angular.module('start.controllers').controller("RegisterCtrl", function ($scope,
                 console.log(response);
                 $scope.dataLoading = false;
 
-                if (response.user) {
+                if (response.user && (response.user.roles.indexOf('USER') > -1 || response.user.roles.indexOf('ADMIN') > -1)) {
                     $rootScope.globals.user = response.user;
                     $state.go('home');
                 }

@@ -30,7 +30,7 @@ module.exports = {
                     var token = jwToken.issue({id: user.id});
                     res.json(200, {user: user, token: jwToken.issue({id: token})});
                     MailService.sendAccountCreationEmail(user.email,{user: user});
-                    Notification.sendNewUser(user.id);
+                    NotificationService.sendNewUser(user.id);
                     Monk.get('user').find({roles:'ADMIN'}).then(function(coll){
                        if(coll && coll.length > 0){
                            var emails = coll.map(function(elm){return elm.email;});
