@@ -169,11 +169,10 @@ module.exports = {
                             lastModifiedAt: new Date(oldStartup.modified_at)
                         };
 
-                        startupColl.update({lunaId: oldStartup.id}, newStartup, {upsert: true, new: true}, function (res, err) {
-                            console.log(res,newStartup._id, err);
-                            startupContactColl.findAndModify({startupId: newStartup._id+'', email: oldStartup.ContactEmail},
+                        startupColl.findAndModify({lunaId: oldStartup.id}, newStartup, {upsert: true, new: true}, function (err, start) {
+                            startupContactColl.update({startupId: start._id+'', email: oldStartup.ContactEmail},
                                 {
-                                    startupId: res._id+'',
+                                    startupId: start._id+'',
                                     firstname: oldStartup.ContactFirstName,
                                     lastname: oldStartup.ContactLastName,
                                     email: oldStartup.ContactEmail,
@@ -300,9 +299,9 @@ module.exports = {
                     startup.picture = '/data/startup/images/' + filename;
 
                     gm(startup.picture)
-                        .resize('750', '500', '^')
+                        .resize('500', '333', '^')
                         .gravity('Center')
-                        .crop('750', '500')
+                        .crop('500', '333')
                         .write(startup.picture, function (err) {
                             startupCollection.update({_id: id}, startup).then(function () {
                                 res.json(200, {body: startup.picture});

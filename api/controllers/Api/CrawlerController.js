@@ -22,14 +22,14 @@ module.exports = {
                 });
             }
 
-            startupCollection.find({startupName: {$regex: req.query.q, $options: 'i'}},{limit:10}).success(function (col2) {
+            startupCollection.find({status:'published', startupName: {$regex: req.query.q, $options: 'i'}},{limit:10}).success(function (col2) {
                 if(col2 && col2.length > 0){
                     results = results.concat( col2.map(function(e){ return {label: e.startupName, id: e._id,  type: 'startup'};}) );
                 }
                 resp.json({body: results});
             }).error(function (err) {
                 resp.json({body: results});
-            });;
+            });
 
         }).error(function (err) {
             resp.json({error: err});
