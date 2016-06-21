@@ -15,15 +15,14 @@ module.exports = {
         var startupCollection = Monk.get('startup');
         var tagCollection = Monk.get('tag');
         var results = [];
-        tagCollection.find({label: {$regex: req.query.q, $options: 'i'}}).success(function (col) {
+        tagCollection.find({label: {$regex: req.query.q, $options: 'i'}},{limit:10}).success(function (col) {
             if (col && col.length > 0) {
                 results = col.map(function (e) {
                     return {label: e.label, type: 'tag', id: e._id};
                 });
             }
 
-            startupCollection.find({startupName: {$regex: req.query.q, $options: 'i'}}).success(function (col2) {
-                console.log(col2);
+            startupCollection.find({startupName: {$regex: req.query.q, $options: 'i'}},{limit:10}).success(function (col2) {
                 if(col2 && col2.length > 0){
                     results = results.concat( col2.map(function(e){ return {label: e.startupName, id: e._id,  type: 'startup'};}) );
                 }
@@ -67,7 +66,6 @@ module.exports = {
         var hash = Utils.md5(url);
         var metaCollection = Monk.get('crawler_meta');
         metaCollection.find({hash: hash}).then(function (doc) {
-            console.log(doc);
             if (doc && doc[0] && doc[0].data) {
                 return resp.json({body: doc[0].data});
             }

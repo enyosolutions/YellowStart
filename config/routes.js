@@ -41,7 +41,7 @@ module.exports.routes = {
 
     'GET /api/crud/startup': 'StartupController.list',
     '/startup/new': {view: 'startup/new'},
-    'GET /api/crud/startup-luna': 'StartupController.listLuna',
+    'GET /api/luna/actions': 'StartupController.lunaActions',
     '/startup/upload-picture': 'StartupController.uploadPicture',
     '/startup/upload-file': 'StartupController.uploadFile',
     '/startup/delete-file': 'StartupController.deleteFile',
@@ -49,8 +49,6 @@ module.exports.routes = {
     'POST /startup/:id/bookmark':  'User/BookmarkController.post',
     'DELETE /startup/:id/bookmark':  'User/BookmarkController.delete',
     '/startup/:id': {view: 'startup/view'},
-
-
 
     // 'GET /api/crawler/meta': 'Api/CrawlerController.meta',
     'GET /api/crud/:endpoint': 'Api/CrudController.list',

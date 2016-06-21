@@ -11,7 +11,7 @@ module.exports = {
 
         var out = {};
         var query = {};
-        var startPage = req.query.page ? req.query.page : 0;
+        var startPage = req.query.page != undefined ? req.query.page : 0;
         var status = req.query.status ? req.query.status : undefined;
         var options = {limit: req.query.limit ? req.query.limit : 12, skip: startPage * 4};
 
@@ -64,6 +64,9 @@ module.exports = {
                 };
             }
 
+            if (req.query.publishedOnly) {
+                query.status = 'published';
+            }
             if (req.query.sort) {
                 options['sort'] = {};
                 for (var i in req.query.sort) {
@@ -99,28 +102,96 @@ module.exports = {
             .error(function (err) {
                 console.log('ERROR WHILE SEARCHING', err);
                 res.json(404, {error: 'Startup not found'});
-            })
-        ;
+            });
 
     },
 
-
-    'listLuna': function (req, res, next) {
-        MailService.sendActivitySummary();
-        console.log('luna sucking');
+    lunaActions: function (req, res, next) {
+        // MailService.sendActivitySummary();
+        console.log('luna sucking', req.query.page);
         var request = require('request');
-        request('http://luna.startinpost.com/project/apilisttititata', function (error, response, body) {
-            if (error) {
-                res.json({error: error});
-            }
-            else {
-                res.json({body: JSON.parse(body)});
-            }
+        var startupColl = Monk.get('startup');
+        var lunaStartupColl = Monk.get('luna-startup');
+        var startupContactColl = Monk.get('startup-contact');
+        if (req.query.dlStartups) {
+            request('http://luna.startinpost.com/project/apilisttititata', function (error, response, body) {
+                if (error) {
+                    res.json({error: error});
+                }
+                else {
+                    var content = JSON.parse(body);
+                    for (var i in content) {
+                        var oldStartup = content[i];
 
-        });
+                        lunaStartupColl.update({id: oldStartup.id}, oldStartup, {upsert: true}).error(function(err){
+                        console.log(err);
+                        });
+                    }
+                    res.json({body: content.length});
+                }
+            });
+        }
+        else if (req.query.import) {
+            var query = req.query.import === 'all' ? {} : {_id: req.query.import};
+            var oldStartup;
+            lunaStartupColl.find(query).then(function (coll) {
+                if (coll && coll.length > 0) {
+                    for (var i in coll) {
+                        oldStartup = coll[i];
+                        var newStartup = {
+                            lunaId: oldStartup.id,
+                            "startupName": oldStartup.StartupName,
+                            "tagline": oldStartup.Innovation,
+                            "status": oldStartup.status,
+                            "websiteUrl": oldStartup.WebsiteUrl,
+                            "projectTweet": oldStartup.ProjectTweet,
+                            "tagline": oldStartup.Tagline,
+                            "lastModifiedAt": oldStartup.LastModifiedAt,
+                            "creationDate": oldStartup.CreationDate,
+                            "offerDetails": oldStartup.OfferDetails,
+                            "offerBusiness": oldStartup.OfferBusiness,
+                            "offerPositionning": oldStartup.OfferPositionning,
+                            "offerStrengths": oldStartup.OfferStrengths,
+                            "offerDiff": oldStartup.OfferDiff,
+                            "offerWeaknesses": oldStartup.OfferWeaknesses,
+                            "marketDescription": oldStartup.MarketDescription,
+                            "marketClients": oldStartup.MarketClients,
+                            "marketCompetitors": oldStartup.MarketCompetitors,
+                            "revenues": oldStartup.Revenues,
+
+                            "otherRevenues": oldStartup.OtherRevenues,
+                            "funds": oldStartup.Funds,
+                            "raisedFunds": oldStartup.RaisedFunds,
+                            "sipAnalysis": oldStartup.SipAnalysis,
+                            "offerServices": oldStartup.OfferServices,
+                            funds: oldStartup.Funds,
+                            createdAt: new Date(),
+                            lastModifiedAt: new Date(oldStartup.modified_at)
+                        };
+
+                        startupColl.update({lunaId: oldStartup.id}, newStartup, {upsert: true, new: true}, function (res, err) {
+                            console.log(res,newStartup._id, err);
+                            startupContactColl.findAndModify({startupId: newStartup._id+'', email: oldStartup.ContactEmail},
+                                {
+                                    startupId: res._id+'',
+                                    firstname: oldStartup.ContactFirstName,
+                                    lastname: oldStartup.ContactLastName,
+                                    email: oldStartup.ContactEmail,
+                                    phonenumber: oldStartup.ContactTel
+                                }, {upsert: true});
+                        }
+                    );
+                    }
+                }
+            });
+            res.json({});
+        }
+        else {
+            res.json({error: 'NO ACTION SPECIFIED'});
+        }
     },
 
-
+    // UPLOAD OF STARTUP DOCUMENTS
     'uploadFile': function (req, res, next) {
 
         console.log('upload files');
@@ -158,7 +229,6 @@ module.exports = {
                         name: uploadedFiles[0].filename,
                         file: '/data/startup/images/' + filename
                     });
-                    console.log(startup);
                     startupCollection.update({_id: id}, startup).then(function () {
                         res.json(200, {body: startup.documents});
                     });
@@ -199,15 +269,15 @@ module.exports = {
         });
 
     },
+    // UPLOAD OF STARTUP MAIN PICTURE
     'uploadPicture': function (req, res) {
-
+        var gm = require('gm');
         console.log('upload picture');
 
         var id = req.body._id;
         var startupCollection = Monk.get('startup');
         console.log(id);
         startupCollection.find({_id: id}).then(function (col) {
-            console.log(col);
             if (col && col.length > 0) {
                 var startup = col[0];
                 req.file('file').upload({
@@ -228,9 +298,17 @@ module.exports = {
                     // Save the "fd" and the url where the avatar for a user can be accessed
                     var filename = uploadedFiles[0].fd.split('/').pop();
                     startup.picture = '/data/startup/images/' + filename;
-                    startupCollection.update({_id: id}, startup).then(function () {
-                        res.json(200, {body: startup.picture});
-                    });
+
+                    gm(startup.picture)
+                        .resize('750', '500', '^')
+                        .gravity('Center')
+                        .crop('750', '500')
+                        .write(startup.picture, function (err) {
+                            startupCollection.update({_id: id}, startup).then(function () {
+                                res.json(200, {body: startup.picture});
+                            });
+                        });
+
                 });
             }
             else {
@@ -238,5 +316,6 @@ module.exports = {
             }
         });
     }
-};
+}
+;
 

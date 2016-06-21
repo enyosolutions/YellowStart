@@ -8,7 +8,7 @@
  * Controller of the startApp
  */
 angular.module('start.controllers')
-    .controller('EditStartupCtrl', function ($scope, $rootScope, $stateParams, $location, $localstorage, $timeout, $ngBootbox, $compile, $log, Startup, StartupContact, Utils, Tag, Crawler, CONFIG) {
+    .controller('EditStartupCtrl', function ($scope, $rootScope, $stateParams, $location, $localstorage, $timeout, $ngBootbox, $compile, $log, Startup, StartupContact, Utils, Tag, Crawler, NotificationService, CONFIG) {
         $scope.pageClass = 'startup-edit';
         $scope.pageClass = 'edit-page';
         $scope.startup = {};
@@ -119,7 +119,21 @@ angular.module('start.controllers')
             $scope.startup._id = $stateParams._id;
             // Load the startup
             $scope.startup = new Startup($scope.startup);
-            $scope.startup.$get();
+            $scope.startup.$get().then(function (res) {
+                    if (res.creationDate) {
+                        var d = res.creationDate.split('-');
+                        if (res.creationDate.length >= 3) {
+
+                            $scope.creationDate = {
+                                day: d[0],
+                                month: d[1],
+                                year: d[2]
+                            };
+                        }
+                    }
+                }
+            )
+            ;
 
             // Load the contacts
             $scope.startupContacts = StartupContact.query({'query[startupId]': $scope.startup._id});
@@ -169,10 +183,10 @@ angular.module('start.controllers')
 
         var checkRequiredFields = function () {
             var requiredFields = [
-                {field:'startupName', label:'Nom de la startup'},
-                {field:'tagline', label:'Tag line de la startup'},
-                {field:'websiteUrl', label:'Url du site'},
-                {field:'projectTweet', label:'Le résumé en 140 caractères'}
+                {field: 'startupName', label: 'Nom de la startup'},
+                {field: 'tagline', label: 'Tag line de la startup'},
+                {field: 'websiteUrl', label: 'Url du site'},
+                {field: 'projectTweet', label: 'Le résumé en 140 caractères'}
             ];
             var missingFields = [];
             for (var i in requiredFields) {
@@ -207,7 +221,10 @@ angular.module('start.controllers')
                 });
             }
             else {
-                if($scope.startup.videoPresentation){
+                if ($scope.creationDate.day || $scope.creationDate.month || $scope.creationDate.year) {
+                    $scope.startup.creationDate = $scope.creationDate.day + '-' + $scope.creationDate.month + '-' + $scope.creationDate.year;
+                }
+                if ($scope.startup.videoPresentation) {
                     console.log($scope.startup);
                     $scope.startup.youtubeId =
                         Utils.getYoutubeIds($scope.startup.videoPresentation)[1];
@@ -229,10 +246,11 @@ angular.module('start.controllers')
             if ($scope.startup._id && checkRequiredFields()) {
                 $scope.startup.status = 'published';
                 $scope.startup.publishedAt = new Date();
-                $scope.startup.$update().then(function(res){
-                   $location.path('/startup/' + $scope.startup._id + '/view');
+                $scope.startup.$update().then(function (res) {
+                    $location.path('/startup/' + $scope.startup._id + '/view');
                 })
                 $localstorage.remove('startupDraft');
+                NotificationService.startupPublished({startupId: $scope.startup._id});
             }
 
         };
@@ -311,5 +329,6 @@ angular.module('start.controllers')
             $scope.startup.$update();
         }
 
-    })
+    }
+)
 ;

@@ -117,6 +117,7 @@
                     <li ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
                         <a href="#/admin/startup">Start-ups</a>
                     </li>
+
                     <li ng-show="globals.user.roles.indexOf('ADMIN') !== -1" role="separator" class="divider"></li>
                     <li>
                         <a href="#/user/profile">Mon profil</a>
@@ -255,6 +256,7 @@
 <script src="/js/angular/app.routes.js"></script>
 
 <script src="/js/angular/modules/admin-startup/list/list.controller.js"></script>
+<script src="/js/angular/modules/admin-luna-startup/list/list.controller.js"></script>
 <script src="/js/angular/modules/admin-user/list/list.controller.js"></script>
 
 <script src="/js/angular/modules/startup/view/view.controller.js"></script>
@@ -268,6 +270,7 @@
 
 <script src="/js/angular/modules/common/resources.js"></script>
 <script src="/js/angular/modules/common/startup.service.js"></script>
+<script src="/js/angular/modules/common/notification.service.js"></script>
 <script src="/js/angular/modules/common/authentication.service.js"></script>
 <script src="/js/angular/modules/common/authinterceptor.service.js"></script>
 <script src="/js/angular/modules/common/user.service.js"></script>

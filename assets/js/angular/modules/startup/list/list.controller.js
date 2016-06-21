@@ -9,13 +9,13 @@
  */
 angular.module('start.controllers')
 
-    .controller('ListStartupCtrl', function ($scope, $state, $stateParams, $location, $timeout, $routeParams, Startup, CONFIG) {
+    .controller('ListStartupCtrl', function ($scope,$rootScope, $state, $stateParams, $location, $timeout, $routeParams, Startup, CONFIG) {
         $scope.recentStartupList = {};
         $scope.pageClass = 'startup-list';
         $scope.currentPage = 0;
         $scope.remoteHost = CONFIG.baseUrl;
         $scope.q = '';
-        var query = {};
+        var query = {'publishedOnly':1};
 
         // global search function
         $scope.search = function (q) {
@@ -97,11 +97,11 @@ angular.module('start.controllers')
             $scope.searchedStartups = Startup.query(query);
         }
 
-        $scope.recentStartupList = Startup.query({'sort[createdAt]': -1});
-        $scope.mostViewedStartupList = Startup.query({'sort[meta.views]': -1});
-        $scope.bestScoreStartupList = Startup.query({'sort[sipScore]': -1});
-        $scope.mostBookmarkedStartupList = Startup.query({'sort[meta.bookmarks]': -1});
-        $scope.lessViewedStartupList = Startup.query({'sort[meta.views]': -1});
+        $scope.recentStartupList = Startup.query({'publishedOnly':1, 'sort[createdAt]': -1});
+        $scope.mostViewedStartupList = Startup.query({'publishedOnly':1, 'sort[meta.views]': -1});
+        $scope.bestScoreStartupList = Startup.query({'publishedOnly':1, 'sort[sipScore]': -1});
+        $scope.mostBookmarkedStartupList = Startup.query({'publishedOnly':1, 'sort[meta.bookmarks]': -1});
+        $scope.lessViewedStartupList = Startup.query({'publishedOnly':1, 'sort[meta.views]': -1});
     })
 
     .directive('homeSlider', function() {

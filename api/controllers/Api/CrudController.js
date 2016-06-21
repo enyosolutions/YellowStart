@@ -10,15 +10,18 @@ module.exports = {
     list: function (req, resp) {
         var out = {};
         var query = {};
-        var options = {$limit: 30};
+        var startPage = req.query.page != undefined ? req.query.page : 0;
+        var skip = req.query.skip ? req.query.skip : 20;
+        var options = {limit: skip, skip: startPage * skip};
         if (req.query) {
             if (req.query.query) {
                 query = req.query.query;
             }
             if (req.query.sort) {
-                options['$sort'] = options.sort;
+                options['sort'] = options.sort;
             }
         }
+        console.log(options);
         Monk.get(req.param('endpoint')).find(query, options)
             .on('success', function (data) {
                 data.statusCode = 200;
@@ -50,7 +53,6 @@ module.exports = {
     },
     post: function (req, resp) {
         var data = extend({createdAt: new Date()}, req.body);
-        console.log(data, req.param('endpoint'));
         Monk.get(req.param('endpoint')).insert(data)
             .on('success', function (d) {
                 resp.json({body: d});

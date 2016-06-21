@@ -26,10 +26,10 @@ angular
         'datePicker',
         'angucomplete-alt'
     ])
-    //.constant('CONFIG', {baseUrl: 'http://start.dev:8080', apiUrl: 'http://start.dev:8080/api', lunaUrl: 'http://luna.startinpost.com/project/apilisttititata'})
-     .constant('CONFIG', {baseUrl: 'http://192.168.12.14:8080', apiUrl: 'http://192.168.12.14:8080/api'})
+    .constant('CONFIG', {baseUrl: 'http://start.dev:8080', apiUrl: 'http://start.dev:8080/api', lunaUrl: 'http://luna.startinpost.com/project/apilisttititata'})
+    // .constant('CONFIG', {baseUrl: 'http://192.168.12.14:8080', apiUrl: 'http://192.168.12.14:8080/api'})
     // .constant('CONFIG', {baseUrl: 'http://yellowstart.enyosolutions.com', apiUrl: 'http://yellowstart.enyosolutions.com/api'})
-    .run(function (editableOptions, $state, $rootScope, Auth, $localstorage, $ngBootbox, CONFIG) {
+    .run(function (editableOptions, $state, $rootScope, Auth, $localstorage, $ngBootbox, Notification, NotificationService, CONFIG) {
         editableOptions.theme = 'bs3';
         $rootScope.$state = $state;
         $rootScope.globals = {};
@@ -43,12 +43,27 @@ angular
             Auth.refresh().success(function(response){
                 console.log(response);
                 $rootScope.globals.user = response.user;
+                $rootScope.notifications = Notification.query({'query[userId]': $rootScope.globals.user._id});
+                $rootScope.clearNotifications = function(){
+                    NotificationService.clear({startupId: $rootScope.globals.user._id})
+                }
             });
         }
 
         $.ajaxSetup({
             headers: { 'Authorization':  'Bearer ' + $localstorage.get('auth_token') }
         });
+
+
+        $rootScope.range = function (min, max, step) {
+            step = step || 1;
+            var input = [];
+            for (var i = min; i <= max; i += step) {
+                input.push(i);
+            }
+            return input;
+        };
+
 
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
@@ -77,7 +92,6 @@ angular
             link: link,
             restrict: "C"
         });
-
         function link(scope, element, attributes) {
             $animate.leave(element.children().eq(1)).then(
                 function cleanupAfterAnimation() {

@@ -33,7 +33,7 @@ angular.module('start.services')
     })
        // LIST OF STARTUPS
     .factory('LunaStartup', function ($resource, CONFIG) {
-        return $resource(CONFIG.apiUrl + '/crud/startup-luna/:_id', {_id: '@_id'},
+        return $resource(CONFIG.apiUrl + '/crud/luna-startup/:_id', {_id: '@_id'},
             {
                 "update": {isArray: false, method: "PUT", transformResponse: transformGet},
                 "save": {isArray: false, cancellable: false, method: "POST", transformResponse: transformGet},
@@ -93,6 +93,16 @@ angular.module('start.services')
     })
     .factory('User', function ($resource, CONFIG) {
         return $resource(CONFIG.apiUrl + '/crud/user/:_id', {_id: '@_id'},
+            {
+                "update": {isArray: false, method: "PUT", transformResponse: transformGet},
+                "save": {isArray: false, cancellable: false, method: "POST", transformResponse: transformGet},
+                "query": {isArray: true,  method: "GET", transformResponse: transformGet},
+                "get": {isArray: false, cancellable: false, method: "GET", transformResponse: transformGet}
+            })
+
+    })
+    .factory('Notification', function ($resource, CONFIG) {
+        return $resource(CONFIG.apiUrl + '/crud/user-notification/:_id', {_id: '@_id'},
             {
                 "update": {isArray: false, method: "PUT", transformResponse: transformGet},
                 "save": {isArray: false, cancellable: false, method: "POST", transformResponse: transformGet},

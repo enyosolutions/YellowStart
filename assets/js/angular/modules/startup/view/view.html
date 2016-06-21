@@ -39,7 +39,13 @@
 
                         <div class="text-lock">Commenter</div>
                     </a>
-                    <a class="action btn" data-toggle="modal" data-target="#documentsModal">
+                    <button class="action btn"  ng-click="deleteStartup()"
+                       ng-if="globals.user.roles.indexOf('ADMIN') !== -1">
+                        <i class="fa fa-times"></i>
+
+                        <div class="text-lock">Delete</div>
+                    </button>
+                    <a class="action btn" data-toggle="modal" data-target="#documentsModal" ng-if=" startup.documents.length">
                         <span class="count">{{ startup.documents.length }}</span>
 
                         <div class="text-lock">Documents</div>
@@ -94,7 +100,7 @@
         {{ startup.offerServices }}
     </p>
 
-    <a href="{{ startup.websiteUrl }}" target="_blank" class="link">{{ startup.websiteUrl }}</a>
+    <h3 class="text-center"><a href="{{ startup.websiteUrl }}" target="_blank" class="link">{{ startup.websiteUrl }}</a></h3>
 </div>
 
 <!-- product -->
@@ -196,7 +202,7 @@
                 </div>
 
                 <p>
-                    {{ startup.marketClients }}
+                    {{ startup.creationDate }}
                 </p>
             </div>
 
@@ -351,7 +357,7 @@
 </div>
 
 <div class="row">
-    <div class="video-container">
+    <div class="video-container" ng-if="startup.youtubeId">
         <iframe ng-src="{{ iframeUrl(startup.youtubeId) }}" frameborder="0" allowfullscreen></iframe>
     </div>
 </div>

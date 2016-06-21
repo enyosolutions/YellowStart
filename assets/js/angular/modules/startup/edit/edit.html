@@ -27,7 +27,7 @@
     <li role="presentation">
         <a data-target="#marche" aria-controls="marche" role="tab" data-toggle="tab">
             <span class="step-number">3</span>
-            Marché et chiffres clésf
+            Marché et chiffres clés
         </a>
     </li>
     <li role="presentation">
@@ -124,7 +124,7 @@
             </div>
             <div class="col-md-7" ng-class="{'autocomplete-field': isAutocompleting }">
                 <input type="url" class="form-control" ng-model="startup.videoPresentation"
-                          ng-blur="saveStartup()"/>
+                       ng-blur="saveStartup()"/>
             </div>
         </div>
 
@@ -354,9 +354,31 @@
                 <sub>Lorem upsum parabelmmu ista blah blah</sub>
             </div>
             <div class="col-md-7">
-                <div date-picker="start" min-view="date" class="form-control" type="text"
-                     ng-model="startup.creationDate"
-                     ng-date-change="saveStartup()" format="dd-MM-yyyy"></div>
+                <div class="form-inline dates">
+                    <select class="form-control day" type="number" ng-model="creationDate.day"
+                            ng-blur="saveStartup();">
+                        <option ng-repeat="n in range(1,31)" value="{{ n }}">{{ n }}</option>
+                    </select>
+                    <select ng-model="creationDate.month" class="form-control month" required>
+                        <option></option>
+                        <option>Janvier</option>
+                        <option>Fevrier</option>
+                        <option>Mars</option>
+                        <option>Avril</option>
+                        <option>Mai</option>
+                        <option>Juin</option>
+                        <option>Juillet</option>
+                        <option>Aout</option>
+                        <option>Septembre</option>
+                        <option>Octobre</option>
+                        <option>Novembre</option>
+                        <option>Décembre</option>
+                    </select>
+                    <select ng-model="creationDate.year" class="form-control year" required>
+                        <option></option>
+                        <option ng-repeat="n in range(2000, 2016)">{{n}}</option>
+                    </select>
+                </div>
             </div>
         </div>
         <div class="form-group">

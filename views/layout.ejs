@@ -117,6 +117,9 @@
                     <li ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
                         <a href="#/admin/startup">Start-ups</a>
                     </li>
+                    <li ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
+                        <a href="#/admin/luna-startup">Start-ups de Luna</a>
+                    </li>
                     <li ng-show="globals.user.roles.indexOf('ADMIN') !== -1" role="separator" class="divider"></li>
                     <li>
                         <a href="#/user/profile">Mon profil</a>
@@ -126,14 +129,20 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="#/" fadeOut>
+            <li class="dropdown notifications">
+                <a ng-click="clearNotifications()" fadeOut id="notificationsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" fadeOut>
                     <div class="icon">
-                        <span class="badge blue">2</span>
+                        <span class="badge blue">{{ notifications.length || 0 }}</span>
                     </div>
-
                     Mes notifications
                 </a>
+
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="notificationsDropdown">
+                    <li ng-repeat="notif in notifications">
+                        <a href="#{{ notif.url }}" class=" text-left"> <i class="fa fa-info text-info"></i> - {{ notif.label }} </a>
+                    </li>
+                </ul>
+
             </li>
             <li class="orange">
                 <a href="#/startup/new" fadeOut>
@@ -255,7 +264,10 @@
 <script src="/js/angular/app.routes.js"></script>
 
 <script src="/js/angular/modules/admin-startup/list/list.controller.js"></script>
+<script src="/js/angular/modules/admin-luna-startup/list/list.controller.js"></script>
+
 <script src="/js/angular/modules/admin-user/list/list.controller.js"></script>
+
 
 <script src="/js/angular/modules/startup/view/view.controller.js"></script>
 <script src="/js/angular/modules/startup/edit/edit.controller.js"></script>
@@ -268,6 +280,7 @@
 
 <script src="/js/angular/modules/common/resources.js"></script>
 <script src="/js/angular/modules/common/startup.service.js"></script>
+<script src="/js/angular/modules/common/notification.service.js"></script>
 <script src="/js/angular/modules/common/authentication.service.js"></script>
 <script src="/js/angular/modules/common/authinterceptor.service.js"></script>
 <script src="/js/angular/modules/common/user.service.js"></script>

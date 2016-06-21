@@ -51,12 +51,20 @@ angular
                 controller: 'ProfileCtrl',
                 data: {access: "USER" }
             })
+            .state('admin-home', {url: '/admin/user', templateUrl: '/js/angular/modules/admin-home/list/list.html',
+                controller: 'AdminUserListCtrl',
+                data: {access: "USER" }
+            })
             .state('admin-user', {url: '/admin/user', templateUrl: '/js/angular/modules/admin-user/list/list.html',
                 controller: 'AdminUserListCtrl',
                 data: {access: "USER" }
             })
             .state('admin-startup', {url: '/admin/startup', templateUrl: '/js/angular/modules/admin-startup/list/list.html',
                 controller: 'AdminStartupListCtrl',
+                data: {access: "USER" }
+            })
+            .state('admin-luna-startup', {url: '/admin/luna-startup', templateUrl: '/js/angular/modules/admin-luna-startup/list/list.html',
+                controller: 'AdminLunaStartupListCtrl',
                 data: {access: "USER" }
             })
         ;
