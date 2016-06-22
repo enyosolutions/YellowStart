@@ -8,7 +8,7 @@
  * Controller of the startApp
  */
 angular.module('start.controllers')
-    .controller('ViewStartupCtrl', function ($scope, $rootScope, $stateParams, $sce, Startup, StartupComment, StartupContact, UserService, NotificationService) {
+    .controller('ViewStartupCtrl', function ($scope, $rootScope, $stateParams, $window, $sce, Startup, StartupComment, StartupContact, UserService, NotificationService) {
         $scope.pageClass = 'startup-view';
 
         $scope.iframeUrl = function (src) {
@@ -17,8 +17,27 @@ angular.module('start.controllers')
 
         if ($stateParams._id) {
             $scope.startup = new Startup({_id: $stateParams._id});
-            $scope.startupContacts = StartupContact.query({'query[startupId]': $stateParams._id});
-            $scope.startup.$get();
+            $scope.startup.$get().then(function(){
+
+                $scope.startupContacts = StartupContact.query({'query[startupId]': $stateParams._id}).$promise.then(function (res) {
+                    console.log(res);
+                    if (res.length > 0) {
+                        var contact = res[0];
+                        var content = '<div class="startup-map-infowindow">' +
+                            '<div class="picture"><img alt="" src="http://dummyimage.com/90x90/000/fff" /></div>' +
+                            '<div class="inner">' +
+                            '<div class="name">' + contact.firstname + ' ' + contact.lastname + '</div> ' +
+                            '<div class="job">' + (contact.role ? contact.role : '') + '</div> ' +
+                            '<div class="email">' + (contact.email ? contact.email : '') + '</div> ' +
+                            '<div class="phone">' + (contact.phonenumber ? contact.phonenumber : "") + '</div> ' +
+                            '<div class="address">' + ($scope.startup.address ? $scope.startup.address : '' ) + '</div> ' +
+                            '</div>' +
+                            '</div>';
+                    }
+                    initGooglemaps($scope.startup.address, content);
+                });
+
+            });
         }
         else {
             $scope.startup = {
@@ -76,8 +95,8 @@ angular.module('start.controllers')
 
         $scope.deleteStartup = function () {
             if ($rrotScope.globals.user.roles.indexOf('ADMIN') !== -1) {
-                $scope.startup.$delete().$promise.then(function(res){
-                   $state.go('startup-list');
+                $scope.startup.$delete().$promise.then(function (res) {
+                    $state.go('startup-list');
                 });
             }
 
@@ -96,5 +115,73 @@ angular.module('start.controllers')
             }
             UserService.Update($rootScope.globals.user);
         };
-    })
-;
+
+        function initGooglemaps(address, infoboxContent) {
+            console.log('init google maps');
+            console.log(address);
+            console.log(infoboxContent);
+            var map = '';
+            var geocoder = new google.maps.Geocoder();
+            var address = address;
+
+            geocoder.geocode({'address': address}, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    var latitude = results[0].geometry.location.lat();
+                    var longitude = results[0].geometry.location.lng();
+
+                    initialize(latitude, longitude, infoboxContent);
+                }
+            });
+        };
+
+        function initialize(latitude, longitude, infoboxContent) {
+            var latLng = new google.maps.LatLng(latitude, longitude);
+
+            var mapOptions = {
+                zoom: 10,
+                scrollwheel: false,
+                panControl: false,
+                zoomControl: true,
+                mapTypeControl: false,
+                scaleControl: false,
+                streetViewControl: false,
+                overviewMapControl: false,
+                navigationControl: false,
+                draggable: true,
+                center: latLng
+            };
+
+            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+            var marker = new google.maps.Marker({
+                position: latLng,
+                map: map,
+                icon: '/images/spacer.gif'
+            });
+
+            var infoBubble = new InfoBubble({
+                width: 300,
+                borderRadius: 0,
+                arrowSize: 20,
+                borderWidth: 0,
+                shadowStyle: 0,
+                content: infoboxContent ? infoboxContent : '<div class="startup-map-infowindow">' +
+                '<div class="picture"><img alt="" src="http://dummyimage.com/90x90/000/fff" /></div>' +
+                '<div class="inner">' +
+                '<div class="name">Philippe Martel</div> ' +
+                '<div class="job">CEO & Founder</div> ' +
+                '<div class="email">philippe@souscritoo.com</div> ' +
+                '<div class="phone">+33 6 43 75 88 99</div> ' +
+                '<div class="address">21 Rue de Cléry<br />75002 Paris</div> ' +
+                '</div>' +
+                '</div>'
+            });
+
+            infoBubble.open(map, marker);
+
+            google.maps.event.addDomListener(window, 'resize', function () {
+                map.setCenter(latLng);
+            });
+        }
+
+    });

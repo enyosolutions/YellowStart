@@ -63,7 +63,7 @@ module.exports = {
             if (users && users.length > 0) {
                 var user = users[0];
                 var notification = {
-                    label: 'Nouvel utilisateur à activer : ',
+                    label: 'Nouvel utilisateur à activer : ' + user.firstname + ' ' + user.lastname,
                     url: '/admin/startup/user',
                     status: 'new',
                     createdAt: new Date()
@@ -71,7 +71,7 @@ module.exports = {
                 userCollection.find({roles: 'ADMIN'}).then(function (coll) {
                     if (coll && coll.length > 0) {
                         for (var i in coll) {
-                            notification.userId = coll[i]._id;
+                            notification.userId = coll[i]._id + '';
                             notifCollection.insert(notification);
                         }
                     }
