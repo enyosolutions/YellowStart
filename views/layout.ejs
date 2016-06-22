@@ -138,8 +138,11 @@
                 </a>
 
                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="notificationsDropdown">
-                    <li ng-repeat="notif in notifications">
+                    <li ng-repeat="notif in notifications" ng-if="notifications.length > 0">
                         <a href="#{{ notif.url }}" class=" text-left"> <i class="fa fa-info text-info"></i> - {{ notif.label }} </a>
+                    </li>
+                    <li ng-repeat="notif in notifications" ng-if="notifications.length == 0">
+                        <i class="fa fa-info text-info"></i> Pas de notifications
                     </li>
                 </ul>
 

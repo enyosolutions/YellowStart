@@ -8006,7 +8006,7 @@ section#map-section .address {
   overflow: scroll;
 }
 .ng-invalid:not(.ng-pristine) {
-  border-color: #D9831F;
+  border: 2px solid red;
 }
 .ng-valid:not(.ng-pristine) {
   border-color: #469408;
