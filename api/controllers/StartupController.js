@@ -123,8 +123,8 @@ module.exports = {
                     for (var i in content) {
                         var oldStartup = content[i];
 
-                        lunaStartupColl.update({id: oldStartup.id}, oldStartup, {upsert: true}).error(function(err){
-                        console.log(err);
+                        lunaStartupColl.update({id: oldStartup.id}, oldStartup, {upsert: true}).error(function (err) {
+                            console.log(err);
                         });
                     }
                     res.json({body: content.length});
@@ -169,17 +169,20 @@ module.exports = {
                             lastModifiedAt: new Date(oldStartup.modified_at)
                         };
 
-                        startupColl.findAndModify({lunaId: oldStartup.id}, newStartup, {upsert: true, new: true}, function (err, start) {
-                            startupContactColl.update({startupId: start._id+'', email: oldStartup.ContactEmail},
-                                {
-                                    startupId: start._id+'',
-                                    firstname: oldStartup.ContactFirstName,
-                                    lastname: oldStartup.ContactLastName,
-                                    email: oldStartup.ContactEmail,
-                                    phonenumber: oldStartup.ContactTel
-                                }, {upsert: true});
-                        }
-                    );
+                        startupColl.findAndModify({lunaId: oldStartup.id}, newStartup, {
+                                upsert: true,
+                                new: true
+                            }, function (err, start) {
+                                startupContactColl.update({startupId: start._id + '', email: oldStartup.ContactEmail},
+                                    {
+                                        startupId: start._id + '',
+                                        firstname: oldStartup.ContactFirstName,
+                                        lastname: oldStartup.ContactLastName,
+                                        email: oldStartup.ContactEmail,
+                                        phonenumber: oldStartup.ContactTel
+                                    }, {upsert: true});
+                            }
+                        );
                     }
                 }
             });
@@ -299,13 +302,15 @@ module.exports = {
                     console.log(process.cwd());
                     var original = '/data/startup/images/' + filename;
                     startup.picture = '/data/startup/images/thumb-' + filename;
+                    console.log(process.cwd() + '/assets' + original);
                     gm(process.cwd() + '/assets' + original)
                         .resize('500', '333', '^')
                         .gravity('Center')
                         .crop('500', '333')
-                        .write(process.cwd()  + '/assets'
- + startup.picture, function (err) {
+                        .write(process.cwd() + '/assets'
+                        + startup.picture, function (err) {
                             console.log(err);
+                            console.log('Image cropped');
                             startupCollection.update({_id: id}, startup).then(function () {
                                 res.json(200, {body: startup.picture});
                             });

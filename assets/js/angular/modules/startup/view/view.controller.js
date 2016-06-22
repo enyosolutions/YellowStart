@@ -76,7 +76,7 @@ angular.module('start.controllers')
 
 
         $scope.comments = StartupComment.query({'query[startupId]': $stateParams._id});
-        $scope.relatedStartups = Startup.query({'related': $stateParams._id, limit: 3});
+        $scope.relatedStartups = Startup.query({'publishedOnly':1, 'related': $stateParams._id, limit: 3});
 
         $scope.saveComment = function (text) {
             var comment = new StartupComment({
