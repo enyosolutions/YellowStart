@@ -1,12 +1,15 @@
 'use strict';
 
-angular.module('start.controllers').controller("RegisterCtrl", function ($scope, $state, $location, Auth, UserService, $rootScope, $ngBootbox) {
+angular.module('start.controllers').controller("RegisterCtrl", function ($scope, $state, $location, Auth, Utils, UserService, $rootScope, $ngBootbox) {
     $scope.pageClass = 'user-registration';
 
     $scope.register = function () {
 
         if($scope.user.password !== $scope.user.confirmPassword){
             $ngBootbox.alert('<h3>Le mot de passe et sa confirmation ne correspondent pas</h3>');
+        }
+        if(!Utils.validateEmail($scope.user.email)){
+            $ngBootbox.alert("<h3>Merci de vérifier le format de votre adresse email.</h3>");
         }
         else {
             $scope.dataLoading = true;

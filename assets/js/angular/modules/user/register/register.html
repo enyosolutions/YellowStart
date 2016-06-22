@@ -62,6 +62,7 @@
                              ng-class="{ 'has-error': form.company.$dirty && form.company.$error.required }">
                             <label for="email">Fonction</label>
                             <input type="text" name="role" id="function" class="form-control" ng-model="user.role"
+                                   ng-minlength="8"
                                    />
                             <span ng-show="form.role.$dirty && form.role.$error.required" class="help-block">Obligatoire</span>
                         </div>
@@ -70,6 +71,7 @@
                             <label for="password">Mot de passe <span class="text-danger">*</span></label>
                             <input type="password" name="password" id="password" class="form-control"
                                    ng-model="user.password"
+                                   ng-minlength="8"
                                    required/>
                             <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Le mot de passe est obligatoire (minimum 8 caractères)</span>
                         </div>
