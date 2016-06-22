@@ -20,10 +20,10 @@ angular.module('start.controllers')
             $scope.startup.$get().then(function(){
 
                 $scope.startupContacts = StartupContact.query({'query[startupId]': $stateParams._id}).$promise.then(function (res) {
-                    console.log(res);
+                    var content;
                     if (res.length > 0) {
                         var contact = res[0];
-                        var content = '<div class="startup-map-infowindow">' +
+                         content = '<div class="startup-map-infowindow">' +
                             '<div class="picture"><img alt="" src="http://dummyimage.com/90x90/000/fff" /></div>' +
                             '<div class="inner">' +
                             '<div class="name">' + contact.firstname + ' ' + contact.lastname + '</div> ' +
@@ -33,6 +33,15 @@ angular.module('start.controllers')
                             '<div class="address">' + ($scope.startup.address ? $scope.startup.address : '' ) + '</div> ' +
                             '</div>' +
                             '</div>';
+
+                    }
+                    else {
+                         content = '<div class="startup-map-infowindow">' +
+                         '<div class="picture"><img alt="" src="http://dummyimage.com/90x90/000/fff" /></div>' +
+                         '<div class="inner">' +
+                         '<div class="address">' + ($scope.startup.address ? $scope.startup.address : '' ) + '</div> ' +
+                         '</div>' +
+                         '</div>';
                     }
                     initGooglemaps($scope.startup.address, content);
                 });
@@ -93,14 +102,7 @@ angular.module('start.controllers')
         };
 
 
-        $scope.deleteStartup = function () {
-            if ($rrotScope.globals.user.roles.indexOf('ADMIN') !== -1) {
-                $scope.startup.$delete().$promise.then(function (res) {
-                    $state.go('startup-list');
-                });
-            }
 
-        }
         $scope.bookmarkStartup = function () {
             var index = $rootScope.globals.user.bookmarks.indexOf($stateParams._id);
             console.log('removing items ', index);
@@ -165,16 +167,7 @@ angular.module('start.controllers')
                 arrowSize: 20,
                 borderWidth: 0,
                 shadowStyle: 0,
-                content: infoboxContent ? infoboxContent : '<div class="startup-map-infowindow">' +
-                '<div class="picture"><img alt="" src="http://dummyimage.com/90x90/000/fff" /></div>' +
-                '<div class="inner">' +
-                '<div class="name">Philippe Martel</div> ' +
-                '<div class="job">CEO & Founder</div> ' +
-                '<div class="email">philippe@souscritoo.com</div> ' +
-                '<div class="phone">+33 6 43 75 88 99</div> ' +
-                '<div class="address">21 Rue de Cléry<br />75002 Paris</div> ' +
-                '</div>' +
-                '</div>'
+                content: infoboxContent ? infoboxContent : ''
             });
 
             infoBubble.open(map, marker);
