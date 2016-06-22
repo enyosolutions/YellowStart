@@ -23,4 +23,11 @@ angular.module('start.controllers').controller("AdminStartupListCtrl", function(
         $scope.startups[index].$delete();
         $scope.startups.splice(index, 1);
     };
+
+
+    $scope.search = function () {
+        $scope.startups = Startup.query({search: $scope.searchInput});
+        return;
+    };
+
 });

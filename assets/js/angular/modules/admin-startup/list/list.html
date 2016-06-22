@@ -4,6 +4,12 @@
         <div class="heading">
             <h1 class="result-indicator">
                 Liste des start-ups
+                <div class="pull-right">
+                    <form ng-submit="search()" class="form-inline">
+                    <input class="form-control" type="text" ng-model="searchInput" placeholder="Rechercher..."/>
+                        <button class="btn btn-link"><i class="fa fa-search fa-2x"></i></button>
+                    </form>
+                </div>
             </h1>
 <!--
             <div class="sort">
@@ -23,6 +29,7 @@
                     </ul>
                 </div>
             </div>-->
+
         </div>
 
         <!-- results -->
@@ -58,37 +65,6 @@
 
                     </tbody>
                 </table>
-
-
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Startup Name</th>
-                        <th>Description</th>
-                        <th>Creation date</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="startup in startupsLuna">
-                        <td>{{ startup.StartupName }}</td>
-                        <td><p>{{ startup.ProjectTweet }}</p></td>
-                        <td>{{ startup.added_at | date : longDate }}</td>
-                        <td>
-                            <span class='text-success' ng-if="startup.status == 'published'">Publié</span>
-                            <span class="text-warning" ng-if="startup.status != 'published'">Brouillon</span>
-                        </td>
-                        <td>
-                            <div class="btn-group">
-                                <a class="btn btn-primary btn-xs" href="#/startup/{{ startup._id }}/view">IMPORTER</a>
-                            </div>
-                        </td>
-                    </tr>
-
-                    </tbody>
-                </table>
-
             </div>
         </div>
 
