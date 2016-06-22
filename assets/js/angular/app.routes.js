@@ -47,6 +47,10 @@ angular
                 controller: 'RegisterCtrl',
                 data: {access: "ANONYMOUS" }
             })
+            .state('user-reset', {url: '/user/reset/:token', templateUrl: '/js/angular/modules/user/reset/reset.html',
+                controller: 'ResetCtrl',
+                data: {access: "ANONYMOUS" }
+            })
             .state('user-profile', {url: '/user/profile', templateUrl: '/js/angular/modules/user/profile/profile.html',
                 controller: 'ProfileCtrl',
                 data: {access: "USER" }

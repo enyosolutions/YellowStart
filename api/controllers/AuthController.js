@@ -28,6 +28,32 @@ module.exports = {
 
     },
 
+    forgot: function (req, res) {
+        var email = req.param('email');
+
+        if (!email) {
+            return res.json(401, {error: 'email required'});
+        }
+        var bcrypt = require('bcrypt');
+        User.findOne({email: email}, function (err, user) {
+            if (!user) {
+                return res.json(401, {error: "Il n'y a pas de compte avec cette adresse mail"});
+            }
+
+            var hash = bcrypt.hashSync(Date.now() + " " + user.id, bcrypt.genSaltSync());
+            console.log(hash);
+            user.resetToken = hash;
+            User.update(req.params.id, user).exec(function (err, updated) {
+                if (err) {
+                    return res.json(403, {error: 'forbidden'});
+                }
+                MailService.sendPasswordReset(user.email, {user: user});
+                res.json({});
+            });
+
+        });
+    },
+
     login: function (req, res) {
         var email = req.param('email');
         var password = req.param('password');

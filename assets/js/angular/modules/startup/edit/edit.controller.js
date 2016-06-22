@@ -37,9 +37,9 @@ angular.module('start.controllers')
                 var t = new Tag(data);
                 t.$save();
             },
-            onChange: function (value) {
-                console.log(value);
-                $scope.startup.tags = value.map(slugify);
+            onChange: function (values) {
+                console.log(values);
+                $scope.startup.tags = values.map(slugify);
                 $scope.saveStartup();
             }
 

@@ -43,8 +43,6 @@ module.exports = {
         bcrypt.genSalt(10, function (err, salt) {
             if (err) return next(err);
             if (values.password) {
-
-
                 bcrypt.hash(values.password, salt, function (err, hash) {
                     if (err) return next(err);
                     values.encryptedPassword = hash;

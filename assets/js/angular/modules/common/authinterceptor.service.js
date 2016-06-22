@@ -17,8 +17,11 @@
             responseError: function (response) {
                 var LocalService = $injector.get('$localstorage');
                 if (response.status === 401 || response.status === 403) {
-                    LocalService.remove('auth_token');
-                    $injector.get('$state').go('user-register');
+                    var $state = $injector.get('$state');
+                    if ($state.current.data && $state.current.data.access !== 'ANONYMOUS') {
+                        LocalService.remove('auth_token');
+                        $state.go('user-register');
+                    }
                 }
                 return $q.reject(response);
             }

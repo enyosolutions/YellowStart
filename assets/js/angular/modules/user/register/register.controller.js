@@ -2,13 +2,14 @@
 
 angular.module('start.controllers').controller("RegisterCtrl", function ($scope, $state, $location, Auth, Utils, UserService, $rootScope, $ngBootbox) {
     $scope.pageClass = 'user-registration';
+    $scope.accountCreated = false;
 
     $scope.register = function () {
 
         if($scope.user.password !== $scope.user.confirmPassword){
             $ngBootbox.alert('<h3>Le mot de passe et sa confirmation ne correspondent pas</h3>');
         }
-        if(!Utils.validateEmail($scope.user.email)){
+        else if(!Utils.validateEmail($scope.user.email)){
             $ngBootbox.alert("<h3>Merci de vérifier le format de votre adresse email.</h3>");
         }
         else {
@@ -24,7 +25,8 @@ angular.module('start.controllers').controller("RegisterCtrl", function ($scope,
                         //FlashService.Error(response.message);
                     }
                     if (response && response.user) {
-                        $ngBootbox.alert("<h2 class='text-center text-success'>Merci pour votre inscription.<br/>Vous allez recevoir un mail d'activation dès que votre compte sera activé.</h2>");
+                        $ngBootbox.alert("<h2 class='text-center text-success'>Merci pour votre inscription.<br/>Vous allez recevoir un mail d'activation dans quelques instants. (Vérifiez votre dossier spams).</h2>");
+                        $scope.accountCreated = true;
                     }
                 }).error(function (response) {
                     $scope.dataLoading = false;
@@ -74,4 +76,19 @@ angular.module('start.controllers').controller("RegisterCtrl", function ($scope,
         Auth.logout();
         $state.go('home');
     };
+
+    $scope.resetPassword = function(){
+        $ngBootbox.prompt('<h3>Saisissez votre adresse Email pour récupérer votre mot de passe.</h3>').then(function(email){
+            console.log(email);
+            Auth.forgot(email).then(function(res){
+                if(res){
+                    $ngBootbox.alert('<h3>Un lien de récupération vous a été envoyé par mail.</h3>');
+                }
+            },function(err){
+                if(err.error){
+                $ngBootbox.alert('<h3>' + err.error + '</h3>');
+                }
+            });
+        });
+    }
 });

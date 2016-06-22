@@ -29,24 +29,62 @@ module.exports = {
                     // NOTE: payload is { id: user.id}
                     var token = jwToken.issue({id: user.id});
                     res.json(200, {user: user, token: jwToken.issue({id: token})});
-                    MailService.sendAccountCreationEmail(user.email,{user: user});
+                    MailService.sendAccountCreationEmail(user.email, {user: user});
                     NotificationService.sendNewUser(user.id);
-                    Monk.get('user').find({roles:'ADMIN'}).then(function(coll){
-                       if(coll && coll.length > 0){
-                           var emails = coll.map(function(elm){return elm.email;});
-                           MailService.sendAccountCreationEmailAdmin(emails,{user: user});
-                       }
+                    Monk.get('user').find({roles: 'ADMIN'}).then(function (coll) {
+                        if (coll && coll.length > 0) {
+                            var emails = coll.map(function (elm) {
+                                return elm.email;
+                            });
+                            MailService.sendAccountCreationEmailAdmin(emails, {user: user});
+                        }
                     });
                 }
             });
         });
     },
+    getByToken: function (req, res) {
+        Monk.get('user').find({resetToken: req.param('resetToken')})
+            .on('success', function (data) {
+                data[0].statusCode = 200;
+                res.json(data[0]);
+            })
+            .on("error", function (err) {
+                res.json(500, {error: err});
+            });
+    },
+    reset: function (req, res) {
+        console.log(req.param('resetToken'));
+        console.log(req.body.password);
+        User.findOne({resetToken: req.params.resetToken}, function (err, user) {
+            if (!user) {
+                return res.json(404, {error: "Il n'y a pas de compte avec ce token"});
+            }
 
+            user.resetToken = '';
+            delete user.resetToken;
+            user.password = req.body.password;
+            console.log(user.id);
+            User.update(user.id, user).exec(function (err, updated) {
+                if (err) {
+                    return res.json(403, {error: 'forbidden'});
+                }
+                if (!updated) {
+                    return res.json(401, {error: 'Email ou mot de passe invalide'});
+                } else {
+                    console.log(updated);
+                    delete updated[0].password;
+                    delete updated[0].encryptedPassword;
+                    res.json({
+                        user: updated[0]
+                    });
+                }
+            });
+        });
+    },
     update: function (req, res) {
         console.log(req.body);
         User.findOne({id: req.params.id}, function (err, user) {
-            console.log(user);
-
             if (!user) {
                 return res.json(401, {error: "Il n'y a pas de compte avec cet identifiant"});
             }
@@ -59,7 +97,7 @@ module.exports = {
                 if (!updated) {
                     return res.json(401, {error: 'Email ou mot de passe invalide'});
                 } else {
-                    delete updated.password;
+                    delete updated.encryptedPassword;
                     res.json({
                         user: updated
                     });
@@ -69,9 +107,7 @@ module.exports = {
     },
 
     'uploadFile': function (req, res, next) {
-
         console.log('upload files', req.token);
-
         var id = req.token.id;
         console.log('startup id', id);
         var userCollection = Monk.get('user');

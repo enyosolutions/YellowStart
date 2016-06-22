@@ -2,12 +2,14 @@ var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 
 module.exports = {
-    sendPendingMail: function () {
-    },
-    sendValidationMail: function () {
-        this.sendMail()
-    },
-    sendPasswordReset: function () {
+    sendPasswordReset: function (email, data) {
+        var data  = data || {};
+        data.title = "Reinitialisation de votre mot de passe";
+        data.layout = 'emailTemplate.ejs';
+        sails.hooks.views.render("emails/account-reset", data, function (err, html) {
+            if (err) return console.log(err);
+            MailService.sendMail(email, data.title, html);
+        });
     },
 
     sendActivitySummary: function (email, data) {

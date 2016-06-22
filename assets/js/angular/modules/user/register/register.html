@@ -10,6 +10,8 @@
 
                 <p>
                     Accédez à la base de données communes des startups rencontrées par la Poste.
+                    <br/>
+                    <i class="fa fa-thumbs-up fa-3x text-success" ng-show="accountCreated"></i>
                 </p>
             </div>
         </div>
@@ -48,11 +50,11 @@
                              ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
                             <label for="branche">Branche</label>
                             <input type="text" name="branche" id="branche" class="form-control" ng-model="user.branch"
-                                   required/>
+                                   />
                             <span ng-show="form.branch.$dirty && form.branch.$error.required" class="help-block"></span>
                         </div>
                         <div class="form-group  col-xs-12"
-                             ng-class="{ 'has-error': form.company.$dirty && form.company.$error.required }">
+                             ng-class="{ 'has-error': form.company.$dirty }">
                             <label for="email">Société</label>
                             <input type="text" name="company" id="company" class="form-control" ng-model="user.company"
                                    />
@@ -62,26 +64,28 @@
                              ng-class="{ 'has-error': form.company.$dirty && form.company.$error.required }">
                             <label for="email">Fonction</label>
                             <input type="text" name="role" id="function" class="form-control" ng-model="user.role"
-                                   ng-minlength="8"
+
                                    />
                             <span ng-show="form.role.$dirty && form.role.$error.required" class="help-block">Obligatoire</span>
                         </div>
                         <div class="form-group  col-xs-12"
                              ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
                             <label for="password">Mot de passe <span class="text-danger">*</span></label>
+                            <sub>(minimum 8 caractères)</sub>
                             <input type="password" name="password" id="password" class="form-control"
                                    ng-model="user.password"
                                    ng-minlength="8"
                                    required/>
-                            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Le mot de passe est obligatoire (minimum 8 caractères)</span>
+                            <span ng-show="user.password.$dirty && user.password.$error.required" class="help-block">Le mot de passe est obligatoire (minimum 8 caractères)</span>
                         </div>
                         <div class="form-group  col-xs-12"
                              ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
                             <label for="password">Confirmer le mot de passe <span class="text-danger">*</span></label>
                             <input type="password" name="confirmPassword" id="confirmPassword" class="form-control"
                                    ng-model="user.confirmPassword"
+                                   ng-minlength="8"
                                    required/>
-                            <span ng-show="form.confirmPassword.$dirty && form.confirmPassword.$error.required" class="help-block">Le mot de passe est obligatoire (minimum 8 caractères)</span>
+                            <span ng-show="user.confirmPassword.$dirty && user.confirmPassword.$error.required" class="help-block">Le mot de passe est obligatoire (minimum 8 caractères)</span>
                         </div>
 
                         <div class="form-group form-actions col-xs-12">

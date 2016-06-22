@@ -51,7 +51,7 @@
 </div>
 
 <!-- login -->
-<div class="top-navigation top-navigation-login navbar navbar-default navbar-fixed-top" ng-if="$state.current.name  === 'user-register'">
+<div class="top-navigation top-navigation-login navbar navbar-default navbar-fixed-top" ng-if="['user-register','user-reset'].indexOf($state.current.name) !== -1">
     <div class="container">
         <a href="#/" class="brand">
             <img src="/images/logo.png" alt="Yellow Starter"/>
@@ -65,12 +65,13 @@
                    placeholder="Mot de passe"/>
 
             <button class="btn btn-primary" type="submit">Connexion</button>
+            <button class="btn btn-link" type="button" ng-click="resetPassword()">Mot de passe oublié ?</button>
         </form>
     </div>
 </div>
 
 <!-- default -->
-<div id="navbar-main" class="top-navigation top-navigation-default navbar navbar-default navbar-fixed-top" ng-if="!$state.is('user-register')">
+<div id="navbar-main" class="top-navigation top-navigation-default navbar navbar-default navbar-fixed-top" ng-if="['user-register','user-reset'].indexOf($state.current.name) === -1">
     <div class="container">
         <a href="#/" class="brand">
             <img src="/images/logo.png" alt="Yellow Starter"/>
@@ -237,7 +238,7 @@
 <script src="/js/angular.fr-FR.js"></script>
 
 
-<script src="/js/dependencies/sails.io.js"></script>
+<!--<script src="/js/dependencies/sails.io.js"></script>-->
 <script src="/js/bower_components/moment/min/moment-with-locales.min.js"></script>
 <script src="/js/bower_components/angular-animate/angular-animate.min.js"></script>
 <script src="/js/bower_components/angular-cookies/angular-cookies.min.js"></script>
@@ -277,7 +278,7 @@
 <script src="/js/angular/modules/startup/list/list.controller.js"></script>
 <script src="/js/angular/modules/startup/search/search.controller.js"></script>
 
-<script src="/js/angular/modules/user/login/login.controller.js"></script>
+<script src="/js/angular/modules/user/reset/reset.controller.js"></script>
 <script src="/js/angular/modules/user/register/register.controller.js"></script>
 <script src="/js/angular/modules/user/profile/profile.controller.js"></script>
 

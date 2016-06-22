@@ -51,7 +51,7 @@ module.exports.policies = {
 
 
     '*': ['isAuthorized'], // Everything resctricted here,
-    'UserController': {'create': true},
-    'AuthController': {'login': true}
+    'UserController': {'create': true, getByToken: true, reset:true},
+    'AuthController': {'login': true, 'forgot': true}
 
 };

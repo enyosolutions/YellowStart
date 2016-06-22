@@ -35,8 +35,11 @@ module.exports.routes = {
     '/': {view: 'homepage' },
     'POST /auth/register': 'UserController.create',
     'POST /auth/login': 'AuthController.login',
+    'POST /auth/forgot': 'AuthController.forgot',
     '/auth/user': 'AuthController.get',
     'PUT /auth/update/:id': 'UserController.update',
+    'GET /user/token/:resetToken': 'UserController.getByToken',
+    'POST /user/reset/:resetToken': 'UserController.reset',
 
 
     'GET /api/crud/startup': 'StartupController.list',
