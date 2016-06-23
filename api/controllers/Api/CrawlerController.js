@@ -15,16 +15,21 @@ module.exports = {
         var startupCollection = Monk.get('startup');
         var tagCollection = Monk.get('tag');
         var results = [];
-        tagCollection.find({label: {$regex: req.query.q, $options: 'i'}},{limit:10}).success(function (col) {
+        tagCollection.find({label: {$regex: req.query.q, $options: 'i'}}, {limit: 10}).success(function (col) {
             if (col && col.length > 0) {
                 results = col.map(function (e) {
                     return {label: e.label, type: 'tag', id: e._id};
                 });
             }
 
-            startupCollection.find({status:'published', startupName: {$regex: req.query.q, $options: 'i'}},{limit:10}).success(function (col2) {
-                if(col2 && col2.length > 0){
-                    results = results.concat( col2.map(function(e){ return {label: e.startupName, id: e._id,  type: 'startup'};}) );
+            startupCollection.find({
+                status: 'published',
+                startupName: {$regex: req.query.q, $options: 'i'}
+            }, {limit: 10}).success(function (col2) {
+                if (col2 && col2.length > 0) {
+                    results = results.concat(col2.map(function (e) {
+                        return {label: e.startupName, id: e._id, type: 'startup'};
+                    }));
                 }
                 resp.json({body: results});
             }).error(function (err) {
@@ -155,20 +160,25 @@ module.exports = {
         }
 
     },
-    tags: function(req, res){
+    tags: function (req, res) {
         Monk.get('startup').col.aggregate([
                 {$project: {tags: 1}},
                 {$unwind: "$tags"},
                 {
                     $group: {
-                        text: "$tags",
-        weight: {$sum: 1}
+                        _id: "$tags",
+                        weight: {$sum: 1}
                     }
                 }
 
             ], {}, function (err, results) {
-
-                res.json({body:results});
+                var output = [];
+                if (results.length > 0) {
+                    output = results.map(function (e) {
+                        return {text: e._id, weight: e.weight};
+                    });
+                }
+                res.json({body: output});
             }
         );
     }
