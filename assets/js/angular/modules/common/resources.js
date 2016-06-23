@@ -125,7 +125,8 @@ angular.module('start.services')
         return $resource(CONFIG.apiUrl + '/crawler/:action', {action:''},
             {
                 "meta": {isArray: false, cancellable: false, method: "GET", params:{action:'meta'}, transformResponse: transformGet},
-                "google": {isArray: false, cancellable: false, method: "GET", params:{action:'google'}, transformResponse: transformGet}
+                "google": {isArray: false, cancellable: false, method: "GET", params:{action:'google'}, transformResponse: transformGet},
+                "tags": {isArray: true, cancellable: false, method: "GET", params:{action:'tags'}, transformResponse: transformGet}
             });
 
     });

@@ -154,6 +154,24 @@ module.exports = {
             return res.view({'urls': []});
         }
 
+    },
+    tags: function(req, res){
+        Monk.get('startup').col.aggregate([
+                {$project: {tags: 1}},
+                {$unwind: "$tags"},
+                {
+                    $group: {
+                        text: "$tags",
+        weight: {$sum: 1}
+                    }
+                }
+
+            ], {}, function (err, results) {
+
+                res.json({body:results});
+            }
+        );
     }
+
 };
 

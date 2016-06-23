@@ -9,7 +9,7 @@
  */
 angular.module('start.controllers')
 
-    .controller('ListStartupCtrl', function ($scope,$rootScope, $state, $stateParams, $location, $timeout, $routeParams, Startup, CONFIG) {
+    .controller('ListStartupCtrl', function ($scope,$rootScope, $state, $stateParams, $location, $timeout, $routeParams, Startup, Crawler, CONFIG) {
         $scope.recentStartupList = {};
         $scope.pageClass = 'startup-list';
         $scope.currentPage = 0;
@@ -102,6 +102,7 @@ angular.module('start.controllers')
         $scope.bestScoreStartupList = Startup.query({'publishedOnly':1, 'sort[sipScore]': -1});
         $scope.mostBookmarkedStartupList = Startup.query({'publishedOnly':1, 'sort[meta.bookmarks]': -1});
         $scope.lessViewedStartupList = Startup.query({'publishedOnly':1, 'sort[meta.views]': -1});
+        $scope.tagCloud = Crawler.tags();
     })
 
     .directive('homeSlider', function() {
