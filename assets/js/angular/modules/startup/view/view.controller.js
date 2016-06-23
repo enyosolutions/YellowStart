@@ -104,6 +104,9 @@ angular.module('start.controllers')
 
 
         $scope.bookmarkStartup = function () {
+            if(!$rootScope.globals.user.bookmarks){
+                $rootScope.globals.user.bookmarks = [];
+            }
             var index = $rootScope.globals.user.bookmarks.indexOf($stateParams._id);
             console.log('removing items ', index);
 

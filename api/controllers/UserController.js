@@ -54,25 +54,23 @@ module.exports = {
             });
     },
     reset: function (req, res) {
-        console.log(req.param('resetToken'));
-        console.log(req.body.password);
         User.findOne({resetToken: req.params.resetToken}, function (err, user) {
-            if (!user) {
+            if (!user || user.length < 1) {
                 return res.json(404, {error: "Il n'y a pas de compte avec ce token"});
             }
 
-            user.resetToken = '';
-            delete user.resetToken;
+
+            user.resetToken = "";
             user.password = req.body.password;
-            console.log(user.id);
+            console.log(user);
             User.update(user.id, user).exec(function (err, updated) {
                 if (err) {
                     return res.json(403, {error: 'forbidden'});
                 }
-                if (!updated) {
+                if (!updated || updated.length < 1) {
                     return res.json(401, {error: 'Email ou mot de passe invalide'});
                 } else {
-                    console.log(updated);
+                    console.log('UPDATE RESULTS', updated.length, updated[0]);
                     delete updated[0].password;
                     delete updated[0].encryptedPassword;
                     res.json({
@@ -97,7 +95,7 @@ module.exports = {
                 if (!updated) {
                     return res.json(401, {error: 'Email ou mot de passe invalide'});
                 } else {
-                    delete updated.encryptedPassword;
+                    delete updated[0].encryptedPassword;
                     res.json({
                         user: updated
                     });

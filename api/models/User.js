@@ -57,6 +57,7 @@ module.exports = {
         })
     },
     comparePassword: function (password, user, cb) {
+        console.log(user.encryptedPassword);
         bcrypt.compare(password, user.encryptedPassword, function (err, match) {
 
             if (err) cb(err);

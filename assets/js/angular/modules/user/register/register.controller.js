@@ -26,6 +26,7 @@ angular.module('start.controllers').controller("RegisterCtrl", function ($scope,
                     }
                     if (response && response.user) {
                         $ngBootbox.alert("<h2 class='text-center text-success'>Merci pour votre inscription.<br/>Vous allez recevoir un mail d'activation dans quelques instants. (Vérifiez votre dossier spams).</h2>");
+                        $scope.user = {};
                         $scope.accountCreated = true;
                     }
                 }).error(function (response) {
@@ -74,7 +75,7 @@ angular.module('start.controllers').controller("RegisterCtrl", function ($scope,
 
     $scope.logout = function () {
         Auth.logout();
-        $state.go('home');
+        $state.go('user-register');
     };
 
     $scope.resetPassword = function(){

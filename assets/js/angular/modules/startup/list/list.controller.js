@@ -102,7 +102,10 @@ angular.module('start.controllers')
         $scope.bestScoreStartupList = Startup.query({'publishedOnly':1, 'sort[sipScore]': -1});
         $scope.mostBookmarkedStartupList = Startup.query({'publishedOnly':1, 'sort[meta.bookmarks]': -1});
         $scope.lessViewedStartupList = Startup.query({'publishedOnly':1, 'sort[meta.views]': -1});
-        $scope.tagCloud = Crawler.tags();
+        Crawler.tags().$promise.then(function(res){
+            res = res.map(function(e){e.link = '#/startup?tag=' + e.text; return e;});
+            $scope.tagCloud = res;
+        });
     })
 
     .directive('homeSlider', function() {

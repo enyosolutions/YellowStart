@@ -27,7 +27,7 @@ angular.module('start.controllers').controller("ResetCtrl", function ($scope, $s
             $ngBootbox.alert('<h3>Le mot de passe et sa confirmation ne correspondent pas</h3>');
         }
         UserService.ResetPassword($stateParams.token, $scope.user.password ).then(function (response) {
-            if (response && !response.status === 200) {
+            if (response && response.status === 200) {
                 $ngBootbox.alert('<h3>Votre mot de passe à bien été changé, vous pouvez maintenant vous connecter.</h3>');
             }
         });
