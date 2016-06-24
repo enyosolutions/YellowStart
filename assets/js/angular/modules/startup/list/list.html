@@ -9,7 +9,8 @@
 
             <div class="sort">
                 <div class="dropdown">
-                    <button class="btn btn-primary-alternate dropdown-toggle" type="button" id="sort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <button class="btn btn-primary-alternate dropdown-toggle" type="button" id="sort"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         Trier
                         <span class="caret"></span>
                     </button>
@@ -30,12 +31,13 @@
         <!-- results -->
         <div class="results">
             <div class="container">
-                <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="startup in searchedStartups">
+                <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="startup in searchedStartups">
                     <!-- startup -->
                     <div class="startup card fixed-card">
                         <div class="card-img-top">
                             <a href="#/startup/{{ startup._id }}/view">
-                                <img src="{{ startup.picture ? startup.picture : '/images/placeholder.jpg' }}" alt="{{ startup.startupName }}">
+                                <img src="{{ startup.picture ? startup.picture : '/images/placeholder.jpg' }}"
+                                     alt="{{ startup.startupName }}">
                             </a>
                         </div>
                         <div class="card-block">
@@ -45,10 +47,12 @@
                                 {{ startup.tagline }}
                             </p>
 
-                            <a href="#/startup?tag={{ tag }}" class="card-link text-info" ng-repeat="tag in startup.tags">
-                                #{{tag }}
-                            </a>
-
+                            <div class="card-link-section">
+                                <a href="#/startup?tag={{ tag }}" class="card-link text-info"
+                                   ng-repeat="tag in startup.tags">
+                                    #{{tag }}
+                                </a>
+                            </div>
                             <div class="button-wrapper">
                                 <a class="btn btn-primary-outline" href="#/startup/{{ startup._id }}/view">
                                     Voir la fiche
@@ -69,7 +73,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="active" >
+                    <a class="active">
                         {{ currentPage + 1 }}
                     </a>
                 </li>

@@ -186,7 +186,8 @@ angular.module('start.controllers')
                 {field: 'startupName', label: 'Nom de la startup'},
                 {field: 'tagline', label: 'Tag line de la startup'},
                 {field: 'websiteUrl', label: 'Url du site'},
-                {field: 'projectTweet', label: 'Le résumé en 140 caractères'}
+                {field: 'projectTweet', label: 'Le résumé en 140 caractères'},
+                {field: 'tags', label: 'Les tags de la startup'}
             ];
             var missingFields = [];
             for (var i in requiredFields) {

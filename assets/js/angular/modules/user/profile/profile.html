@@ -7,9 +7,8 @@
                 <a data-target="#userProfileModal" data-toggle="modal" class="overlay">
                     Editer ma photo de profil
                 </a>
-                <!--<img class="picture" alt="{{ globals.user.firstname }}" src="{{ globals.user.picture }}" />-->
-                <img class="picture" alt="{{ globals.user.firstname }}" src="http://dummyimage.com/230x230/cecece/ffffff" />
-                <img class="status" alt="" src="http://dummyimage.com/80x80/ff6500/ffffff" />
+                <img class="picture" alt="{{ globals.user.firstname }}" src="{{ globals.user.picture  ?  globals.user.picture : 'http://dummyimage.com/230x230/cecece/ffffff&text=Ajouter' }}" />
+                <img class="status" alt="" src="http://dummyimage.com/80x80/ff6500/ffffff?text={{ globals.user.branch }}" />
             </div>
 
             <!-- data -->
@@ -71,7 +70,7 @@
             <!-- results -->
             <div class="results">
                 <div class="container">
-                    <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="startup in starredStartups">
+                    <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="startup in starredStartups">
                         <!-- startup -->
                         <div class="startup card fixed-card">
                             <div class="card-img-top">
@@ -86,10 +85,11 @@
                                     {{ startup.tagline }}
                                 </p>
 
+                                <div class="card-link-section">
                                 <a href="#/startup?tag={{ tag }}" class="card-link text-info" ng-repeat="tag in startup.tags">
                                     #{{tag }}
                                 </a>
-
+                                </div>
                                 <div class="button-wrapper">
                                     <a class="btn btn-primary-outline" href="#/startup/{{ startup._id }}/view">
                                         Voir la fiche

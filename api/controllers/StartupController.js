@@ -106,6 +106,46 @@ module.exports = {
 
     },
 
+    'listComments': function (req, resp) {
+
+        var out = {};
+        var query = {};
+        var startPage = req.query.page != undefined ? req.query.page : 0;
+        var skip = req.query.skip ? req.query.skip : 20;
+        var options = {limit: skip, skip: startPage * skip};
+        if (req.query) {
+            if (req.query.query) {
+                query = req.query.query;
+            }
+            if (req.query.sort) {
+                options['sort'] = options.sort;
+            }
+        }
+        var collection = Monk.get('startup-comment');
+        collection.find(query, options)
+            .on('success', function (data) {
+                console.log(data);
+                var userIds = data.map(function(e){return new Object(e.userId);});
+                console.log(userIds);
+                Monk.get('user').find({_id: {$in:userIds}}).success(function(users){
+                    var userObj = {};
+                    for(var i in users){
+                        userObj[users[i]._id + ""] = users[i];
+                    }
+                    data = data.map(function(e){
+                        e.user = userObj[e.userId];
+                    });
+                    data.statusCode = 200;
+                    resp.json({body: data});
+                }) .on('error', function (err) {
+                    resp.json({body: data});
+                });
+            })
+            .on('error', function (err) {
+                resp.json(500, {error: err});
+            });
+    },
+
     lunaActions: function (req, res, next) {
         // MailService.sendActivitySummary();
         console.log('luna sucking', req.query.page);

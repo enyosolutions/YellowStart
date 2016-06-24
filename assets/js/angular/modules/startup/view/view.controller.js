@@ -24,11 +24,13 @@ angular.module('start.controllers')
                     if (res.length > 0) {
                         var contact = res[0];
                          content = '<div class="startup-map-infowindow">' +
-                            '<div class="picture"><img alt="" src="http://dummyimage.com/90x90/000/fff" /></div>' +
+                            '<div class="picture"><img alt="" src="http://dummyimage.com/90x90/000/fff?text=&nbsp;" /></div>' +
                             '<div class="inner">' +
                             '<div class="name">' + contact.firstname + ' ' + contact.lastname + '</div> ' +
                             '<div class="job">' + (contact.role ? contact.role : '') + '</div> ' +
-                            '<div class="email">' + (contact.email ? contact.email : '') + '</div> ' +
+                         (contact.email ?
+                            '<div class="email"><a target="_blank" href="mailto:' + contact.email + '" >' +  contact.email + '</a></div> '
+                                : "" ) +
                             '<div class="phone">' + (contact.phonenumber ? contact.phonenumber : "") + '</div> ' +
                             '<div class="address">' + ($scope.startup.address ? $scope.startup.address : '' ) + '</div> ' +
                             '</div>' +
@@ -37,7 +39,7 @@ angular.module('start.controllers')
                     }
                     else {
                          content = '<div class="startup-map-infowindow">' +
-                         '<div class="picture"><img alt="" src="http://dummyimage.com/90x90/000/fff" /></div>' +
+                         '<div class="picture"><img alt="" src="http://dummyimage.com/90x90/000/fff?text=&nbsp;" /></div>' +
                          '<div class="inner">' +
                          '<div class="address">' + ($scope.startup.address ? $scope.startup.address : '' ) + '</div> ' +
                          '</div>' +

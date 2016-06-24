@@ -54,6 +54,8 @@ module.exports.routes = {
     '/startup/:id': {view: 'startup/view'},
 
     // 'GET /api/crawler/meta': 'Api/CrawlerController.meta',
+    'GET /api/crud/startup-comment': 'StartupController.listComments',
+
     'GET /api/crud/:endpoint': 'Api/CrudController.list',
     'GET /api/crud/:endpoint/:id': 'Api/CrudController.get',
     'POST /api/crud/:endpoint': 'Api/CrudController.post',

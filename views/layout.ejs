@@ -114,17 +114,14 @@
                 <ul class="dropdown-menu" aria-labelledby="profileDropdown">
                     <li class="dropdown-header" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">Adminstration</li>
                     <li>
-                        <a href="#/admin/user" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">Utilisateurs</a>
-                    </li>
-                    <li ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
-                        <a href="#/admin/startup">Start-ups</a>
-                    </li>
-                    <li ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
-                        <a href="#/admin/luna-startup">Start-ups de Luna</a>
+                        <a href="#/admin" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">Administration</a>
                     </li>
                     <li ng-show="globals.user.roles.indexOf('ADMIN') !== -1" role="separator" class="divider"></li>
                     <li>
                         <a href="#/user/profile">Mon profil</a>
+                    </li>
+                    <li>
+                        <a href="#/tagcloud">Nuage de tags</a>
                     </li>
                     <li>
                         <a ng-click="logout()" ng-controller="RegisterCtrl">Déconnexion</a>
@@ -143,7 +140,7 @@
                     <li ng-repeat="notif in notifications" ng-if="notifications.length > 0">
                         <a href="#{{ notif.url }}" class=" text-left"> <i class="fa fa-info text-info"></i> - {{ notif.label }} </a>
                     </li>
-                    <li ng-repeat="notif in notifications" ng-if="notifications.length == 0">
+                    <li ng-if="!notifications || notifications.length < 1" class="dropdown-header">
                         <i class="fa fa-info text-info"></i> Pas de notifications
                     </li>
                 </ul>
@@ -270,15 +267,15 @@
 <script src="/js/angular/app.js"></script>
 <script src="/js/angular/app.routes.js"></script>
 
+<script src="/js/angular/modules/admin-home/list/list.controller.js"></script>
 <script src="/js/angular/modules/admin-startup/list/list.controller.js"></script>
 <script src="/js/angular/modules/admin-luna-startup/list/list.controller.js"></script>
-
 <script src="/js/angular/modules/admin-user/list/list.controller.js"></script>
-
 
 <script src="/js/angular/modules/startup/view/view.controller.js"></script>
 <script src="/js/angular/modules/startup/edit/edit.controller.js"></script>
 <script src="/js/angular/modules/startup/list/list.controller.js"></script>
+<script src="/js/angular/modules/startup/tagcloud/tagcloud.controller.js"></script>
 <script src="/js/angular/modules/startup/search/search.controller.js"></script>
 
 <script src="/js/angular/modules/user/reset/reset.controller.js"></script>

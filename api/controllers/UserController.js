@@ -97,7 +97,7 @@ module.exports = {
                 } else {
                     delete updated[0].encryptedPassword;
                     res.json({
-                        user: updated
+                        user: updated[0]
                     });
                 }
             });

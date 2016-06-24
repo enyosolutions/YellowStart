@@ -8736,12 +8736,20 @@ footer .brand {
 .page.user-profile .starredProjects .results .startup .card-block .card-title {
   font-size: 20px;
   font-weight: 500;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .page.user-profile .starredProjects .results .startup .card-block .card-text {
   height: 36px !important;
   font-size: 12px !important;
 }
-.page.user-profile .starredProjects .results .startup .card-block .card-link {
+.page.user-profile .starredProjects .results .startup .card-block .card-link-section {
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+.page.user-profile .starredProjects .results .startup .card-block .card-link-section .card-link {
   font-size: 12px;
   color: #0031f7;
 }
@@ -8866,7 +8874,7 @@ footer .brand {
   width: 100%;
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup .title {
-  font-family: 'atc';
+  font-family: 'Raleway';
   font-size: 24px;
   color: #2c2c2c;
   letter-spacing: 0.99px;
@@ -8909,14 +8917,23 @@ footer .brand {
   padding: 15px 0;
 }
 .page.startup-list .results .startup .card-block .card-title {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: 400;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .page.startup-list .results .startup .card-block .card-text {
   height: 36px !important;
   font-size: 12px !important;
+  overflow: hidden;
 }
-.page.startup-list .results .startup .card-block .card-link {
+.page.startup-list .results .startup .card-block .card-link-section {
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+.page.startup-list .results .startup .card-block .card-link-section .card-link {
   font-size: 12px;
   color: #0031f7;
 }
@@ -8926,6 +8943,7 @@ footer .brand {
 }
 .page.startup-list .results .startup .card-block .button-wrapper .btn {
   text-transform: uppercase;
+  font-weight: 300;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -8994,14 +9012,18 @@ footer .brand {
 }
 .page.startup-view .splash .subtitle {
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 300;
   margin: 15px 0 20px 0;
+  padding: 0 100px;
+}
+.page.startup-view .splash .startup-tags {
+  padding-left: 0px;
 }
 .page.startup-view .splash .startup-tags .tag {
   display: inline-block;
   list-style-type: none;
   margin-right: 15px;
-  font-size: 18px;
+  font-size: 16px;
   color: #ffffff;
 }
 .page.startup-view .splash .startup-tags .tag a {
@@ -9051,7 +9073,7 @@ footer .brand {
 .page.startup-view .splash .actions .action .text-lock {
   position: relative;
 }
-.page.startup-view .splash .actions .action .text-lock span {
+.page.startup-view .splash .actions .action .text-lock div.text {
   text-align: center;
   position: absolute;
   display: block;
@@ -9118,7 +9140,7 @@ footer .brand {
 }
 .page.startup-view #product .section .title {
   display: block;
-  font-family: 'atc', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 20px;
   font-weight: 500;
   color: #081433;
@@ -9136,7 +9158,7 @@ footer .brand {
 }
 .page.startup-view #market .left .section .title {
   display: block;
-  font-family: 'atc', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 18px;
   font-weight: 100;
   color: #081433;
@@ -9152,7 +9174,7 @@ footer .brand {
 }
 .page.startup-view #market .right .section .title {
   display: block;
-  font-family: 'atc', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 18px;
   font-weight: 100;
   color: #081433;
@@ -9166,7 +9188,7 @@ footer .brand {
 }
 .page.startup-view #startup .section .title {
   display: block;
-  font-family: 'atc', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 28px;
   font-weight: 700;
   color: #081433;
@@ -9177,7 +9199,7 @@ footer .brand {
 .page.startup-view .section-title {
   display: block;
   margin: 0 0 30px 0;
-  font-family: 'atc', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 50px;
   line-height: 50px;
   font-weight: 700;
@@ -9253,7 +9275,7 @@ footer .brand {
 .page.startup-view .sip-note .note {
   display: block;
   margin: 30px 0;
-  font-family: 'atc', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 78px;
   font-weight: 700;
   color: #fafdd4;
@@ -9298,7 +9320,7 @@ footer .brand {
 .page.startup-view .map .startup-map-infowindow .inner .name {
   display: block;
   margin: 0 0 3px 0;
-  font-family: 'atc', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 16px;
   font-weight: 700;
   color: #081433;
@@ -9322,7 +9344,7 @@ footer .brand {
 .page.startup-view .related .title {
   display: block;
   margin: 0 0 70px 0;
-  font-family: 'atc', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 54px;
   font-weight: 700;
   color: #081433;
@@ -9341,14 +9363,23 @@ footer .brand {
   padding: 15px 0;
 }
 .page.startup-view .related .startup .card-block .card-title {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: 400;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .page.startup-view .related .startup .card-block .card-text {
   height: 36px !important;
   font-size: 12px !important;
+  overflow: hidden;
 }
-.page.startup-view .related .startup .card-block .card-link {
+.page.startup-view .related .startup .card-block .card-link-section {
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+.page.startup-view .related .startup .card-block .card-link-section .card-link {
   font-size: 12px;
   color: #0031f7;
 }
@@ -9358,6 +9389,7 @@ footer .brand {
 }
 .page.startup-view .related .startup .card-block .button-wrapper .btn {
   text-transform: uppercase;
+  font-weight: 300;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -9369,7 +9401,7 @@ footer .brand {
 .page.startup-view .know-startup .title {
   display: block;
   margin: 0 0 30px 0;
-  font-family: 'atc', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 54px;
   font-weight: 700;
   color: #fafdd4;
@@ -9386,6 +9418,9 @@ footer .brand {
   .know-startup .title {
     font-size: 36px !important;
     line-height: 36px !important;
+  }
+  .page.startup-view .splash .subtitle {
+    padding: 0 20px;
   }
   .page.startup-view .nav li {
     display: block;

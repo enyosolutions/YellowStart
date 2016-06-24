@@ -25,7 +25,7 @@ angular.module('start.controllers').controller("RegisterCtrl", function ($scope,
                         //FlashService.Error(response.message);
                     }
                     if (response && response.user) {
-                        $ngBootbox.alert("<h2 class='text-center text-success'>Merci pour votre inscription.<br/>Vous allez recevoir un mail d'activation dans quelques instants. (Vérifiez votre dossier spams).</h2>");
+                        $ngBootbox.alert("<h2 class='text-center text-success'>Merci pour votre inscription.<br/>Vous allez recevoir un mail d'activation dans quelques instants. (Vérifiez votre dossier spam).</h2>");
                         $scope.user = {};
                         $scope.accountCreated = true;
                     }

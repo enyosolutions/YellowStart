@@ -18,6 +18,7 @@
                 var LocalService = $injector.get('$localstorage');
                 if (response.status === 401 || response.status === 403) {
                     var $state = $injector.get('$state');
+                    console.log($state.current.data);
                     if ($state.current.data && $state.current.data.access !== 'ANONYMOUS') {
                         LocalService.remove('auth_token');
                         $state.go('user-register');

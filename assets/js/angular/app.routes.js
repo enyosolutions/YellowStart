@@ -37,6 +37,12 @@ angular
                 controller: 'ViewStartupCtrl',
                 data: {access: "USER" }
             })
+            .state('tag-cloud', {
+                url: '/tagcloud',
+                templateUrl: '/js/angular/modules/startup/tagcloud/tagcloud.html',
+                controller: 'TagcloudCtrl',
+                data: {access: "USER" }
+            })
             .state('startup-list', {
                 url: '/startup?:search:tag:page',
                 templateUrl: '/js/angular/modules/startup/list/list.html',
@@ -55,8 +61,8 @@ angular
                 controller: 'ProfileCtrl',
                 data: {access: "USER" }
             })
-            .state('admin-home', {url: '/admin/user', templateUrl: '/js/angular/modules/admin-home/list/list.html',
-                controller: 'AdminUserListCtrl',
+            .state('admin-home', {url: '/admin', templateUrl: '/js/angular/modules/admin-home/list/list.html',
+                controller: 'AdminHomeCtrl',
                 data: {access: "USER" }
             })
             .state('admin-user', {url: '/admin/user', templateUrl: '/js/angular/modules/admin-user/list/list.html',

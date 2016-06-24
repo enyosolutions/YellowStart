@@ -2,6 +2,9 @@
     <div class="row">
         <!-- heading -->
         <div class="heading">
+            <h2 class="result-indicator text-info">
+                Bonjour {{ globals.user.firstname }},
+            </h2>
             <h1 class="result-indicator">
                 Bienvenue dans l'espace d'administration
             </h1>
@@ -10,134 +13,26 @@
         <!-- results -->
         <div class="results">
             <div class="container">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Email</th>
-                        <th>Status</th>
-                        <th>Role</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="user in users">
-                        <td>{{ user.firstname }}</td>
-                        <td>{{ user.lastname }}</td>
-                        <td>{{ user.email }}</td>
-                        <td>{{ user.isActive ? 'Activé' : 'Non activé' }}</td>
-                        <td>{{ user.roles }}</td>
-                        <td>
-                            <div class="btn-group">
-                                <button class="btn btn-info btn-xs" ng-click="activateUser($index)"> ACTIVATE</button>
-                                <button class="btn btn-primary btn-xs" ng-click="editUser($index)" data-toggle="modal" data-target="#AdminUserProfileModal"> EDIT</button>
-                                <button class="btn btn-danger btn-xs" ng-click="deleteUser($index)"> DELETE</button>
-                            </div>
-                        </td>
-                    </tr>
-
-                    </tbody>
-                </table>
-
-
-            </div>
-        </div>
-    </div>
-
-    <div id="AdminUserProfileModal" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true" class="fa-3x">&times;</span></button>
-                    <h4 class="modal-title">Editer mon profil</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="form-group col-xs-6"
-                             ng-class="{ 'has-error': form.lastname.$dirty && form.lastname.$error.required }">
-                            <label for="lastname">Nom</label>
-                            <input type="text" name="lastname" id="lastname" class="form-control"
-                                   ng-model="currentUser.lastname"
-                                   required/>
-                            <span ng-show="form.lastname.$dirty && form.lastname.$error.required" class="help-block">Last name is required</span>
-                        </div>
-
-                        <div class="form-group col-xs-6"
-                             ng-class="{ 'has-error': form.firstname.$dirty && form.firstname.$error.required }">
-                            <label for="firstname">Prénom</label>
-                            <input type="text" name="firstname" id="firstname" class="form-control"
-                                   ng-model="currentUser.firstname"
-                                   required/>
-                        <span ng-show="form.firstname.$dirty && form.firstname.$error.required"
-                              class="help-block">Obligatoire</span>
-                        </div>
-
-                        <div class="form-group col-xs-12"
-                             ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
-                            <label for="email">Role</label>
-                            <select multiple name="roles" id="roles" class="form-control" ng-model="currentUser.roles"
-                                    required>
-                                <option value="USER">USER</option>
-                                <option value="ADMIN">ADMIN</option>
-                            </select>
-                            <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block"></span>
-                        </div>
-
-                        <div class="form-group col-xs-12"
-                             ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
-                            <label for="email">Adresse e-mail</label>
-                            <input type="text" name="email" id="email" class="form-control"
-                                   ng-model="globals.user.email"
-                                   required/>
-                            <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">L'adresse email est obligatoire</span>
-                        </div>
-                        <div class="form-group  col-xs-12"
-                             ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
-                            <label for="branche">Branche</label>
-                            <input type="text" name="branche" id="branche" class="form-control"
-                                   ng-model="currentUser.branch"
-                                   required/>
-                            <span ng-show="form.branch.$dirty && form.branch.$error.required" class="help-block"></span>
-                        </div>
-                        <div class="form-group  col-xs-12"
-                             ng-class="{ 'has-error': form.company.$dirty && form.company.$error.required }">
-                            <label for="email">Société</label>
-                            <input type="text" name="company" id="company" class="form-control"
-                                   ng-model="currentUser.company"
-                                   required/>
-                            <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">L'adresse email est obligatoire</span>
-                        </div>
-                        <div class="form-group  col-xs-12"
-                             ng-class="{ 'has-error': form.company.$dirty && form.company.$error.required }">
-                            <label for="email">Fonction</label>
-                            <input type="text" name="role" id="function" class="form-control"
-                                   ng-model="currentUser.role"
-                                   required/>
-                            <span ng-show="form.role.$dirty && form.role.$error.required" class="help-block">La fonction est obligatoire</span>
-                        </div>
-                        <div class="form-group  col-xs-12"
-                             ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
-                            <label for="password">Mot de passe</label>
-                            <input type="password" name="password" id="password" class="form-control"
-                                   ng-model="currentUser.password"
-                                   required/>
-                            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Le mot de passe est obligatoire</span>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Startups</div>
+                        <div class="panel-body">
+                            <a class="btn btn-primary-outline btn-block" href="#/admin/user">Manager les startups </a>
+                            <a class="btn btn-primary-outline btn-block" href="#/admin/luna-startup">Importer depuis
+                                luna</a>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default btn-link" data-dismiss="modal">Annuler</button>
-                    <button class="btn btn-primary" type="button" ng-click="updateUser()"
-                            data-dismiss="modal">Enregister
-                    </button>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Utilisateurs</div>
+                        <div class="panel-body">
+                            <a class="btn btn-primary-outline btn-block" href="#/admin/user">Comptes utilisateurs</a>
+                        </div>
+                    </div>
                 </div>
-
             </div>
-            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-dialog -->
+    </div>
     </div>
 </section>

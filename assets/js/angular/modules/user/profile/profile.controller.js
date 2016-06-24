@@ -40,11 +40,11 @@ angular.module('start.controllers').controller("ProfileCtrl", function ($scope, 
     };
 
     $scope.sortByCreatedDate = function () {
-        $scope.searchedStartupsstarredStartups = Startup.query(angular.extend({'sort[createdAt]': -1}, {ids: $rootScope.globals.user.bookmarks}));
+        $scope.starredStartups = Startup.query(angular.extend({'sort[createdAt]': -1}, {ids: $rootScope.globals.user.bookmarks}));
     };
 
     $scope.sortByBookmarks = function () {
-        $scope.starredStartups = Startup.query(angular.extend({ 'sort[meta.bookmarks]': -1}, query));
+        $scope.starredStartups = Startup.query(angular.extend({ 'sort[meta.bookmarks]': -1}, {ids: $rootScope.globals.user.bookmarks}));
     };
 
     $scope.pageClass = 'user-profile';

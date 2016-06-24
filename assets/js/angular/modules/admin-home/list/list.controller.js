@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('start.controllers').controller("AdminUserListCtrl", function($scope, $location, $filter, Auth, AdminUser, UserService, $ngBootbox) {
+angular.module('start.controllers').controller("AdminHomeCtrl", function($scope, $location, $filter, Auth, AdminUser, UserService, $ngBootbox) {
    $scope.users = AdminUser.query();
     $scope.currentUser = {};
     $scope.activateUser = function(index){
