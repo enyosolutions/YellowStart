@@ -9,12 +9,13 @@
  */
 angular.module('start.controllers')
 
-    .controller('ListStartupCtrl', function ($scope,$rootScope, $state, $stateParams, $location, $timeout, $routeParams, Startup, Crawler, CONFIG) {
+    .controller('ListStartupCtrl', function ($scope,$rootScope, $state, $stateParams, $location, $timeout, $routeParams, Startup, Crawler, HomeSlider,  CONFIG) {
         $scope.recentStartupList = {};
         $scope.pageClass = 'startup-list';
         $scope.currentPage = 0;
         $scope.remoteHost = CONFIG.baseUrl;
         $scope.q = '';
+        $scope.slides = HomeSlider.query();
         var query = {'publishedOnly':1};
 
         // global search function

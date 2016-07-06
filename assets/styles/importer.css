@@ -8182,13 +8182,13 @@ body.unlocked {
  */
 .top-navigation {
   display: block;
-  height: 100px;
+  height: 110px;
   z-index: 1000;
 }
 .top-navigation .brand {
   width: 170px;
   float: left;
-  padding: 24px 0;
+  padding: 29px 0;
   border-right: 1px solid #EAEAEA;
 }
 .top-navigation.top-navigation-login .form-login {
@@ -8214,7 +8214,7 @@ body.unlocked {
   display: block;
   width: 100%;
   height: 100%;
-  padding: 40px 25px 40px 40px;
+  padding: 47px 25px 47px 40px;
   font-size: 12px;
   font-weight: 500;
   color: #73737f;
@@ -8231,7 +8231,7 @@ body.unlocked {
   left: 0;
   font-size: 20px;
   line-height: 20px;
-  padding: 38px 0 38px 10px;
+  padding: 43px 0 43px 10px;
 }
 .top-navigation.top-navigation-default .search-form button:hover,
 .top-navigation.top-navigation-default .search-form button:focus {
@@ -8281,14 +8281,14 @@ body.unlocked {
   min-width: 200px;
 }
 .top-navigation.top-navigation-default .navigation li.notifications .dropdown-menu li a {
-  padding: 10px;
+  padding: 35px 10px;
   word-wrap: break-word;
   white-space: normal;
   text-align: left;
 }
 .top-navigation.top-navigation-default .navigation li a {
   display: inline-block;
-  padding: 30px 10px;
+  padding: 35px 10px;
   font-weight: 500;
   color: #73737f;
   text-align: center;

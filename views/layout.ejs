@@ -104,29 +104,39 @@
         </div>
 
         <ul id="navigation" class="navigation">
-            <li class="dropdown">
+            <li class="dropdown" ng-class="{dropdown: globals.user.roles.indexOf('ADMIN') !== -1}" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
                 <a id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" fadeOut>
                     <i class="icon icon-account"></i>
 
                     Mon profil
                 </a>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="notificationsDropdown" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
+                        <li>
+                            <a href="#/user/profile" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
+                                <i class="icon icon-account"></i>
+                                Mon profil
+                            </a>
+                        </li>
 
-                <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-                    <li class="dropdown-header" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">Adminstration</li>
-                    <li>
-                        <a href="#/admin" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">Administration</a>
-                    </li>
-                    <li ng-show="globals.user.roles.indexOf('ADMIN') !== -1" role="separator" class="divider"></li>
-                    <li>
-                        <a href="#/user/profile">Mon profil</a>
-                    </li>
-                    <li>
-                        <a href="#/tagcloud">Nuage de tags</a>
-                    </li>
-                    <li>
-                        <a ng-click="logout()" ng-controller="RegisterCtrl">Déconnexion</a>
-                    </li>
-                </ul>
+                        <li>
+                            <a href="#/admin" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
+                                <i class="icon icon-settings"></i>
+                                Administration
+                            </a>
+                        </li>
+                    </ul>
+            </li>
+            <li class="" ng-show="globals.user.roles.indexOf('ADMIN') === -1">
+                <a id="favorites" href="#/user/profile" aria-haspopup="true" aria-expanded="true" fadeOut>
+                    <i class="icon icon-account"></i>
+                    Mon profil
+                </a>
+            </li>
+            <li class="">
+                <a id="favorites" aria-haspopup="true" aria-expanded="true" fadeOut>
+                    <i class="icon icon-favorite"></i>
+                    Mes favoris
+                </a>
             </li>
             <li class="dropdown notifications">
                 <a ng-click="clearNotifications()" fadeOut id="notificationsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" fadeOut>
@@ -152,6 +162,9 @@
 
                     Ajouter une start-up
                 </a>
+            </li>
+            <li>
+                <a ng-click="logout()" ng-controller="RegisterCtrl"> <i class="icon icon-arrowRight"></i>Déconnexion</a>
             </li>
         </ul>
 

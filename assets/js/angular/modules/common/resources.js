@@ -121,6 +121,16 @@ angular.module('start.services')
             })
 
     })
+    .factory('HomeSlider', function ($resource, CONFIG) {
+        return $resource(CONFIG.apiUrl + '/crud/home-slider/:_id', {_id: '@_id'},
+            {
+                "update": {isArray: false, method: "PUT", transformResponse: transformGet},
+                "save": {isArray: false, cancellable: false, method: "POST", transformResponse: transformGet},
+                "query": {isArray: true,  method: "GET", transformResponse: transformGet},
+                "get": {isArray: false, cancellable: false, method: "GET", transformResponse: transformGet}
+            })
+
+    })
     .factory('Crawler', function ($resource, CONFIG) {
         return $resource(CONFIG.apiUrl + '/crawler/:action', {action:''},
             {

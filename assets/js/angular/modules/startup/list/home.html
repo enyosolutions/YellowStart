@@ -1,6 +1,6 @@
 <section class="cycle-slider-home">
-    <div class="slide" ng-repeat="1 in [0, 1, 2, 3]" home-slider>
-        <img alt="" src="/data/slideshow/slide1.jpg" />
+    <div class="slide" ng-repeat="slide in slides" home-slider>
+        <a class="href" href="{{slide.targetUrl}}"><img alt="" src="{{slide.picture}}" /></a>
     </div>
 
     <div class="cycle-pager"></div>
@@ -115,7 +115,5 @@
             </div>
         </div>
     </div>
-
-    <jqcloud words="tagCloud" width="500" height="350" steps="7"></jqcloud>
 
 </section>

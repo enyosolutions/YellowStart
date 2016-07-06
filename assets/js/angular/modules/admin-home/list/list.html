@@ -5,6 +5,7 @@
             <h2 class="result-indicator text-info">
                 Bonjour {{ globals.user.firstname }},
             </h2>
+
             <h1 class="result-indicator">
                 Bienvenue dans l'espace d'administration
             </h1>
@@ -13,6 +14,25 @@
         <!-- results -->
         <div class="results">
             <div class="container">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong>Slides de la home</strong>
+                            <a class="btn btn-primary-outline pull-right btn-sm" data-target="#slideForm" data-toggle="modal">Ajouter</a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-4" ng-repeat="slide in slides">
+                                <div class="thumbnail">
+                                    <button class="btn btn-primary-outline badge pull-right"
+                                            ng-click="deleteSlide($index)">
+                                        <i class="fa fa-close"></i></button>
+                                    <img class="src" src="{{ slide.picture }}" alt=""/>
+                                    <p><strong>Url:</strong> {{ slide.targetUrl }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-3">
                     <div class="panel panel-default">
                         <div class="panel-heading">Startups</div>
@@ -34,5 +54,59 @@
             </div>
         </div>
     </div>
+
+
+    <div id="slideForm" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="fa-3x">&times;</span>
+                    </button>
+
+                    <h4 class="modal-title">Ajouter un slide</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-1">
+                                <label>Image</label>
+
+                                <form class="dropzone"
+                                      method="post"
+                                      enctype="multipart/form-data"
+                                      ng-dropzone
+                                      dropzone="pictureZone.dropzone"
+                                      dropzone-config="pictureZone.dropzoneConfig"
+                                      event-handlers="{ 'addedfile': pictureZone.addedFile, 'error': pictureZone.error,
+                                       'success': pictureZone.success }">
+                                    <input type="hidden" name="_id" value="{{ startup._id }}"/>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-1">
+                                <label>Url de destination</label>
+                                <input class="form-control" ng-model="newSlide.targetUrl" type="url" required/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-link" data-dismiss="modal">
+                        Annuler
+                    </button>
+
+                    <button type="button" class="btn btn-primary" ng-click="createSlide()"
+                            data-dismiss="modal">
+                        Ajouter
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
     </div>
 </section>
