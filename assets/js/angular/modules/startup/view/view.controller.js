@@ -21,6 +21,7 @@ angular.module('start.controllers')
 
                 $scope.startupContacts = StartupContact.query({'query[startupId]': $stateParams._id}).$promise.then(function (res) {
                     var content;
+                    $scope.startupContacts = res;
                     if (res.length > 0) {
                         var contact = res[0];
                          content = '<div class="startup-map-infowindow">' +
