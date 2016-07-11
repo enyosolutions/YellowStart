@@ -46,6 +46,7 @@ angular.module('start.controllers')
                          '</div>' +
                          '</div>';
                     }
+                    $scope.startup.websiteUrl = $scope.startup.websiteUrl.replace(/http(s)?:\/\//i, '');
                     initGooglemaps($scope.startup.address, content);
                 });
 

@@ -1,4 +1,4 @@
-<section class="splash medium">
+<section class="splash" style="background-image: url(/images/souscritoo-landing.jpg)">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -6,69 +6,15 @@
                     {{ startup.startupName}}
                 </h1>
 
-                <h2 class="subtitle">
-                    {{ startup.tagline }}
-                </h2>
-
                 <ul class="startup-tags">
                     <li class="tag" ng-repeat="tag in startup.tags">
                         <a href="#/startup?tag={{ tag }}">#{{ tag }}</a>
                     </li>
                 </ul>
 
-                <div class="actions">
-                    <button ng-click="bookmarkStartup()" class="action btn btn-link">
-                        <i ng-class="{'icon-favoriteAdd': !isBookmarked, 'icon-favoriteCheck': isBookmarked}"></i>
-
-                        <div class="text-lock" ng-class="{hidden: isBookmarked == 1 }">Suivre</div>
-                        <div class="text-lock" ng-class="{hidden: isBookmarked == 0 }">Suivi</div>
-                    </button>
-                    <a class="action btn" data-target="#commentModal" data-toggle="modal"
-                       ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
-                        <i class="icon-AddComment"></i>
-
-                        <div class="text-lock">Commenter</div>
-                    </a>
-                    <a class="action btn" href="#/startup/{{startup._id}}/edit" data-toggle="modal"
-                       ng-show="startup.status === 'draft' || globals.user.roles.indexOf('ADMIN') !== -1">
-                        <i class="icon-EditPage"></i>
-
-                        <div class="text-lock">Editer</div>
-                    </a>
-                    <a class="action btn" data-toggle="modal" data-target="#documentsModal"
-                       ng-if=" startup.documents.length">
-                        <span class="count">{{ startup.documents.length }}</span>
-
-                        <div class="text-lock">Documents</div>
-                    </a>
-                </div>
             </div>
         </div>
     </div>
-
-    <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active">
-            <a data-target="#resume" aria-controls="resume" role="tab" data-toggle="tab">
-                Résumé
-            </a>
-        </li>
-        <li role="presentation">
-            <a data-target="#product" aria-controls="product" role="tab" data-toggle="tab">
-                Le produit
-            </a>
-        </li>
-        <li class="unpadded" role="presentation">
-            <a data-target="#market" aria-controls="market" role="tab" data-toggle="tab">
-                Chiffres clés <br/>
-                et Marché
-            </a>
-        </li>
-        <li role="presentation">
-            <a data-target="#startup" aria-controls="startup" role="tab" data-toggle="tab">
-                La start-up
-            </a>
-        </li>
-    </ul>
 </section>
 
 <section>
@@ -76,286 +22,205 @@
 <div class="generic">
 <div class="container">
 <div class="row">
-<div class="col-md-8">
-<!-- tabs -->
-<div class="tab-content">
-<!-- resume -->
-<div role="tabpanel" class="tab-pane fade active in" id="resume">
-    <h2 class="section-title">Le pitch</h2>
+    <div class="col-md-offset-1 col-md-10 startup-info">
+        <div class="creator-section text-center">
+            <img src="/images/placeholder-user.png" class="creator-image img-circle" alt=""/>
 
-    <p class="intro">
-        {{ startup.projectTweet }}
-    </p>
+            <div class="creator-label">Sourcé par</div>
+            <div class="creator-info"><span class="creator-name">Keven Aseraff</span> - <span
+                    class="creator-company">Startin'post</span></div>
+        </div>
+        <!-- resume -->
+        <div class="" id="resume">
+            <div class="startup-logo"><img
+                    src="//d3chgxoy7gbmsz.cloudfront.net/assets/logo_captaincontrat-7977497f8121b421aaaa292318ef4b1a.png"
+                    class="circle round" alt=""/></div>
+            <a href="{{ startup.websiteUrl }}" target="_blank" class=" startup-website link">{{
+                startup.websiteUrl
+                }}</a>
 
-    <p class="description">
-        {{ startup.offerServices }}
-    </p>
+            <p class="intro">
+                {{ startup.projectTweet }}
+            </p>
 
-    <h3 class=""><a href="{{ startup.websiteUrl }}" target="_blank" class="link">{{ startup.websiteUrl }}</a></h3>
-</div>
+            <p class="description">
+                {{ startup.marketClients }}
+            </p>
 
-<!-- product -->
-<div role="tabpanel" class="tab-pane fade" id="product">
-    <div class="row">
-        <div class="col-md-12">
-            <!-- section -->
-            <div class="section">
-                <div class="title">
-                    Description détaillée du produit
-                </div>
+            <p class="description">
+                {{ startup.offerServices }}
+            </p>
 
-                <p>
-                    {{ startup.offerDetails }}
-                </p>
+            <p class="description">
+                {{ startup.offerBusiness }}
+            </p>
+        </div>
+
+        <hr/>
+
+        <!-- slider -->
+        <div class="" id="documents-area">
+            <div class="media">
+                <a href="">
+                    <div class="media-left">
+                        <i class="ico-svg ico-pdf">
+
+                        </i>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Télécharger</h4>
+
+                        <p class="text-primary title">Souscritoo présentation - Business model.pdf</p>
+                    </div>
+                </a>
             </div>
+            <div class="media">
+                <a href="">
+                    <div class="media-left">
+                        <i class="ico-svg ico-ppt">
 
-            <!-- section -->
-            <div class="section">
-                <div class="title">
-                    Business model
-                </div>
+                        </i>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Télécharger</h4>
 
-                <p>
-                    {{ startup.offerBusiness }}
-                </p>
+                        <p class="text-primary title">Souscritoo présentation - Business model.pdf</p>
+                    </div>
+                </a>
             </div>
+            <div class="media">
+                <a href="">
+                    <div class="media-left">
+                        <i class="ico-svg ico-doc">
 
-            <!-- section -->
-            <div class="section">
-                <div class="title">
-                    Positionnement
-                </div>
+                        </i>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Télécharger</h4>
 
-                <p>
-                    {{ startup.offerPositionning }}
-                </p>
+                        <p class="text-primary title">Souscritoo présentation - Business model.pdf</p>
+                    </div>
+                </a>
+            </div>
+            <div class="media" ng-repeat="document in startup.documents">
+                <a href="{{ document.file }}">
+                    <div class="media-left">
+                        <img class="media-object" src="{{ document.type }}" alt="...">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Télécharger</h4>
+
+                        <p class="text-primary title">{{ document.name }}</p>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <!-- section -->
-            <div class="section">
-                <div class="title upper">
-                    +
-                </div>
 
-                <p>
-                    {{ startup.offerStrengths }}
-                </p>
-            </div>
-        </div>
+    <!-- wall -->
+    <div class="col-md-1">
+        <!-- sidebar -->
+        <div class="sidebar-wall">
 
-        <div class="col-md-6">
-            <!-- section -->
-            <div class="section">
-                <div class="title upper">
-                    -
-                </div>
+            <div class="actions">
+                <button ng-click="bookmarkStartup()" class="action btn btn-link">
+                    <i ng-class="{'icon-favoriteAdd': !isBookmarked, 'icon-favoriteCheck': isBookmarked}"></i>
 
-                <p>
-                    {{ startup.offerWeaknesses }}
-                </p>
+                    <div class="text-lock" ng-class="{hidden: isBookmarked == 1 }">Suivre</div>
+                    <div class="text-lock" ng-class="{hidden: isBookmarked == 0 }">Suivi</div>
+                </button>
+                <a class="action btn" data-target="#commentModal" data-toggle="modal"
+                   ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
+                    <i class="icon-AddComment"></i>
+
+                    <div class="text-lock">Contacter</div>
+                </a>
+                <a class="action btn" href="#/startup/{{startup._id}}/edit" data-toggle="modal"
+                   ng-show="startup.status === 'draft' || globals.user.roles.indexOf('ADMIN') !== -1">
+                    <i class="icon-EditPage"></i>
+
+                    <div class="text-lock">Editer</div>
+                </a>
+                <a class="action btn" data-toggle="modal" data-target="#documentsModal"
+                   ng-if=" startup.documents.length">
+                    <span class="count">{{ startup.documents.length }}</span>
+
+                    <div class="text-lock">Documents</div>
+                </a>
             </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-12">
-            <!-- section -->
-            <div class="section">
-                <div class="title">
-                    Atout différenciant
-                </div>
+    <!--
 
-                <p>
-                    {{ startup.offerDiff }}
-                </p>
-            </div>
+    <a data-toggle="modal" data-target="#commentModal" ng-if="comments.length < 1">
+        <img src="/images/Wall_S.png" alt="comment" class="nocomment-image"  />
+    </a>
+    <div class="media" ng-repeat="comment in comments">
+        <div class="media-left">
+            <a href="#" class="stack-zone">
+                <img class="media-object img-circle"
+                     src=""
+                     alt="">
+                <img src="http://placehold.it/32x32/FFBC00?text=BSCC&txtsize=20" class="stacked img-circle"/>
+            </a>
+        </div>
 
-            <a data-target="#market" aria-controls="market" role="tab" data-toggle="tab"
-               class="btn btn-primary-outline">
-                Chiffres clés et marché
+        <div class="media-body meta">
+            <h4 class="media-heading">{{ comment.userName }}</h4>
+            <span class="meta date">{{ comment.createdAt | date: longDate }}</span> {{ comment.text }}
+
+            <a class="contact" href="#/user/{{ comment.userId }}/profile">
+                <i class="icon-contact"></i>
+                Contacter
             </a>
         </div>
     </div>
+
+    -->
+
 </div>
+<div class="row">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
 
-<!-- market -->
-<div role="tabpanel" class="tab-pane fade" id="market">
-    <div class="row">
-        <div class="col-md-6 left">
-            <!-- section -->
-            <div class="section">
-                <div class="title">
-                    Date de création
-                </div>
-
-                <p>
-                    {{ startup.creationDate }}
-                </p>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="{{startup.picture}}" alt="Chania">
             </div>
 
-            <div class="section">
-                <div class="title">Fonds propres (€)</div>
-                <p>
-                    {{ startup.funds }}
-                </p>
+            <div class="item">
+                <iframe ng-src="{{ iframeUrl(startup.youtubeId) }}" frameborder="0" allowfullscreen></iframe>
             </div>
 
-            <div class="section">
-                <h3 class="title">Clients</h3>
-
-                <p>
-                    {{ startup.ortherRevenues }}
-                </p>
+            <div class="item">
+                <img src="img_flower.jpg" alt="Flower">
             </div>
 
-            <div class="section">
-                <h3 class="title">Chiffre d'affaires (€)</h3>
-
-                <p>
-                    {{ startup.revenues }}
-                </p>
-            </div>
-
-            <div class="section">
-                <div class="title">Fonds levés (€)</div>
-                <p>
-                    {{ startup.raisedFunds }}
-                </p>
+            <div class="item">
+                <img src="img_flower2.jpg" alt="Flower">
             </div>
         </div>
 
-        <div class="col-md-6 right">
-            <!-- section -->
-            <div class="section">
-                <div class="title">
-                    Le marché cible
-                </div>
-
-                <p>
-                    {{ startup.marketDescription }}
-                </p>
-            </div>
-
-            <!-- section -->
-            <div class="section">
-                <div class="title">
-                    Nos clients
-                </div>
-
-                <p>
-                    {{ startup.marketClients }}
-                </p>
-            </div>
-
-            <!-- section -->
-            <div class="section">
-                <div class="title">
-                    Les concurrents
-                </div>
-
-                <p>
-                    {{ startup.marketCompetitors }}
-                </p>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<!-- startup -->
-<div role="tabpanel" class="tab-pane fade" id="startup">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="section-title">
-                La start-up
-            </div>
-
-            <!-- section -->
-            <div class="section">
-                <h3 class="title">Date de création</h3>
-
-                <p>
-                    {{ startup.creationDate | date : 'longDate'}}
-                </p>
-            </div>
-
-        </div>
-        <div class="col-md-12">
-
-            <!-- section -->
-            <div class="section">
-                <h3 class="title">Les membres</h3>
-
-
-                <ul class="list-group">
-                    <li class="list-group-item col-md-6" ng-repeat="contact in startupContacts">
-                        <h4 class="list-group-item-heading"><strong>{{ contact.firstname }} {{ contact.lastname
-                            }}</strong>
-                            <span class="label label-info pull-right">{{ contact.role }}</span>
-                        </h4>
-
-                        <p class="list-group-item-text">
-
-                        <div><strong>Email:</strong> <a target="_blank" href="mailto:{{ contact.email }}">{{
-                            contact.email }}</a></div>
-                        <div><strong>Numero de téléphone :</strong> <a target="_blank"
-                                                                       href="tel:{{ contact.phonenumber }}">{{
-                            contact.phonenumber }}</a></div>
-                        <div><strong>LinkedIn:</strong> <a target="_blank" href="{{ contact.linkeIn }}">{{
-                            contact.linkedIn }}</a></div>
-                        </p>
-                    </li>
-                </ul>
-
-
-            </div>
-
-
-        </div>
-    </div>
-</div>
-
-</div>
-<div class="clear-fix"></div>
-</div>
-
-<!-- wall -->
-<div class="col-md-4">
-    <!-- sidebar -->
-    <div class="sidebar-wall">
-        <h2 class="section-title">Le wall</h2>
-
-        <a data-toggle="modal" data-target="#commentModal" ng-if="comments.length < 1">
-        <img src="/images/Wall_S.png" alt="comment" class="nocomment-image"  />
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="fa fa-angle-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
         </a>
-        <div class="media" ng-repeat="comment in comments">
-            <div class="media-left">
-                <a href="#" class="stack-zone">
-                    <img class="media-object img-circle"
-                         src=""
-                         alt="">
-                    <img src="http://placehold.it/32x32/FFBC00?text=BSCC&txtsize=20" class="stacked img-circle"/>
-                </a>
-            </div>
-
-            <div class="media-body meta">
-                <h4 class="media-heading">{{ comment.userName }}</h4>
-                <span class="meta date">{{ comment.createdAt | date: longDate }}</span> {{ comment.text }}
-
-                <a class="contact" href="#/user/{{ comment.userId }}/profile">
-                    <i class="icon-contact"></i>
-                    Contacter
-                </a>
-            </div>
-        </div>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="fa fa-angle-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
 </div>
-</div>
-
 <div class="row">
     <div class="video-container" ng-if="startup.youtubeId">
         <iframe ng-src="{{ iframeUrl(startup.youtubeId) }}" frameborder="0" allowfullscreen></iframe>
@@ -408,7 +273,8 @@
                         </p>
 
                         <div class="card-link-section">
-                            <a href="#/startup?tag={{tag}}" class="card-link text-info" ng-repeat="tag in relatedStartup.tags">
+                            <a href="#/startup?tag={{tag}}" class="card-link text-info"
+                               ng-repeat="tag in relatedStartup.tags">
                                 #{{ tag }}
                             </a>
                         </div>

@@ -125,19 +125,21 @@ module.exports = {
         collection.find(query, options)
             .on('success', function (data) {
                 console.log(data);
-                var userIds = data.map(function(e){return new Object(e.userId);});
+                var userIds = data.map(function (e) {
+                    return new Object(e.userId);
+                });
                 console.log(userIds);
-                Monk.get('user').find({_id: {$in:userIds}}).success(function(users){
+                Monk.get('user').find({_id: {$in: userIds}}).success(function (users) {
                     var userObj = {};
-                    for(var i in users){
+                    for (var i in users) {
                         userObj[users[i]._id + ""] = users[i];
                     }
-                    data = data.map(function(e){
+                    data = data.map(function (e) {
                         e.user = userObj[e.userId];
                     });
                     data.statusCode = 200;
                     resp.json({body: data});
-                }) .on('error', function (err) {
+                }).on('error', function (err) {
                     resp.json({body: data});
                 });
             })
@@ -355,6 +357,64 @@ module.exports = {
                                 res.json(200, {body: startup.picture});
                             });
                         });
+
+                });
+            }
+            else {
+                res.json(404, {error: 'Startup not found'});
+            }
+        });
+    },
+
+    // UPLOAD OF STARTUP MAIN PICTURE
+    'uploadLogo': function (req, res) {
+        var gm = require('gm').subClass({imageMagick: true});
+        console.log('upload picture');
+
+        var id = req.body._id;
+        var startupCollection = Monk.get('startup');
+        console.log(id);
+        startupCollection.find({_id: id}).then(function (col) {
+            if (col && col.length > 0) {
+                var startup = col[0];
+                req.file('file').upload({
+                    // don't allow the total upload size to exceed ~10MB
+                    maxBytes: 10000000,
+                    dirname: sails.config.appPath + '/assets/data/startup/logos'
+                }, function whenDone(err, uploadedFiles) {
+                    if (err) {
+                        return res.negotiate(err);
+                    }
+
+                    // If no files were uploaded, respond with an error.
+                    if (uploadedFiles.length === 0) {
+                        return res.badRequest('No file was uploaded');
+                    }
+
+
+                    // Save the "fd" and the url where the avatar for a user can be accessed
+                    var filename = uploadedFiles[0].fd.split('/').pop();
+                    console.log(process.cwd());
+                    startup.logo = '/data/startup/logos/' + filename;
+                  //  startup.picture = '/data/startup/logos/thumb-' + filename;
+
+                    startupCollection.update({_id: id}, startup).then(function () {
+                        res.json(200, {body: startup.logo});
+                    });
+                    /*
+                     gm(process.cwd() + '/assets' + original)
+                     .resize('500', '333', '^')
+                     .gravity('Center')
+                     .crop('500', '333')
+                     .write(process.cwd() + '/assets'
+                     + startup.picture, function (err) {
+                     console.log(err);
+                     console.log('Image cropped');
+                     startupCollection.update({_id: id}, startup).then(function () {
+                     res.json(200, {body: startup.picture});
+                     });
+                     });
+                     */
 
                 });
             }

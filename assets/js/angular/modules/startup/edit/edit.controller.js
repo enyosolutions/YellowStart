@@ -45,6 +45,31 @@ angular.module('start.controllers')
 
         };
 
+        $scope.logoZone = {
+            addedFile: function (file) {
+                $log.log(file);
+            },
+
+            error: function (file, errorMessage) {
+                $log.log(errorMessage);
+            },
+            success: function (file, response) {
+                console.log(response);
+                if (response.body) {
+                    $scope.startup.picture = response.body;
+                }
+            },
+            dropzoneConfig: {
+                paramName: "file",
+                url: CONFIG.baseUrl + "/startup/upload-logo",
+                parallelUploads: 1,
+                maxFileSize: 10,
+                dictDefaultMessage: "Cliquez ou Glissez une image pour l'ajouter",
+                acceptedFiles: 'image/*',
+                headers: {'Authorization': 'Bearer ' + $localstorage.get('auth_token')}
+            }
+        };
+
         $scope.pictureZone = {
             addedFile: function (file) {
                 $log.log(file);
