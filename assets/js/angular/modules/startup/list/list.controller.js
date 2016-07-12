@@ -9,14 +9,14 @@
  */
 angular.module('start.controllers')
 
-    .controller('ListStartupCtrl', function ($scope,$rootScope, $state, $stateParams, $location, $timeout, $routeParams, Startup, Crawler, HomeSlider,  CONFIG) {
+    .controller('ListStartupCtrl', function ($scope, $rootScope, $state, $stateParams, $location, $timeout, $routeParams, Startup, Crawler, HomeSlider, CONFIG) {
         $scope.recentStartupList = {};
         $scope.pageClass = 'startup-list';
         $scope.currentPage = 0;
         $scope.remoteHost = CONFIG.baseUrl;
         $scope.q = '';
         $scope.slides = HomeSlider.query();
-        var query = {'publishedOnly':1};
+        var query = {'publishedOnly': 1};
 
         // global search function
         $scope.search = function (q) {
@@ -33,8 +33,23 @@ angular.module('start.controllers')
                     $scope.$broadcast('angucomplete-alt:clearInput');
                 }
                 else {
-                    $scope.searchName = selection.title;
-                    $scope.search(selection.title);
+                    switch (selection.originalObject.type) {
+                        case 'startup':
+                        case 'default':
+                            $scope.searchName = selection.title;
+                            $scope.search(selection.title);
+                            break;
+                        case 'tag':
+                            $scope.searchName = selection.title;
+                            $state.go('startup-list', {tag: $scope.searchName});
+                            break;
+                        case 'button':
+                            $scope.searchName = selection.originalObject.title;
+                            selection.title = selection.originalObject.title;
+                            $scope.$broadcast('angucomplete-alt:changeInput', 'search', selection.title);
+                            $scope.search($scope.searchName);
+                            break;
+                    }
                 }
             }
         };
@@ -44,6 +59,14 @@ angular.module('start.controllers')
             $scope.searchName = q;
         };
 
+
+        $scope.appendMoreButtons = function (res) {
+            console.log(res);
+            if (res.body.length > 1) {
+                res.body.push({label: "Afficher tous les résultats", type: 'button', title: $scope.searchName});
+            }
+            return res;
+        }
 
         $scope.deleteStartup = function (id) {
             var c = $scope.startupList.splice(id, 1);
@@ -98,20 +121,23 @@ angular.module('start.controllers')
             $scope.searchedStartups = Startup.query(query);
         }
 
-        $scope.recentStartupList = Startup.query({'publishedOnly':1, 'sort[createdAt]': -1});
-        $scope.mostViewedStartupList = Startup.query({'publishedOnly':1, 'sort[meta.views]': -1});
-        $scope.bestScoreStartupList = Startup.query({'publishedOnly':1, 'sort[sipScore]': -1});
-        $scope.mostBookmarkedStartupList = Startup.query({'publishedOnly':1, 'sort[meta.bookmarks]': -1});
-        $scope.lessViewedStartupList = Startup.query({'publishedOnly':1, 'sort[meta.views]': -1});
-        Crawler.tags().$promise.then(function(res){
-            res = res.map(function(e){e.link = '#/startup?tag=' + e.text; return e;});
+        $scope.recentStartupList = Startup.query({'publishedOnly': 1, 'sort[createdAt]': -1});
+        $scope.mostViewedStartupList = Startup.query({'publishedOnly': 1, 'sort[meta.views]': -1});
+        $scope.bestScoreStartupList = Startup.query({'publishedOnly': 1, 'sort[sipScore]': -1});
+        $scope.mostBookmarkedStartupList = Startup.query({'publishedOnly': 1, 'sort[meta.bookmarks]': -1});
+        $scope.lessViewedStartupList = Startup.query({'publishedOnly': 1, 'sort[meta.views]': -1});
+        Crawler.tags().$promise.then(function (res) {
+            res = res.map(function (e) {
+                e.link = '#/startup?tag=' + e.text;
+                return e;
+            });
             $scope.tagCloud = res;
         });
     })
 
-    .directive('homeSlider', function() {
-        return function(scope, element) {
-            if (scope.$last){
+    .directive('homeSlider', function () {
+        return function (scope, element) {
+            if (scope.$last) {
                 element.parent().cycle({
                     slides: '.slide',
                     pager: '> .cycle-pager',
@@ -121,9 +147,23 @@ angular.module('start.controllers')
         };
     })
 
-    .directive('startupSlider', function() {
-        return function(scope, element) {
-            if (scope.$last){
+    .directive('startupSlider', function () {
+        return function (scope, element) {
+            if (scope.$last) {
+                element.parent().slick({
+                    infinite: false,
+                    variableWidth: true,
+                    speed: 300,
+                    centerMode: false,
+                    slidesToShow: 4,
+                    slidesToScroll: 1
+                });
+            }
+        };
+    })
+    .directive('documentSlider', function () {
+        return function (scope, element) {
+            if (scope.$last) {
                 element.parent().slick({
                     infinite: false,
                     variableWidth: true,

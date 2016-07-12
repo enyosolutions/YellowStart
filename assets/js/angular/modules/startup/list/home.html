@@ -19,18 +19,17 @@
                 <div class="thumbnail" href="#/startup/{{ startup._id }}/view">
                     <img src="{{ startup.picture ? startup.picture : '/images/placeholder.jpg' }}"
                          alt="{{ startup.startupName }}">
+                </div>
+                <div class="mask">
+                    <h4 class="title">{{ startup.startupName }}</h4>
 
-                    <div class="mask">
-                        <h4 class="title">{{ startup.startupName }}</h4>
-
-                        <div class="tag-list">
-                            <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
-                                #{{ tag }}
-                            </a>
-                        </div>
-                        <a class="btn btn-outline-primary text-center action"
-                           href="#/startup/{{ startup._id }}/view">Voir</a>
+                    <div class="tag-list">
+                        <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
+                            #{{ tag }}
+                        </a>
                     </div>
+                    <a class="btn btn-outline-primary text-center action"
+                       href="#/startup/{{ startup._id }}/view">VOIR LA FICHE</a>
                 </div>
             </div>
         </div>
@@ -45,19 +44,21 @@
     <div class="startups-wrapper">
         <div class="startups-list">
             <div class="startup" ng-repeat="startup in mostViewedStartupList" startup-slider>
-                <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
+                <div class="thumbnail" href="#/startup/{{ startup._id }}/view">
                     <img src="{{ startup.picture ? startup.picture : '/images/placeholder.jpg' }}"
                          alt="{{ startup.startupName }}">
 
-                    <div class="caption" ng-if="!startup.picture">{{ startup.startupName }}</div>
-                </a>
+                    <div class="mask">
+                        <h4 class="title">{{ startup.startupName }}</h4>
 
-                <div class="mask">
-                    <h4 class="title">{{ startup.startupName }}</h4>
-                    <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
-                        #{{tag }}
-                    </a>
-                    <a class="btn btn-primary text-center action" href="#/startup/{{ startup._id }}/view">Voir</a>
+                        <div class="tag-list">
+                            <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
+                                #{{ tag }}
+                            </a>
+                        </div>
+                        <a class="btn btn-outline-primary text-center action"
+                           href="#/startup/{{ startup._id }}/view">VOIR LA FICHE</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -71,18 +72,21 @@
     <div class="startups-wrapper">
         <div class="startups-list" startup-slider>
             <div class="startup" ng-repeat="startup in bestScoreStartupList" startup-slider>
-                <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
+                <div class="thumbnail" href="#/startup/{{ startup._id }}/view">
                     <img src="{{ startup.picture ? startup.picture : '/images/placeholder.jpg' }}"
                          alt="{{ startup.startupName }}">
 
-                    <div class="caption" ng-if="!startup.picture">{{ startup.startupName }}</div>
-                </a>
+                    <div class="mask">
+                        <h4 class="title">{{ startup.startupName }}</h4>
 
-                <div class="mask">
-                    <h4 class="title">{{ startup.startupName }}</h4>
-                    <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
-                        #{{tag }}
-                    </a>
+                        <div class="tag-list">
+                            <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
+                                #{{ tag }}
+                            </a>
+                        </div>
+                        <a class="btn btn-outline-primary text-center action"
+                           href="#/startup/{{ startup._id }}/view">VOIR LA FICHE</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -97,18 +101,21 @@
     <div class="startups-wrapper">
         <div class="startups-list">
             <div class="startup" ng-repeat="startup in mostBookmarkedStartupList" startup-slider>
-                <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
+                <div class="thumbnail" href="#/startup/{{ startup._id }}/view">
                     <img src="{{ startup.picture ? startup.picture : '/images/placeholder.jpg' }}"
                          alt="{{ startup.startupName }}">
 
-                    <div class="caption" ng-if="!startup.picture">{{ startup.startupName }}</div>
-                </a>
+                    <div class="mask">
+                        <h4 class="title">{{ startup.startupName }}</h4>
 
-                <div class="mask">
-                    <h4 class="title">{{ startup.startupName }}</h4>
-                    <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
-                        #{{tag }}
-                    </a>
+                        <div class="tag-list">
+                            <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
+                                #{{ tag }}
+                            </a>
+                        </div>
+                        <a class="btn btn-outline-primary text-center action"
+                           href="#/startup/{{ startup._id }}/view">VOIR LA FICHE</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -123,18 +130,21 @@
     <div class="startups-wrapper">
         <div class="startups-list">
             <div class="startup" ng-repeat="startup in lessViewedStartupList" startup-slider>
-                <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
+                <div class="thumbnail" href="#/startup/{{ startup._id }}/view">
                     <img src="{{ startup.picture ? startup.picture : '/images/placeholder.jpg' }}"
                          alt="{{ startup.startupName }}">
 
-                    <div class="caption" ng-if="!startup.picture">{{ startup.startupName }}</div>
-                </a>
+                    <div class="mask">
+                        <h4 class="title">{{ startup.startupName }}</h4>
 
-                <div class="mask">
-                    <h4 class="title">{{ startup.startupName }}</h4>
-                    <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
-                        #{{tag }}
-                    </a>
+                        <div class="tag-list">
+                            <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
+                                #{{ tag }}
+                            </a>
+                        </div>
+                        <a class="btn btn-outline-primary text-center action"
+                           href="#/startup/{{ startup._id }}/view">VOIR LA FICHE</a>
+                    </div>
                 </div>
             </div>
         </div>

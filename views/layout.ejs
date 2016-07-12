@@ -96,9 +96,10 @@
                                   input-changed="searchAutocompleteCHG"
                                   remote-url="{{ ::remoteHost }}/api/crawler/autocomplete?q="
                                   remote-url-data-field="body"
+                                  remote-url-response-formatter="appendMoreButtons"
                                   minlength="1"
                                   title-field="label"
-                                  description-field="type"
+                                  description-field="subLabel"
                                   input-class="url form-control"/>
             </form>
         </div>

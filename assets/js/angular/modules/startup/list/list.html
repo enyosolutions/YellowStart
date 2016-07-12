@@ -4,7 +4,6 @@
         <div class="heading">
             <h1 class="result-indicator">
                 {{ searchTitle }}
-                <span class="numb">{{ searchedStartups.length }} résultat(s)</span>
             </h1>
 
             <div class="sort">
@@ -26,6 +25,7 @@
                     </ul>
                 </div>
             </div>
+            <div class="numb">{{ searchedStartups.length }} résultat(s)</div>
         </div>
 
         <!-- results -->
@@ -42,10 +42,6 @@
                         </div>
                         <div class="card-block">
                             <h4 class="card-title">{{ startup.startupName }}</h4>
-
-                            <p class="card-text">
-                                {{ startup.tagline }}
-                            </p>
 
                             <div class="card-link-section">
                                 <a href="#/startup?tag={{ tag }}" class="card-link text-info"
@@ -78,7 +74,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="next" ng-click="nextPage()" ng-if="searchedStartups.length > 12">
+                    <a class="next" ng-click="nextPage()" ng-if="searchedStartups.length > 10">
                         >
                     </a>
                 </li>

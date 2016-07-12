@@ -191,6 +191,11 @@ body.unlocked {
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;
+
+        &:focus {
+          font-size: 30px;
+          color: #73737F;
+        }
       }
 
       button {
@@ -215,9 +220,48 @@ body.unlocked {
         -webkit-border-radius: 0;
         -moz-border-radius: 0;
         border-radius: 0;
-
+        padding: 0;
+        min-width: 300px;
         top: 105px;
         left: -1px;
+
+        .angucomplete-row {
+          padding-left: 32px;
+          border-bottom: 1px solid #D9D9DE;
+          min-height: 80px;
+
+          &:last-child {
+            background-color: @brand-primary;
+            padding-left: 0px;
+            color: #FAFDD4;
+            text-align: center;
+            .angucomplete-title {
+              color: #FAFDD4;
+            }
+          }
+
+          &:first-child {
+            background-color: red;
+            .angucomplete-title {
+              color: #081433;
+            }
+          }
+        }
+        .angucomplete-selected-row {
+          background-color: rgba(5, 71, 253, 0.30);
+        }
+
+        .angucomplete-title {
+          margin-top: 5px;
+          font-size: 24px;
+          color: #081433;
+        }
+
+        .angucomplete-description {
+          color: #73737F;
+          font-size: 13px;
+          margin-top: 5px;
+        }
       }
     }
 

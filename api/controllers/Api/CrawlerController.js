@@ -18,7 +18,7 @@ module.exports = {
         tagCollection.find({label: {$regex: req.query.q, $options: 'i'}}, {limit: 10}).success(function (col) {
             if (col && col.length > 0) {
                 results = col.map(function (e) {
-                    return {label: e.label, type: 'tag', id: e._id};
+                    return {label: '#' + e.label, type: 'tag', subLabel:'',  id: e._id};
                 });
             }
 
@@ -28,7 +28,11 @@ module.exports = {
             }, {limit: 10}).success(function (col2) {
                 if (col2 && col2.length > 0) {
                     results = results.concat(col2.map(function (e) {
-                        return {label: e.startupName, id: e._id, type: 'startup'};
+                        var out = {label: e.startupName, id: e._id, type: 'startup'};
+                        if(e && e.tags){
+                            out.subLabel =  e.tags.map(function(t){return '#' + t;}).join(' ');
+                        }
+                        return out;
                     }));
                 }
                 resp.json({body: results});
