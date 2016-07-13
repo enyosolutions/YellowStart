@@ -283,10 +283,10 @@
                       method="post"
                       enctype="multipart/form-data"
                       ng-dropzone
-                      dropzone="filesZone.dropzone"
-                      dropzone-config="filesZone.dropzoneConfig"
-                      event-handlers="{ 'addedfile': filesZone.addedFile, 'error': filesZone.error,
-                                       'success': filesZone.success
+                      dropzone="extraImagesZone.dropzone"
+                      dropzone-config="extraImagesZone.dropzoneConfig"
+                      event-handlers="{ 'addedfile': extraImagesZone.addedFile, 'error': extraImagesZone.error,
+                                       'success': extraImagesZone.success
                                        }">
                     <input type="hidden" name="_id" value="{{ startup._id }}"/>
                 </form>
