@@ -177,8 +177,8 @@ body.unlocked {
 
       input {
         display: block;
-        width: 100%;
-        height: 100%;
+        width: auto;
+        height: 110px;
         padding: 47px 25px 47px 40px;
 
         font-size: 12px;
@@ -191,10 +191,25 @@ body.unlocked {
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none;
+        position: static;
+        -webkit-transition: 300ms linear all;
+        transition: 300ms linear all;
 
         &:focus {
           font-size: 30px;
           color: #73737F;
+          position: fixed;
+          width: 600px;
+          height: 110px;
+          z-index: 10;
+
+          ~ div:before{
+            width: 100px;
+            height: 110px;
+            background-color: @brand-primary;
+            color: white;
+            content: 'S';
+          }
         }
       }
 
@@ -221,9 +236,12 @@ body.unlocked {
         -moz-border-radius: 0;
         border-radius: 0;
         padding: 0;
-        min-width: 300px;
+        min-width: 500px;
         top: 105px;
         left: -1px;
+        -wekbit-transition: none;
+        transition: none;
+
 
         .angucomplete-row {
           padding-left: 32px;
@@ -681,6 +699,43 @@ footer {
   }
 
 }
+
+
+/*
+ * Slider controls
+ */
+.slick-prev,
+.slick-next {
+  position: absolute;
+  z-index: 10;
+
+  top: 33%;
+  margin-top: -50px;
+  left: 5%;
+  height: 50px;
+  width: 50px;
+
+  border: none !important;
+  background: @brand-primary;
+}
+.slick-next {
+  left: auto;
+  right: 4%;
+}
+.slick-prev:after,
+.slick-next:before {
+  font-family: 'icomoon';
+  content: "\e90d";
+
+  text-align: center;
+  color: white;
+  font-size: 25px;
+}
+.slick-prev:after {
+  font-family: 'icomoon';
+  content: "\e90c";
+}
+
 
 /*
  * Colors schemes

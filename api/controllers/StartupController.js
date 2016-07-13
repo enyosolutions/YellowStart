@@ -266,10 +266,12 @@ module.exports = {
                     if (!startup.documents) {
                         startup.documents = [];
                     }
+
                     startup.documents.push({
                         id: filename,
                         size: uploadedFiles[0].size,
                         type: uploadedFiles[0].type,
+                        extension: uploadedFiles[0].filename.split('.').pop(),
                         name: uploadedFiles[0].filename,
                         file: '/data/startup/images/' + filename
                     });

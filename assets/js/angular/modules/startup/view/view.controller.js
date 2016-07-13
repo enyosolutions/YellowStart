@@ -17,34 +17,33 @@ angular.module('start.controllers')
 
         if ($stateParams._id) {
             $scope.startup = new Startup({_id: $stateParams._id});
-            $scope.startup.$get().then(function(){
+            $scope.startup.$get().then(function () {
 
                 $scope.startupContacts = StartupContact.query({'query[startupId]': $stateParams._id}).$promise.then(function (res) {
                     var content;
                     $scope.startupContacts = res;
                     if (res.length > 0) {
                         var contact = res[0];
-                         content = '<div class="startup-map-infowindow">' +
-                            '<div class="picture"><img alt="" src="http://dummyimage.com/90x90/000/fff?text=&nbsp;" /></div>' +
-                            '<div class="inner">' +
-                            '<div class="name">' + contact.firstname + ' ' + contact.lastname + '</div> ' +
-                            '<div class="job">' + (contact.role ? contact.role : '') + '</div> ' +
-                         (contact.email ?
-                            '<div class="email"><a target="_blank" href="mailto:' + contact.email + '" >' +  contact.email + '</a></div> '
-                                : "" ) +
-                            '<div class="phone">' + (contact.phonenumber ? contact.phonenumber : "") + '</div> ' +
-                            '<div class="address">' + ($scope.startup.address ? $scope.startup.address : '' ) + '</div> ' +
-                            '</div>' +
-                            '</div>';
+                        content = '<div class="startup-map-infowindow" style="width: 195px;height:231px;">' +
+                        '<div class="inner">' +
+                        '<div class="name">' + $scope.startup.startupName + '</div> ' +
+                        '<div class="address">' + ($scope.startup.address ? $scope.startup.address : '' ) + '</div> ' +
+                        '<div class="phone">' + (contact.phonenumber ? contact.phonenumber : "") + '</div> ' +
+
+                        (contact.email ?
+                        '<div class="email"><a target="_blank" href="mailto:' + contact.email + '" >' + contact.email + '</a></div> '
+                            : "" ) +
+                        '</div>' +
+                        '</div>';
 
                     }
                     else {
-                         content = '<div class="startup-map-infowindow">' +
-                         '<div class="picture"><img alt="" src="http://dummyimage.com/90x90/000/fff?text=&nbsp;" /></div>' +
-                         '<div class="inner">' +
-                         '<div class="address">' + ($scope.startup.address ? $scope.startup.address : '' ) + '</div> ' +
-                         '</div>' +
-                         '</div>';
+                        content = '<div class="startup-map-infowindow">' +
+                        '<div class="picture"><img alt="" src="http://dummyimage.com/90x90/000/fff?text=&nbsp;" /></div>' +
+                        '<div class="inner">' +
+                        '<div class="address">' + ($scope.startup.address ? $scope.startup.address : '' ) + '</div> ' +
+                        '</div>' +
+                        '</div>';
                     }
                     $scope.startup.websiteUrl = $scope.startup.websiteUrl.replace(/http(s)?:\/\//i, '');
                     initGooglemaps($scope.startup.address, content);
@@ -89,7 +88,7 @@ angular.module('start.controllers')
 
 
         $scope.comments = StartupComment.query({'query[startupId]': $stateParams._id});
-        $scope.relatedStartups = Startup.query({'publishedOnly':1, 'related': $stateParams._id, limit: 3});
+        $scope.relatedStartups = Startup.query({'publishedOnly': 1, 'related': $stateParams._id, limit: 3});
 
         $scope.saveComment = function (text) {
             var comment = new StartupComment({
@@ -106,9 +105,8 @@ angular.module('start.controllers')
         };
 
 
-
         $scope.bookmarkStartup = function () {
-            if(!$rootScope.globals.user.bookmarks){
+            if (!$rootScope.globals.user.bookmarks) {
                 $rootScope.globals.user.bookmarks = [];
             }
             var index = $rootScope.globals.user.bookmarks.indexOf($stateParams._id);
@@ -126,9 +124,6 @@ angular.module('start.controllers')
         };
 
         function initGooglemaps(address, infoboxContent) {
-            console.log('init google maps');
-            console.log(address);
-            console.log(infoboxContent);
             var map = '';
             var geocoder = new google.maps.Geocoder();
             var address = address;
@@ -145,9 +140,10 @@ angular.module('start.controllers')
 
         function initialize(latitude, longitude, infoboxContent) {
             var latLng = new google.maps.LatLng(latitude, longitude);
+            var latLng2 = new google.maps.LatLng(latitude + 0.05000, longitude);
 
             var mapOptions = {
-                zoom: 10,
+                zoom: 12,
                 scrollwheel: false,
                 panControl: false,
                 zoomControl: true,
@@ -157,7 +153,7 @@ angular.module('start.controllers')
                 overviewMapControl: false,
                 navigationControl: false,
                 draggable: true,
-                center: latLng
+                center: latLng2
             };
 
             var map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -184,4 +180,21 @@ angular.module('start.controllers')
             });
         }
 
+    }).directive('documentSlider', function () {
+        return function (scope, element) {
+            console.log(scope, element);
+            if (scope.$last) {
+
+                console.log(element.parent());
+                element.parent().slick({
+                    infinite: true,
+                    variableWidth: false,
+                    speed: 300,
+                    centerMode: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    initialSlide: 1
+                });
+            }
+        };
     });
