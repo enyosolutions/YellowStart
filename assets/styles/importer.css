@@ -8652,13 +8652,13 @@ footer .brand {
 .slick-next {
   position: absolute;
   z-index: 10;
-  top: 33%;
+  top: 37%;
   margin-top: -50px;
   left: 5%;
   height: 50px;
   width: 50px;
   border: none !important;
-  background: #ff6500;
+  background: #0031f7;
 }
 .slick-next {
   left: auto;
@@ -9344,6 +9344,7 @@ footer .brand {
   width: 70px;
   height: 70px;
   border: 5px solid white;
+  background-color: #fff;
 }
 .page.startup-view .startup-info .creator-section .creator-name {
   color: #ff6500;
@@ -9383,7 +9384,7 @@ footer .brand {
   line-height: 24px;
 }
 .page.startup-view .startup-info #documents-area .media {
-  margin-bottom: 40px;
+  padding: 15px 20px;
 }
 .page.startup-view .startup-info #documents-area .media * {
   font-weight: 400;
@@ -9421,6 +9422,9 @@ footer .brand {
 }
 .page.startup-view .startup-info #documents-area .media a:hover .ico-svg.ico-ppt {
   background-image: url('/images/icons/svg/ico-ppt-on.svg');
+}
+.page.startup-view .startup-info #documents-area .media:hover {
+  background-color: rgba(221, 221, 221, 0.2);
 }
 .page.startup-view .startup-info #product .section {
   display: block;
@@ -9550,12 +9554,15 @@ footer .brand {
 .page.startup-view .cycle-slider-media {
   margin: 50px 0 0 0;
 }
+.page.startup-view .sidebar-wall {
+  padding-top: 150px;
+}
 .page.startup-view .sidebar-wall .media {
   padding: 20px 0;
   border-bottom: 1px solid #e3edef;
 }
 .page.startup-view .sidebar-wall .media:first-child {
-  padding-top: 300px;
+  padding-top: 0;
 }
 .page.startup-view .sidebar-wall .media:last-child {
   border-bottom: none;
