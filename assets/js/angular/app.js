@@ -28,8 +28,8 @@ angular
         'angular-jqcloud'
     ])
       //.constant('CONFIG', {baseUrl: 'http://start.dev:8080', apiUrl: 'http://start.dev:8080/api', lunaUrl: 'http://luna.startinpost.com/project/apilisttititata'})
-    // .constant('CONFIG', {baseUrl: 'http://192.168.13.50:8080', apiUrl: 'http://192.168.13.50:8080/api'})
-      .constant('CONFIG', {baseUrl: 'http://yellowstart.enyosolutions.com', apiUrl: 'http://yellowstart.enyosolutions.com/api'})
+     .constant('CONFIG', {baseUrl: 'http://192.168.13.50:8080', apiUrl: 'http://192.168.13.50:8080/api'})
+    //  .constant('CONFIG', {baseUrl: 'http://yellowstart.enyosolutions.com', apiUrl: 'http://yellowstart.enyosolutions.com/api'})
     .run(function (editableOptions, $state, $rootScope, $interval, Auth, $localstorage, $ngBootbox, Notification, NotificationService, CONFIG) {
         editableOptions.theme = 'bs3';
         $rootScope.$state = $state;
