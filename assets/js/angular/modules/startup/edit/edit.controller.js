@@ -78,7 +78,7 @@ angular.module('start.controllers')
             success: function (file, response) {
                 console.log(response);
                 if (response.body) {
-                    $scope.startup.picture = response.body;
+                    $scope.startup.logo = response.body;
                 }
             },
             dropzoneConfig: {
@@ -186,8 +186,8 @@ angular.module('start.controllers')
                     console.log($scope.startup);
                     if ($scope.startup._id) {
                         $timeout(function () {
-                            for (var i in $scope.startup.documents) {
-                                var value = $scope.startup.documents[i];
+                            for (var i in $scope.startup.images) {
+                                var value = $scope.startup.images[i];
                                 var mockFile = {name: value.name, size: value.size};
                                 thisDropzone.options.addedfile.call(thisDropzone, mockFile);
 
