@@ -105,7 +105,8 @@
                     <div class="media" ng-repeat="document in startup.documents">
                         <a href="{{ document.file }}">
                             <div class="media-left">
-                                <img class="media-object" src="{{ document.type }}" alt="...">
+                                <i class="ico-svg ico-{{ document.extension | lowercase }}">
+                                </i>
                             </div>
                             <div class="media-body">
                                 <h4 class="media-heading">Télécharger</h4>

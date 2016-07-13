@@ -9395,25 +9395,31 @@ footer .brand {
 .page.startup-view .startup-info #documents-area .media .ico-svg.ico-pdf {
   background-image: url('/images/icons/svg/ico-pdf-off.svg');
 }
-.page.startup-view .startup-info #documents-area .media .ico-svg.ico-doc {
+.page.startup-view .startup-info #documents-area .media .ico-svg.ico-doc,
+.page.startup-view .startup-info #documents-area .media .ico-svg.ico-docx {
   background-image: url('/images/icons/svg/ico-doc-off.svg');
 }
-.page.startup-view .startup-info #documents-area .media .ico-svg.ico-xls {
+.page.startup-view .startup-info #documents-area .media .ico-svg.ico-xls,
+.page.startup-view .startup-info #documents-area .media .ico-svg.ico-xlsx {
   background-image: url('/images/icons/svg/ico-xls-off.svg');
 }
-.page.startup-view .startup-info #documents-area .media .ico-svg.ico-ppt {
+.page.startup-view .startup-info #documents-area .media .ico-svg.ico-ppt,
+.page.startup-view .startup-info #documents-area .media .ico-svg.ico-pptx {
   background-image: url('/images/icons/svg/ico-ppt-off.svg');
 }
 .page.startup-view .startup-info #documents-area .media a:hover .ico-svg.ico-pdf {
   background-image: url('/images/icons/svg/ico-pdf-on.svg');
 }
-.page.startup-view .startup-info #documents-area .media a:hover .ico-svg.ico-doc {
+.page.startup-view .startup-info #documents-area .media a:hover .ico-svg.ico-doc,
+.page.startup-view .startup-info #documents-area .media a:hover .ico-svg.ico-docx {
   background-image: url('/images/icons/svg/ico-doc-on.svg');
 }
-.page.startup-view .startup-info #documents-area .media a:hover .ico-svg.ico-xls {
+.page.startup-view .startup-info #documents-area .media a:hover .ico-svg.ico-xls,
+.page.startup-view .startup-info #documents-area .media a:hover .ico-svg.ico-xlsx {
   background-image: url('/images/icons/svg/ico-xls-on.svg');
 }
-.page.startup-view .startup-info #documents-area .media a:hover .ico-svg.ico-ppt {
+.page.startup-view .startup-info #documents-area .media a:hover .ico-svg.ico-ppt,
+.page.startup-view .startup-info #documents-area .media a:hover .ico-svg.ico-pptx {
   background-image: url('/images/icons/svg/ico-ppt-on.svg');
 }
 .page.startup-view .startup-info #documents-area .media:hover {
