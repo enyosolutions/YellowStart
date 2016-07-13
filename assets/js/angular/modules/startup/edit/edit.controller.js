@@ -86,7 +86,7 @@ angular.module('start.controllers')
                 url: CONFIG.baseUrl + "/startup/upload-logo",
                 parallelUploads: 1,
                 maxFileSize: 10,
-                dictDefaultMessage: "Cliquez ou Glissez une image pour l'ajouter",
+                dictDefaultMessage: "Cliquez ou Glissez une image pour ajouter le logo",
                 acceptedFiles: 'image/*',
                 headers: {'Authorization': 'Bearer ' + $localstorage.get('auth_token')}
             }
@@ -158,6 +158,49 @@ angular.module('start.controllers')
                 }
             }
         };
+
+        $scope.extraImagesZone = {
+            addedFile: function (file) {
+                $log.log(file);
+            },
+
+            error: function (file, errorMessage) {
+                $log.log(errorMessage);
+            },
+            success: function (file, response) {
+
+            },
+            dropzoneConfig: {
+                url: CONFIG.baseUrl + "/startup/upload-images",
+                paramName: "file",
+                parallelUploads: 4,
+                maxFileSize: 10,
+                dictDefaultMessage: 'Glissez-déposer ou bien cliquez pour ajouter un document',
+                acceptedFiles: 'image/*,application/pdf,.ppt,.pptx,.doc,.docx,.xls,.xlsx,.zip',
+                addRemoveLinks: true,
+                maxFiles: 5,
+                headers: {'Authorization': 'Bearer ' + $localstorage.get('auth_token')},
+                init: function () {
+                    console.log('initializing dropzone');
+                    var thisDropzone = this;
+                    console.log($scope.startup);
+                    if ($scope.startup._id) {
+                        $timeout(function () {
+                            for (var i in $scope.startup.documents) {
+                                var value = $scope.startup.documents[i];
+                                var mockFile = {name: value.name, size: value.size};
+                                thisDropzone.options.addedfile.call(thisDropzone, mockFile);
+
+                                if (value.file) {
+                                    thisDropzone.options.thumbnail.call(thisDropzone, mockFile, value.file);
+                                }
+                            }
+                        }, 1000);
+                    }
+                }
+            }
+        };
+
 
         console.log($stateParams);
         // IF we are editing a startup
