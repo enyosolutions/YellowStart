@@ -91,7 +91,7 @@
             </div>
             <div class="col-md-6">
                 <select class="form-control day" ng-model="startup.mainTag"
-                        ng-change="mainTagChanged();">
+                        ng-change="mainTagChanged(startup.mainTag, '{{ startup.mainTag }}');">
                     <option ng-repeat='n in ["3d-printing"
                     ,"automobile"
                     ,"b2b"
@@ -195,7 +195,7 @@
                 <button type="button" class="btn btn-primary-outline" ng-click="publishStartup()">
                     Continuer plus tard
                 </button>
-                <button type="button" class="btn btn-primary" data-target="#produit"
+                <button type="button" class="btn btn-primary" data-target="#document"
                         data-toggle="tab">Etape suivante
                 </button>
             </div>
