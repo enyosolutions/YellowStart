@@ -7880,7 +7880,7 @@ label {
 }
 .splash {
   padding: 9em 0 2em;
-  background-image: url(../images/bg2.jpg);
+  background-image: url('/images/background-big.jpg');
   background-size: cover;
   color: #fff;
   text-align: center;
@@ -7930,19 +7930,36 @@ section.main {
   margin: 15px auto;
 }
 #startup-form .form-body p {
-  font-size: 30px;
+  font-size: 14px;
   font-weight: 200;
   margin: 90px 0;
 }
+#startup-form .form-body p.intro {
+  font-size: 24px;
+  color: #0F2105;
+}
 #startup-form .form-body .form-control {
   margin-bottom: 52px;
-  font-size: 20px;
+  font-size: 14px;
 }
 #startup-form .form-body label {
   font-weight: bold;
   font-size: 20px;
   display: block;
   color: #292B2C;
+}
+#startup-form .form-body sub {
+  margin-bottom: 0;
+  color: #666C6F;
+}
+#startup-form .form-body sub.count {
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 40px;
+}
+#startup-form .form-body sub.count .number {
+  color: #0547FD;
+  font-size: 24px;
 }
 #startup-form .form-body sub {
   font-size: 12px;
@@ -8038,19 +8055,24 @@ textarea.ng-invalid:not(.ng-pristine) {
   padding: 10px 12px 2px;
 }
 .dropzone {
-  border: 3px dotted #0031f7;
+  border: 3px dashed #E9E9EF;
+  border-radius: 6px;
+  background-color: transparent;
   padding: 10px;
+  min-height: 200px;
+  margin-bottom: 110px;
 }
 .dropzone .dz-default.dz-message {
   background: none;
   background-image: none;
-  width: 100%;
+  width: 80%;
   height: auto;
   margin-left: 0;
-  margin-top: -61.5px;
+  margin-top: -21.5px;
   top: 50%;
-  left: 0;
+  left: 10%;
   text-align: center;
+  font-size: 14px;
 }
 .dropzone .dz-default.dz-message span {
   display: block;
@@ -9815,6 +9837,11 @@ footer .brand {
   color: #0547fd;
   font-size: 24px;
   font-weight: 600;
+}
+.page.startup-edit .nav li a .step-number .startinpost,
+.page.edit-page .nav li a .step-number .startinpost {
+  border: 1px solid #ff6500;
+  color: #ff6500;
 }
 .page.startup-edit .nav li:hover,
 .page.edit-page .nav li:hover {

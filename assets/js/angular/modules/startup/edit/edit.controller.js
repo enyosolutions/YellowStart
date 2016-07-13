@@ -20,6 +20,18 @@ angular.module('start.controllers')
         }
         // SELECTIZE
         $scope.tagsOptions = Tag.query();
+        //main tag config
+        $scope.mainTagChanged = function (value) {
+              //  $scope.startup.tags = values.map(slugify);
+                 $scope.saveStartup();
+        };
+
+        $scope.tagsList = {};
+        for (var i in $scope.tagsOptions){
+            var tag = $scope.tagsOptions[i];
+            $scope.tagsList[tag.slug] = tag;
+        }
+        //other tag config
         $scope.tagsConfig = {
             create: true,
             valueField: 'slug',
@@ -44,6 +56,8 @@ angular.module('start.controllers')
             }
 
         };
+
+
 
         $scope.logoZone = {
             addedFile: function (file) {
@@ -89,7 +103,7 @@ angular.module('start.controllers')
                 url: CONFIG.baseUrl + "/startup/upload-picture",
                 parallelUploads: 1,
                 maxFileSize: 10,
-                dictDefaultMessage: "Cliquez ou Glissez une image pour l'ajouter",
+                dictDefaultMessage: "Glissez-déposer ou bien cliquez pour ajouter une image",
                 acceptedFiles: 'image/*',
                 headers: {'Authorization': 'Bearer ' + $localstorage.get('auth_token')}
             }
@@ -111,7 +125,7 @@ angular.module('start.controllers')
                 paramName: "file",
                 parallelUploads: 4,
                 maxFileSize: 10,
-                dictDefaultMessage: 'Cliquez ou Glissez des fichiers pour les rajouter',
+                dictDefaultMessage: 'Glissez-déposer ou bien cliquez pour ajouter un document',
                 acceptedFiles: 'image/*,application/pdf,.ppt,.pptx,.doc,.docx,.xls,.xlsx,.zip',
                 addRemoveLinks: true,
                 maxFiles: 5,

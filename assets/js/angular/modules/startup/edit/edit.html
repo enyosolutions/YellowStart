@@ -1,17 +1,12 @@
-<section class="splash small">
+<section class="splash small"
+         style="background-image:url({{ startup.mainTag ? ('/images/startup/header/' + startup.mainTag + '.jpg') : '/images/background-big.jpg' }}) ">
     <!-- <img ng-show="startup.picture !== undefined" src="{{ startup.picture }}" alt=""/> -->
     <div class="container">
         <!-- <div><img class="logo" src="assets/img/logo.png"></div> -->
 
         <h1>
-            {{ startup.startupName ? startup.startupName :'SOUMETTRE UNE START-UP' }}
+            {{ startup.startupName ? startup.startupName :'Soumettre une start-up' }}
         </h1>
-        <button class="action btn btn-link"  ng-click="deleteStartup()"
-                ng-if="globals.user.roles.indexOf('ADMIN') !== -1">
-            <i class="fa fa-times"></i>
-
-            <div class="text-lock">Supprimer</div>
-        </button>
     </div>
 </section>
 
@@ -25,25 +20,19 @@
         </a>
     </li>
     <li role="presentation">
-        <a data-target="#produit" aria-controls="produit" role="tab" data-toggle="tab">
+        <a data-target="#documents" aria-controls="documents" role="tab" data-toggle="tab">
             <span class="step-number">2</span>
-            Le produit
+            Documents
         </a>
     </li>
     <li role="presentation">
-        <a data-target="#marche" aria-controls="marche" role="tab" data-toggle="tab">
+        <a data-target="#contact" aria-controls="contact" role="tab" data-toggle="tab">
             <span class="step-number">3</span>
-            Marché et chiffres clés
-        </a>
-    </li>
-    <li role="presentation">
-        <a data-target="#equipe" aria-controls="equipe" role="tab" data-toggle="tab">
-            <span class="step-number">4</span>
-            L'équipe
+            Contacts
         </a>
     </li>
     <li role="presentation" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
-        <a data-target="#startinpost" aria-controls="documents" role="tab" data-toggle="tab">
+        <a data-target="#startinpost" aria-controls="documents" role="tab" data-toggle="tab" class="startinpost-tag">
             <span class="step-number">5</span>
             StartInPost
         </a>
@@ -59,7 +48,7 @@
 <div class="tab-content">
 <div role="tabpanel" class="tab-pane fade active in" id="resume">
     <div class="form-body form-horizontal">
-        <p>Aucun des champs n’est obligatoire. Cependant, nous vous recommandons d’en remplir le
+        <p class="intro">Aucun des champs n’est obligatoire. Cependant, nous vous recommandons d’en remplir le
             maximum afin de proposer la fiche la plus complète.
         </p>
 
@@ -85,55 +74,9 @@
         </div>
         <div class="form-group">
             <div class="col-md-5">
-                <label>Tag line</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
-            </div>
-            <div class="col-md-7">
-                <input class="form-control" type="text" ng-model="startup.tagline"
-                       ng-blur="saveStartup(startup.tagline)"/>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-5">
-                <label>Logo</label>
-            </div>
-            <div class="col-md-7">
-                <form class="dropzone"
-                      method="post"
-                      enctype="multipart/form-data"
-                      ng-dropzone
-                      dropzone="logoZone.dropzone"
-                      dropzone-config="logoZone.dropzoneConfig"
-                      event-handlers="{ 'addedfile': logoZone.addedFile, 'error': logoZone.error,
-                                       'success': logoZone.success }">
-                    <input type="hidden" name="_id" value="{{ startup._id }}"/>
-                </form>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-5">
-                <label>Image</label>
-            </div>
-            <div class="col-md-7">
-                <form class="dropzone"
-                      method="post"
-                      enctype="multipart/form-data"
-                      ng-dropzone
-                      dropzone="pictureZone.dropzone"
-                      dropzone-config="pictureZone.dropzoneConfig"
-                      event-handlers="{ 'addedfile': pictureZone.addedFile, 'error': pictureZone.error,
-                                       'success': pictureZone.success }">
-                    <input type="hidden" name="_id" value="{{ startup._id }}"/>
-                </form>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-5">
                 <label>Résumé en 140 caractères</label>
                 <sub>Lorem upsum parabelmmu ista blah blah</sub>
-                <sub>{{ startup.projectTweet.length || '0' }}/140</sub>
+                <sub class="count"><span class="number">{{ startup.projectTweet.length || '0' }}</span>/140</sub>
             </div>
             <div class="col-md-7" ng-class="{'autocomplete-field': isAutocompleting }">
                 <textarea class="form-control" ng-model="startup.projectTweet" maxlength="140"
@@ -143,12 +86,94 @@
 
         <div class="form-group">
             <div class="col-md-5">
-                <label>Présentation vidéo youtube</label>
+                <label>Tag principal</label>
                 <sub>Lorem upsum parabelmmu ista blah blah</sub>
             </div>
+            <div class="col-md-7">
+                <select class="form-control day" ng-model="startup.mainTag"
+                        ng-change="mainTagChanged();">
+                    <option ng-repeat='n in ["3d-printing"
+                    ,"automobile"
+                    ,"b2b"
+                    ,"big-data"
+                    ,"cleantech"
+                    ,"cyber-securite"
+                    ,"defense"
+                    ,"delivery"
+                    ,"education"
+                    ,"entertainement"
+                    ,"fashion"
+                    ,"fintech"
+                    ,"food"
+                    ,"gaming"
+                    ,"hardware"
+                    ,"industrie"
+                    ,"inteligence-artificielle"
+                    ,"iot"
+                    ,"lifestyle"
+                    ,"logistique"
+                    ,"medias"
+                    ,"realite-virtuelle"
+                    ,"retail"
+                    ,"sharing-economy"
+                    ,"silver-economy"
+                    ,"smart-city"
+                    ,"transport"
+                    ,"voyage"
+                    ]
+                    ' value="{{ n }}">{{ tagsList[n] || n }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-5">
+                <label>Tags de la start-up</label>
+                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+            </div>
+            <div class="col-md-7">
+                <selectize config='tagsConfig' options='tagsOptions'
+                           ng-model="selectedTags"></selectize>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-5">
+                <label>Quelle est la cible ?</label>
+                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+                <sub class="count"><span class="number">{{ startup.marketClients.length || '0' }}</span>/500</sub>
+            </div>
+            <div class="col-md-7">
+                <textarea class="form-control" type="text" ng-model="startup.marketClients" maxlength="500"
+                          ng-blur="saveStartup()"></textarea>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-5">
+                <label>Quel service/produit ?</label>
+                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+                <sub class="count"><span class="number">{{ startup.offerServices.length || '0' }}</span>/500</sub>
+            </div>
             <div class="col-md-7" ng-class="{'autocomplete-field': isAutocompleting }">
-                <input type="url" class="form-control" ng-model="startup.videoPresentation"
-                       ng-blur="saveStartup()"/>
+                <textarea class="form-control" ng-model="startup.offerServices" maxlength="500"
+                          ng-blur="saveStartup(startup.offerServices)">{{ startup.offerServices
+                    }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-5">
+                <label>Quel business model ?</label>
+                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+                <sub class="count"><span class="number">{{ startup.offerBusiness.length || '0' }}</span>/500</sub>
+            </div>
+            <div class="col-md-7">
+                <textarea class="form-control" type="text" ng-model="startup.offerBusiness"
+                          maxlength="500"
+                          ng-blur="saveStartup(startup.offerBusiness);">{{ startup.offerBusiness }}</textarea>
             </div>
         </div>
 
@@ -163,58 +188,7 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-5">
-                <label>L'offre de services</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
-            </div>
-            <div class="col-md-7" ng-class="{'autocomplete-field': isAutocompleting }">
-                <textarea class="form-control" ng-model="startup.offerServices"
-                          ng-blur="saveStartup(startup.offerServices)">{{ startup.offerServices
-                    }}</textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-5">
-                <label>Tags</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
-            </div>
-            <div class="col-md-7">
-                <selectize config='tagsConfig' options='tagsOptions'
-                           ng-model="selectedTags"></selectize>
-            </div>
-        </div>
 
-
-        <div class="form-group">
-            <div class="col-md-5">
-                <label>Documents</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
-            </div>
-            <div class="col-md-7">
-                <ul class="list-group">
-                    <li class="list-group-item" ng-repeat="document in startup.documents">
-                        {{ document.name }} - <span
-                            class="label label-info">{{ document.type | limitTo :8}}</span>
-
-                        <button class="btn btn-primary-outline badge"
-                                ng-click="deleteDocument(index)">
-                            <i class="fa fa-close"></i></button>
-                    </li>
-                </ul>
-                <form class="dropzone"
-                      method="post"
-                      enctype="multipart/form-data"
-                      ng-dropzone
-                      dropzone="filesZone.dropzone"
-                      dropzone-config="filesZone.dropzoneConfig"
-                      event-handlers="{ 'addedfile': filesZone.addedFile, 'error': filesZone.error,
-                                       'success': filesZone.success
-                                       }">
-                    <input type="hidden" name="_id" value="{{ startup._id }}"/>
-                </form>
-            </div>
-        </div>
         <div class="form-group">
             <div class="col-md-5">
                 <label>Contacts</label>
@@ -254,7 +228,7 @@
         <div class="form-group text-center">
             <div class="btn-group">
                 <button type="button" class="btn btn-primary-outline" ng-click="publishStartup()">
-                    Publier en l'état
+                    Continuer plus tard
                 </button>
                 <button type="button" class="btn btn-primary" data-target="#produit"
                         data-toggle="tab">Etape suivante
@@ -263,73 +237,123 @@
         </div>
     </div>
 </div>
-<div role="tabpanel" class="tab-pane fade " id="produit">
+<div role="tabpanel" class="tab-pane fade " id="documents">
     <div class="form-body">
+        <p class="intro">Aucun des champs n’est obligatoire. Cependant, nous vous recommandons d’en remplir le
+            maximum afin de proposer la fiche la plus complète.
+        </p>
+
         <div class="form-group">
-            <div class="col-md-12">
-                <label>Description détaillée du produit</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+            <div class="col-md-5">
+                <label>Logo de la startup</label>
             </div>
-            <div class="col-md-12">
-                <textarea class="form-control" type="text" ng-model="startup.offerDetails"
-                          ng-blur="saveStartup(startup.offerDetails)">{{ startup.offerDetails }}</textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-12">
-                <label>Business model</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
-            </div>
-            <div class="col-md-12">
-                <textarea class="form-control" type="text" ng-model="startup.offerBusiness"
-                          ng-blur="saveStartup(startup.offerBusiness);">{{ startup.offerBusiness }}</textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-12">
-                <label>Positionnement</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
-            </div>
-            <div class="col-md-12">
-                <textarea class="form-control" type="text" ng-model="startup.offerPositionning"
-                          ng-blur="saveStartup(startup.offerPositionning)">{{ offerPositionning }}</textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-6">
-                <div>
-                    <label>Forces</label>
-                    <sub>Lorem upsum parabelmmu ista blah blah</sub>
-                </div>
-                <textarea class="form-control" type="text" ng-model="startup.offerStrengths"
-                          ng-blur="saveStartup(startup.offerStrengths)"></textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-6">
-                <div class="">
-                    <label>Faiblesses</label>
-                    <sub>Lorem upsum parabelmmu ista blah blah</sub>
-                </div>
-                <textarea class="form-control" ng-model="startup.offerWeaknesses"
-                          ng-blur="saveStartup()"></textarea>
+            <div class="col-md-7">
+                <form class="dropzone"
+                      method="post"
+                      enctype="multipart/form-data"
+                      ng-dropzone
+                      dropzone="logoZone.dropzone"
+                      dropzone-config="logoZone.dropzoneConfig"
+                      event-handlers="{ 'addedfile': logoZone.addedFile, 'error': logoZone.error,
+                                       'success': logoZone.success }">
+                    <input type="hidden" name="_id" value="{{ startup._id }}"/>
+                </form>
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-md-12">
-                <label>Atout différenciant</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+            <div class="col-md-5">
+                <label>Image principale</label>
             </div>
-            <div class="col-md-12">
-                <textarea class="form-control" ng-model="startup.offerDiff"
-                          ng-blur="saveStartup(startup.offerDiff)"></textarea>
+            <div class="col-md-7">
+                <form class="dropzone"
+                      method="post"
+                      enctype="multipart/form-data"
+                      ng-dropzone
+                      dropzone="pictureZone.dropzone"
+                      dropzone-config="pictureZone.dropzoneConfig"
+                      event-handlers="{ 'addedfile': pictureZone.addedFile, 'error': pictureZone.error,
+                                       'success': pictureZone.success }">
+                    <input type="hidden" name="_id" value="{{ startup._id }}"/>
+                </form>
             </div>
         </div>
+        <div class="form-group">
+            <div class="col-md-5">
+                <label>Documents</label>
+                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+            </div>
+            <div class="col-md-7">
+                <form class="dropzone"
+                      method="post"
+                      enctype="multipart/form-data"
+                      ng-dropzone
+                      dropzone="filesZone.dropzone"
+                      dropzone-config="filesZone.dropzoneConfig"
+                      event-handlers="{ 'addedfile': filesZone.addedFile, 'error': filesZone.error,
+                                       'success': filesZone.success
+                                       }">
+                    <input type="hidden" name="_id" value="{{ startup._id }}"/>
+                </form>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="document in startup.documents">
+                        {{ document.name }} - <span
+                            class="label label-info">{{ document.type | limitTo :8}}</span>
+
+                        <button class="btn btn-primary-outline badge"
+                                ng-click="deleteDocument(index)">
+                            <i class="fa fa-close"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-5">
+                <label>Images du produit</label>
+                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+            </div>
+            <div class="col-md-7">
+                <form class="dropzone"
+                      method="post"
+                      enctype="multipart/form-data"
+                      ng-dropzone
+                      dropzone="filesZone.dropzone"
+                      dropzone-config="filesZone.dropzoneConfig"
+                      event-handlers="{ 'addedfile': filesZone.addedFile, 'error': filesZone.error,
+                                       'success': filesZone.success
+                                       }">
+                    <input type="hidden" name="_id" value="{{ startup._id }}"/>
+                </form>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="document in startup.images">
+                        {{ document.name }} - <span
+                            class="label label-info">{{ document.type | limitTo :8}}</span>
+
+                        <button class="btn btn-primary-outline badge"
+                                ng-click="deleteDocument(index)">
+                            <i class="fa fa-close"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-5">
+                <label>Présentation vidéo youtube</label>
+                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+            </div>
+            <div class="col-md-7" ng-class="{'autocomplete-field': isAutocompleting }">
+                <input type="url" class="form-control" ng-model="startup.videoPresentation"
+                       ng-blur="saveStartup()"/>
+            </div>
+        </div>
+
+
         <div class="form-group text-center">
             <div class="btn-group">
                 <button type="button" class="btn btn-primary-outline" ng-click="publishStartup()">
-                    Publier en l'état
+                    Continuer plus tard
                 </button>
                 <button type="button" class="btn btn-primary" data-target="#marche"
                         data-toggle="tab"
@@ -339,119 +363,168 @@
         </div>
     </div>
 </div>
-<div role="tabpanel" class="tab-pane fade " id="marche">
+<div role="tabpanel" class="tab-pane fade " id="contact">
+
     <div class="form-body">
-        <div class="form-group">
-            <div class="col-md-12">
-                <label>Description du marché ciblé</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+        <p class="intro">Aucun des champs n’est obligatoire. Cependant, nous vous recommandons d’en remplir le
+            maximum afin de proposer la fiche la plus complète.
+        </p>
+
+        <div class="contact-form existing-contact" ng-repeat="contact in startupContacts">
+            <div class="form-group">
+                <button class="btn btn-primary-outline badge pull-right" ng-click="deleteMember(index)">
+                    <i class="fa fa-close"></i></button>
             </div>
-            <div class="col-md-12">
-                <textarea class="form-control" type="text" ng-model="startup.marketDescription"
-                          ng-blur="saveStartup(startup.marketDescription)"></textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-6">
-                <div>
-                    <label>Qui sont les clients ?</label>
-                    <sub>Lorem upsum parabelmmu ista blah blah</sub>
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>Prénom</label>
                 </div>
-                <textarea class="form-control" type="text" ng-model="startup.marketClients"
-                          ng-blur="saveStartup()"></textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-6">
-                <div class="">
-                    <label>Qui sont les concurrents ?</label>
-                    <sub>Lorem upsum parabelmmu ista blah blah</sub>
+                <div class="col-md-7">
+                    <input class="form-control" ng-model="contact.firstname" type="text" required/>
                 </div>
-                <textarea class="form-control" ng-model="startup.marketCompetitors"
-                          ng-blur="saveStartup()"></textarea>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>Nom</label>
+                </div>
+                <div class="col-md-7">
+                    <input class="form-control" type="text" ng-model="contact.lastname" required/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>Adresse mail</label>
+                </div>
+                <div class="col-md-7">
+                    <input class="form-control" type="email" ng-model="contact.email" required/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>Numero de téléphone</label>
+                </div>
+                <div class="col-md-7">
+                    <input class="form-control" ng-model="contact.phonenumber" type="text"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>LinkedIn</label>
+                </div>
+                <div class="col-md-7">
+                    <input type="url" class="form-control" ng-model="contact.linkedIn"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>Role</label>
+                </div>
+                <div class="col-md-7">
+                    <input class="form-control" ng-model="contact.role" type="text"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>Contexte / Origine du contact</label>
+                </div>
+                <div class="col-md-7">
+                    <textarea class="form-control" ng-model="contact.origin"></textarea>
+                </div>
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-5">
-                <label>Date de création</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
-            </div>
-            <div class="col-md-7">
-                <div class="form-inline dates">
-                    <select class="form-control day" type="number" ng-model="creationDate.day"
-                            ng-change="saveStartup();">
-                        <option ng-repeat="n in range(1,31)" value="{{ n }}">{{ n }}</option>
-                    </select>
-                    <select ng-change="saveStartup();"  ng-model="creationDate.month"  class="form-control month">
-                        <option>Janvier</option>
-                        <option>Fevrier</option>
-                        <option>Mars</option>
-                        <option>Avril</option>
-                        <option>Mai</option>
-                        <option>Juin</option>
-                        <option>Juillet</option>
-                        <option>Aout</option>
-                        <option>Septembre</option>
-                        <option>Octobre</option>
-                        <option>Novembre</option>
-                        <option>Décembre</option>
-                    </select>
-                    <select ng-model="creationDate.year" ng-change="saveStartup();" class="form-control year">
-                        <option ng-repeat="n in range(2000, 2016)">{{n}}</option>
-                    </select>
+
+        <center ng-if="startupContacts.length > 0">
+            <hr/>
+            <button class="btn btn-primary-outline text-center" type="button" data-toggle="collapse"
+                    data-target="#new-contact-form"
+                    aria-expanded="false" aria-controls="collapseExample" ng-if="startupContacts.length > 0">
+                AJOUTER UN AUTRE CONTACT
+            </button>
+            <hr/>
+        </center>
+
+        <div class="new-contact collapse in" id="new-contact-form" ng-class="{collapsed: startupContacts.length > 0}">
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>Prénom</label>
+                </div>
+                <div class="col-md-7">
+                    <input class="form-control" ng-model="newContact.firstname" type="text" required/>
                 </div>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-5">
-                <label>Chiffre d'affaires</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
-            </div>
-            <div class="col-md-7">
-                <input class="form-control" type="text" ng-model="startup.revenues"
-                       ng-blur="saveStartup(startup.revenues)"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-5">
-                <label>Nombre de clients</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
-            </div>
-            <div class="col-md-7">
-                <input class="form-control" type="text" ng-model="startup.otherRevenues"
-                       ng-blur="saveStartup(startup.otherRevenues)"/>
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-5">
-                <label>Fonds propres</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>Nom</label>
+                </div>
+                <div class="col-md-7">
+                    <input class="form-control" type="text" ng-model="newContact.lastname" required/>
+                </div>
             </div>
-            <div class="col-md-7">
-                <input class="form-control" type="text" ng-model="startup.funds"
-                       ng-blur="saveStartup(startup.funds)"/>
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-5">
-                <label>Fonds levés</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>Adresse mail</label>
+                </div>
+                <div class="col-md-7">
+                    <input class="form-control" type="email" ng-model="newContact.email" required/>
+                </div>
             </div>
-            <div class="col-md-7">
-                <input class="form-control" type="text" ng-model="startup.raisedFunds"
-                       ng-blur="saveStartup(startup.raisedFunds)"/>
+
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>Numero de téléphone</label>
+                </div>
+                <div class="col-md-7">
+                    <input class="form-control" ng-model="newContact.phonenumber" type="text"/>
+                </div>
             </div>
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>LinkedIn</label>
+                </div>
+                <div class="col-md-7">
+                    <input type="url" class="form-control" ng-model="newContact.linkedIn"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>Role</label>
+                </div>
+                <div class="col-md-7">
+                    <input class="form-control" ng-model="newContact.role" type="text"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-5">
+                    <label>Contexte / Origine du contact</label>
+                </div>
+                <div class="col-md-7">
+                    <textarea class="form-control" ng-model="newContact.origin"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <button type="button" class="btn btn-primary pull-right" ng-click="saveContact(newContact._id)"
+                        >
+                    Créer
+                </button>
+            </div>
+
+
         </div>
+        <div class="clearfix"></div>
         <div class="form-group text-center">
             <div class="btn-group">
-                <button type="button" class="btn btn-primary-outline" ng-click="publishStartup()">
-                    Publier en l'état
-                </button>
-                <button type="button" class="btn btn-primary" data-target="#equipe"
-                        data-toggle="tab">Etape suivante
+                <button type="button" class="btn btn-primary" ng-click="publishStartup()">
+                    Publier
                 </button>
             </div>
         </div>
@@ -513,6 +586,28 @@
         </div>
         <div class="form-group">
             <div class="col-md-12">
+                <label>Avancement de la startup</label>
+                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+            </div>
+            <div class="col-md-12">
+                <select class="form-control" type="number" ng-model="startup.sipScore"
+                        ng-blur="saveStartup(startup.sipScore);">
+                    <option value="0">Statut Seed</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
                 <label>L'avis Start in post</label>
                 <sub>Lorem upsum parabelmmu ista blah blah</sub>
             </div>
@@ -541,66 +636,7 @@
 
             <div class="modal-body">
                 <div class="row">
-                    <div class="form-group">
-                        <div class="col-md-5">
-                            <label>Prénom</label>
-                        </div>
-                        <div class="col-md-7">
-                            <input class="form-control" ng-model="newContact.firstname" type="text" required/>
-                        </div>
-                    </div>
 
-                    <div class="form-group">
-                        <div class="col-md-5">
-                            <label>Nom</label>
-                        </div>
-                        <div class="col-md-7">
-                            <input class="form-control" type="text" ng-model="newContact.lastname" required/>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-5">
-                            <label>Adresse mail</label>
-                        </div>
-                        <div class="col-md-7">
-                            <input class="form-control" type="email" ng-model="newContact.email" required/>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-5">
-                            <label>Numero de téléphone</label>
-                        </div>
-                        <div class="col-md-7">
-                            <input class="form-control" ng-model="newContact.phonenumber" type="text"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-5">
-                            <label>LinkedIn</label>
-                        </div>
-                        <div class="col-md-7">
-                            <input type="url" class="form-control" ng-model="newContact.linkedIn"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-5">
-                            <label>Role</label>
-                        </div>
-                        <div class="col-md-7">
-                            <input class="form-control" ng-model="newContact.role" type="text"/>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-5">
-                            <label>Contexte / Origine du contact</label>
-                        </div>
-                        <div class="col-md-7">
-                            <textarea class="form-control" ng-model="newContact.origin"></textarea>
-                        </div>
-                    </div>
                 </div>
             </div>
 

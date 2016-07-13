@@ -135,7 +135,7 @@
 
 .splash {
   padding: 9em 0 2em;
-  background-image: url(../images/bg2.jpg);
+  background-image: url('/images/background-big.jpg');
   background-size: cover;
   color: #fff;
   text-align: center;
@@ -202,20 +202,41 @@ section.main {
     margin: 15px auto;
 
     p {
-      font-size: 30px;
+      font-size: 14px;
       font-weight: 200;
       margin: 90px 0;
+
+      &.intro {
+        font-size: 24px;
+        color: #0F2105;
+      }
     }
 
     .form-control {
       margin-bottom: 52px;
-      font-size: 20px;
+      font-size: 14px;
     }
     label {
       font-weight: bold;
       font-size: 20px;
       display: block;
       color: #292B2C;
+    }
+
+    sub {
+      margin-bottom: 0;
+      color: #666C6F;
+
+      &.count {
+        margin-top: 20px;
+        font-size: 14px;
+        line-height: 40px;
+
+        .number {
+          color: #0547FD;
+          font-size: 24px;
+        }
+      }
     }
 
     sub {
@@ -308,7 +329,7 @@ section#more-startups {
 
 }
 
-input.ng-invalid:not(.ng-pristine) ,
+input.ng-invalid:not(.ng-pristine),
 textarea.ng-invalid:not(.ng-pristine) {
   border: 2px solid red;
 }
@@ -358,25 +379,31 @@ textarea.ng-invalid:not(.ng-pristine) {
 }
 
 .dropzone {
-  border: 3px dotted #0031f7;
+  border: 3px dashed #E9E9EF;
+  border-radius: 6px;
+  background-color: transparent;
   padding: 10px;
+  min-height: 200px;
+  margin-bottom: 110px;
 }
 
 .dropzone .dz-default.dz-message {
   background: none;
   background-image: none;
-  width: 100%;
+  width: 80%;
   height: auto;
   margin-left: 0;
-  margin-top: -61.5px;
+  margin-top: -21.5px;
   top: 50%;
-  left: 0;
+  left: 10%;
   text-align: center;
+  font-size: 14px;
 }
 
 .dropzone .dz-default.dz-message span {
   display: block;
 }
+
 //tabs
 
 .nav > li > a.bg-green {
@@ -391,7 +418,7 @@ textarea.ng-invalid:not(.ng-pristine) {
   overflow: hidden;
 }
 
-.card-img-top img{
+.card-img-top img {
   width: 100%;
   height: auto;
 }
