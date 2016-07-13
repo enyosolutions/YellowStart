@@ -32,8 +32,8 @@
         </a>
     </li>
     <li role="presentation" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
-        <a data-target="#startinpost" aria-controls="documents" role="tab" data-toggle="tab" class="startinpost-tag">
-            <span class="step-number">5</span>
+        <a data-target="#startinpost" aria-controls="documents" role="tab" data-toggle="tab" >
+            <span class="step-number startinpost" >4</span>
             StartInPost
         </a>
     </li>
@@ -53,43 +53,43 @@
         </p>
 
         <div class="form-group">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label>Nom de la startup</label>
                 <sub>Lorem upsum parabelmmu ista blah blah</sub>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <input class="form-control" type="text" ng-model="startup.startupName"
                        ng-blur="checkExistingStartup(startup.startupName)"/>
             </div>
         </div>
         <div class="form-group">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label>Url du site</label>
                 <sub>Lorem upsum parabelmmu ista blah blah</sub>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <input class="form-control" type="text" ng-model="startup.websiteUrl"
                        ng-blur="crawlMeta(startup.websiteUrl);"/>
             </div>
         </div>
         <div class="form-group">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label>Résumé en 140 caractères</label>
                 <sub>Lorem upsum parabelmmu ista blah blah</sub>
                 <sub class="count"><span class="number">{{ startup.projectTweet.length || '0' }}</span>/140</sub>
             </div>
-            <div class="col-md-7" ng-class="{'autocomplete-field': isAutocompleting }">
+            <div class="col-md-6" ng-class="{'autocomplete-field': isAutocompleting }">
                 <textarea class="form-control" ng-model="startup.projectTweet" maxlength="140"
                           ng-blur="saveStartup()">{{ startup.projectTweet }}</textarea>
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label>Tag principal</label>
                 <sub>Lorem upsum parabelmmu ista blah blah</sub>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <select class="form-control day" ng-model="startup.mainTag"
                         ng-change="mainTagChanged();">
                     <option ng-repeat='n in ["3d-printing"
@@ -127,11 +127,11 @@
             </div>
         </div>
         <div class="form-group">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label>Tags de la start-up</label>
                 <sub>Lorem upsum parabelmmu ista blah blah</sub>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <selectize config='tagsConfig' options='tagsOptions'
                            ng-model="selectedTags"></selectize>
             </div>
@@ -139,12 +139,12 @@
 
 
         <div class="form-group">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label>Quelle est la cible ?</label>
                 <sub>Lorem upsum parabelmmu ista blah blah</sub>
                 <sub class="count"><span class="number">{{ startup.marketClients.length || '0' }}</span>/500</sub>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <textarea class="form-control" type="text" ng-model="startup.marketClients" maxlength="500"
                           ng-blur="saveStartup()"></textarea>
             </div>
@@ -152,12 +152,12 @@
 
 
         <div class="form-group">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label>Quel service/produit ?</label>
                 <sub>Lorem upsum parabelmmu ista blah blah</sub>
                 <sub class="count"><span class="number">{{ startup.offerServices.length || '0' }}</span>/500</sub>
             </div>
-            <div class="col-md-7" ng-class="{'autocomplete-field': isAutocompleting }">
+            <div class="col-md-6" ng-class="{'autocomplete-field': isAutocompleting }">
                 <textarea class="form-control" ng-model="startup.offerServices" maxlength="500"
                           ng-blur="saveStartup(startup.offerServices)">{{ startup.offerServices
                     }}</textarea>
@@ -165,12 +165,12 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label>Quel business model ?</label>
                 <sub>Lorem upsum parabelmmu ista blah blah</sub>
                 <sub class="count"><span class="number">{{ startup.offerBusiness.length || '0' }}</span>/500</sub>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <textarea class="form-control" type="text" ng-model="startup.offerBusiness"
                           maxlength="500"
                           ng-blur="saveStartup(startup.offerBusiness);">{{ startup.offerBusiness }}</textarea>
@@ -178,53 +178,18 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label>Adresse physique</label>
                 <sub>Lorem upsum parabelmmu ista blah blah</sub>
             </div>
-            <div class="col-md-7" ng-class="{'autocomplete-field': isAutocompleting }">
+            <div class="col-md-6" ng-class="{'autocomplete-field': isAutocompleting }">
                 <textarea class="form-control" ng-model="startup.address"
                           ng-blur="saveStartup()"></textarea>
             </div>
         </div>
 
-
-        <div class="form-group">
-            <div class="col-md-5">
-                <label>Contacts</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
-            </div>
-            <div class="col-md-7">
-                <ul class="list-group">
-                    <li class="list-group-item" ng-repeat="contact in startupContacts">
-                        {{ contact.firstname }} {{ contact.lastname }} - <span
-                            class="label label-info">{{ contact.role }}</span>
-
-                        <button class="btn btn-primary-outline badge"
-                                ng-click="deleteContact(index)">
-                            <i class="fa fa-close"></i></button>
-                    </li>
-                </ul>
-
-            </div>
-            <button type="button" ng-class="{in: startup && startup._id}"
-                    class="btn btn-primary pull-right fade" data-toggle="modal"
-                    data-target="#contactModal"><i
-                    class="fa fa-plus btn-primary"></i> Ajouter un contact
-            </button>
-        </div>
-
         <hr>
 
-        <div class="form-group">
-            <div class="col-md-5">
-                <label>Votre Avis</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
-            </div>
-            <div class="col-md-7">
-                <textarea class="form-control" ng-model="startup.userOpinion">{{ startup.userOpinion }}</textarea>
-            </div>
-        </div>
         <div class="form-group text-center">
             <div class="btn-group">
                 <button type="button" class="btn btn-primary-outline" ng-click="publishStartup()">
@@ -244,10 +209,10 @@
         </p>
 
         <div class="form-group">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label>Logo de la startup</label>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <form class="dropzone"
                       method="post"
                       enctype="multipart/form-data"
@@ -262,10 +227,10 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label>Image principale</label>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <form class="dropzone"
                       method="post"
                       enctype="multipart/form-data"
@@ -279,11 +244,11 @@
             </div>
         </div>
         <div class="form-group">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label>Documents</label>
                 <sub>Lorem upsum parabelmmu ista blah blah</sub>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <form class="dropzone"
                       method="post"
                       enctype="multipart/form-data"
@@ -309,11 +274,11 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label>Images du produit</label>
                 <sub>Lorem upsum parabelmmu ista blah blah</sub>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <form class="dropzone"
                       method="post"
                       enctype="multipart/form-data"
@@ -339,11 +304,11 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <label>Présentation vidéo youtube</label>
                 <sub>Lorem upsum parabelmmu ista blah blah</sub>
             </div>
-            <div class="col-md-7" ng-class="{'autocomplete-field': isAutocompleting }">
+            <div class="col-md-6" ng-class="{'autocomplete-field': isAutocompleting }">
                 <input type="url" class="form-control" ng-model="startup.videoPresentation"
                        ng-blur="saveStartup()"/>
             </div>
@@ -376,62 +341,62 @@
                     <i class="fa fa-close"></i></button>
             </div>
             <div class="form-group">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label>Prénom</label>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <input class="form-control" ng-model="contact.firstname" type="text" required/>
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label>Nom</label>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <input class="form-control" type="text" ng-model="contact.lastname" required/>
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label>Adresse mail</label>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <input class="form-control" type="email" ng-model="contact.email" required/>
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label>Numero de téléphone</label>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <input class="form-control" ng-model="contact.phonenumber" type="text"/>
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label>LinkedIn</label>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <input type="url" class="form-control" ng-model="contact.linkedIn"/>
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label>Role</label>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <input class="form-control" ng-model="contact.role" type="text"/>
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label>Contexte / Origine du contact</label>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <textarea class="form-control" ng-model="contact.origin"></textarea>
                 </div>
             </div>
@@ -450,62 +415,62 @@
 
         <div class="new-contact collapse in" id="new-contact-form" ng-class="{collapsed: startupContacts.length > 0}">
             <div class="form-group">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label>Prénom</label>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <input class="form-control" ng-model="newContact.firstname" type="text" required/>
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label>Nom</label>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <input class="form-control" type="text" ng-model="newContact.lastname" required/>
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label>Adresse mail</label>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <input class="form-control" type="email" ng-model="newContact.email" required/>
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label>Numero de téléphone</label>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <input class="form-control" ng-model="newContact.phonenumber" type="text"/>
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label>LinkedIn</label>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <input type="url" class="form-control" ng-model="newContact.linkedIn"/>
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label>Role</label>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <input class="form-control" ng-model="newContact.role" type="text"/>
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <label>Contexte / Origine du contact</label>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <textarea class="form-control" ng-model="newContact.origin"></textarea>
                 </div>
             </div>
@@ -590,19 +555,13 @@
                 <sub>Lorem upsum parabelmmu ista blah blah</sub>
             </div>
             <div class="col-md-12">
-                <select class="form-control" type="number" ng-model="startup.sipScore"
+                <select class="form-control" type="number" ng-model="startup.sipStatus"
                         ng-blur="saveStartup(startup.sipScore);">
-                    <option value="0">Statut Seed</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="6">6</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
+                    <option value=""></option>
+                    <option value="">Pre-launch : projet en pré-lancement</option>
+                    <option value="">Seed : début d’activité et de CA</option>
+                    <option value="">Series A : 1ère levée de fonds 800K€->5M€</option>
+                    <option value="">Series B : 2e levée de fonds > 5M€</option>
                 </select>
             </div>
         </div>
