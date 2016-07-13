@@ -9651,6 +9651,7 @@ footer .brand {
   margin-top: -10px;
   margin-left: -10px;
   margin-right: -10px;
+  overflow: hidden;
 }
 .page.startup-view .map .startup-map-infowindow .picture {
   display: block;
