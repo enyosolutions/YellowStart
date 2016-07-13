@@ -3059,7 +3059,7 @@ select[multiple].input-lg {
   background-image: none;
   border: 1px solid transparent;
   white-space: nowrap;
-  padding: 8px 12px;
+  padding: 12px 20px;
   font-size: 15px;
   line-height: 1.42857143;
   border-radius: 50px;
@@ -3450,7 +3450,7 @@ fieldset[disabled] .btn-danger.focus {
   background-color: #ffffff;
 }
 .btn-*-outline {
-  font-weight: 300;
+  font-weight: 200;
 }
 .btn-default-outline {
   color: #474949;
@@ -8684,7 +8684,7 @@ footer .brand {
 .page.user-registration {
   color: #ffffff;
   text-align: center;
-  background-image: url(../images/bg2.jpg);
+  background-image: url(../images/background-big.jpg);
   background-size: cover;
 }
 .page.user-registration .left {
@@ -8900,7 +8900,7 @@ footer .brand {
 .page.startup-list .home .section-title {
   font-size: 65px;
   text-align: center;
-  font-weight: 900;
+  font-weight: 800;
   color: #D9D9DE;
   padding: 20px 0;
 }
@@ -8916,20 +8916,20 @@ footer .brand {
 .page.startup-list .home .startups-wrapper .startups-list {
   display: block;
   width: 100%;
-  height: 400px;
+  height: 330px;
   padding: 0 0 80px 0;
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup {
   display: inline-block;
   vertical-align: top;
   position: relative;
-  width: 320px;
-  margin: 0 5px;
+  width: 300px;
+  margin: 0 10px;
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup .thumbnail {
   display: block;
   width: 100%;
-  height: 220px;
+  height: 200px;
   border: none;
   padding: 0;
   margin: 0;
@@ -8937,25 +8937,25 @@ footer .brand {
   -moz-border-radius: 0;
   border-radius: 0;
   overflow: hidden;
-  -webkit-transition: 300ms ease-out all;
-  transition: 300ms ease-out all;
+  -webkit-transition: 200ms ease-out all;
+  transition: 200ms ease-out all;
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup .thumbnail img {
   width: 100%;
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup .mask {
   position: absolute;
-  width: 340px;
-  height: 230px;
-  top: -10px;
-  left: -10px;
-  background-color: rgba(255, 101, 0, 0.95);
+  width: 319px;
+  height: 212px;
+  top: -6px;
+  left: -9px;
+  background-color: rgba(255, 101, 0, 0.9);
   color: white;
   text-align: center;
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: 300ms ease-out all;
-  transition: 300ms ease-out all;
+  -webkit-transition: 200ms ease-out all;
+  transition: 200ms ease-out all;
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup .mask:focus {
   outline: none;
@@ -8963,7 +8963,7 @@ footer .brand {
 .page.startup-list .home .startups-wrapper .startups-list .startup .mask .title {
   font-family: 'Raleway';
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 200;
   color: #FAFDD4;
   letter-spacing: 0.99px;
   text-align: center;
@@ -8980,8 +8980,8 @@ footer .brand {
 .page.startup-list .home .startups-wrapper .startups-list .startup .mask .tag-list .tags {
   margin: 0 5px;
   color: #FAFDD4;
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: 300;
+  font-size: 13px;
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup .mask .action {
   display: inline-block;
@@ -8992,7 +8992,12 @@ footer .brand {
   color: #FAFDD4;
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup:hover .thumbnail {
-  width: 105%;
+  /* width: 105%; */
+  -ms-transform: scale(1.06, 1.06);
+  /* IE 9 */
+  -webkit-transform: scale(1.06, 1.06);
+  /* Safari */
+  transform: scale(1.06, 1.06);
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup:hover .mask {
   opacity: 1;
