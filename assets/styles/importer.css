@@ -9527,6 +9527,7 @@ footer .brand {
 }
 .page.startup-view .generic {
   padding: 40px 0 0 0;
+  background-color: #fff;
 }
 .page.startup-view .generic .video-container {
   margin-top: 90px;
@@ -9539,7 +9540,7 @@ footer .brand {
   border-bottom: 1px solid #e3edef;
 }
 .page.startup-view .sidebar-wall .media:first-child {
-  padding-top: 0;
+  padding-top: 300px;
 }
 .page.startup-view .sidebar-wall .media:last-child {
   border-bottom: none;
