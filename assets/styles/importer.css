@@ -8257,13 +8257,6 @@ body.unlocked {
   height: 110px;
   z-index: 10;
 }
-.top-navigation.top-navigation-default .search-form input:focus ~ div:before {
-  width: 100px;
-  height: 110px;
-  background-color: #ff6500;
-  color: white;
-  content: 'S';
-}
 .top-navigation.top-navigation-default .search-form button {
   position: absolute;
   z-index: 2;
