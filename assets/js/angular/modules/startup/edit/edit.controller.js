@@ -21,13 +21,22 @@ angular.module('start.controllers')
         // SELECTIZE
         $scope.tagsOptions = Tag.query();
         //main tag config
-        $scope.mainTagChanged = function (value) {
-              //  $scope.startup.tags = values.map(slugify);
-                 $scope.saveStartup();
+        $scope.mainTagChanged = function (value, oldvalue) {
+            if (oldvalue) {
+                var idx = $scope.startup.tags.indexOf(oldvalue);
+                if (idx) {
+                    $scope.startup.tags.splice(idx, 1);
+                }
+            }
+            if ($scope.startup.tags.indexOf(value) === -1) {
+                $scope.startup.tags.push(value);
+            }
+            console.log(value);
+            $scope.saveStartup();
         };
 
         $scope.tagsList = {};
-        for (var i in $scope.tagsOptions){
+        for (var i in $scope.tagsOptions) {
             var tag = $scope.tagsOptions[i];
             $scope.tagsList[tag.slug] = tag;
         }
@@ -56,7 +65,6 @@ angular.module('start.controllers')
             }
 
         };
-
 
 
         $scope.logoZone = {
@@ -223,7 +231,6 @@ angular.module('start.controllers')
         var checkRequiredFields = function () {
             var requiredFields = [
                 {field: 'startupName', label: 'Nom de la startup'},
-                {field: 'tagline', label: 'Tag line de la startup'},
                 {field: 'websiteUrl', label: 'Url du site'},
                 {field: 'projectTweet', label: 'Le résumé en 140 caractères'},
                 {field: 'tags', label: 'Les tags de la startup'}

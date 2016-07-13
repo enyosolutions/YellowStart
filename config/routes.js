@@ -47,6 +47,7 @@ module.exports.routes = {
     'GET /api/luna/actions': 'StartupController.lunaActions',
     '/startup/upload-logo': 'StartupController.uploadLogo',
     '/startup/upload-picture': 'StartupController.uploadPicture',
+    '/startup/upload-images': 'StartupController.uploadImages',
     '/startup/upload-file': 'StartupController.uploadFile',
     '/startup/delete-file': 'StartupController.deleteFile',
     'GET /startup/:id/bookmark':  'User/BookmarkController.list',
