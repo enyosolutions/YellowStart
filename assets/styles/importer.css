@@ -8976,10 +8976,10 @@ footer .brand {
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup .mask {
   position: absolute;
-  width: 319px;
-  height: 212px;
-  top: -6px;
-  left: -9px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
   background-color: rgba(255, 101, 0, 0.9);
   color: white;
   text-align: center;
@@ -8998,11 +8998,11 @@ footer .brand {
   color: #FAFDD4;
   letter-spacing: 0.99px;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 35px;
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup .mask .tag-list {
   display: block;
-  height: 50px;
+  height: 45px;
   word-break: break-all;
   white-space: nowrap;
   overflow: hidden;
@@ -9033,6 +9033,11 @@ footer .brand {
 .page.startup-list .home .startups-wrapper .startups-list .startup:hover .mask {
   opacity: 1;
   visibility: visible;
+  -ms-transform: scale(1.06, 1.06);
+  /* IE 9 */
+  -webkit-transform: scale(1.06, 1.06);
+  /* Safari */
+  transform: scale(1.06, 1.06);
 }
 .page.startup-list .heading {
   display: block;
