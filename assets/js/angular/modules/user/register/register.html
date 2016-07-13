@@ -5,7 +5,7 @@
             <!-- left -->
             <div class="left">
                 <h1 class="title">
-                    PAS ENCORE <br /> INSCRIT ?
+                    Pas encore<br /> inscrit ?
                 </h1>
 
                 <p>
@@ -24,7 +24,7 @@
                         <div class="form-group col-xs-6"
                              ng-class="{ 'has-error': form.lastname.$dirty && form.lastname.$error.required }">
                             <label for="lastname">Nom <span class="text-danger">*</span></label>
-                            <input type="text" name="lastname" id="Text1" class="form-control" ng-model="user.lastname"
+                            <input type="text" name="lastname" id="lastname" class="form-control" ng-model="user.lastname"
                                    required/>
                             <span ng-show="form.lastname.$dirty && form.lastname.$error.required" class="help-block">Obligatoire</span>
                         </div>
@@ -46,14 +46,14 @@
                                    required/>
                             <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">L'adresse email est obligatoire</span>
                         </div>
-                        <div class="form-group  col-xs-12"
+                        <div class="form-group  col-xs-6"
                              ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
                             <label for="branche">Branche</label>
                             <input type="text" name="branche" id="branche" class="form-control" ng-model="user.branch"
                                    />
                             <span ng-show="form.branch.$dirty && form.branch.$error.required" class="help-block"></span>
                         </div>
-                        <div class="form-group  col-xs-12"
+                        <div class="form-group  col-xs-6"
                              ng-class="{ 'has-error': form.company.$dirty }">
                             <label for="email">Société</label>
                             <input type="text" name="company" id="company" class="form-control" ng-model="user.company"
@@ -68,17 +68,16 @@
                                    />
                             <span ng-show="form.role.$dirty && form.role.$error.required" class="help-block">Obligatoire</span>
                         </div>
-                        <div class="form-group  col-xs-12"
+                        <div class="form-group  col-xs-6"
                              ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
                             <label for="password">Mot de passe <span class="text-danger">*</span></label>
-                            <sub>(minimum 8 caractères)</sub>
                             <input type="password" name="password" id="password" class="form-control"
                                    ng-model="user.password"
                                    ng-minlength="8"
                                    required/>
                             <span ng-show="user.password.$dirty && user.password.$error.required" class="help-block">Le mot de passe est obligatoire (minimum 8 caractères)</span>
                         </div>
-                        <div class="form-group  col-xs-12"
+                        <div class="form-group  col-xs-6"
                              ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
                             <label for="password">Confirmer le mot de passe <span class="text-danger">*</span></label>
                             <input type="password" name="confirmPassword" id="confirmPassword" class="form-control"
@@ -92,7 +91,7 @@
                             <img ng-if="dataLoading"
                                  src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
                             <button type="submit" ng-disabled="form.$invalid || dataLoading" class="btn btn-primary pull-right">
-                                Créer mon compte
+                                CRÉER MON COMPTE
                             </button>
                         </div>
                     </div>
