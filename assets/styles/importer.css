@@ -8208,9 +8208,9 @@ body.unlocked {
   z-index: 1000;
 }
 .top-navigation .brand {
-  width: 170px;
+  width: 150px;
   float: left;
-  padding: 29px 0;
+  padding: 33px 30px 30px 0;
   border-right: 1px solid #EAEAEA;
 }
 .top-navigation.top-navigation-login .form-login {
