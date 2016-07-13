@@ -63,8 +63,10 @@ angular.module('start.controllers')
         $scope.appendMoreButtons = function (res) {
             console.log(res);
             if (res.body.length > 1) {
-                res.body.push({label: "Afficher tous les résultats", type: 'button', title: $scope.searchName});
+                res.body = res.body.slice(0,6);
+
             }
+            res.body.push({label: "Afficher tous les résultats", type: 'button', title: $scope.searchName});
             return res;
         }
 
