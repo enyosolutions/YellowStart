@@ -20,252 +20,211 @@
 <section>
 <!-- generic -->
 <div class="generic">
-<div class="container">
-<div class="row">
-    <div class="col-md-offset-1 col-md-10 startup-info">
-        <div class="creator-section text-center">
-            <img src="/images/placeholder-user.png" class="creator-image img-circle" alt=""/>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10 startup-info">
+                <div class="creator-section text-center">
+                    <img src="/images/placeholder-user.png" class="creator-image img-circle" alt=""/>
 
-            <div class="creator-label">Sourcé par</div>
-            <div class="creator-info"><span class="creator-name">Keven Aseraff</span> - <span
-                    class="creator-company">Startin'post</span></div>
-        </div>
-        <!-- resume -->
-        <div class="" id="resume">
-            <div class="startup-logo"><img
-                    src="{{ startup.logo }}"
-                    class="circle round" ng-if='startup.logo' alt=""/></div>
-            <a href="{{ startup.websiteUrl }}" target="_blank" class=" startup-website link">{{
-                startup.websiteUrl
-                }}</a>
+                    <div class="creator-label">Sourcé par</div>
+                    <div class="creator-info"><span class="creator-name">Keven Aseraff</span> - <span
+                            class="creator-company">Startin'post</span></div>
+                </div>
+                <!-- resume -->
+                <div class="" id="resume">
+                    <div class="startup-logo"><img
+                            src="{{ startup.logo }}"
+                            class="circle round" ng-if='startup.logo' alt=""/></div>
+                    <a href="{{ startup.websiteUrl }}" target="_blank" class=" startup-website link">{{
+                        startup.websiteUrl
+                        }}</a>
 
-            <p class="intro">
-                {{ startup.projectTweet }}
-            </p>
+                    <p class="intro">
+                        {{ startup.projectTweet }}
+                    </p>
 
-            <p class="description">
-                {{ startup.marketClients }}
-            </p>
+                    <p class="description">
+                        {{ startup.marketClients }}
+                    </p>
 
-            <p class="description">
-                {{ startup.offerServices }}
-            </p>
+                    <p class="description">
+                        {{ startup.offerServices }}
+                    </p>
 
-            <p class="description">
-                {{ startup.offerBusiness }}
-            </p>
-        </div>
+                    <p class="description">
+                        {{ startup.offerBusiness }}
+                    </p>
+                </div>
 
-        <hr/>
+                <hr/>
 
-        <!-- slider -->
-        <div class="" id="documents-area">
-            <div class="media">
-                <a href="">
-                    <div class="media-left">
-                        <i class="ico-svg ico-pdf">
+                <!-- slider -->
+                <div class="" id="documents-area">
+                    <div class="media">
+                        <a href="">
+                            <div class="media-left">
+                                <i class="ico-svg ico-pdf">
 
-                        </i>
+                                </i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Télécharger</h4>
+
+                                <p class="text-primary title">Souscritoo présentation - Business model.pdf</p>
+                            </div>
+                        </a>
                     </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Télécharger</h4>
+                    <div class="media">
+                        <a href="">
+                            <div class="media-left">
+                                <i class="ico-svg ico-ppt">
 
-                        <p class="text-primary title">Souscritoo présentation - Business model.pdf</p>
+                                </i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Télécharger</h4>
+
+                                <p class="text-primary title">Souscritoo présentation - Business model.pdf</p>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-            <div class="media">
-                <a href="">
-                    <div class="media-left">
-                        <i class="ico-svg ico-ppt">
+                    <div class="media">
+                        <a href="">
+                            <div class="media-left">
+                                <i class="ico-svg ico-doc">
 
-                        </i>
+                                </i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Télécharger</h4>
+
+                                <p class="text-primary title">Souscritoo présentation - Business model.pdf</p>
+                            </div>
+                        </a>
                     </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Télécharger</h4>
+                    <div class="media" ng-repeat="document in startup.documents">
+                        <a href="{{ document.file }}">
+                            <div class="media-left">
+                                <img class="media-object" src="{{ document.type }}" alt="...">
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Télécharger</h4>
 
-                        <p class="text-primary title">Souscritoo présentation - Business model.pdf</p>
+                                <p class="text-primary title">{{ document.name }}</p>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-            <div class="media">
-                <a href="">
-                    <div class="media-left">
-                        <i class="ico-svg ico-doc">
-
-                        </i>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Télécharger</h4>
-
-                        <p class="text-primary title">Souscritoo présentation - Business model.pdf</p>
-                    </div>
-                </a>
-            </div>
-            <div class="media" ng-repeat="document in startup.documents">
-                <a href="{{ document.file }}">
-                    <div class="media-left">
-                        <img class="media-object" src="{{ document.type }}" alt="...">
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Télécharger</h4>
-
-                        <p class="text-primary title">{{ document.name }}</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- wall -->
-    <div class="col-md-1">
-        <!-- sidebar -->
-        <div class="sidebar-wall">
-
-            <div class="actions">
-                <button ng-click="bookmarkStartup()" class="action btn btn-link">
-                    <i ng-class="{'icon-favoriteAdd': !isBookmarked, 'icon-favoriteCheck': isBookmarked}"></i>
-
-                    <div class="text-lock" ng-class="{hidden: isBookmarked == 1 }">Suivre</div>
-                    <div class="text-lock" ng-class="{hidden: isBookmarked == 0 }">Suivi</div>
-                </button>
-                <a class="action btn" data-target="#commentModal" data-toggle="modal"
-                   ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
-                    <i class="icon-AddComment"></i>
-
-                    <div class="text-lock">Contacter</div>
-                </a>
-                <a class="action btn" href="#/startup/{{startup._id}}/edit" data-toggle="modal"
-                   ng-show="startup.status === 'draft' || globals.user.roles.indexOf('ADMIN') !== -1">
-                    <i class="icon-EditPage"></i>
-
-                    <div class="text-lock">Editer</div>
-                </a>
-                <a class="action btn" data-toggle="modal" data-target="#documentsModal"
-                   ng-if=" startup.documents.length">
-                    <span class="count">{{ startup.documents.length }}</span>
-
-                    <div class="text-lock">Documents</div>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!--
-
-    <a data-toggle="modal" data-target="#commentModal" ng-if="comments.length < 1">
-        <img src="/images/Wall_S.png" alt="comment" class="nocomment-image"  />
-    </a>
-    <div class="media" ng-repeat="comment in comments">
-        <div class="media-left">
-            <a href="#" class="stack-zone">
-                <img class="media-object img-circle"
-                     src=""
-                     alt="">
-                <img src="http://placehold.it/32x32/FFBC00?text=BSCC&txtsize=20" class="stacked img-circle"/>
-            </a>
-        </div>
-
-        <div class="media-body meta">
-            <h4 class="media-heading">{{ comment.userName }}</h4>
-            <span class="meta date">{{ comment.createdAt | date: longDate }}</span> {{ comment.text }}
-
-            <a class="contact" href="#/user/{{ comment.userId }}/profile">
-                <i class="icon-contact"></i>
-                Contacter
-            </a>
-        </div>
-    </div>
-
-    -->
-
-</div>
-<div class="row">
-
-    <div class="startups-wrapper">
-        <div class="startups-list" startup-slider>
-            <div class="startup" startup-slider>
-                <div class="thumbnail" href="#/startup/{{ startup._id }}/view">
-                    <img src="{{ startup.picture ? startup.picture : '/images/placeholder.jpg' }}"
-                         alt="{{ startup.startupName }}">
                 </div>
             </div>
-            <div class="startup" startup-slider>
-                <iframe class="video-iframe" ng-src="{{ iframeUrl(startup.youtubeId) }}" frameborder="0"
-                        allowfullscreen></iframe>
+
+
+            <!-- wall -->
+            <div class="col-md-1">
+                <!-- sidebar -->
+                <div class="sidebar-wall">
+
+                    <div class="actions">
+                        <button ng-click="bookmarkStartup()" class="action btn btn-link">
+                            <i ng-class="{'icon-favoriteAdd': !isBookmarked, 'icon-favoriteCheck': isBookmarked}"></i>
+
+                            <div class="text-lock" ng-class="{hidden: isBookmarked == 1 }">Suivre</div>
+                            <div class="text-lock" ng-class="{hidden: isBookmarked == 0 }">Suivi</div>
+                        </button>
+                        <a class="action btn" data-target="#commentModal" data-toggle="modal"
+                           ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
+                            <i class="icon-AddComment"></i>
+
+                            <div class="text-lock">Contacter</div>
+                        </a>
+                        <a class="action btn" href="#/startup/{{startup._id}}/edit" data-toggle="modal"
+                           ng-show="startup.status === 'draft' || globals.user.roles.indexOf('ADMIN') !== -1">
+                            <i class="icon-EditPage"></i>
+
+                            <div class="text-lock">Editer</div>
+                        </a>
+                        <a class="action btn" data-toggle="modal" data-target="#documentsModal"
+                           ng-if=" startup.documents.length">
+                            <span class="count">{{ startup.documents.length }}</span>
+
+                            <div class="text-lock">Documents</div>
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <div class="startup" startup-slider>
+            <!--
+
+            <a data-toggle="modal" data-target="#commentModal" ng-if="comments.length < 1">
+                <img src="/images/Wall_S.png" alt="comment" class="nocomment-image"  />
+            </a>
+            <div class="media" ng-repeat="comment in comments">
+                <div class="media-left">
+                    <a href="#" class="stack-zone">
+                        <img class="media-object img-circle"
+                             src=""
+                             alt="">
+                        <img src="http://placehold.it/32x32/FFBC00?text=BSCC&txtsize=20" class="stacked img-circle"/>
+                    </a>
+                </div>
+
+                <div class="media-body meta">
+                    <h4 class="media-heading">{{ comment.userName }}</h4>
+                    <span class="meta date">{{ comment.createdAt | date: longDate }}</span> {{ comment.text }}
+
+                    <a class="contact" href="#/user/{{ comment.userId }}/profile">
+                        <i class="icon-contact"></i>
+                        Contacter
+                    </a>
+                </div>
+            </div>
+
+            -->
+
+        </div>
+    </div>
+</div>
+<div class="row document-section">
+    <div class="documents-list" >
+        <div class="document" document-slider ng-repeat="document in startup.documents | filter : {type: 'image'}">
+            <div class="thumbnail" href="#/startup/{{ startup._id }}/view">
                 <img src="{{ startup.picture ? startup.picture : '/images/placeholder.jpg' }}"
-                     alt="{{ startup.startupName }}">
-            </div>
-
+                     alt="{{ startup.startupName }}"></div>
         </div>
-    </div>
-</div>
-<div class="row">
- <!--   <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        &lt;!&ndash; Indicators &ndash;&gt;
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-        </ol>
-
-        &lt;!&ndash; Wrapper for slides &ndash;&gt;
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img src="{{ startup.picture }}" alt="Chania">
-            </div>
-
-            <div class="item">
-                <iframe class="video-iframe" ng-src="{{ iframeUrl(startup.youtubeId) }}" frameborder="0"
-                        allowfullscreen></iframe>
-            </div>
-
-            <div class="item">
-                <img src="img_flower.jpg" alt="Flower">
-            </div>
-
-            <div class="item">
-                <img src="img_flower2.jpg" alt="Flower">
-            </div>
+        <div class="document" document-slider>
+            <div class="thumbnail" href="#/startup/{{ startup._id }}/view">
+                <img src="{{ '/images/placeholder.jpg' }}"
+                     alt="{{ startup.startupName }}"></div>
+        </div>
+        <div class="document" document-slider>
+            <div class="thumbnail" href="#/startup/{{ startup._id }}/view">
+                <img src="{{ startup.picture ? startup.picture : '/images/placeholder.jpg' }}"
+                     alt="{{ startup.startupName }}"></div>
+        </div>
+        <div class="document" document-slider>
+            <iframe class="thumbnail" ng-src="{{ iframeUrl(startup.youtubeId) }}" frameborder="0"
+                    allowfullscreen></iframe>
         </div>
 
-
-        &lt;!&ndash; Left and right controls &ndash;&gt;
-        <a class="left carousel-control" data-target="#myCarousel" role="button" data-slide="prev">
-            <span class="fa fa-angle-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" data-target="#myCarousel" role="button" data-slide="next">
-            <span class="fa fa-angle-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>-->
-</div>
-<div class="row">
-    <div class="video-container" ng-if="startup.youtubeId">
-        <iframe ng-src="{{ iframeUrl(startup.youtubeId) }}" frameborder="0" allowfullscreen></iframe>
     </div>
 </div>
-</div>
-</div>
+
 
 <!-- sip-note -->
 <div class="sip-note">
     <div class="container">
-        <div class="inner">
+        <div class="col-sm-offset-2 col-sm-4">
             <img src="/images/la-note-sip.png" alt=""/>
 
             <div class="note">
                 {{ startup.sipScore || '0' }}/10
             </div>
 
+        </div>
+        <div class="col-sm-4">
             <p class="evaluation">
                 {{ startup.sipAnalysis }}
+                <br>
+                <span class="badge primary">{{ startup.sipStatus || 'Statut Seed' }}</span>
             </p>
         </div>
     </div>
@@ -292,10 +251,6 @@
                     </div>
                     <div class="card-block">
                         <h4 class="card-title">{{ relatedStartup.startupName }}</h4>
-
-                        <p class="card-text">
-                            {{ relatedStartup.tagline }}
-                        </p>
 
                         <div class="card-link-section">
                             <a href="#/startup?tag={{tag}}" class="card-link text-info"

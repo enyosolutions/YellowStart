@@ -150,6 +150,7 @@ angular.module('start.controllers')
     .directive('startupSlider', function () {
         return function (scope, element) {
             if (scope.$last) {
+                console.log(element.parent());
                 element.parent().slick({
                     infinite: false,
                     variableWidth: true,
@@ -161,18 +162,5 @@ angular.module('start.controllers')
             }
         };
     })
-    .directive('documentSlider', function () {
-        return function (scope, element) {
-            if (scope.$last) {
-                element.parent().slick({
-                    infinite: false,
-                    variableWidth: true,
-                    speed: 300,
-                    centerMode: false,
-                    slidesToShow: 4,
-                    slidesToScroll: 1
-                });
-            }
-        };
-    })
+
 ;
