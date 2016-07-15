@@ -471,6 +471,13 @@ background-position: center;
         font-weight: 400;
         color: @brand-info;
 
+
+        &:hover,
+        &:focus {
+          text-decoration: none;
+          color: @brand-primary;
+        }
+
         .circle {
           display: block;
           margin: 0 auto 5px auto;
@@ -618,6 +625,10 @@ background-position: center;
         .title {
           text-decoration: underline;
         }
+        i {
+          font-size: 3em;
+          color: @brand-info;
+        }
         .ico-svg {
           width: 44px;
           height: 56px;
@@ -658,11 +669,20 @@ background-position: center;
             }
           }
         }
+
+
+        &:hover, :focus{
+
+          i {
+            font-size: 3em;
+            color: @brand-primary;
+          }
+
+          background-color: rgba(221,221,221,0.2);
+        }
       }
       
-      .media:hover{
-        background-color: rgba(221,221,221,0.2);
-      }
+
     }
 
     /*
