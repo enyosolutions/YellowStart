@@ -8527,6 +8527,7 @@ footer .brand {
   width: 100%;
   overflow: hidden;
   position: relative;
+  min-height: 300px;
 }
 .cycle-slider-home .slide {
   width: 100%;
@@ -8844,21 +8845,62 @@ footer .brand {
 .page.user-profile .starredProjects .results .startup {
   border: none !important;
 }
+.page.user-profile .starredProjects .results .startup:hover .card-img-top {
+  -ms-transform: scale(1.06, 1.06);
+  /* IE 9 */
+  -webkit-transform: scale(1.06, 1.06);
+  /* Safari */
+  transform: scale(1.06, 1.06);
+}
+.page.user-profile .starredProjects .results .startup:hover .card-block {
+  opacity: 1;
+  visibility: visible;
+  -ms-transform: scale(1.06, 1.06);
+  /* IE 9 */
+  -webkit-transform: scale(1.06, 1.06);
+  /* Safari */
+  transform: scale(1.06, 1.06);
+}
 .page.user-profile .starredProjects .results .startup .card-img-top {
   border-radius: 0;
+  -webkit-transition: 200ms ease-out all;
+  transition: 200ms ease-out all;
+}
+.page.user-profile .starredProjects .results .startup .card-img-top img {
+  height: 200px;
 }
 .page.user-profile .starredProjects .results .startup .card-block {
   padding: 15px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 105, 0, 0.95);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 200ms ease-out all;
+  transition: 200ms ease-out all;
+  text-align: center;
 }
 .page.user-profile .starredProjects .results .startup .card-block .card-title {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: 300;
+  margin-top: 40px;
   white-space: nowrap;
   text-overflow: ellipsis;
+  text-align: center;
+  color: #FAFDD4;
 }
 .page.user-profile .starredProjects .results .startup .card-block .card-text {
   height: 36px !important;
-  font-size: 12px !important;
+  font-size: 13px !important;
+  color: #FAFDD4;
+  overflow: hidden;
+  text-align: center;
+  word-break: break-all;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .page.user-profile .starredProjects .results .startup .card-block .card-link-section {
   height: 40px;
@@ -8867,17 +8909,8 @@ footer .brand {
   word-break: break-all;
 }
 .page.user-profile .starredProjects .results .startup .card-block .card-link-section .card-link {
-  font-size: 12px;
-  color: #0031f7;
-}
-.page.user-profile .starredProjects .results .startup .card-block .button-wrapper {
-  display: block;
-  margin: 10px 0 0 0;
-}
-.page.user-profile .starredProjects .results .startup .card-block .button-wrapper .btn {
-  text-transform: uppercase;
-  padding-left: 20px;
-  padding-right: 20px;
+  font-size: 13px;
+  color: #FAFDD4;
 }
 @media screen and (max-width: 768px) {
   .page.user-profile .user .avatar {
