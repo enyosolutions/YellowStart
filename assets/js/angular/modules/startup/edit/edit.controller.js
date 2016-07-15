@@ -8,7 +8,7 @@
  * Controller of the startApp
  */
 angular.module('start.controllers')
-    .controller('EditStartupCtrl', function ($scope, $rootScope, $stateParams, $location, $localstorage, $timeout, $ngBootbox, $compile, $log, Startup, StartupContact, Utils, Tag, Crawler, NotificationService, CONFIG) {
+    .controller('EditStartupCtrl', function ($scope, $rootScope, $stateParams, $location, $http, $localstorage, $timeout, $ngBootbox, $compile, $log, Startup, StartupContact, Utils, Tag, Crawler, NotificationService, CONFIG) {
         $scope.pageClass = 'startup-edit';
         $scope.pageClass = 'edit-page';
         $scope.startup = {};
@@ -125,7 +125,9 @@ angular.module('start.controllers')
             addedFile: function (file) {
                 $log.log(file);
             },
-
+            removedFile: function (file) {
+                $http.get('/startup/delete-file?id=' + $scope.startup._id + '&fileId=' + file.file);
+            },
             error: function (file, errorMessage) {
                 $log.log(errorMessage);
             },
@@ -188,7 +190,7 @@ angular.module('start.controllers')
                     $timeout(function () {
                         if ($scope.startup._id && $scope.startup.picture) {
                             console.log($scope.startup.picture);
-                            var mockFile = {name: $scope.startup.picture, size: ''};
+                            var mockFile = {name: $scope.startup.picture, size: '',};
                             thisDropzone.options.addedfile.call(thisDropzone, mockFile);
                             thisDropzone.options.thumbnail.call(thisDropzone, mockFile, $scope.startup.picture);
 
@@ -201,6 +203,20 @@ angular.module('start.controllers')
         $scope.filesZone = {
             addedFile: function (file) {
                 $log.log(file);
+            },
+            removedFile: function (file) {
+                var thisDropzone = this;
+                console.log(file, '/startup/delete-file?id=' + $scope.startup._id + '&fileId=' + file.id);
+                $http.post('/startup/delete-file', {_id: $scope.startup._id, fileId: file.id});
+
+                for (var i = 0; i < $scope.startup.documents.length; i++) {
+                    if ($scope.startup.documents[i].file === file.id) {
+                        $scope.startup.documents.splice(i, 1);
+                        break;
+                    }
+                }
+
+                return true;
             },
 
             error: function (file, errorMessage) {
@@ -219,6 +235,8 @@ angular.module('start.controllers')
                 addRemoveLinks: true,
                 maxFiles: 5,
                 headers: {'Authorization': 'Bearer ' + $localstorage.get('auth_token')},
+
+
                 init: function () {
                     console.log('initializing dropzone');
                     var thisDropzone = this;
@@ -227,7 +245,7 @@ angular.module('start.controllers')
                         $timeout(function () {
                             for (var i in $scope.startup.documents) {
                                 var value = $scope.startup.documents[i];
-                                var mockFile = {name: value.name, size: value.size};
+                                var mockFile = {name: value.name, size: value.size, id: value.file};
                                 thisDropzone.options.addedfile.call(thisDropzone, mockFile);
 
                                 if (value.file) {
@@ -245,9 +263,23 @@ angular.module('start.controllers')
                 $log.log(file);
             },
 
+            removedFile: function (file) {
+                var thisDropzone = this;
+                console.log(file, '/startup/delete-file?id=' + $scope.startup._id + '&fileId=' + file.id);
+                $http.post('/startup/delete-file', {_id: $scope.startup._id, fileId: file.id});
+                for (var i = 0; i < $scope.startup.images.length; i++) {
+                    if ($scope.startup.images[i].file === file.id) {
+                        $scope.startup.images.splice(i, 1);
+                        break;
+                    }
+                }
+                return true;
+            },
+
             error: function (file, errorMessage) {
                 $log.log(errorMessage);
             },
+
             success: function (file, response) {
 
             },
@@ -256,11 +288,12 @@ angular.module('start.controllers')
                 paramName: "file",
                 parallelUploads: 4,
                 maxFileSize: 10,
-                dictDefaultMessage: 'Glissez-déposer ou bien cliquez pour ajouter un document',
-                acceptedFiles: 'image/*,application/pdf,.ppt,.pptx,.doc,.docx,.xls,.xlsx,.zip',
+                dictDefaultMessage: 'Glissez-déposer ou bien cliquez pour ajouter une image',
+                acceptedFiles: 'image/*',
                 addRemoveLinks: true,
                 maxFiles: 5,
                 headers: {'Authorization': 'Bearer ' + $localstorage.get('auth_token')},
+
                 init: function () {
                     console.log('initializing dropzone');
                     var thisDropzone = this;
@@ -269,7 +302,7 @@ angular.module('start.controllers')
                         $timeout(function () {
                             for (var i in $scope.startup.images) {
                                 var value = $scope.startup.images[i];
-                                var mockFile = {name: value.name, size: value.size};
+                                var mockFile = {name: value.name, size: value.size, id: value.file};
                                 thisDropzone.options.addedfile.call(thisDropzone, mockFile);
 
                                 if (value.file) {
@@ -282,8 +315,6 @@ angular.module('start.controllers')
             }
         };
 
-
-        console.log($stateParams);
 
         //CHECK IF THE STARTUP YOU ARE TRYING TO CREATE DOES NOT ALREADY EXISTS
         $scope.checkExistingStartup = function (name) {
@@ -467,6 +498,7 @@ angular.module('start.controllers')
             var c = $scope.startup.members.splice(id, 1);
             $scope.startup.$update();
         }
+
 
     }
 )

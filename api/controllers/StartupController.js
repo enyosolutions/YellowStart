@@ -345,7 +345,7 @@ module.exports = {
 
     'deleteFile': function (req, res, next) {
 
-        var id = req.body._id;
+        var id = req.body ? req.body._id : null;
         var fileId = req.body.fileId;
 
         var startupCollection = Monk.get('startup');
@@ -364,14 +364,14 @@ module.exports = {
                 if (!isDoc) {
                     for (var i = 0; i < startup.images.length; i++) {
                         if (startup.images[i].file === fileId) {
-                            startup.documents.splice(i, 1);
+                            startup.images.splice(i, 1);
                             break;
                         }
                     }
                 }
 
                 startupCollection.update({_id: id}, startup).then(function () {
-                    res.json(200, {body: startup.documents});
+                    res.json(200, {body: startup});
                 });
             }
             else {
