@@ -60,10 +60,10 @@
 
                 <!-- slider -->
                 <div class="" id="documents-area">
-                    <!--<div class="media">
+                    <div class="media">
                         <a href="">
                             <div class="media-left">
-                                <i class="ico-svg ico-pdf">
+                                <i class="icon-start-ico-pdf">
 
                                 </i>
                             </div>
@@ -77,7 +77,7 @@
                     <div class="media">
                         <a href="">
                             <div class="media-left">
-                                <i class="ico-svg ico-ppt">
+                                <i class="icon-start-ico-ppt">
 
                                 </i>
                             </div>
@@ -91,7 +91,7 @@
                     <div class="media">
                         <a href="">
                             <div class="media-left">
-                                <i class="ico-svg ico-doc">
+                                <i class="ico-svg icon-start-ico-doc">
 
                                 </i>
                             </div>
@@ -102,11 +102,11 @@
                             </div>
                         </a>
                     </div>
-                    -->
+
                     <div class="media" ng-repeat="document in startup.documents">
                         <a href="{{ document.file }}">
                             <div class="media-left">
-                                <i class="ico-svg ico-{{ document.extension | lowercase }}">
+                                <i class="icon-start-ico-{{ document.extension | lowercase }}">
                                 </i>
                             </div>
                             <div class="media-body">
@@ -127,20 +127,25 @@
 
                     <div class="actions">
                         <button ng-click="bookmarkStartup()" class="action btn btn-link">
-                            <i ng-class="{'icon-favoriteAdd': !isBookmarked, 'icon-favoriteCheck': isBookmarked}"></i>
+                            <i ng-class="{'icon-start-bt-follow': !isBookmarked, 'icon-start-bt-unfollow': isBookmarked}">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                                <span class="path3"></span>
+                            </i>
+
 
                             <div class="text-lock" ng-class="{hidden: isBookmarked == 1 }">Suivre</div>
                             <div class="text-lock" ng-class="{hidden: isBookmarked == 0 }">Suivi</div>
                         </button>
                         <a class="action btn" data-target="#commentModal" data-toggle="modal"
                            ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
-                            <i class="icon-AddComment"></i>
+                            <i class="icon-start-bt-contact"></i>
 
                             <div class="text-lock">Contacter</div>
                         </a>
                         <a class="action btn" href="#/startup/{{startup._id}}/edit" data-toggle="modal"
                            ng-show="startup.status === 'draft' || globals.user.roles.indexOf('ADMIN') !== -1">
-                            <i class="icon-EditPage"></i>
+                            <i class="icon-start-bt-edit"></i>
 
                             <div class="text-lock">Editer</div>
                         </a>
@@ -215,7 +220,7 @@
 <div class="sip-note">
     <div class="container">
         <div class="col-sm-offset-2 col-sm-4">
-            <img src="/images/la-note-sip.png" alt=""/>
+            <img src="/images/la-note-sip.png"  data-rjs="2" alt=""/>
 
             <div class="note">
                 {{ startup.sipScore || '0' }}/10

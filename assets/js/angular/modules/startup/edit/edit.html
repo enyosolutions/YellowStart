@@ -258,21 +258,13 @@
                       ng-dropzone
                       dropzone="filesZone.dropzone"
                       dropzone-config="filesZone.dropzoneConfig"
-                      event-handlers="{ 'addedfile': filesZone.addedFile, 'error': filesZone.error,
+                      event-handlers="{ 'addedfile': filesZone.addedFile,
+                       'error': filesZone.error,
+                       'removedfile': filesZone.removedFile,
                                        'success': filesZone.success
                                        }">
                     <input type="hidden" name="_id" value="{{ startup._id }}"/>
                 </form>
-                <ul class="list-group">
-                    <li class="list-group-item" ng-repeat="document in startup.documents">
-                        {{ document.name }} - <span
-                            class="label label-info">{{ document.type | limitTo :8}}</span>
-
-                        <button class="btn btn-primary-outline badge"
-                                ng-click="deleteDocument($index)">
-                            <i class="fa fa-close"></i></button>
-                    </li>
-                </ul>
             </div>
         </div>
 
@@ -288,21 +280,13 @@
                       ng-dropzone
                       dropzone="extraImagesZone.dropzone"
                       dropzone-config="extraImagesZone.dropzoneConfig"
-                      event-handlers="{ 'addedfile': extraImagesZone.addedFile, 'error': extraImagesZone.error,
+                      event-handlers="{ 'addedfile': extraImagesZone.addedFile,
+                       'removedfile': extraImagesZone.removedFile,
+                       'error': extraImagesZone.error,
                                        'success': extraImagesZone.success
                                        }">
                     <input type="hidden" name="_id" value="{{ startup._id }}"/>
                 </form>
-                <ul class="list-group">
-                    <li class="list-group-item" ng-repeat="document in startup.images">
-                        {{ document.name }} - <span
-                            class="label label-info">{{ document.type | limitTo :8}}</span>
-
-                        <button class="btn btn-primary-outline badge"
-                                ng-click="deleteDocument($index)">
-                            <i class="fa fa-close"></i></button>
-                    </li>
-                </ul>
             </div>
         </div>
 

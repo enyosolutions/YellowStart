@@ -8180,6 +8180,51 @@ body {
 .icon-account:before {
   content: "\e90b";
 }
+@font-face {
+  font-family: 'icomoon-startup';
+  src: url('fonts/icomoon-startup.eot?g0kbku');
+  src: url('fonts/icomoon-startup.eot?g0kbku#iefix') format('embedded-opentype'), url('fonts/icomoon-startup.ttf?g0kbku') format('truetype'), url('fonts/icomoon-startup.woff?g0kbku') format('woff'), url('fonts/icomoon-startup.svg?g0kbku#icomoon-startup') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-start-"],
+[class*=" icon-start-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon-startup' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-start-ico-doc:before {
+  content: "\e905";
+}
+.icon-start-ico-pdf:before {
+  content: "\e90a";
+}
+.icon-start-ico-ppt:before {
+  content: "\e910";
+}
+.icon-start-ico-xls:before {
+  content: "\e915";
+}
+.icon-start-bt-contact:before {
+  content: "\e91e";
+}
+.icon-start-bt-edit:before {
+  content: "\e900";
+}
+.icon-start-bt-follow:before {
+  content: "\e901";
+}
+.icon-start-bt-unfollow:before {
+  content: "\e904";
+}
 /*
  * Loading screen
  */
@@ -8338,6 +8383,7 @@ body.unlocked {
 }
 .top-navigation.top-navigation-default .navigation .orange {
   background: #fff;
+  border-bottom-color: #ff6500;
 }
 .top-navigation.top-navigation-default .navigation .orange a {
   color: #FF6500 !important;
@@ -8379,6 +8425,7 @@ body.unlocked {
 .top-navigation.top-navigation-default .navigation li a:hover,
 .top-navigation.top-navigation-default .navigation li a:focus {
   text-decoration: none;
+  color: #ff6500;
 }
 .top-navigation.top-navigation-default .navigation li a .icon {
   font-size: 24px;
@@ -9339,6 +9386,11 @@ footer .brand {
   font-weight: 400;
   color: #0031f7;
 }
+.page.startup-view .sidebar-wall .actions .action:hover,
+.page.startup-view .sidebar-wall .actions .action:focus {
+  text-decoration: none;
+  color: #ff6500;
+}
 .page.startup-view .sidebar-wall .actions .action .circle {
   display: block;
   margin: 0 auto 5px auto;
@@ -9461,6 +9513,10 @@ footer .brand {
 .page.startup-view .startup-info #documents-area .media .title {
   text-decoration: underline;
 }
+.page.startup-view .startup-info #documents-area .media i {
+  font-size: 3em;
+  color: #0031f7;
+}
 .page.startup-view .startup-info #documents-area .media .ico-svg {
   width: 44px;
   height: 56px;
@@ -9496,8 +9552,14 @@ footer .brand {
 .page.startup-view .startup-info #documents-area .media a:hover .ico-svg.ico-pptx {
   background-image: url('/images/icons/svg/ico-ppt-on.svg');
 }
-.page.startup-view .startup-info #documents-area .media:hover {
+.page.startup-view .startup-info #documents-area .media:hover,
+.page.startup-view .startup-info #documents-area .media :focus {
   background-color: rgba(221, 221, 221, 0.2);
+}
+.page.startup-view .startup-info #documents-area .media:hover i,
+.page.startup-view .startup-info #documents-area .media :focus i {
+  font-size: 3em;
+  color: #ff6500;
 }
 .page.startup-view .startup-info #product .section {
   display: block;
