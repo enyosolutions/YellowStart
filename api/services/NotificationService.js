@@ -7,10 +7,11 @@ module.exports = {
                 var notifCollection = Monk.get("user-notification");
                 var notification = {
                     label: 'Nouvelle startup publiée : ' + startup.startupName,
-                    url: '/startup/' + startup._id + '/view',
+                    url: '#/startup/' + startup._id + '/view',
                     status: 'new',
                     createdAt: new Date()
                 };
+
                 Monk.get("user").find({bookmarks: startup._id}).then(function (coll) {
                     if (coll && coll.length > 0) {
                         for (var i in coll) {
@@ -31,7 +32,7 @@ module.exports = {
 
                 var notification = {
                     label: 'Nouveau commentaire publié sur la fiche de ' + startup.startupName,
-                    url: '/startup/' + startup._id  +'/view',
+                    url: '#/startup/' + startup._id  +'/view',
                     status: 'new',
                     createdAt: new Date()
                 };
@@ -64,7 +65,7 @@ module.exports = {
                 var user = users[0];
                 var notification = {
                     label: 'Nouvel utilisateur à activer : ' + user.firstname + ' ' + user.lastname,
-                    url: '/admin/startup/user',
+                    url: '#/admin/startup/user',
                     status: 'new',
                     createdAt: new Date()
                 };

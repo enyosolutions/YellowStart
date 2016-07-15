@@ -291,7 +291,7 @@ module.exports = {
     // UPLOAD OF STARTUP PRODUCT PICTURES
     'uploadImages': function (req, res, next) {
 
-        console.log('upload files');
+        console.log('upload Images');
 
         var id = req.body._id;
         console.log('startup id', id);
@@ -301,6 +301,7 @@ module.exports = {
                 var startup = col[0];
                 req.file('file').upload({
                     // don't allow the total upload size to exceed ~10MB
+
                     maxBytes: 10000000,
                     dirname: sails.config.appPath + '/assets/data/startup/images'
                 }, function whenDone(err, uploadedFiles) {
@@ -316,11 +317,11 @@ module.exports = {
                     // Save the "fd" and the url where the avatar for a user can be accessed
                     var filename = uploadedFiles[0].fd.split('/').pop();
                     console.log(uploadedFiles[0]);
-                    if (!startup.documents) {
-                        startup.documents = [];
+                    if (!startup.images) {
+                        startup.images = [];
                     }
 
-                    startup.documents.push({
+                    startup.images.push({
                         id: filename,
                         size: uploadedFiles[0].size,
                         type: uploadedFiles[0].type,
@@ -329,7 +330,7 @@ module.exports = {
                         file: '/data/startup/images/' + filename
                     });
                     startupCollection.update({_id: id}, startup).then(function () {
-                        res.json(200, {body: startup.documents});
+                        res.json(200, {body: startup.images});
                     });
                 });
             }
@@ -463,25 +464,10 @@ module.exports = {
                     var filename = uploadedFiles[0].fd.split('/').pop();
                     console.log(process.cwd());
                     startup.logo = '/data/startup/logos/' + filename;
-                    //  startup.picture = '/data/startup/logos/thumb-' + filename;
 
                     startupCollection.update({_id: id}, startup).then(function () {
                         res.json(200, {body: startup.logo});
                     });
-                    /*
-                     gm(process.cwd() + '/assets' + original)
-                     .resize('500', '333', '^')
-                     .gravity('Center')
-                     .crop('500', '333')
-                     .write(process.cwd() + '/assets'
-                     + startup.picture, function (err) {
-                     console.log(err);
-                     console.log('Image cropped');
-                     startupCollection.update({_id: id}, startup).then(function () {
-                     res.json(200, {body: startup.picture});
-                     });
-                     });
-                     */
 
                 });
             }

@@ -140,8 +140,8 @@
                     Mes<br/>favoris
                 </a>
             </li>
-            <li class="dropdown notifications">
-                <a ng-click="clearNotifications()" fadeOut id="notificationsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" fadeOut>
+            <li class="dropdown notifications" >
+                <a fadeOut id="notificationsDropdown"  ng-click="clearNotifications()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" fadeOut>
                     <div class="icon">
                         <span class="badge blue">{{ notifications.length || 0 }}</span>
                     </div>
@@ -152,8 +152,8 @@
                     <li ng-repeat="notif in notifications" ng-if="notifications.length > 0">
                         <a href="#{{ notif.url }}" class=" text-left"> <i class="fa fa-info text-info"></i> - {{ notif.label }} </a>
                     </li>
-                    <li ng-if="!notifications || notifications.length < 1" class="dropdown-header">
-                        <i class="fa fa-info text-info"></i> Pas de notifications
+                    <li  ng-if="notifications.length > 0">
+                        <button class="btn btn-link-primary text-left"> Effacer </button>
                     </li>
                 </ul>
 
