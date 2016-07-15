@@ -46,7 +46,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="startup in startups">
+                    <tr ng-repeat="startup in startups track by startup._id">
                         <td>{{ startup.startupName  }}</td>
                         <td>{{ startup.tags.join(' , ') }}</td>
                         <td>{{ startup.createdAt | date : longDate }}</td>

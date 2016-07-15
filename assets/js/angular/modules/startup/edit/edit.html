@@ -193,7 +193,7 @@
 
         <div class="form-group text-center">
             <div class="btn-group">
-                <button type="button" class="btn btn-primary-outline" ng-click="publishStartup()">
+                <button type="button" class="btn btn-primary-outline" ng-click="saveStartup()">
                     Continuer plus tard
                 </button>
                 <button type="button" class="btn btn-primary" data-target="#documents"
@@ -318,10 +318,10 @@
 
         <div class="form-group text-center">
             <div class="btn-group">
-                <button type="button" class="btn btn-primary-outline" ng-click="publishStartup()">
+                <button type="button" class="btn btn-primary-outline" ng-click="saveStartup()">
                     Continuer plus tard
                 </button>
-                <button type="button" class="btn btn-primary" data-target="#marche"
+                <button type="button" class="btn btn-primary" data-target="#contact"
                         data-toggle="tab"
                         >Etape suivante
                 </button>
@@ -338,7 +338,7 @@
 
         <div class="contact-form existing-contact" ng-repeat="contact in startupContacts">
             <div class="form-group">
-                <button class="btn btn-primary-outline badge pull-right" ng-click="deleteMember(index)">
+                <button class="btn btn-primary-outline badge pull-right" ng-click="deleteMember($index)">
                     <i class="fa fa-close"></i></button>
             </div>
             <div class="form-group">
