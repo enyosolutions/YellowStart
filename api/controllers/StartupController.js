@@ -351,7 +351,7 @@ module.exports = {
         startupCollection.find({_id: id}).then(function (col) {
             if (col && col.length > 0) {
                 var startup = col[0];
-                var isDoc = false;
+                isDoc = false;
                 for (var i = 0; i < startup.documents.length; i++) {
 
                     if (startup.documents[i].file === fileId) {

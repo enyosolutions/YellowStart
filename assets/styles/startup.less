@@ -191,32 +191,54 @@
       padding-right: 10px;
     }
 
+
     .startup {
       border: none !important;
 
       &:hover {
+        .card-img-top {
+          -ms-transform: scale(1.06, 1.06); /* IE 9 */
+          -webkit-transform: scale(1.06, 1.06); /* Safari */
+          transform: scale(1.06, 1.06);
+        }
+
         .card-block {
           opacity: 1;
           visibility: visible;
+
+          -ms-transform: scale(1.06, 1.06); /* IE 9 */
+          -webkit-transform: scale(1.06, 1.06); /* Safari */
+          transform: scale(1.06, 1.06);
         }
       }
 
+
       .card-img-top {
         border-radius: 0;
+
+        -webkit-transition: 200ms ease-out all;
+        transition: 200ms ease-out all;
+
+
+        img {
+          height: 200px;
+        }
       }
 
+
       .card-block {
+
         padding: 15px 0;
         position: absolute;
-        top: -5.5%;
-        left: -2.5%;
-        width: 105%;
-        height: 105%;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         background-color: rgba(255, 105, 0, 0.95);
         opacity: 0;
         visibility: hidden;
-        -webkit-transition: 300ms ease-in all;
-        transition: 300ms ease-in all;
+        -webkit-transition: 200ms ease-out all;
+        transition: 200ms ease-out all;
         text-align: center;
 
         .card-title {
@@ -234,6 +256,9 @@
           color: #FAFDD4;
           overflow: hidden;
           text-align: center;
+          word-break: break-all;
+          white-space: nowrap;
+          text-overflow: ellipsis;
         }
 
         .card-link-section {
@@ -241,12 +266,15 @@
           overflow: hidden;
           text-overflow: ellipsis;
           word-break: break-all;
+          width: 90%;
+          margin: auto;
 
           .card-link {
             font-size: 13px;
             color: #FAFDD4;
           }
         }
+
         .button-wrapper {
           display: inline-block;
           margin: 10px auto 0 auto;
@@ -263,7 +291,12 @@
           }
         }
       }
+
+
     }
+
+
+
   }
 
   // Bottom
@@ -1020,37 +1053,52 @@
     }
 
     .startup {
-      text-align: left;
       border: none !important;
+
+      &:hover {
+        .card-img-top {
+          -ms-transform: scale(1.06, 1.06); /* IE 9 */
+          -webkit-transform: scale(1.06, 1.06); /* Safari */
+          transform: scale(1.06, 1.06);
+        }
+
+        .card-block {
+          opacity: 1;
+          visibility: visible;
+
+          -ms-transform: scale(1.06, 1.06); /* IE 9 */
+          -webkit-transform: scale(1.06, 1.06); /* Safari */
+          transform: scale(1.06, 1.06);
+        }
+      }
+
 
       .card-img-top {
         border-radius: 0;
+
+        -webkit-transition: 200ms ease-out all;
+        transition: 200ms ease-out all;
+
 
         img {
           height: 200px;
         }
       }
 
-      &:hover {
-        .card-block {
-          opacity: 1;
-          visibility: visible;
-        }
-      }
 
       .card-block {
 
         padding: 15px 0;
         position: absolute;
-        top: -5.5%;
-        left: -2.5%;
-        width: 105%;
-        height: 105%;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         background-color: rgba(255, 105, 0, 0.95);
         opacity: 0;
         visibility: hidden;
-        -webkit-transition: 300ms ease-in all;
-        transition: 300ms ease-in all;
+        -webkit-transition: 200ms ease-out all;
+        transition: 200ms ease-out all;
         text-align: center;
 
         .card-title {
@@ -1068,6 +1116,9 @@
           color: #FAFDD4;
           overflow: hidden;
           text-align: center;
+          word-break: break-all;
+          white-space: nowrap;
+          text-overflow: ellipsis;
         }
 
         .card-link-section {
@@ -1075,12 +1126,15 @@
           overflow: hidden;
           text-overflow: ellipsis;
           word-break: break-all;
+          width: 90%;
+          margin: auto;
 
           .card-link {
             font-size: 13px;
             color: #FAFDD4;
           }
         }
+
         .button-wrapper {
           display: inline-block;
           margin: 10px auto 0 auto;
@@ -1097,8 +1151,12 @@
           }
         }
       }
+
+
     }
   }
+
+
 
   // know-startup
   .know-startup {

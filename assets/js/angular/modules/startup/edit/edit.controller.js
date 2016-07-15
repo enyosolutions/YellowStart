@@ -15,9 +15,7 @@ angular.module('start.controllers')
         $scope.startupContacts = []; // LIST OF CONTACT OF THE STARTUP
         $scope.newContact = {}; // NEW CONTACT FOR ADDING AND EDITING FORM
         $scope.selectedTags = [];
-        if ($scope.startup.tags) {
-            $scope.selectedTags = $scope.startup.tags;
-        }
+
         // SELECTIZE
         $scope.tagsOptions = Tag.query();
         //main tag config
@@ -27,6 +25,9 @@ angular.module('start.controllers')
                 if (idx) {
                     $scope.startup.tags.splice(idx, 1);
                 }
+            }
+            if (!$scope.startup.tags) {
+                $scope.startup.tags = [];
             }
             if ($scope.startup.tags.indexOf(value) === -1) {
                 $scope.startup.tags.push(value);
@@ -61,6 +62,9 @@ angular.module('start.controllers')
             onChange: function (values) {
                 console.log(values);
                 $scope.startup.tags = values.map(slugify);
+                if ($scope.startup.tags.indexOf($scope.startup.mainTag) === -1) {
+                    $scope.startup.tags.push($scope.startup.mainTag);
+                }
                 $scope.saveStartup();
             }
 
@@ -210,6 +214,16 @@ angular.module('start.controllers')
             // Load the startup
             $scope.startup = new Startup($scope.startup);
             $scope.startup.$get().then(function (res) {
+                    if (res.tags) {
+                        $scope.selectedTags = res.tags;
+                        if(res.mainTag){
+                            var idx = $scope.selectedTags.indexOf(res.mainTag);
+                            if(idx !== -1){
+                            $scope.selectedTags.splice(idx, 1);
+                            }
+
+                        }
+                    }
                     if (res.creationDate) {
                         var d = res.creationDate.split('-');
                         if (res.creationDate.length >= 3) {
@@ -246,7 +260,7 @@ angular.module('start.controllers')
             if (!$scope.startup._id) {
                 Startup.query({'check': name}).$promise.then(function (res) {
                     if (res && res.length > 0) {
-                        var tpl = "Nous avons trouvé des startups qui ressemblent à la startup que vous souhaiter créer. Peut-être souhaitez-vous editer une de ces fiches à la place ? <hr/>"
+                        var tpl = "Nous avons trouvé des startups qui ressemblent à la startup que vous allez créer. Peut-être souhaitez-vous editer une de ces fiches à la place ? <hr/>"
                             + res.map(function (e) {
                                 return "<div><h3><a href='#/startup/" + e._id + "/edit'>" + e.startupName +
                                 (e.picture && e.picture.length > 0 ? "<img class='media-object pull-right' alt='" + e.startupName + "' style='height: 50px; width: 50px;' src='" + e.picture + "' alt=''>" : "" ) +
@@ -267,6 +281,7 @@ angular.module('start.controllers')
                 });
             }
             else {
+                console.log($scope.startup._id);
                 $scope.saveStartup();
             }
         };
@@ -284,6 +299,7 @@ angular.module('start.controllers')
                     missingFields.push(requiredFields[i]);
                 }
             }
+            console.log(missingFields);
             if (missingFields.length > 0) {
                 $ngBootbox.alert('<h3>Il manque des champs pour valider votre fiche</h3>' + missingFields.map(function (e) {
                     return '<div class="info">' + e.label + '</div>';
@@ -331,8 +347,15 @@ angular.module('start.controllers')
 
         };
 
+
+        $scope.closeStartup = function () {
+            $scope.saveStartup();
+            $location.path('/startup/' + $scope.startup._id + '/view');
+        };
+
         // CHANGE THE STATUS OF THE STARTUP TO PUBLISHED, MAKING IT AVAILABLE TO EVERYONE
         $scope.publishStartup = function () {
+            console.log($scope.startup._id);
             if ($scope.startup._id && checkRequiredFields()) {
                 $scope.startup.status = 'published';
                 $scope.startup.publishedAt = new Date();
@@ -342,7 +365,6 @@ angular.module('start.controllers')
                 $localstorage.remove('startupDraft');
                 NotificationService.startupPublished({startupId: $scope.startup._id});
             }
-
         };
 
         $scope.crawlMeta = function (url) {
@@ -360,9 +382,6 @@ angular.module('start.controllers')
                                 $scope.startup.projectTweet = meta.result.summary;
                             }
 
-                            if (!$scope.startup.tagline || $scope.startup.tagline.length < 1) {
-                                $scope.startup.tagline = meta.result.title;
-                            }
 
                             if (!$scope.startup.picture || $scope.startup.picture.length < 1) {
                                 if (meta.result.image) {

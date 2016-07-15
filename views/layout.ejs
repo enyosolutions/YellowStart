@@ -110,7 +110,7 @@
                 <a id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" fadeOut>
                     <i class="icon icon-account"></i>
 
-                    Mon profil
+                    Mon<br/>profil
                 </a>
                     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="notificationsDropdown" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
                         <li>
@@ -131,13 +131,13 @@
             <li class="" ng-show="globals.user.roles.indexOf('ADMIN') === -1">
                 <a id="favorites" href="#/user/profile" aria-haspopup="true" aria-expanded="true" fadeOut>
                     <i class="icon icon-account"></i>
-                    Mon profil
+                    Mon<br/>profil
                 </a>
             </li>
             <li class="">
                 <a id="favorites" aria-haspopup="true" aria-expanded="true" fadeOut>
                     <i class="icon icon-favorite"></i>
-                    Mes favoris
+                    Mes<br/>favoris
                 </a>
             </li>
             <li class="dropdown notifications">
@@ -145,7 +145,7 @@
                     <div class="icon">
                         <span class="badge blue">{{ notifications.length || 0 }}</span>
                     </div>
-                    Mes notifications
+                    Mes<br/>notifications
                 </a>
 
                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="notificationsDropdown">
@@ -162,11 +162,11 @@
                 <a href="#/startup/new" fadeOut>
                     <i class="icon icon-add"></i>
 
-                    Ajouter une start-up
+                    Ajouter<br/>une start-up
                 </a>
             </li>
             <li>
-                <a ng-click="logout()" ng-controller="RegisterCtrl"> <i class="icon icon-arrowRight"></i>Déconnexion</a>
+                <a ng-click="logout()" ng-controller="RegisterCtrl"> <i class="icon icon-arrowRight"></i>Me<br/>déconnecter</a>
             </li>
         </ul>
 

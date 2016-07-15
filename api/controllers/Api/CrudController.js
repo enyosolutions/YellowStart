@@ -53,9 +53,11 @@ module.exports = {
     },
     post: function (req, resp) {
         var data = extend({createdAt: new Date()}, req.body);
+        console.log(data);
         Monk.get(req.param('endpoint')).insert(data)
             .on('success', function (d) {
-                resp.json({body: d});
+
+                resp.json({body: data});
                 var id = req.token ? req.token.id : 'ANONYMOUS';
 
                 Monk.get('access-logs').insert({
