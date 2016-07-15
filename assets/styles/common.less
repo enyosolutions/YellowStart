@@ -177,12 +177,12 @@ body.unlocked {
 
       input {
         display: block;
-        width: auto;
-        height: 110px;
+        width: 300px;
+        height: 109px;
         padding: 47px 25px 47px 40px;
 
-        font-size: 12px;
-        font-weight: 500;
+        font-size: 17px;
+        font-weight: 200;
         color: #73737f;
 
         border: none;
@@ -192,15 +192,15 @@ body.unlocked {
         -moz-box-shadow: none;
         box-shadow: none;
         position: static;
-        -webkit-transition: 300ms linear all;
-        transition: 300ms linear all;
+        -webkit-transition: 100ms linear all;
+        transition: 100ms linear all;
 
         &:focus {
           font-size: 30px;
           color: #73737F;
           position: fixed;
-          width: 600px;
-          height: 110px;
+          width: 830px;
+          height: 109px;
           z-index: 10;
 
         }
@@ -229,20 +229,26 @@ body.unlocked {
         -moz-border-radius: 0;
         border-radius: 0;
         padding: 0;
-        min-width: 500px;
-        top: 105px;
+        border: 0;
+        min-width: 700px;
+        top: 115px;
         left: -1px;
         -wekbit-transition: none;
         transition: none;
 
 
         .angucomplete-row {
-          padding-left: 32px;
-          border-bottom: 1px solid #D9D9DE;
+          margin: 0;
+          padding-left: 42px;
+          padding-top: 15px;
+          padding-bottom: 30px;
+          border-bottom: 1px solid #E6E6EC;
           min-height: 80px;
 
           &:last-child {
             background-color: @brand-primary;
+            border: 0;
+            height: 30px;
             padding-left: 0px;
             color: #FAFDD4;
             text-align: center;
@@ -258,20 +264,20 @@ body.unlocked {
             }
           }
         }
+
         .angucomplete-selected-row {
           background-color: rgba(5, 71, 253, 0.30);
         }
 
         .angucomplete-title {
-          margin-top: 5px;
-          font-size: 24px;
+          margin-top: 10px;
+          font-size: 22px;
           color: #081433;
         }
 
         .angucomplete-description {
-          color: #73737F;
+          color: #D9D9DE;
           font-size: 13px;
-          margin-top: 5px;
         }
       }
     }
