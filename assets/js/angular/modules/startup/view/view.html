@@ -128,17 +128,14 @@
                     <div class="actions">
                         <button ng-click="bookmarkStartup()" class="action btn btn-link">
                             <i ng-class="{'icon-start-bt-follow': !isBookmarked, 'icon-start-bt-unfollow': isBookmarked}">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
                             </i>
 
 
                             <div class="text-lock" ng-class="{hidden: isBookmarked == 1 }">Suivre</div>
                             <div class="text-lock" ng-class="{hidden: isBookmarked == 0 }">Suivi</div>
                         </button>
-                        <a class="action btn" data-target="#commentModal" data-toggle="modal"
-                           ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
+                        <a class="action btn" href="mailto:{{ startupContacts[0].email}}"
+                           ng-show="startupContacts[0] && startupContacts[0]">
                             <i class="icon-start-bt-contact"></i>
 
                             <div class="text-lock">Contacter</div>
