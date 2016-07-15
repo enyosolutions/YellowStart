@@ -216,6 +216,7 @@ section.main {
       margin-bottom: 52px;
       font-size: 14px;
     }
+
     label {
       font-weight: bold;
       font-size: 20px;
@@ -226,9 +227,10 @@ section.main {
     sub {
       margin-bottom: 0;
       color: #666C6F;
+      display: block;
+      line-height: 20px;
 
       &.count {
-        margin-top: 20px;
         font-size: 14px;
         line-height: 40px;
 
@@ -251,9 +253,14 @@ section.main {
     }
 
     textarea {
-      min-height: 190px;
+      min-height: 360px;
       padding: 20px;
       font-weight: 18px;
+
+      &.twitter {
+        min-height: 130px;
+      }
+
     }
   }
 }
@@ -367,6 +374,11 @@ textarea.ng-invalid:not(.ng-pristine) {
   border: 1px solid #dddddd;
   border-radius: 8px;
 }
+
+.selectize-control {
+  margin-bottom: 52px;      
+}
+
 
 .selectize-control.multi .selectize-input > div {
   padding: 6px;

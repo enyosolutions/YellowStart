@@ -55,7 +55,7 @@
         <div class="form-group">
             <div class="col-md-6">
                 <label>Nom de la startup</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+                <sub>Nécessaire pour créer la fiche.</sub>
             </div>
             <div class="col-md-6">
                 <input class="form-control" type="text" ng-model="startup.startupName"
@@ -65,7 +65,7 @@
         <div class="form-group">
             <div class="col-md-6">
                 <label>Url du site</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+                <sub>L'adresse du site de la start-up.</sub>
             </div>
             <div class="col-md-6">
                 <input class="form-control" type="text" ng-model="startup.websiteUrl"
@@ -75,11 +75,11 @@
         <div class="form-group">
             <div class="col-md-6">
                 <label>Résumé en 140 caractères</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+                <sub>Ce résumé permet de comprendre un coup d'oeil l'activité de la start-up.</sub>
                 <sub class="count"><span class="number">{{ startup.projectTweet.length || '0' }}</span>/140</sub>
             </div>
             <div class="col-md-6" ng-class="{'autocomplete-field': isAutocompleting }">
-                <textarea class="form-control" ng-model="startup.projectTweet" maxlength="140"
+                <textarea class="form-control twitter" ng-model="startup.projectTweet" maxlength="140"
                           ng-blur="saveStartup()">{{ startup.projectTweet }}</textarea>
             </div>
         </div>
@@ -87,7 +87,7 @@
         <div class="form-group">
             <div class="col-md-6">
                 <label>Tag principal</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+                <sub>Ce tag doit définir l'activité de la start-up.</sub>
             </div>
             <div class="col-md-6">
                 <select class="form-control day" ng-model="startup.mainTag"
@@ -130,7 +130,7 @@
         <div class="form-group">
             <div class="col-md-6">
                 <label>Tags de la start-up</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+                <sub>Vous pouvez ajouter jusqu'à 5 tags par fiche.</sub>
             </div>
             <div class="col-md-6">
                 <selectize config='tagsConfig' options='tagsOptions'
@@ -142,7 +142,7 @@
         <div class="form-group">
             <div class="col-md-6">
                 <label>Quelle est la cible ?</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+                <sub>*** ICI EXEMPLE A REDIGER ***</sub>
                 <sub class="count"><span class="number">{{ startup.marketClients.length || '0' }}</span>/500</sub>
             </div>
             <div class="col-md-6">
@@ -155,7 +155,7 @@
         <div class="form-group">
             <div class="col-md-6">
                 <label>Quel service/produit ?</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+                <sub>*** ICI EXEMPLE A REDIGER ***</sub>
                 <sub class="count"><span class="number">{{ startup.offerServices.length || '0' }}</span>/500</sub>
             </div>
             <div class="col-md-6" ng-class="{'autocomplete-field': isAutocompleting }">
@@ -168,7 +168,7 @@
         <div class="form-group">
             <div class="col-md-6">
                 <label>Quel business model ?</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+                <sub>*** ICI EXEMPLE A REDIGER ***</sub>
                 <sub class="count"><span class="number">{{ startup.offerBusiness.length || '0' }}</span>/500</sub>
             </div>
             <div class="col-md-6">
@@ -181,11 +181,11 @@
         <div class="form-group">
             <div class="col-md-6">
                 <label>Adresse physique</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+                <sub>L'adresse ou à défaut le code postal.</sub>
             </div>
             <div class="col-md-6" ng-class="{'autocomplete-field': isAutocompleting }">
-                <textarea class="form-control" ng-model="startup.address"
-                          ng-blur="saveStartup()"></textarea>
+                <input class="form-control" ng-model="startup.address"
+                          ng-blur="saveStartup()"/>
             </div>
         </div>
 
@@ -212,6 +212,7 @@
         <div class="form-group">
             <div class="col-md-6">
                 <label>Logo de la startup</label>
+                <sub>Le logo doit être d'un format minimum de 450 pixels, sur fond blanc et en JPG ou PNG.</sub>
             </div>
             <div class="col-md-6">
                 <form class="dropzone"
@@ -230,6 +231,7 @@
         <div class="form-group">
             <div class="col-md-6">
                 <label>Image principale</label>
+                <sub>Cette image doit être d'un format minimum de 1200 pixels de large et en JPG ou PNG.</sub>
             </div>
             <div class="col-md-6">
                 <form class="dropzone"
@@ -247,7 +249,7 @@
         <div class="form-group">
             <div class="col-md-6">
                 <label>Documents</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+                <sub>Les decks de présentations, business plan, etc... Au format PPT, XLS, DOC ou PDF.</sub>
             </div>
             <div class="col-md-6">
                 <form class="dropzone"
@@ -277,7 +279,7 @@
         <div class="form-group">
             <div class="col-md-6">
                 <label>Images du produit</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+                <sub>Images présentant le produit, le service, l'équipe, etc... Elles formeront la galerie media de la fiche start-up.</sub>
             </div>
             <div class="col-md-6">
                 <form class="dropzone"
@@ -307,7 +309,7 @@
         <div class="form-group">
             <div class="col-md-6">
                 <label>Présentation vidéo youtube</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+                <sub>L'url de la video sur YouTube.</sub>
             </div>
             <div class="col-md-6" ng-class="{'autocomplete-field': isAutocompleting }">
                 <input type="url" class="form-control" ng-model="startup.videoPresentation"

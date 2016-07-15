@@ -7951,9 +7951,10 @@ section.main {
 #startup-form .form-body sub {
   margin-bottom: 0;
   color: #666C6F;
+  display: block;
+  line-height: 20px;
 }
 #startup-form .form-body sub.count {
-  margin-top: 20px;
   font-size: 14px;
   line-height: 40px;
 }
@@ -7970,9 +7971,12 @@ section.main {
   font-weight: 400;
 }
 #startup-form .form-body textarea {
-  min-height: 190px;
+  min-height: 360px;
   padding: 20px;
   font-weight: 18px;
+}
+#startup-form .form-body textarea.twitter {
+  min-height: 130px;
 }
 body.view-page .startup-tags .tag {
   display: inline-block;
@@ -8045,6 +8049,9 @@ textarea.ng-invalid:not(.ng-pristine) {
   padding: 8px 12px;
   border: 1px solid #dddddd;
   border-radius: 8px;
+}
+.selectize-control {
+  margin-bottom: 52px;
 }
 .selectize-control.multi .selectize-input > div {
   padding: 6px;
