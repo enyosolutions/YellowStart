@@ -9244,6 +9244,7 @@ footer .brand {
   height: auto;
   min-height: 524px;
   position: relative;
+  background-position: center;
   padding: 0 0 0 0;
 }
 .page.startup-view .splash .logo {
