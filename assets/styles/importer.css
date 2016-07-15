@@ -9564,6 +9564,7 @@ footer .brand {
   display: block;
   overflow: hidden;
   margin-bottom: 88px;
+  background-color: #fff;
 }
 .page.startup-view .document-section .documents-list {
   min-height: 400px;
@@ -9821,15 +9822,15 @@ footer .brand {
 }
 .page.startup-view .related .startup .card-block .card-title {
   font-size: 24px;
-  font-weight: 300;
-  margin-top: 40px;
+  font-weight: 200;
+  margin-top: 15px;
   white-space: nowrap;
   text-overflow: ellipsis;
   text-align: center;
   color: #FAFDD4;
 }
 .page.startup-view .related .startup .card-block .card-text {
-  height: 36px !important;
+  height: 45px !important;
   font-size: 13px !important;
   color: #FAFDD4;
   overflow: hidden;
@@ -9878,8 +9879,10 @@ footer .brand {
   color: #fafdd4;
 }
 .page.startup-view .know-startup .btn {
-  padding: auto 30px;
-  font-size: 18px;
+  padding: 15px 20px 12px 20px;
+  font-size: 15px;
+  vertical-align: middle;
+  font-weight: normal;
   background: #fafdd4;
   color: #ff6500;
 }
