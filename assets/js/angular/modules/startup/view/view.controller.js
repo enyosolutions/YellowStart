@@ -12,7 +12,7 @@ angular.module('start.controllers')
         $scope.pageClass = 'startup-view';
 
         $scope.iframeUrl = function (src) {
-            return $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + src);
+            return $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + src);
         };
 
         if ($stateParams._id) {

@@ -38,11 +38,12 @@ module.exports = {
         return resp.json({});
     },
     clear: function (req, resp) {
-        console.log('new comment '  + req.query.startupId);
-        if (req.query.startupId === undefined) {
+        console.log('new comment '  + req.query.userId);
+        if (req.query.userId === undefined) {
             return resp.json({error: 'There was an error, no search parameters are provided'})
         }
-        Monk.get("user-notification").remove({startupId: req.query.startupId}).then(function(){
+        Monk.get("user-notification").remove({userId: req.query.userId}).then(function(err){
+            console.log(err);
             return resp.json({});
         });
 

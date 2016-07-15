@@ -60,7 +60,7 @@
 
                 <!-- slider -->
                 <div class="" id="documents-area">
-                    <div class="media">
+                    <!--<div class="media">
                         <a href="">
                             <div class="media-left">
                                 <i class="ico-svg ico-pdf">
@@ -102,6 +102,7 @@
                             </div>
                         </a>
                     </div>
+                    -->
                     <div class="media" ng-repeat="document in startup.documents">
                         <a href="{{ document.file }}">
                             <div class="media-left">
@@ -186,9 +187,9 @@
 </div>
 <div class="row document-section">
     <div class="documents-list" >
-        <div class="document" document-slider>
-            <div class="thumbnail" href="#/startup/{{ startup._id }}/view">
-                <img src="{{ startup.picture ? startup.picture : '/images/placeholder.jpg' }}"
+        <div class="document" document-slider ng-if="startup.picture">
+            <div class="thumbnail"  href="#/startup/{{ startup._id }}/view">
+                <img src="{{ startup.picture }}"
                      alt="{{ startup.startupName }}"></div>
         </div>
         <div class="document" document-slider ng-repeat="document in startup.documents | filter : {type: 'image'}">
@@ -201,7 +202,7 @@
                 <img src="{{ image.file }}"
                      alt="{{ startup.startupName }}"></div>
         </div>
-        <div class="document" document-slider>
+        <div class="document" document-slider ng-if="startup.youtubeId">
             <iframe class="thumbnail" ng-src="{{ iframeUrl(startup.youtubeId) }}" frameborder="0"
                     allowfullscreen></iframe>
         </div>
@@ -232,7 +233,7 @@
 </div>
 
 <!-- map -->
-<div id="map" class="map" data-address="{{ startup.address }}"></div>
+<div id="map" class="map" ng-if="startup.address" data-address="{{ startup.address }}"></div>
 
 <!-- related -->
 <div class="related">

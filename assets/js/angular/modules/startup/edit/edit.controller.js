@@ -18,6 +18,56 @@ angular.module('start.controllers')
 
         // SELECTIZE
         $scope.tagsOptions = Tag.query();
+
+
+        // IF we are editing a startup
+        if ($stateParams._id) {
+
+            $scope.startup._id = $stateParams._id;
+            // Load the startup
+            $scope.startup = new Startup($scope.startup);
+            $scope.startup.$get().then(function (res) {
+                    if (res.tags) {
+                        $scope.selectedTags = res.tags;
+                        if (res.mainTag) {
+                            var idx = $scope.selectedTags.indexOf(res.mainTag);
+                            if (idx !== -1) {
+                                $scope.selectedTags.splice(idx, 1);
+                            }
+
+                        }
+                    }
+                    if (res.creationDate) {
+                        var d = res.creationDate.split('-');
+                        if (res.creationDate.length >= 3) {
+
+                            $scope.creationDate = {
+                                day: d[0],
+                                month: d[1],
+                                year: d[2]
+                            };
+                        }
+                    }
+                }
+            )
+            ;
+
+            // Load the contacts
+            $scope.startupContacts = StartupContact.query({'query[startupId]': $scope.startup._id});
+        }
+        else {
+            var draft = $localstorage.getObject('startupDraft');
+            if (draft && draft._id) {
+                $ngBootbox.confirm("Nous avons sauvegardé une fiche que vous étiez entrain de remplir (<strong>" + draft.name + "</strong>)<br/>" +
+                "souhaitez vous la reprendre ?").then(function () {
+                    console.log('startup/' + draft._id + '/edit');
+                    $location.path('startup/' + draft._id + '/edit');
+
+                });
+            }
+        }
+
+
         //main tag config
         $scope.mainTagChanged = function (value, oldvalue) {
             if (oldvalue) {
@@ -70,7 +120,7 @@ angular.module('start.controllers')
 
         };
 
-
+        //CONFIG FOR THE LOGO DROP ZONE
         $scope.logoZone = {
             addedFile: function (file) {
                 $log.log(file);
@@ -92,7 +142,20 @@ angular.module('start.controllers')
                 maxFileSize: 10,
                 dictDefaultMessage: "Cliquez ou Glissez une image pour ajouter le logo",
                 acceptedFiles: 'image/*',
-                headers: {'Authorization': 'Bearer ' + $localstorage.get('auth_token')}
+                headers: {'Authorization': 'Bearer ' + $localstorage.get('auth_token')},
+                init: function () {
+                    console.log('initializing logo dropzone');
+                    var thisDropzone = this;
+                    console.log($scope.startup);
+                    if ($scope.startup._id && $scope.startup.logo) {
+                        $timeout(function () {
+                            console.log($scope.startup.logo);
+                            var mockFile = {name: $scope.startup.logo, size: 0};
+                            thisDropzone.options.addedfile.call(thisDropzone, mockFile);
+                            thisDropzone.options.thumbnail.call(thisDropzone, mockFile, $scope.startup.logo);
+                        }, 1500);
+                    }
+                }
             }
         };
 
@@ -117,7 +180,21 @@ angular.module('start.controllers')
                 maxFileSize: 10,
                 dictDefaultMessage: "Glissez-déposer ou bien cliquez pour ajouter une image",
                 acceptedFiles: 'image/*',
-                headers: {'Authorization': 'Bearer ' + $localstorage.get('auth_token')}
+                headers: {'Authorization': 'Bearer ' + $localstorage.get('auth_token')},
+                init: function () {
+                    console.log('initializing MAIN PICTURE dropzone');
+                    var thisDropzone = this;
+                    console.log($scope.startup, $scope.startup._id, $scope.startup.picture);
+                    $timeout(function () {
+                        if ($scope.startup._id && $scope.startup.picture) {
+                            console.log($scope.startup.picture);
+                            var mockFile = {name: $scope.startup.picture, size: ''};
+                            thisDropzone.options.addedfile.call(thisDropzone, mockFile);
+                            thisDropzone.options.thumbnail.call(thisDropzone, mockFile, $scope.startup.picture);
+
+                        }
+                    }, 1500);
+                }
             }
         };
 
@@ -157,7 +234,7 @@ angular.module('start.controllers')
                                     thisDropzone.options.thumbnail.call(thisDropzone, mockFile, value.file);
                                 }
                             }
-                        }, 1000);
+                        }, 1500);
                     }
                 }
             }
@@ -207,53 +284,6 @@ angular.module('start.controllers')
 
 
         console.log($stateParams);
-        // IF we are editing a startup
-        if ($stateParams._id) {
-
-            $scope.startup._id = $stateParams._id;
-            // Load the startup
-            $scope.startup = new Startup($scope.startup);
-            $scope.startup.$get().then(function (res) {
-                    if (res.tags) {
-                        $scope.selectedTags = res.tags;
-                        if(res.mainTag){
-                            var idx = $scope.selectedTags.indexOf(res.mainTag);
-                            if(idx !== -1){
-                            $scope.selectedTags.splice(idx, 1);
-                            }
-
-                        }
-                    }
-                    if (res.creationDate) {
-                        var d = res.creationDate.split('-');
-                        if (res.creationDate.length >= 3) {
-
-                            $scope.creationDate = {
-                                day: d[0],
-                                month: d[1],
-                                year: d[2]
-                            };
-                        }
-                    }
-                }
-            )
-            ;
-
-            // Load the contacts
-            $scope.startupContacts = StartupContact.query({'query[startupId]': $scope.startup._id});
-        }
-        else {
-            var draft = $localstorage.getObject('startupDraft');
-            if (draft && draft._id) {
-                $ngBootbox.confirm("Nous avons sauvegardé une fiche que vous étiez entrain de remplir (<strong>" + draft.name + "</strong>)<br/>" +
-                "souhaitez vous la reprendre ?").then(function () {
-                    console.log('startup/' + draft._id + '/edit');
-                    $location.path('startup/' + draft._id + '/edit');
-
-                });
-            }
-        }
-
 
         //CHECK IF THE STARTUP YOU ARE TRYING TO CREATE DOES NOT ALREADY EXISTS
         $scope.checkExistingStartup = function (name) {
