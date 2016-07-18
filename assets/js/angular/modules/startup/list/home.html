@@ -1,6 +1,6 @@
 <section class="cycle-slider-home">
     <div class="slide" ng-repeat="slide in slides" home-slider>
-        <a class="href" href="{{slide.targetUrl}}"><img alt="" src="{{slide.picture}}"/></a>
+        <a class="href" href="{{slide.targetUrl}}"><img alt="" src="{{ ::remoteHost }}{{slide.picture}}"/></a>
     </div>
 
     <div class="cycle-pager"></div>
