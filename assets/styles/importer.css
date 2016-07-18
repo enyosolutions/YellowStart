@@ -9698,7 +9698,7 @@ footer .brand {
 }
 .page.startup-view .images-section .item .youtube-iframe {
   width: 100%;
-  height: auto;
+  height: 100%;
   max-height: 401px;
 }
 .page.startup-view .images-section .carousel-control {

@@ -130,14 +130,16 @@
                                 <img ng-src="{{ ::remoteHost }}{{ startup.picture}}" alt="startup picture">
                             </div>
 
-                            <div class="item" ng-repeat="image in startup.images" ng-class="{active: $index === 0 && !startup.picture}">
-                                <img ng-src="{{ ::remoteHost }}{{ image.file }}" alt="{{ image.name }}">
-                            </div>
-
-                            <div class="item" document-slider ng-if="startup.youtubeId">
+                            <div class="item" document-slider ng-if="startup.youtubeId" ng-class="{active: !startup.picture}">
                                 <iframe class="youtube-iframe" ng-src="{{ iframeUrl(startup.youtubeId) }}" frameborder="0"
                                         allowfullscreen></iframe>
                             </div>
+
+                            <div class="item" ng-repeat="image in startup.images" ng-class="{active: $index === 0 && !startup.picture && startup.youtubeId}">
+                                <img ng-src="{{ ::remoteHost }}{{ image.file }}" alt="{{ image.name }}">
+                            </div>
+
+
                         </div>
 
                         <!-- Left and right controls -->
