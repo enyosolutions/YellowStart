@@ -125,12 +125,12 @@
                     <div id="picturesCarousel" class="carousel slide" data-ride="carousel">
 
                         <!-- Wrapper for slides -->
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active" >
+                        <div class="carousel-inner" role="listbox" >
+                            <div class="item active" ng-if="startup.picture">
                                 <img ng-src="{{ ::remoteHost }}{{ startup.picture}}" alt="startup picture">
                             </div>
 
-                            <div class="item" ng-repeat="image in startup.images">
+                            <div class="item" ng-repeat="image in startup.images" ng-class="{active: $index === 0 && !startup.picture}">
                                 <img ng-src="{{ ::remoteHost }}{{ image.file }}" alt="{{ image.name }}">
                             </div>
 
