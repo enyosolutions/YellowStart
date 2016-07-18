@@ -192,7 +192,48 @@ body.unlocked {
 .top-navigation {
   display: block;
   height: 110px;
+  .transition(height 200ms linear);
 
+  &.top-navigation-default.small {
+    .transition(height 200ms linear);
+    height: 70px;
+
+    .search-form {
+      float: left;
+      position: relative;
+      width: 50%;
+
+      input {
+        height: 69px;
+        padding: 22px 25px 22px 40px;
+      }
+
+      button {
+        padding: 22px 0 22px 10px;
+      }
+    }
+
+    .navigation li a {
+      padding: 20px 10px;
+
+      i {
+        font-size: 2em;
+      }
+      span.menulabel {
+        display: none;
+      }
+
+      .badge {
+        padding: 3px 7px;
+        font-size: normal;
+      }
+    }
+
+
+    .brand {
+      padding: 12px 30px 12px 0;
+    }
+  }
   z-index: 1000;
 
   // brand
@@ -399,8 +440,13 @@ body.unlocked {
 
           font-weight: 500;
           color: #73737f;
+          background-color: #fff;
           text-align: center;
 
+
+          span.menulabel {
+            color: #73737f;
+          }
           &:hover,
           &:focus {
             text-decoration: none;

@@ -27,7 +27,7 @@ angular
         'angucomplete-alt',
         'angular-jqcloud'
     ])
-     // .constant('CONFIG', {baseUrl: 'http://start.dev:8080', apiUrl: 'http://start.dev:8080/api', lunaUrl: 'http://luna.startinpost.com/project/apilisttititata'})
+    .constant('CONFIG', {baseUrl: 'http://start.dev:8080', apiUrl: 'http://start.dev:8080/api', lunaUrl: 'http://luna.startinpost.com/project/apilisttititata' })
     // .constant('CONFIG', {baseUrl: 'http://192.168.13.50:8080', apiUrl: 'http://192.168.13.50:8080/api' , lunaUrl: 'http://luna.startinpost.com/project/apilisttititata'})
       .constant('CONFIG', {baseUrl: 'http://yellowstart.enyosolutions.com', apiUrl: 'http://yellowstart.enyosolutions.com/api' , lunaUrl: 'http://luna.startinpost.com/project/apilisttititata'})
     .run(function (editableOptions, $state, $rootScope, $interval, Auth, $localstorage, $ngBootbox, Notification, NotificationService, CONFIG) {
@@ -41,24 +41,24 @@ angular
         var user = $localstorage.getObject('currentUser');
         if (user) {
             $rootScope.globals.user = user;
-            Auth.refresh().success(function(response){
+            Auth.refresh().success(function (response) {
                 console.log(response);
                 $rootScope.globals.user = response.user;
                 $rootScope.notifications = Notification.query({'query[userId]': $rootScope.globals.user._id});
-                $interval(function(){
-                $rootScope.notifications = Notification.query({'query[userId]': $rootScope.globals.user._id});
-                },60000);
-                $rootScope.clearNotifications = function(){
+                $interval(function () {
+                    $rootScope.notifications = Notification.query({'query[userId]': $rootScope.globals.user._id});
+                }, 60000);
+                $rootScope.clearNotifications = function () {
                     NotificationService.clear({userId: $rootScope.globals.user._id})
                 }
-            }).error(function(err){
+            }).error(function (err) {
                 console.log(err);
                 $state.go('user-register');
             });
         }
 
         $.ajaxSetup({
-            headers: { 'Authorization':  'Bearer ' + $localstorage.get('auth_token') }
+            headers: {'Authorization': 'Bearer ' + $localstorage.get('auth_token')}
         });
 
 
@@ -70,7 +70,6 @@ angular
             }
             return input;
         };
-
 
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
@@ -85,8 +84,8 @@ angular
     config(['$httpProvider', function ($httpProvider) {
         $httpProvider.defaults.withCredentials = true;
     }])
-    .config(function($ngBootboxConfigProvider) {
-        $ngBootboxConfigProvider.addLocale('fr', { OK: 'OK', CANCEL: 'Annuler', CONFIRM: 'Confirmer' });
+    .config(function ($ngBootboxConfigProvider) {
+        $ngBootboxConfigProvider.addLocale('fr', {OK: 'OK', CANCEL: 'Annuler', CONFIRM: 'Confirmer'});
         $ngBootboxConfigProvider.setDefaultLocale('fr');
 
     })
@@ -94,8 +93,8 @@ angular
         $httpProvider.interceptors.push('AuthInterceptor');
     }])
 
-    .directive('loadingScreen', ['$timeout', '$animate', function($timeout, $animate) {
-        return({
+    .directive('loadingScreen', ['$timeout', '$animate', function ($timeout, $animate) {
+        return ({
             link: link,
             restrict: "C"
         });
@@ -115,4 +114,20 @@ angular
                 }
             );
         }
-    }]);
+    }])
+    .directive("minifyOnScroll", function ($window) {
+        return function (scope, element, attrs) {
+            angular.element($window).bind("scroll", function () {
+                if (this.pageYOffset >= 200) {
+                    scope.minified = true;
+                    console.log('Scrolled below header.');
+                } else {
+                    scope.minified = false;
+                    console.log('Header is in view.');
+                }
+                scope.$apply();
+            });
+        };
+    });
+
+;

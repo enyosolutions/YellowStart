@@ -24,7 +24,7 @@ angular.module('start.controllers')
                     $scope.startupContacts = res;
                     if (res.length > 0) {
                         var contact = res[0];
-                        content = '<div class="startup-map-infowindow" style="width: 195px;height:231px;">' +
+                        content = '<div class="startup-map-infowindow" style="width: 195px;height:265px;">' +
                         '<div class="inner">' +
                         '<div class="name">' + $scope.startup.startupName + '</div> ' +
                         '<div class="address">' + ($scope.startup.address ? $scope.startup.address : '' ) + '</div> ' +

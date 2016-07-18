@@ -1,0 +1,86 @@
+<section class="container">
+    <div class="row">
+        <!-- heading -->
+        <div class="heading">
+            <h1 class="result-indicator">
+                Liste des tags
+                <div class="pull-right">
+                    <form ng-submit="search()" class="form-inline">
+                    <input class="form-control" type="text" ng-model="searchInput" placeholder="Rechercher..."/>
+                        <button class="btn btn-link"><i class="fa fa-search fa-2x"></i></button>
+                    </form>
+                </div>
+            </h1>
+<!--
+            <div class="sort">
+                <div class="dropdown">
+                    <button class="btn btn-primary-alternate dropdown-toggle" type="button" id="sort"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Trier
+                        <span class="caret"></span>
+                    </button>
+
+                    <ul class="dropdown-menu" aria-labelledby="sort">
+                        <li>
+                            <a href="#">
+                                Dummy
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>-->
+
+        </div>
+
+        <!-- results -->
+        <div class="results">
+            <div class="container">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Tag Name</th>
+                        <th>slug</th>
+                        <th>Creation date</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="tag in tags track by tag._id">
+                        <td>{{ tag.name  }}</td>
+                        <td>{{ tag.slug }}</td>
+                        <td>{{ tag.createdAt | date : longDate }}</td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-danger btn-xs" ng-click="deleteTag($index)"> Supprimer</button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- bottom -->
+        <div class="bottom text-center">
+            <ul class="pagination-list">
+                <li>
+                    <a class="previous" ng-click="prevPage()" ng-if="currentPage > 0">
+                        <
+                    </a>
+                </li>
+                <li>
+                    <a class="active" href="#">
+                        {{ currentPage + 1 }}
+                    </a>
+                </li>
+                <li>
+                    <a class="next" ng-click="nextPage()" ng-if="startups.length > 11">
+                        >
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</section>

@@ -8257,7 +8257,44 @@ body.unlocked {
 .top-navigation {
   display: block;
   height: 110px;
+  -webkit-transition: height 200ms linear;
+  -o-transition: height 200ms linear;
+  transition: height 200ms linear;
   z-index: 1000;
+}
+.top-navigation.top-navigation-default.small {
+  -webkit-transition: height 200ms linear;
+  -o-transition: height 200ms linear;
+  transition: height 200ms linear;
+  height: 70px;
+}
+.top-navigation.top-navigation-default.small .search-form {
+  float: left;
+  position: relative;
+  width: 50%;
+}
+.top-navigation.top-navigation-default.small .search-form input {
+  height: 69px;
+  padding: 22px 25px 22px 40px;
+}
+.top-navigation.top-navigation-default.small .search-form button {
+  padding: 22px 0 22px 10px;
+}
+.top-navigation.top-navigation-default.small .navigation li a {
+  padding: 20px 10px;
+}
+.top-navigation.top-navigation-default.small .navigation li a i {
+  font-size: 2em;
+}
+.top-navigation.top-navigation-default.small .navigation li a span.menulabel {
+  display: none;
+}
+.top-navigation.top-navigation-default.small .navigation li a .badge {
+  padding: 3px 7px;
+  font-size: normal;
+}
+.top-navigation.top-navigation-default.small .brand {
+  padding: 12px 30px 12px 0;
 }
 .top-navigation .brand {
   width: 150px;
@@ -8420,7 +8457,11 @@ body.unlocked {
   padding: 27px 10px;
   font-weight: 500;
   color: #73737f;
+  background-color: #fff;
   text-align: center;
+}
+.top-navigation.top-navigation-default .navigation li a span.menulabel {
+  color: #73737f;
 }
 .top-navigation.top-navigation-default .navigation li a:hover,
 .top-navigation.top-navigation-default .navigation li a:focus {
@@ -9501,6 +9542,7 @@ footer .brand {
   text-align: left;
   font-size: 14px;
   line-height: 24px;
+  white-space: pre-line;
 }
 .page.startup-view .startup-info #documents-area .media {
   padding: 15px 20px;
