@@ -187,30 +187,6 @@
         </div>
     </div>
 </div>
-<div class="row document-section">
-    <div class="documents-list" >
-        <div class="document" document-slider ng-if="startup.picture">
-            <div class="thumbnail"  href="#/startup/{{ startup._id }}/view">
-                <img src="{{ ::remoteHost }}{{ startup.picture }}"
-                     alt="{{ startup.startupName }}"></div>
-        </div>
-        <div class="document" document-slider ng-repeat="document in startup.documents | filter : {type: 'image'}">
-            <div class="thumbnail" href="#/startup/{{ startup._id }}/view">
-                <img src="{{ ::remoteHost }}{{ document.file }}"
-                     alt="{{ startup.startupName }}"></div>
-        </div>
-        <div class="document" ng-repeat="image in startup.images" document-slider>
-            <div class="thumbnail" href="#/startup/{{ startup._id }}/view">
-                <img src="{{ image.file }}"
-                     alt="{{ startup.startupName }}"></div>
-        </div>
-        <div class="document" document-slider ng-if="startup.youtubeId">
-            <iframe class="thumbnail" ng-src="{{ iframeUrl(startup.youtubeId) }}" frameborder="0"
-                    allowfullscreen></iframe>
-        </div>
-
-    </div>
-</div>
 
 
 <!-- sip-note -->

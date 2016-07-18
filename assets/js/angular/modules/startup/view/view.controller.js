@@ -38,13 +38,13 @@ angular.module('start.controllers')
 
                     }
                     else {
-                        content = '<div class="startup-map-infowindow">' +
-                        '<div class="picture"><img alt="" src="http://dummyimage.com/90x90/000/fff?text=&nbsp;" /></div>' +
+                        content = '<div class="startup-map-infowindow" style="width: 195px;height:265px;">' +
                         '<div class="inner">' +
                         '<div class="address">' + ($scope.startup.address ? $scope.startup.address : '' ) + '</div> ' +
                         '</div>' +
                         '</div>';
                     }
+
                     $scope.startup.websiteUrl = $scope.startup.websiteUrl.replace(/http(s)?:\/\//i, '');
                     initGooglemaps($scope.startup.address, content);
                 });

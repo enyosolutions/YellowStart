@@ -123,7 +123,7 @@ angular.module('start.controllers')
             $scope.searchedStartups = Startup.query(query);
         }
 
-        $scope.recentStartupList = Startup.query({'publishedOnly': 1, 'sort[createdAt]': -1});
+        $scope.recentStartupList = Startup.query({'publishedOnly': 1, 'sort[lastModifiedAt]': -1});
         $scope.mostViewedStartupList = Startup.query({'publishedOnly': 1, 'sort[meta.views]': -1});
         $scope.bestScoreStartupList = Startup.query({'publishedOnly': 1, 'sort[sipScore]': -1});
         $scope.mostBookmarkedStartupList = Startup.query({'publishedOnly': 1, 'sort[meta.bookmarks]': -1});
