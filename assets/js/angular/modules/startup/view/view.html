@@ -127,11 +127,11 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox">
                             <div class="item active" >
-                                <img ng-src="{{ startup.picture}}" alt="startup picture">
+                                <img ng-src="{{ ::remoteHost }}{{ startup.picture}}" alt="startup picture">
                             </div>
 
                             <div class="item" ng-repeat="image in startup.images">
-                                <img ng-src="{{ image.file }}" alt="{{ image.name }}">
+                                <img ng-src="{{ ::remoteHost }}{{ image.file }}" alt="{{ image.name }}">
                             </div>
 
                             <div class="item" document-slider ng-if="startup.youtubeId">
