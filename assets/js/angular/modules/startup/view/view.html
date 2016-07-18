@@ -33,8 +33,8 @@
                 <!-- resume -->
                 <div class="" id="resume">
                     <div class="startup-logo"><img
-                            src="{{ startup.logo }}"
-                            class="circle round" ng-if='startup.logo' alt=""/></div>
+                            src="{{ ::remoteHost }}{{ startup.logo }}"
+                            class="" ng-if='startup.logo' alt=""/></div>
                     <a href="{{ startup.websiteUrl }}" target="_blank" class=" startup-website link">{{
                         startup.websiteUrl
                         }}</a>
@@ -191,12 +191,12 @@
     <div class="documents-list" >
         <div class="document" document-slider ng-if="startup.picture">
             <div class="thumbnail"  href="#/startup/{{ startup._id }}/view">
-                <img src="{{ startup.picture }}"
+                <img src="{{ ::remoteHost }}{{ startup.picture }}"
                      alt="{{ startup.startupName }}"></div>
         </div>
         <div class="document" document-slider ng-repeat="document in startup.documents | filter : {type: 'image'}">
             <div class="thumbnail" href="#/startup/{{ startup._id }}/view">
-                <img src="{{ document.file }}"
+                <img src="{{ ::remoteHost }}{{ document.file }}"
                      alt="{{ startup.startupName }}"></div>
         </div>
         <div class="document" ng-repeat="image in startup.images" document-slider>
@@ -250,7 +250,7 @@
                 <div class="startup card fixed-card">
                     <div class="card-img-top">
                         <a href="#/startup/{{ relatedStartup._id }}/view">
-                            <img src="{{ relatedStartup.picture }}" alt="{{ relatedStartup.startupName }}">
+                            <img src="{{ ::remoteHost }}{{ relatedStartup.picture }}" alt="{{ relatedStartup.startupName }}">
                         </a>
                     </div>
                     <div class="card-block">
