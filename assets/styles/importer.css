@@ -9420,6 +9420,7 @@ footer .brand {
   margin: 30px 0 0 0;
 }
 .page.startup-view .sidebar-wall .actions .action {
+  width: 130px;
   padding: 30px;
   display: inline-block;
   cursor: pointer;
@@ -9431,6 +9432,10 @@ footer .brand {
 .page.startup-view .sidebar-wall .actions .action:focus {
   text-decoration: none;
   color: #ff6500;
+}
+.page.startup-view .sidebar-wall .actions .action:active {
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .page.startup-view .sidebar-wall .actions .action .circle {
   display: block;
@@ -9450,6 +9455,11 @@ footer .brand {
   margin: 0 0 5px 0;
   color: #0031f7;
   font-size: 60px;
+  -webkit-transition: 100ms ease-out all;
+  transition: 100ms ease-out all;
+}
+.page.startup-view .sidebar-wall .actions .action i:hover {
+  color: #ff6500;
 }
 .page.startup-view .sidebar-wall .actions .action .count {
   display: block;

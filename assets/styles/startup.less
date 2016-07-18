@@ -453,6 +453,7 @@
       margin: 30px 0 0 0;
 
       .action {
+        width: 130px;
         padding: 30px;
         display: inline-block;
 
@@ -466,6 +467,11 @@
         &:focus {
           text-decoration: none;
           color: @brand-primary;
+        }
+
+        &:active {
+          -webkit-box-shadow: none;
+          box-shadow: none;
         }
 
         .circle {
@@ -492,6 +498,13 @@
 
           color: @brand-info;
           font-size: 60px;
+          -webkit-transition: 100ms ease-out all;
+          transition: 100ms ease-out all;
+
+          &:hover {
+          color: @brand-primary;
+          }
+
         }
         .count {
           display: block;
