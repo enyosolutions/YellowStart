@@ -126,8 +126,8 @@
 
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox">
-                            <div class="item active" ng-if="startup.picture">
-                                <img ng-src="{{ startup.picture }}" alt="startup picture">
+                            <div class="item active" >
+                                <img ng-src="{{ startup.picture}}" alt="startup picture">
                             </div>
 
                             <div class="item" ng-repeat="image in startup.images">
@@ -260,7 +260,7 @@
                 <div class="startup card fixed-card">
                     <div class="card-img-top">
                         <a href="#/startup/{{ relatedStartup._id }}/view">
-                            <img src="{{ ::remoteHost }}{{ relatedStartup.picture }}" alt="{{ relatedStartup.startupName }}">
+                            <img src="{{ ::remoteHost }}{{ relatedStartup.picture ? relatedStartup.picture : (relatedStartup.mainTag ? ('/images/startup/thumbnail/' + relatedStartup.mainTag + '.jpg') : '/images/placeholder.jpg') }}" alt="{{ relatedStartup.picture }}">
                         </a>
                     </div>
                     <div class="card-block">

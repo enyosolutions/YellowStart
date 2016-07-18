@@ -33,6 +33,8 @@ angular
         editableOptions.theme = 'bs3';
         $rootScope.$state = $state;
         $rootScope.globals = {};
+        $rootScope.remoteHost = CONFIG.baseUrl;
+
         $rootScope.$on("$routeChangeSuccess", function (event, currentRoute, previousRoute) {
             console.log('routechange success');
         });
