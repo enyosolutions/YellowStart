@@ -8354,8 +8354,6 @@ body.unlocked {
 .top-navigation.top-navigation-default .search-form button {
   position: absolute;
   z-index: 2;
-  top: 0;
-  left: 0;
   font-size: 20px;
   line-height: 20px;
   padding: 43px 0 43px 10px;
@@ -8364,6 +8362,16 @@ body.unlocked {
 .top-navigation.top-navigation-default .search-form button:focus {
   color: #73737f;
   text-decoration: none;
+}
+.top-navigation.top-navigation-default .search-form button.search-icon {
+  top: 0;
+  left: 0;
+}
+.top-navigation.top-navigation-default .search-form button.btn-search {
+  top: 0;
+  right: 0;
+  border-radius: 0;
+  font-weight: light;
 }
 .top-navigation.top-navigation-default .search-form .angucomplete-dropdown {
   -webkit-border-radius: 0;
@@ -10172,6 +10180,9 @@ footer .brand {
   color: #999;
 }
 @media screen and (max-width: 768px) {
+  .page.startup-view .startup-info {
+    padding: 0 30px;
+  }
   .page.edit-page .nav,
   .page.startup-edit .nav {
     text-align: left;
