@@ -43,14 +43,29 @@ module.exports = {
             else if (req.query.related) {
                 var q = req.query.related;
                 var startupCollection = Monk.get('startup');
-                startupCollection.find({_id: q}).then(function (col) {
-                    if (col && col.length > 0) {
-                        var maxId = col.tags.length;
-                        var tagId = Math.floor(Math.random() * (maxId - 0));
-                        query = {
-                            tags: col.tags[tagId]
-                        };
+                console.log('RElated startup', q);
+                startupCollection.findOne({_id: q}).on('success', function (col) {
+                    if (col) {
+                        if (col.tags && col.tags.length > 0) {
+                            var maxId = col.tags.length;
+                            var tagId = Math.floor(Math.random() * (maxId - 0));
+                            query = {
+                                tags: col.tags[tagId]
+                            };
+                        }
+                        else if(col.mainTag && col.mainTag.length ) {
+                            query = {
+                                tags: col.mainTag
+                            };
+                        }
+                        else {
+                            var randId = Math.floor(Math.random() * (5 - 0));
+                            query = {
+                                tags: {$regex: ['a','b','c','e','t'][randId]}
+                            };
+                        }
                     }
+                    console.log('RElated startup', query);
                 });
             }
             else if (req.query.ids) {
@@ -89,6 +104,8 @@ module.exports = {
          resp.json(500, {error: err});
          });
          */
+
+        console.log('*****QUERY : ', query);
         var startupCollection = Monk.get('startup');
         startupCollection.find(query, options).success(function (col) {
             if (col && col.length > 0) {

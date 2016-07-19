@@ -191,7 +191,6 @@
       padding-right: 10px;
     }
 
-
     .startup {
       border: none !important;
 
@@ -212,19 +211,16 @@
         }
       }
 
-
       .card-img-top {
         border-radius: 0;
 
         -webkit-transition: 200ms ease-out all;
         transition: 200ms ease-out all;
 
-
         img {
           height: 200px;
         }
       }
-
 
       .card-block {
 
@@ -292,10 +288,7 @@
         }
       }
 
-
     }
-
-
 
   }
 
@@ -358,9 +351,7 @@
     height: auto;
     min-height: 524px;
     position: relative;
-background-position: center; 
-
-
+    background-position: center;
 
     padding: 0 0 0 0;
 
@@ -471,7 +462,6 @@ background-position: center;
         font-size: 13px;
         font-weight: 400;
         color: @brand-info;
-
 
         &:hover,
         &:focus {
@@ -652,15 +642,15 @@ background-position: center;
             background-image: url('/images/icons/svg/ico-pdf-off.svg');
           }
 
-          &.ico-doc,&.ico-docx {
+          &.ico-doc, &.ico-docx {
             background-image: url('/images/icons/svg/ico-doc-off.svg');
           }
 
-          &.ico-xls,&.ico-xlsx {
+          &.ico-xls, &.ico-xlsx {
             background-image: url('/images/icons/svg/ico-xls-off.svg');
           }
 
-          &.ico-ppt,&.ico-pptx {
+          &.ico-ppt, &.ico-pptx {
             background-image: url('/images/icons/svg/ico-ppt-off.svg');
           }
         }
@@ -671,31 +661,29 @@ background-position: center;
               &.ico-pdf {
                 background-image: url('/images/icons/svg/ico-pdf-on.svg');
               }
-              &.ico-doc,&.ico-docx {
+              &.ico-doc, &.ico-docx {
                 background-image: url('/images/icons/svg/ico-doc-on.svg');
               }
-              &.ico-xls,&.ico-xlsx {
+              &.ico-xls, &.ico-xlsx {
                 background-image: url('/images/icons/svg/ico-xls-on.svg');
               }
-              &.ico-ppt,&.ico-pptx {
+              &.ico-ppt, &.ico-pptx {
                 background-image: url('/images/icons/svg/ico-ppt-on.svg');
               }
             }
           }
         }
 
-
-        &:hover, :focus{
+        &:hover, :focus {
 
           i {
             font-size: 3em;
             color: @brand-primary;
           }
 
-          background-color: rgba(221,221,221,0.2);
+          background-color: rgba(221, 221, 221, 0.2);
         }
       }
-      
 
     }
 
@@ -815,6 +803,61 @@ background-position: center;
   }
 
   // IMAGES SLIDER
+
+  .images-section {
+    width: 100%;
+
+
+    .item {
+      width: 100%;
+      height: 401px;
+      max-height: 401px;
+      overflow: hidden;
+
+
+      img {
+        width: 100%;
+      }
+
+      .youtube-iframe {
+        width: 100%;
+        height: 100%;
+        max-height: 401px;
+      }
+    }
+
+    .carousel-control {
+      margin-top: auto;
+      position: absolute;
+      height: 50px;
+      width: 50px;
+      background: none;
+      background-color: @brand-info;
+      bottom: -80px;
+      top: auto;
+      opacity: 1;
+      font-size: 2em;
+      padding-top: 6px;
+      .transition(100ms linear all);
+      &:hover,
+      &:focus {
+        opacity: 1;
+        background-color: @brand-primary;
+      }
+
+      &.left {
+        left: 40%;
+      }
+
+      &.right {
+        right: 40%;
+      }
+
+    }
+
+  }
+
+  // @Deprecated
   .document-section {
     width: 100%;
     height: 401px;
@@ -890,7 +933,7 @@ background-position: center;
 
   // wall
   .sidebar-wall {
-      padding-top: 150px;
+    padding-top: 150px;
     .media {
       &:first-child {
         padding-top: 0;
@@ -1038,8 +1081,6 @@ background-position: center;
         .name {
           display: block;
           margin: 0 0 3px 0;
-          white-space: nowrap;
-          text-overflow: ellipsis;
           font-family: 'Raleway', sans-serif;
           font-size: 24px;
           font-weight: 700;
@@ -1056,8 +1097,8 @@ background-position: center;
         .phone {
           border-top: 1px solid #D9D9DE;
           border-bottom: 1px solid #D9D9DE;
-          padding-top: 15px ;
-          padding-bottom: 15px ;
+          padding-top: 15px;
+          padding-bottom: 15px;
           margin-bottom: 10px;
         }
 
@@ -1110,19 +1151,16 @@ background-position: center;
         }
       }
 
-
       .card-img-top {
         border-radius: 0;
 
         -webkit-transition: 200ms ease-out all;
         transition: 200ms ease-out all;
 
-
         img {
           height: 200px;
         }
       }
-
 
       .card-block {
 
@@ -1190,11 +1228,8 @@ background-position: center;
         }
       }
 
-
     }
   }
-
-
 
   // know-startup
   .know-startup {
@@ -1216,12 +1251,13 @@ background-position: center;
       padding: 15px 20px 12px 20px;
       font-size: 15px;
       vertical-align: middle;
-      font-weight:  normal;
-  
+      font-weight: normal;
+
       background: #fafdd4;
       color: #ff6500;
     }
   }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -1301,7 +1337,6 @@ background-position: center;
             color: @brand-primary;
           }
         }
-
 
       }
 

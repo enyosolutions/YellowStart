@@ -34,7 +34,6 @@ module.exports = {
     get: function (req, resp) {
         Monk.get(req.param('endpoint')).find({_id: req.param('id')})
             .on('success', function (data) {
-                data[0].statusCode = 200;
                 resp.json(data[0]);
                 var id = req.token ? req.token.id : 'ANONYMOUS';
                 Monk.get('access-logs').insert({
