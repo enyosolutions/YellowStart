@@ -17,7 +17,7 @@ body {
  * Glyphs
  */
 @font-face {
-  font-family: 'icomoon';
+  font-family: 'icomoon-startup';
   src: url('fonts/icomoon-startup.eot?snb6p1');
   src: url('fonts/icomoon-startup.eot?snb6p1#iefix') format('embedded-opentype'),
   url('fonts/icomoon-startup.ttf?snb6p1') format('truetype'),
@@ -28,7 +28,7 @@ body {
 }
 
 [class^="icon-"], [class*=" icon-"] {
-  font-family: 'icomoon' !important;
+  font-family: 'icomoon-startup' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -41,65 +41,56 @@ body {
 }
 
 .icon-arrowLeft:before {
-  content: "\e90b";
-}
-
-.icon-arrowRight:before {
   content: "\e90c";
 }
-
-.icon-AddComment:before {
+.icon-arrowRight:before {
   content: "\e90d";
 }
-
-.icon-EditPage:before {
-  content: "\e907";
-}
-
-.icon-bromance:before {
-  content: "\e916";
-}
-
-.icon-favoriteAdd:before {
-  content: "\e908";
-}
-
-.icon-favoriteCheck:before {
-  content: "\e909";
-}
-
-.icon-favorite:before {
-  content: "\e902";
-}
-
-.icon-settings:before {
-  content: "\e905";
-}
-
-.icon-add:before {
+.icon-Badge:before {
   content: "\e900";
 }
-
-.icon-contact:before {
-  content: "\e906";
-}
-
-.icon-search:before {
-  content: "\e904";
-}
-
-.icon-account:before {
+.icon-AddComment:before {
   content: "\e901";
 }
-
-.icon-logout:before {
+.icon-EditPage:before {
+  content: "\e902";
+}
+.icon-bromance:before {
   content: "\e903";
 }
+.icon-favoriteAdd:before {
+  content: "\e904";
+}
+.icon-favoriteCheck:before {
+  content: "\e905";
+}
+.icon-favorite:before {
+  content: "\e906";
+}
+.icon-settings:before {
+  content: "\e907";
+}
+.icon-add:before {
+  content: "\e908";
+}
+.icon-contact:before {
+  content: "\e909";
+}
+.icon-search:before {
+  content: "\e90a";
+}
+.icon-account:before {
+  content: "\e90b";
+}
+.icon-logout:before {
+  content: "\e90f";
+}
+
 
 @font-face {
   font-family: 'icomoon-startup';
-  src: url('fonts/icomoon-startup.eot?g0kbku');
-  src: url('fonts/icomoon-startup.eot?g0kbku#iefix') format('embedded-opentype'),
+  src:    url('fonts/icomoon-startup.eot?g0kbku');
+  src:    url('fonts/icomoon-startup.eot?g0kbku#iefix') format('embedded-opentype'),
   url('fonts/icomoon-startup.ttf?g0kbku') format('truetype'),
   url('fonts/icomoon-startup.woff?g0kbku') format('woff'),
   url('fonts/icomoon-startup.svg?g0kbku#icomoon-startup') format('svg');
@@ -123,36 +114,33 @@ body {
 }
 
 .icon-start-ico-doc:before {
-  content: "\e905";
+  content: "\e800";
 }
-
 .icon-start-ico-pdf:before {
-  content: "\e90a";
+  content: "\e801";
 }
-
 .icon-start-ico-ppt:before {
-  content: "\e910";
+  content: "\e802";
 }
-
 .icon-start-ico-xls:before {
-  content: "\e915";
+  content: "\e803";
 }
-
 .icon-start-bt-contact:before {
-  content: "\e91e";
+  content: "\e702";
 }
-
 .icon-start-bt-edit:before {
-  content: "\e900";
+  content: "\e703";
 }
-
 .icon-start-bt-follow:before {
-  content: "\e901";
+  content: "\e700";
+}
+.icon-start-bt-unfollow:before {
+  content: "\e701";
 }
 
-.icon-start-bt-unfollow:before {
-  content: "\e904";
-}
+
+
+
 
 /*
  * Loading screen
@@ -228,12 +216,13 @@ body.unlocked {
       span.menulabel {
         display: none;
       }
-
+      
       .badge {
         padding: 3px 7px;
         font-size: normal;
       }
     }
+
 
     .brand {
       width: 120px;
@@ -275,13 +264,8 @@ body.unlocked {
     // search
     .search-form {
       float: left;
-      overflow: visible;
-      position: absolute;
-      width: auto;
-
-      form {
-        overflow: visible;
-      }
+      position: relative;
+      width: 50%;
 
       input {
         display: block;
@@ -306,16 +290,22 @@ body.unlocked {
         &:focus {
           font-size: 30px;
           color: #73737F;
-          position: relative;
-          width: 900px;
+          position: fixed;
+          width: 830px;
           height: 109px;
           z-index: 10;
         }
       }
 
+
+
+
       button {
         position: absolute;
         z-index: 2;
+
+        top: 0;
+        left: 0;
 
         font-size: 20px;
         line-height: 20px;
@@ -327,18 +317,6 @@ body.unlocked {
           text-decoration: none;
         }
 
-        &.search-icon {
-          top: 0;
-          left: 0;
-        }
-
-        &.btn-search {
-          top: 0;
-          right: -100px;
-          border-radius: 0;
-          font-weight: 300;
-          width: 99px;
-        }
       }
 
       .angucomplete-dropdown {
@@ -410,6 +388,7 @@ body.unlocked {
       margin: 0;
       padding: 0;
 
+
       .orange {
         background: #fff;
         border-bottom-color: @brand-primary;
@@ -439,6 +418,7 @@ body.unlocked {
 
         border-left: 1px solid #EAEAEA;
 
+
         &:hover {
           border-bottom: 3px solid @brand-info;
         }
@@ -447,6 +427,7 @@ body.unlocked {
           border-bottom: 3px solid @brand-primary;
         }
 
+        
         &.notifications {
           .dropdown-menu {
             li {
@@ -470,6 +451,7 @@ body.unlocked {
           color: #73737f;
           background-color: #fff;
           text-align: center;
+
 
           span.menulabel {
             line-height: 12px;

@@ -8120,7 +8120,7 @@ body {
  * Glyphs
  */
 @font-face {
-  font-family: 'icomoon';
+  font-family: 'icomoon-startup';
   src: url('fonts/icomoon-startup.eot?snb6p1');
   src: url('fonts/icomoon-startup.eot?snb6p1#iefix') format('embedded-opentype'), url('fonts/icomoon-startup.ttf?snb6p1') format('truetype'), url('fonts/icomoon-startup.woff?snb6p1') format('woff'), url('fonts/icomoon-startup.svg?snb6p1#icomoon') format('svg');
   font-weight: normal;
@@ -8128,7 +8128,7 @@ body {
 }
 [class^="icon-"],
 [class*=" icon-"] {
-  font-family: 'icomoon' !important;
+  font-family: 'icomoon-startup' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -8139,46 +8139,49 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .icon-arrowLeft:before {
-  content: "\e90b";
-}
-.icon-arrowRight:before {
   content: "\e90c";
 }
-.icon-AddComment:before {
+.icon-arrowRight:before {
   content: "\e90d";
 }
-.icon-EditPage:before {
-  content: "\e907";
-}
-.icon-bromance:before {
-  content: "\e916";
-}
-.icon-favoriteAdd:before {
-  content: "\e908";
-}
-.icon-favoriteCheck:before {
-  content: "\e909";
-}
-.icon-favorite:before {
-  content: "\e902";
-}
-.icon-settings:before {
-  content: "\e905";
-}
-.icon-add:before {
+.icon-Badge:before {
   content: "\e900";
 }
-.icon-contact:before {
-  content: "\e906";
-}
-.icon-search:before {
-  content: "\e904";
-}
-.icon-account:before {
+.icon-AddComment:before {
   content: "\e901";
 }
-.icon-logout:before {
+.icon-EditPage:before {
+  content: "\e902";
+}
+.icon-bromance:before {
   content: "\e903";
+}
+.icon-favoriteAdd:before {
+  content: "\e904";
+}
+.icon-favoriteCheck:before {
+  content: "\e905";
+}
+.icon-favorite:before {
+  content: "\e906";
+}
+.icon-settings:before {
+  content: "\e907";
+}
+.icon-add:before {
+  content: "\e908";
+}
+.icon-contact:before {
+  content: "\e909";
+}
+.icon-search:before {
+  content: "\e90a";
+}
+.icon-account:before {
+  content: "\e90b";
+}
+.icon-logout:before {
+  content: "\e90f";
 }
 @font-face {
   font-family: 'icomoon-startup';
@@ -8202,28 +8205,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .icon-start-ico-doc:before {
-  content: "\e905";
+  content: "\e800";
 }
 .icon-start-ico-pdf:before {
-  content: "\e90a";
+  content: "\e801";
 }
 .icon-start-ico-ppt:before {
-  content: "\e910";
+  content: "\e802";
 }
 .icon-start-ico-xls:before {
-  content: "\e915";
+  content: "\e803";
 }
 .icon-start-bt-contact:before {
-  content: "\e91e";
+  content: "\e702";
 }
 .icon-start-bt-edit:before {
-  content: "\e900";
+  content: "\e703";
 }
 .icon-start-bt-follow:before {
-  content: "\e901";
+  content: "\e700";
 }
 .icon-start-bt-unfollow:before {
-  content: "\e904";
+  content: "\e701";
 }
 /*
  * Loading screen
@@ -8323,12 +8326,8 @@ body.unlocked {
 }
 .top-navigation.top-navigation-default .search-form {
   float: left;
-  overflow: visible;
-  position: absolute;
-  width: auto;
-}
-.top-navigation.top-navigation-default .search-form form {
-  overflow: visible;
+  position: relative;
+  width: 50%;
 }
 .top-navigation.top-navigation-default .search-form input {
   display: block;
@@ -8350,14 +8349,16 @@ body.unlocked {
 .top-navigation.top-navigation-default .search-form input:focus {
   font-size: 30px;
   color: #73737F;
-  position: relative;
-  width: 900px;
+  position: fixed;
+  width: 830px;
   height: 109px;
   z-index: 10;
 }
 .top-navigation.top-navigation-default .search-form button {
   position: absolute;
   z-index: 2;
+  top: 0;
+  left: 0;
   font-size: 20px;
   line-height: 20px;
   padding: 43px 0 43px 10px;
@@ -8366,17 +8367,6 @@ body.unlocked {
 .top-navigation.top-navigation-default .search-form button:focus {
   color: #73737f;
   text-decoration: none;
-}
-.top-navigation.top-navigation-default .search-form button.search-icon {
-  top: 0;
-  left: 0;
-}
-.top-navigation.top-navigation-default .search-form button.btn-search {
-  top: 0;
-  right: -100px;
-  border-radius: 0;
-  font-weight: 300;
-  width: 99px;
 }
 .top-navigation.top-navigation-default .search-form .angucomplete-dropdown {
   -webkit-border-radius: 0;
