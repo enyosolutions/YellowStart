@@ -8257,16 +8257,16 @@ body.unlocked {
 .top-navigation {
   display: block;
   height: 110px;
-  -webkit-transition: height 200ms linear;
-  -o-transition: height 200ms linear;
-  transition: height 200ms linear;
+  -webkit-transition: height 100ms linear;
+  -o-transition: height 100ms linear;
+  transition: height 100ms linear;
   z-index: 1000;
 }
 .top-navigation.top-navigation-default.small {
-  -webkit-transition: height 200ms linear;
-  -o-transition: height 200ms linear;
-  transition: height 200ms linear;
-  height: 70px;
+  -webkit-transition: height 100ms linear;
+  -o-transition: height 100ms linear;
+  transition: height 100ms linear;
+  height: 65px;
 }
 .top-navigation.top-navigation-default.small .search-form {
   float: left;
@@ -8274,17 +8274,21 @@ body.unlocked {
   width: 50%;
 }
 .top-navigation.top-navigation-default.small .search-form input {
-  height: 69px;
-  padding: 22px 25px 22px 40px;
+  height: 65px;
+  padding: 27px 25px 22px 40px;
 }
 .top-navigation.top-navigation-default.small .search-form button {
   padding: 22px 0 22px 10px;
 }
+.top-navigation.top-navigation-default.small li.dropdown.notifications {
+  position: relative;
+  top: -2px;
+}
 .top-navigation.top-navigation-default.small .navigation li a {
-  padding: 20px 10px;
+  padding: 15px 10px 15px 9px;
 }
 .top-navigation.top-navigation-default.small .navigation li a i {
-  font-size: 2em;
+  /*font-size: 2.4em;*/
 }
 .top-navigation.top-navigation-default.small .navigation li a span.menulabel {
   display: none;
@@ -8294,7 +8298,8 @@ body.unlocked {
   font-size: normal;
 }
 .top-navigation.top-navigation-default.small .brand {
-  padding: 12px 30px 12px 0;
+  width: 120px;
+  padding: 15px 30px 17px 0;
 }
 .top-navigation .brand {
   width: 150px;
@@ -8439,8 +8444,14 @@ body.unlocked {
   min-width: 80px;
   text-align: center;
   font-size: 10px;
+  line-height: 12px;
   border-left: 1px solid #EAEAEA;
-  border-bottom: 4px solid #0031f7;
+}
+.top-navigation.top-navigation-default .navigation li:hover {
+  border-bottom: 3px solid #0031f7;
+}
+.top-navigation.top-navigation-default .navigation li.orange:hover {
+  border-bottom: 3px solid #ff6500;
 }
 .top-navigation.top-navigation-default .navigation li.notifications .dropdown-menu li {
   margin-right: 0;
@@ -8454,23 +8465,23 @@ body.unlocked {
 }
 .top-navigation.top-navigation-default .navigation li a {
   display: inline-block;
-  padding: 27px 10px;
-  font-weight: 500;
+  padding: 22px 10px 27px 10px;
+  font-weight: 400;
   color: #73737f;
   background-color: #fff;
   text-align: center;
 }
 .top-navigation.top-navigation-default .navigation li a span.menulabel {
+  line-height: 12px;
   color: #73737f;
 }
 .top-navigation.top-navigation-default .navigation li a:hover,
 .top-navigation.top-navigation-default .navigation li a:focus {
   text-decoration: none;
-  color: #ff6500;
 }
 .top-navigation.top-navigation-default .navigation li a .icon {
   font-size: 24px;
-  line-height: 24px;
+  line-height: 35px;
   display: block;
   margin: 0 auto 1px auto;
 }

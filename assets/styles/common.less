@@ -192,11 +192,11 @@ body.unlocked {
 .top-navigation {
   display: block;
   height: 110px;
-  .transition(height 200ms linear);
+  .transition(height 100ms linear);
 
   &.top-navigation-default.small {
-    .transition(height 200ms linear);
-    height: 70px;
+    .transition(height 100ms linear);
+    height: 65px;
 
     .search-form {
       float: left;
@@ -204,8 +204,8 @@ body.unlocked {
       width: 50%;
 
       input {
-        height: 69px;
-        padding: 22px 25px 22px 40px;
+        height: 65px;
+        padding: 27px 25px 22px 40px;
       }
 
       button {
@@ -213,16 +213,20 @@ body.unlocked {
       }
     }
 
-    .navigation li a {
-      padding: 20px 10px;
+    li.dropdown.notifications {
+      position: relative;
+      top: -2px;
+    }
 
+    .navigation li a {
+      padding: 15px 10px 15px 9px;
       i {
-        font-size: 2em;
+        /*font-size: 2.4em;*/
       }
       span.menulabel {
         display: none;
       }
-
+      
       .badge {
         padding: 3px 7px;
         font-size: normal;
@@ -231,7 +235,8 @@ body.unlocked {
 
 
     .brand {
-      padding: 12px 30px 12px 0;
+      width: 120px;
+      padding: 15px 30px 17px 0;
     }
   }
   z-index: 1000;
@@ -299,9 +304,11 @@ body.unlocked {
           width: 830px;
           height: 109px;
           z-index: 10;
-
         }
       }
+
+
+
 
       button {
         position: absolute;
@@ -319,6 +326,7 @@ body.unlocked {
           color: #73737f;
           text-decoration: none;
         }
+
       }
 
       .angucomplete-dropdown {
@@ -390,6 +398,7 @@ body.unlocked {
       margin: 0;
       padding: 0;
 
+
       .orange {
         background: #fff;
         border-bottom-color: @brand-primary;
@@ -415,9 +424,19 @@ body.unlocked {
         min-width: 80px;
         text-align: center;
         font-size: 10px;
+        line-height: 12px;
 
         border-left: 1px solid #EAEAEA;
-        border-bottom: 4px solid @brand-info;
+
+
+        &:hover {
+          border-bottom: 3px solid @brand-info;
+        }
+
+        &.orange:hover {
+          border-bottom: 3px solid @brand-primary;
+        }
+
         
         &.notifications {
           .dropdown-menu {
@@ -436,26 +455,26 @@ body.unlocked {
         }
         a {
           display: inline-block;
-          padding: 27px 10px;
+          padding: 22px 10px 27px 10px;
 
-          font-weight: 500;
+          font-weight: 400;
           color: #73737f;
           background-color: #fff;
           text-align: center;
 
 
           span.menulabel {
+            line-height: 12px;
             color: #73737f;
           }
           &:hover,
           &:focus {
             text-decoration: none;
-            color: @brand-primary;
           }
 
           .icon {
             font-size: 24px;
-            line-height: 24px;
+            line-height: 35px;
             display: block;
             margin: 0 auto 1px auto;
           }
