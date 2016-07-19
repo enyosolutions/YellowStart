@@ -8323,8 +8323,12 @@ body.unlocked {
 }
 .top-navigation.top-navigation-default .search-form {
   float: left;
-  position: relative;
-  width: 50%;
+  overflow: visible;
+  position: absolute;
+  width: auto;
+}
+.top-navigation.top-navigation-default .search-form form {
+  overflow: visible;
 }
 .top-navigation.top-navigation-default .search-form input {
   display: block;
@@ -8346,8 +8350,8 @@ body.unlocked {
 .top-navigation.top-navigation-default .search-form input:focus {
   font-size: 30px;
   color: #73737F;
-  position: fixed;
-  width: 830px;
+  position: relative;
+  width: 900px;
   height: 109px;
   z-index: 10;
 }
@@ -8369,9 +8373,10 @@ body.unlocked {
 }
 .top-navigation.top-navigation-default .search-form button.btn-search {
   top: 0;
-  right: 0;
+  right: -100px;
   border-radius: 0;
-  font-weight: light;
+  font-weight: 300;
+  width: 99px;
 }
 .top-navigation.top-navigation-default .search-form .angucomplete-dropdown {
   -webkit-border-radius: 0;
