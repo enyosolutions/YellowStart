@@ -8356,17 +8356,27 @@ body.unlocked {
 }
 .top-navigation.top-navigation-default .search-form button {
   position: absolute;
-  z-index: 2;
-  top: 0;
-  left: 0;
+  z-index: 20;
   font-size: 20px;
   line-height: 20px;
   padding: 43px 0 43px 10px;
+  top: 0;
 }
 .top-navigation.top-navigation-default .search-form button:hover,
 .top-navigation.top-navigation-default .search-form button:focus {
   color: #73737f;
   text-decoration: none;
+}
+.top-navigation.top-navigation-default .search-form button.btn-icon {
+  left: 0;
+}
+.top-navigation.top-navigation-default .search-form button.btn-search {
+  right: -320px;
+  border-radius: 0;
+  background-color: #ff6500;
+  font-weight: 300;
+  min-width: 100px;
+  padding: 43px 10px 43px 10px;
 }
 .top-navigation.top-navigation-default .search-form .angucomplete-dropdown {
   -webkit-border-radius: 0;

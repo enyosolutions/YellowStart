@@ -162,7 +162,7 @@
                     <li  ng-if="notifications.length > 0">
                         <button class="btn btn-link-primary text-left"> Effacer </button>
                     </li>
-                    <li  ng-if="!notifications && notifications.length == 0">
+                    <li  ng-if="!notifications || notifications.length == 0">
                         <a href="" class=" text-left"> Pas de notifications</a>
                     </li>
                 </ul>
