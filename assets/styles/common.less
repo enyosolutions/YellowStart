@@ -275,8 +275,13 @@ body.unlocked {
     // search
     .search-form {
       float: left;
-      position: relative;
-      width: 50%;
+      overflow: visible;
+      position: absolute;
+      width: auto;
+
+      form {
+        overflow: visible;
+      }
 
       input {
         display: block;
@@ -301,8 +306,8 @@ body.unlocked {
         &:focus {
           font-size: 30px;
           color: #73737F;
-          position: fixed;
-          width: 830px;
+          position: relative;
+          width: 900px;
           height: 109px;
           z-index: 10;
         }
@@ -329,9 +334,10 @@ body.unlocked {
 
         &.btn-search {
           top: 0;
-          right: 0;
+          right: -100px;
           border-radius: 0;
-          font-weight: light;
+          font-weight: 300;
+          width: 99px;
         }
       }
 
