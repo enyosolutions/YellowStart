@@ -8775,14 +8775,14 @@ footer .brand {
 }
 .slick-prev:after,
 .slick-next:before {
-  font-family: 'icomoon';
+  font-family: 'icomoon-startup';
   content: "\e90d";
   text-align: center;
   color: white;
   font-size: 25px;
 }
 .slick-prev:after {
-  font-family: 'icomoon';
+  font-family: 'icomoon-startup';
   content: "\e90c";
 }
 /*
