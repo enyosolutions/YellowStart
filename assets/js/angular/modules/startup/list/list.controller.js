@@ -60,16 +60,18 @@ angular.module('start.controllers')
         };
 
 
+        // ADD A ORANGE BUTTON ON THE BOTTOM OF THE SEARCH AUTOCOMPLETE
         $scope.appendMoreButtons = function (res) {
             console.log(res);
             if (res.body.length > 1) {
                 res.body = res.body.slice(0,6);
-
             }
             res.body.push({label: "Afficher tous les résultats", type: 'button', title: $scope.searchName});
             return res;
         }
 
+
+        //@deprecated DELETE A STARTUP
         $scope.deleteStartup = function (id) {
             var c = $scope.startupList.splice(id, 1);
             console.log(c);
@@ -108,6 +110,20 @@ angular.module('start.controllers')
 
         $scope.sortByNoteSip = function () {
             $scope.searchedStartups = Startup.query(angular.extend({'sort[sipScore]': -1}, query));
+        };
+
+
+        $scope.barFocused = function () {
+            $rootScope.barIsFocused = true;
+        };
+
+
+        $scope.barBlurred = function () {
+            $rootScope.barIsFocused = false;
+        };
+
+        $rootScope.toggleNavBar = function (open) {
+            $rootScope.minified = open || true;
         };
 
 

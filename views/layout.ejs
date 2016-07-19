@@ -73,7 +73,7 @@
 </div>
 
 <!-- default -->
-<div id="navbar-main" class="top-navigation top-navigation-default navbar navbar-default navbar-fixed-top" ng-if="['user-register','user-reset'].indexOf($state.current.name) === -1" ng-class="{small: minified}" minify-on-scroll>
+<div id="navbar-main" class="top-navigation top-navigation-default navbar navbar-default navbar-fixed-top" ng-if="['user-register','user-reset'].indexOf($state.current.name) === -1" ng-class="{small: minified && !barIsFocused}" minify-on-scroll>
     <div class="container">
         <a href="#/" class="brand">
             <img src="/images/logo.svg" alt="Yellow Starter"/>
@@ -81,12 +81,13 @@
 
         <div class="search-form">
             <form ng-submit="search(listStartup.searchName)" ng-controller="ListStartupCtrl as listStartup">
-                <button class="btn btn-link" type="submit">
+                <button class="btn btn-link button search-icon" type="submit">
                     <i class="icon icon-search"></i>
                 </button>
 
                 <input class="url form-control hidden" name="website" ng-model="listStartup.searchName" type="text"
                        placeholder="Rechercher une start-up" ng-focus="{'navbar-main':top-navigation-default}" />
+                <button  class="btn btn-primary btn-search" ng-show="barIsFocused" type="submit">GO</button>
 
                 <angucomplete-alt id="search"
                                   placeholder="Rechercher une start-up"
@@ -95,13 +96,19 @@
                                   text-no-results=""
                                   selected-object="searchAutocomplete"
                                   input-changed="searchAutocompleteCHG"
+                                  focus-in="barFocused()"
+                                  focus-out="barBlurred()"
                                   remote-url="{{ ::remoteHost }}/api/crawler/autocomplete?q="
                                   remote-url-data-field="body"
                                   remote-url-response-formatter="appendMoreButtons"
                                   minlength="1"
                                   title-field="label"
                                   description-field="subLabel"
+
                                   input-class="url form-control"/>
+
+                <input class="btn btn-primary" type="submit" value="Faou">
+
             </form>
         </div>
 
@@ -154,6 +161,9 @@
                     </li>
                     <li  ng-if="notifications.length > 0">
                         <button class="btn btn-link-primary text-left"> Effacer </button>
+                    </li>
+                    <li  ng-if="!notifications && notifications.length == 0">
+                        <a href="" class=" text-left"> Pas de notifications</a>
                     </li>
                 </ul>
 

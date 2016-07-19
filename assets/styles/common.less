@@ -96,11 +96,10 @@ body {
   content: "\e90b";
 }
 
-
 @font-face {
   font-family: 'icomoon-startup';
-  src:    url('fonts/icomoon-startup.eot?g0kbku');
-  src:    url('fonts/icomoon-startup.eot?g0kbku#iefix') format('embedded-opentype'),
+  src: url('fonts/icomoon-startup.eot?g0kbku');
+  src: url('fonts/icomoon-startup.eot?g0kbku#iefix') format('embedded-opentype'),
   url('fonts/icomoon-startup.ttf?g0kbku') format('truetype'),
   url('fonts/icomoon-startup.woff?g0kbku') format('woff'),
   url('fonts/icomoon-startup.svg?g0kbku#icomoon-startup') format('svg');
@@ -126,31 +125,34 @@ body {
 .icon-start-ico-doc:before {
   content: "\e905";
 }
+
 .icon-start-ico-pdf:before {
   content: "\e90a";
 }
+
 .icon-start-ico-ppt:before {
   content: "\e910";
 }
+
 .icon-start-ico-xls:before {
   content: "\e915";
 }
+
 .icon-start-bt-contact:before {
   content: "\e91e";
 }
+
 .icon-start-bt-edit:before {
   content: "\e900";
 }
+
 .icon-start-bt-follow:before {
   content: "\e901";
 }
+
 .icon-start-bt-unfollow:before {
   content: "\e904";
 }
-
-
-
-
 
 /*
  * Loading screen
@@ -226,13 +228,12 @@ body.unlocked {
       span.menulabel {
         display: none;
       }
-      
+
       .badge {
         padding: 3px 7px;
         font-size: normal;
       }
     }
-
 
     .brand {
       width: 120px;
@@ -307,15 +308,9 @@ body.unlocked {
         }
       }
 
-
-
-
       button {
         position: absolute;
         z-index: 2;
-
-        top: 0;
-        left: 0;
 
         font-size: 20px;
         line-height: 20px;
@@ -327,6 +322,17 @@ body.unlocked {
           text-decoration: none;
         }
 
+        &.search-icon {
+          top: 0;
+          left: 0;
+        }
+
+        &.btn-search {
+          top: 0;
+          right: 0;
+          border-radius: 0;
+          font-weight: light;
+        }
       }
 
       .angucomplete-dropdown {
@@ -398,7 +404,6 @@ body.unlocked {
       margin: 0;
       padding: 0;
 
-
       .orange {
         background: #fff;
         border-bottom-color: @brand-primary;
@@ -428,7 +433,6 @@ body.unlocked {
 
         border-left: 1px solid #EAEAEA;
 
-
         &:hover {
           border-bottom: 3px solid @brand-info;
         }
@@ -437,7 +441,6 @@ body.unlocked {
           border-bottom: 3px solid @brand-primary;
         }
 
-        
         &.notifications {
           .dropdown-menu {
             li {
@@ -461,7 +464,6 @@ body.unlocked {
           color: #73737f;
           background-color: #fff;
           text-align: center;
-
 
           span.menulabel {
             line-height: 12px;
