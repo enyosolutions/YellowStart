@@ -61,48 +61,6 @@
                 <!-- documents list -->
 
                 <div class="" id="documents-area">
-                    <div class="media">
-                        <a href="">
-                            <div class="media-left">
-                                <i class="icon-start-ico-pdf">
-
-                                </i>
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">Télécharger</h4>
-
-                                <p class="text-primary title">Souscritoo présentation - Business model.pdf</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="media">
-                        <a href="">
-                            <div class="media-left">
-                                <i class="icon-start-ico-ppt">
-
-                                </i>
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">Télécharger</h4>
-
-                                <p class="text-primary title">Souscritoo présentation - Business model.pdf</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="media">
-                        <a href="">
-                            <div class="media-left">
-                                <i class="ico-svg icon-start-ico-doc">
-
-                                </i>
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">Télécharger</h4>
-
-                                <p class="text-primary title">Souscritoo présentation - Business model.pdf</p>
-                            </div>
-                        </a>
-                    </div>
 
                     <div class="media" ng-repeat="document in startup.documents">
                         <a href="{{ document.file }}">
@@ -127,7 +85,7 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox" >
                             <div class="item active" ng-if="startup.picture">
-                                <img ng-src="{{ ::remoteHost }}{{ startup.picture}}" alt="startup picture">
+                                <img ng-src="{{ ::remoteHost }}{{ startup.picture }}" alt="startup picture">
                             </div>
 
                             <div class="item" document-slider ng-if="startup.youtubeId" ng-class="{active: !startup.picture}">
@@ -135,7 +93,7 @@
                                         allowfullscreen></iframe>
                             </div>
 
-                            <div class="item" ng-repeat="image in startup.images" ng-class="{active: $index === 0 && !startup.picture && startup.youtubeId}">
+                            <div class="item" ng-repeat="image in startup.images" ng-class="{active: $index === 0 && !startup.picture && !startup.youtubeId}">
                                 <img ng-src="{{ ::remoteHost }}{{ image.file }}" alt="{{ image.name }}">
                             </div>
 
