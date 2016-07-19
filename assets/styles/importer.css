@@ -8121,8 +8121,8 @@ body {
  */
 @font-face {
   font-family: 'icomoon';
-  src: url('fonts/icomoon.eot?snb6p1');
-  src: url('fonts/icomoon.eot?snb6p1#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?snb6p1') format('truetype'), url('fonts/icomoon.woff?snb6p1') format('woff'), url('fonts/icomoon.svg?snb6p1#icomoon') format('svg');
+  src: url('fonts/icomoon-startup.eot?snb6p1');
+  src: url('fonts/icomoon-startup.eot?snb6p1#iefix') format('embedded-opentype'), url('fonts/icomoon-startup.ttf?snb6p1') format('truetype'), url('fonts/icomoon-startup.woff?snb6p1') format('woff'), url('fonts/icomoon-startup.svg?snb6p1#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -8139,46 +8139,46 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .icon-arrowLeft:before {
-  content: "\e90c";
+  content: "\e90b";
 }
 .icon-arrowRight:before {
-  content: "\e90d";
-}
-.icon-Badge:before {
-  content: "\e900";
+  content: "\e90c";
 }
 .icon-AddComment:before {
-  content: "\e901";
+  content: "\e90d";
 }
 .icon-EditPage:before {
-  content: "\e902";
+  content: "\e900";
 }
 .icon-bromance:before {
-  content: "\e903";
+  content: "\e91e";
 }
 .icon-favoriteAdd:before {
-  content: "\e904";
+  content: "\e901";
 }
 .icon-favoriteCheck:before {
-  content: "\e905";
+  content: "\e904";
 }
 .icon-favorite:before {
-  content: "\e906";
+  content: "\e903";
 }
 .icon-settings:before {
-  content: "\e907";
-}
-.icon-add:before {
   content: "\e908";
 }
+.icon-add:before {
+  content: "\e902";
+}
 .icon-contact:before {
-  content: "\e909";
+  content: "\e91e";
 }
 .icon-search:before {
-  content: "\e90a";
+  content: "\e909";
 }
 .icon-account:before {
-  content: "\e90b";
+  content: "\e906";
+}
+.icon-logout:before {
+  content: "\e907";
 }
 @font-face {
   font-family: 'icomoon-startup';
