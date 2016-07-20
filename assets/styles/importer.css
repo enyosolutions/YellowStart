@@ -8353,6 +8353,7 @@ body.unlocked {
   width: 830px;
   height: 109px;
   z-index: 10;
+  border-right: 1px #eaeaea solid;
 }
 .top-navigation.top-navigation-default .search-form button {
   position: absolute;
@@ -8384,7 +8385,7 @@ body.unlocked {
   border-radius: 0;
   padding: 0;
   border: 0;
-  min-width: 700px;
+  min-width: 830px;
   top: 115px;
   left: -1px;
   -wekbit-transition: none;
