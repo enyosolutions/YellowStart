@@ -32,6 +32,11 @@ module.exports = {
             });
     },
     get: function (req, resp) {
+        var _id = req.param('id');
+        if(!_id || _id.length < 24){
+            resp.json(404, {error: 'not_an_id'});
+            return;
+        }
         Monk.get(req.param('endpoint')).find({_id: req.param('id')})
             .on('success', function (data) {
                 resp.json(data[0]);
@@ -52,6 +57,10 @@ module.exports = {
     },
     post: function (req, resp) {
         var data = extend({createdAt: new Date()}, req.body);
+        var id = req.token && req.token.id;
+        if(data && id){
+            data.createdBy = id;
+        }
         console.log(data);
         Monk.get(req.param('endpoint')).insert(data)
             .on('success', function (d) {

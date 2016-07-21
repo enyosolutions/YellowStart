@@ -53,7 +53,7 @@ module.exports = {
                                 tags: col.tags[tagId]
                             };
                         }
-                        else if(col.mainTag && col.mainTag.length ) {
+                        else if (col.mainTag && col.mainTag.length) {
                             query = {
                                 tags: col.mainTag
                             };
@@ -61,7 +61,7 @@ module.exports = {
                         else {
                             var randId = Math.floor(Math.random() * (5 - 0));
                             query = {
-                                tags: {$regex: ['a','b','c','e','t'][randId]}
+                                tags: {$regex: ['a', 'b', 'c', 'e', 't'][randId]}
                             };
                         }
                     }
@@ -167,7 +167,7 @@ module.exports = {
 
     lunaActions: function (req, res, next) {
         // MailService.sendActivitySummary();
-        console.log('luna sucking', req.query.page);
+        console.log('luna actions');
         var request = require('request');
         var startupColl = Monk.get('startup');
         var lunaStartupColl = Monk.get('luna-startup');
@@ -192,11 +192,18 @@ module.exports = {
         }
         else if (req.query.import) {
             var query = req.query.import === 'all' ? {} : {_id: req.query.import};
-            var oldStartup;
+
+            console.log('Luna update', query);
+            var startupCache = {};
             lunaStartupColl.find(query).then(function (coll) {
+                console.log('NUMBER OF LUNA STARTUP ', coll.length);
                 if (coll && coll.length > 0) {
+                    console.log('NUMBER OF LUNA STARTUP ', coll.length);
                     for (var i in coll) {
-                        oldStartup = coll[i];
+
+                        var oldStartup = coll[i];
+                        startupCache[oldStartup.id] = coll[i];
+                        console.log(oldStartup.id, oldStartup.StartupName, oldStartup.ContactFirstName, oldStartup.ContactLastName,  oldStartup.ContactEmail);
                         var newStartup = {
                             lunaId: oldStartup.id,
                             "startupName": oldStartup.StartupName,
@@ -205,7 +212,6 @@ module.exports = {
                             "websiteUrl": oldStartup.WebsiteUrl,
                             "projectTweet": oldStartup.ProjectTweet,
                             "tagline": oldStartup.Tagline,
-                            "lastModifiedAt": oldStartup.LastModifiedAt,
                             "creationDate": oldStartup.CreationDate,
                             "offerDetails": oldStartup.OfferDetails,
                             "offerBusiness": oldStartup.OfferBusiness,
@@ -228,24 +234,39 @@ module.exports = {
                             lastModifiedAt: new Date(oldStartup.modified_at)
                         };
 
-                        startupColl.findAndModify({lunaId: oldStartup.id}, newStartup, {
-                                upsert: true,
-                                new: true
+
+                        //startupColl.findAndModify({lunaId: oldStartup.id}, newStartup, {
+                        startupColl.findAndModify({lunaId: oldStartup.id}, {$set: {lastModifiedAt: new Date()}}, {
+                                upsert: false,
+                                new: false
                             }, function (err, start) {
-                                startupContactColl.update({startupId: start._id + '', email: oldStartup.ContactEmail},
-                                    {
-                                        startupId: start._id + '',
-                                        firstname: oldStartup.ContactFirstName,
-                                        lastname: oldStartup.ContactLastName,
-                                        email: oldStartup.ContactEmail,
-                                        phonenumber: oldStartup.ContactTel
-                                    }, {upsert: true});
+                                if (start.value && start.value._id) {
+                                    var _id = start.value._id + '';
+                                    start = start.value;
+                                    // console.log('count', _id, startupCache[start.lunaId].StartupName, startupCache[start.lunaId].ContactEmail);
+                                    console.log('NEW STARTUP', start.startupName, lunStartup.ContactEmail, start.createdAt);
+                                    var lunStartup = startupCache[start.lunaId];
+                                    startupContactColl.update({
+                                            startupId: _id,
+                                            email: lunStartup.ContactEmail
+                                        },
+                                        {
+                                            startupId: _id,
+                                            firstname: lunStartup.ContactFirstName,
+                                            lastname: lunStartup.ContactLastName,
+                                            email: lunStartup.ContactEmail,
+                                            phonenumber: lunStartup.ContactTel
+                                        }, {upsert: true, new: true, multi:false}).then(function(err){
+                                            startupCache[start.lunaId] = null;
+                                        });
+                                }
                             }
                         );
                     }
                 }
+                res.json({});
             });
-            res.json({});
+
         }
         else {
             res.json({error: 'NO ACTION SPECIFIED'});

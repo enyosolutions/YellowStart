@@ -25,6 +25,7 @@
             }
 
             function GetById(id) {
+
                 return $http.get(CONFIG.baseUrl + '/api/crud/user/' + id).then(handleSuccess, handleError('Error getting user by id'));
             }
 

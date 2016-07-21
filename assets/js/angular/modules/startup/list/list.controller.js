@@ -50,6 +50,7 @@ angular.module('start.controllers')
                             $scope.search($scope.searchName);
                             break;
                     }
+                    $scope.barBlurred();
                 }
             }
         };
@@ -128,7 +129,7 @@ angular.module('start.controllers')
 
 
         if ($stateParams.tag) {
-            $scope.searchTitle = '#' + $stateParams.tag;
+            $scope.searchTitle =  $stateParams.tag;
             query.tag = $stateParams.tag;
             $scope.searchedStartups = Startup.query(query);
         }

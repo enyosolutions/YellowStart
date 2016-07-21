@@ -8,7 +8,7 @@
  * Controller of the startApp
  */
 angular.module('start.controllers')
-    .controller('ViewStartupCtrl', function ($scope, $rootScope, $stateParams, $window, $sce, Startup, StartupComment, StartupContact, UserService, NotificationService) {
+    .controller('ViewStartupCtrl', function ($scope, $rootScope, $stateParams, $window, $timeout, $sce, Startup, StartupComment, StartupContact, UserService, NotificationService) {
         $scope.pageClass = 'startup-view';
 
         $scope.iframeUrl = function (src) {
@@ -18,7 +18,10 @@ angular.module('start.controllers')
         if ($stateParams._id) {
             $scope.startup = new Startup({_id: $stateParams._id});
             $scope.startup.$get().then(function () {
-
+                UserService.GetById($scope.startup.createdBy).then(function(res){
+                    console.log(res);
+                    $scope.startupCreator = res.data;
+                });
                 $scope.startupContacts = StartupContact.query({'query[startupId]': $stateParams._id}).$promise.then(function (res) {
                     var content;
                     $scope.startupContacts = res;
@@ -44,12 +47,13 @@ angular.module('start.controllers')
                         '</div>' +
                         '</div>';
                     }
-
                     $scope.displayWebsiteUrl = $scope.startup.websiteUrl.replace(/http(s)?:\/\//i, '');
                     initGooglemaps($scope.startup.address, content);
                 });
 
             });
+
+
         }
         else {
             $scope.startup = {
@@ -139,9 +143,11 @@ angular.module('start.controllers')
         };
 
         function initialize(latitude, longitude, infoboxContent) {
+            console.log(latitude, longitude);
+            console.log(latitude + 0.5900);
             var latLng = new google.maps.LatLng(latitude, longitude);
-            var latLng2 = new google.maps.LatLng(latitude + 0.05000, longitude);
-
+            var latLng2 = new google.maps.LatLng(latitude + 0.03, longitude);
+            console.log(latLng2);
             var mapOptions = {
                 zoom: 12,
                 scrollwheel: false,
@@ -157,7 +163,7 @@ angular.module('start.controllers')
             };
 
             var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
+            console.log(map);
             var marker = new google.maps.Marker({
                 position: latLng,
                 map: map,
@@ -174,7 +180,9 @@ angular.module('start.controllers')
             });
 
             infoBubble.open(map, marker);
-
+            $timeout(function(){
+               map.setCenter(latLng2);
+            },5000);
             google.maps.event.addDomListener(window, 'resize', function () {
                 map.setCenter(latLng);
             });
