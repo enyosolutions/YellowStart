@@ -8260,15 +8260,15 @@ body.unlocked {
 .top-navigation {
   display: block;
   height: 110px;
-  -webkit-transition: height 100ms linear;
-  -o-transition: height 100ms linear;
-  transition: height 100ms linear;
+  -webkit-transition: height 50ms linear;
+  -o-transition: height 50ms linear;
+  transition: height 50ms linear;
   z-index: 1000;
 }
 .top-navigation.top-navigation-default.small {
-  -webkit-transition: height 100ms linear;
-  -o-transition: height 100ms linear;
-  transition: height 100ms linear;
+  -webkit-transition: height 50ms linear;
+  -o-transition: height 50ms linear;
+  transition: height 50ms linear;
   height: 65px;
 }
 .top-navigation.top-navigation-default.small .search-form {
@@ -8772,7 +8772,7 @@ footer .brand {
 .slick-next {
   position: absolute;
   z-index: 10;
-  top: 37%;
+  top: 43%;
   margin-top: -50px;
   left: 5%;
   height: 50px;
@@ -9083,14 +9083,14 @@ footer .brand {
    */
 }
 .page.startup-list .home {
-  padding-top: 100px;
+  padding-top: 20px;
   overflow: hidden;
 }
 .page.startup-list .home .section-title {
   font-size: 65px;
   text-align: center;
   font-weight: 800;
-  color: #D9D9DE;
+  color: #081433;
   padding: 20px 0;
 }
 .page.startup-list .home .slick-list {
@@ -9105,7 +9105,7 @@ footer .brand {
 .page.startup-list .home .startups-wrapper .startups-list {
   display: block;
   width: 100%;
-  height: 330px;
+  height: 280px;
   padding: 0 0 80px 0;
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup {
@@ -9341,7 +9341,7 @@ footer .brand {
     font-size: 32px;
     text-align: center;
     font-weight: 900;
-    color: #D9D9DE;
+    color: #081433;
   }
   .page.startups-list .slick-prev,
   .page.startups-list .slick-next {
