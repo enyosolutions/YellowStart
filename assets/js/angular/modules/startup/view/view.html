@@ -1,4 +1,4 @@
-<section class="splash" style="background-image: url({{ startup.mainTag ? ('/images/startup/header/' + startup.mainTag + '.jpg') : '/images/background-big.jpg' }})">
+<section class="splash" style="background-image: url({{ startup.fullPicture ? startup.fullPicture : (startup.mainTag ? ('/images/startup/header/' + startup.mainTag + '.jpg') : '/images/background-big.jpg') }})">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -31,7 +31,7 @@
                     <div class="creator-info" ng-if="startupCreator"><span class="creator-name">{{ startupCreator.firstname }} {{ startupCreator.lastname }}</span> - <span
                             class="creator-company">{{ startupCreator.role }}</span></div>
                     <div class="creator-info" ng-if="!startupCreator"><span class="creator-name">Kevin Aserraf</span> - <span
-                            class="creator-company">Start'in Post</span></div>
+                            class="creator-company">Start'inPost</span></div>
                 </div>
                 <!-- resume -->
                 <div class="" id="resume">

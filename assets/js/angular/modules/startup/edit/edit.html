@@ -32,8 +32,8 @@
         </a>
     </li>
     <li role="presentation" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
-        <a data-target="#startinpost" aria-controls="documents" role="tab" data-toggle="tab" >
-            <span class="step-number startinpost" >4</span>
+        <a data-target="#startinpost" aria-controls="documents" role="tab" data-toggle="tab">
+            <span class="step-number startinpost">4</span>
             StartInPost
         </a>
     </li>
@@ -120,6 +120,11 @@
                     ,"smart-city"
                     ,"transport"
                     ,"voyage"
+                    ,"e-commerce",
+                    "e-sante",
+                    "rh",
+                    "software",
+                    "social-media",
                     ,"wip"
                     ]
                     ' value="{{ n }}">{{ tagsList[n] || n }}
@@ -184,7 +189,7 @@
             </div>
             <div class="col-md-6" ng-class="{'autocomplete-field': isAutocompleting }">
                 <input class="form-control" ng-model="startup.address"
-                          ng-blur="saveStartup()"/>
+                       ng-blur="saveStartup()"/>
             </div>
         </div>
 
@@ -270,7 +275,8 @@
         <div class="form-group">
             <div class="col-md-6">
                 <label>Images du produit</label>
-                <sub>Images présentant le produit, le service, l'équipe, etc... Elles formeront la galerie media de la fiche start-up.</sub>
+                <sub>Images présentant le produit, le service, l'équipe, etc... Elles formeront la galerie media de la
+                    fiche start-up.</sub>
             </div>
             <div class="col-md-6">
                 <form class="dropzone"

@@ -21,6 +21,16 @@ angular.module('start.services')
             }
         };
     }])
+    .factory('CheapFaresService', function ($resource, CONFIG) {
+        return $resource(CONFIG.restUrl + '/faredeal/:_id', {_id: '@_id'},
+            {
+                "update": {isArray: false, method: "PUT", transformResponse: transformGet},
+                "save": {isArray: false, cancellable: false, method: "POST", transformResponse: transformGet},
+                "query": {isArray: false, method: "GET", transformResponse: transformGet},
+                "get": {isArray: false, cancellable: false, method: "GET", transformResponse: transformGet}
+            })
+
+    })
     // LIST OF STARTUPS
     .factory('Startup', function ($resource, CONFIG) {
         return $resource(CONFIG.apiUrl + '/crud/startup/:_id', {_id: '@_id'},

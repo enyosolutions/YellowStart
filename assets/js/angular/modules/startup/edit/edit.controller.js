@@ -172,7 +172,8 @@ angular.module('start.controllers')
             success: function (file, response) {
                 console.log(response);
                 if (response.body) {
-                    $scope.startup.picture = response.body;
+                    $scope.startup.picture = response.body.picture;
+                    $scope.startup.fulPicture = response.body.fullPicture;
                 }
             },
             dropzoneConfig: {

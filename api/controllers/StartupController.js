@@ -465,7 +465,9 @@ module.exports = {
                     console.log(process.cwd());
                     var original = '/data/startup/images/' + filename;
                     startup.picture = '/data/startup/images/thumb-' + filename;
+                    startup.fullPicture = '/data/startup/images/full-' + filename;
                     console.log(process.cwd() + '/assets' + original);
+                    var images = {};
                     gm(process.cwd() + '/assets' + original)
                         .resize('500', '333', '^')
                         .gravity('Center')
@@ -475,7 +477,24 @@ module.exports = {
                             console.log(err);
                             console.log('Image cropped');
                             startupCollection.update({_id: id}, startup).then(function () {
-                                res.json(200, {body: startup.picture});
+                                images['picture'] = startup.picture;
+                                if(images.fullPicture)
+                                    res.json(200, {body: images});
+                            });
+                        });
+
+                    gm(process.cwd() + '/assets' + original)
+                        .resize('1440', '680', '^')
+                        .gravity('Center')
+                        .crop('1440', '680')
+                        .write(process.cwd() + '/assets'
+                        + startup.fullPicture, function (err) {
+                            console.log(err);
+                            console.log('Image cropped');
+                            startupCollection.update({_id: id}, startup).then(function () {
+                                images['fullPicture'] = startup.fullPicture;
+                                if(images.picture)
+                                    res.json(200, {body: images});
                             });
                         });
 
