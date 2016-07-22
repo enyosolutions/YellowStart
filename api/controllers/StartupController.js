@@ -396,7 +396,6 @@ module.exports = {
 
     },
 
-
     'deleteFile': function (req, res, next) {
 
         var id = req.body ? req.body._id : null;

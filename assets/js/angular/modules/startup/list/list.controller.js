@@ -65,7 +65,7 @@ angular.module('start.controllers')
         $scope.appendMoreButtons = function (res) {
             console.log(res);
             if (res.body.length > 1) {
-                res.body = res.body.slice(0,6);
+                res.body = res.body.slice(0, 6);
             }
             res.body.push({label: "Afficher tous les résultats", type: 'button', title: $scope.searchName});
             return res;
@@ -129,14 +129,14 @@ angular.module('start.controllers')
 
 
         if ($stateParams.tag) {
-            $scope.searchTitle =  $stateParams.tag;
-            query.tag = $stateParams.tag.replace('#','');
+            $scope.searchTitle = $stateParams.tag;
+            query.tag = $stateParams.tag.replace(/#/g, '');
             $scope.searchedStartups = Startup.query(query);
         }
 
         if ($stateParams.search) {
             $scope.searchTitle = $stateParams.search;
-            query.search = $stateParams.search;
+            query.search = $stateParams.search.replace(/#/g, '');
             $scope.searchedStartups = Startup.query(query);
         }
 
@@ -146,12 +146,13 @@ angular.module('start.controllers')
         $scope.mostBookmarkedStartupList = Startup.query({'publishedOnly': 1, 'sort[meta.bookmarks]': -1});
         $scope.lessViewedStartupList = Startup.query({'publishedOnly': 1, 'sort[meta.views]': -1});
         Crawler.tags().$promise.then(function (res) {
-            res = res.map(function (e) {
-                e.link = '#/startup?tag=' + e.text;
-                return e;
-            });
-            $scope.tagCloud = res;
-        });
+                res = res.map(function (e) {
+                    e.link = '#/startup?tag=' + e.text;
+                    return e;
+                });
+                $scope.tagCloud = res;
+            }
+        );
     })
 
     .directive('homeSlider', function () {

@@ -27,7 +27,7 @@ angular
         'angucomplete-alt',
         'angular-jqcloud'
     ])
-   // .constant('CONFIG', {baseUrl: 'http://192.168.13.50:8080', apiUrl: 'http://192.168.13.50:8080/api' , lunaUrl: 'http://luna.startinpost.com/project/apilisttititata'})
+    // .constant('CONFIG', {baseUrl: 'http://192.168.13.50:8080', apiUrl: 'http://192.168.13.50:8080/api' , lunaUrl: 'http://luna.startinpost.com/project/apilisttititata'})
       .constant('CONFIG', {baseUrl: 'http://yellowstart.enyosolutions.com', apiUrl: 'http://yellowstart.enyosolutions.com/api' , lunaUrl: 'http://luna.startinpost.com/project/apilisttititata'})
     .run(function (editableOptions, $state, $rootScope, $interval, Auth, $localstorage, $ngBootbox, Notification, NotificationService, CONFIG) {
         editableOptions.theme = 'bs3';

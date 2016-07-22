@@ -15,7 +15,8 @@ module.exports = {
         var startupCollection = Monk.get('startup');
         var tagCollection = Monk.get('tag');
         var results = [];
-        tagCollection.find({label: {$regex: req.query.q, $options: 'i'}}, {limit: 10}).success(function (col) {
+        var tag = req.query.q.replace(/#/g,'');
+        tagCollection.find({label: {$regex: tag, $options: 'i'}}, {limit: 10}).success(function (col) {
             if (col && col.length > 0) {
                 results = col.map(function (e) {
                     return {label: '#' + e.label, type: 'tag', subLabel:'',  id: e._id};
