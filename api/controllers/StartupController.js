@@ -203,7 +203,7 @@ module.exports = {
 
                         var oldStartup = coll[i];
                         startupCache[oldStartup.id] = coll[i];
-                        console.log(oldStartup.id, oldStartup.StartupName, oldStartup.ContactFirstName, oldStartup.ContactLastName,  oldStartup.ContactEmail);
+                        console.log(oldStartup.id, oldStartup.StartupName, oldStartup.ContactFirstName, oldStartup.ContactLastName, oldStartup.ContactEmail);
                         var newStartup = {
                             lunaId: oldStartup.id,
                             "startupName": oldStartup.StartupName,
@@ -236,7 +236,12 @@ module.exports = {
 
 
                         //startupColl.findAndModify({lunaId: oldStartup.id}, newStartup, {
-                        startupColl.findAndModify({id: oldStartup.id}, {$set: {lastModifiedAt: new Date(), lunaId: oldStartup.id}}, {
+                        startupColl.findAndModify({lunaId: oldStartup.id}, {
+                                $set: {
+                                    lastModifiedAt: new Date(),
+                                    lunaId: oldStartup.id
+                                }
+                            }, {
                                 upsert: false,
                                 new: false
                             }, function (err, start) {
@@ -244,25 +249,28 @@ module.exports = {
                                     var _id = start.value._id + '';
                                     start = start.value;
                                     // console.log('count', _id, startupCache[start.lunaId].StartupName, startupCache[start.lunaId].ContactEmail);
-                                    console.log('NEW STARTUP', start.startupName, lunStartup.ContactEmail, start.createdAt);
                                     var lunStartup = startupCache[start.lunaId];
-                                    startupContactColl.update({
-                                            startupId: _id,
-                                            email: lunStartup.ContactEmail
-                                        },
-                                        {
-                                            startupId: _id,
-                                            firstname: lunStartup.ContactFirstName,
-                                            lastname: lunStartup.ContactLastName,
-                                            email: lunStartup.ContactEmail,
-                                            phonenumber: lunStartup.ContactTel
-                                        }, {upsert: true, new: true, multi:false}).then(function(err){
-                                            startupCache[start.lunaId] = null;
-                                        });
+                                    console.log('NEW STARTUP', start.startupName, lunStartup.ContactEmail, start.createdAt);
+                                    if (lunStartup) {
+                                        startupContactColl.update({
+                                                startupId: _id,
+                                                email: lunStartup.ContactEmail
+                                            },
+                                            {
+                                                startupId: _id,
+                                                firstname: lunStartup.ContactFirstName,
+                                                lastname: lunStartup.ContactLastName,
+                                                email: lunStartup.ContactEmail,
+                                                phonenumber: lunStartup.ContactTel
+                                            }, {upsert: true, new: true, multi: false}).then(function (err) {
+                                                startupCache[start.lunaId] = null;
+                                            });
+                                    }
                                 }
                             },
-                            function(err){
-                                console.log(err);
+                            function (err) {
+                                if(err.result)
+                                console.log(err.result);
                             }
                         );
                     }
