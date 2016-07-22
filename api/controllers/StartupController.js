@@ -236,11 +236,11 @@ module.exports = {
 
 
                         //startupColl.findAndModify({lunaId: oldStartup.id}, newStartup, {
-                        startupColl.findAndModify({lunaId: oldStartup.id}, {$set: {lastModifiedAt: new Date()}}, {
+                        startupColl.findAndModify({id: oldStartup.id}, {$set: {lastModifiedAt: new Date(), lunaId: oldStartup.id}}, {
                                 upsert: false,
                                 new: false
                             }, function (err, start) {
-                                if (start.value && start.value._id) {
+                                if (start && start.value && start.value._id) {
                                     var _id = start.value._id + '';
                                     start = start.value;
                                     // console.log('count', _id, startupCache[start.lunaId].StartupName, startupCache[start.lunaId].ContactEmail);
@@ -260,6 +260,9 @@ module.exports = {
                                             startupCache[start.lunaId] = null;
                                         });
                                 }
+                            },
+                            function(err){
+                                console.log(err);
                             }
                         );
                     }

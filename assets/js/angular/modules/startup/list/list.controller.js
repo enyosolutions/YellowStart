@@ -130,7 +130,7 @@ angular.module('start.controllers')
 
         if ($stateParams.tag) {
             $scope.searchTitle =  $stateParams.tag;
-            query.tag = $stateParams.tag;
+            query.tag = $stateParams.tag.replace('#','');
             $scope.searchedStartups = Startup.query(query);
         }
 
