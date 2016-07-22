@@ -9132,13 +9132,35 @@ footer .brand {
 .page.startup-list .home .startups-wrapper .startups-list .startup .thumbnail img {
   width: 100%;
 }
+.page.startup-list .home .startups-wrapper .startups-list .startup .thumbnail .gradientpic {
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background: linear-gradient(to bottom, rgba(2, 20, 71, 0), rgba(1, 8, 25, 0.6));
+}
+.page.startup-list .home .startups-wrapper .startups-list .startup .thumbnail .gradientpic .title {
+  position: absolute;
+  top: 35%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-family: 'Raleway';
+  font-size: 24px;
+  font-weight: 200;
+  color: #FAFDD4;
+  letter-spacing: 0.99px;
+  white-space: nowrap;
+}
 .page.startup-list .home .startups-wrapper .startups-list .startup .mask {
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(255, 101, 0, 0.9);
+  background-color: rgba(255, 101, 0, 0.95);
   color: white;
   text-align: center;
   opacity: 0;
@@ -9260,6 +9282,28 @@ footer .brand {
 .page.startup-list .results .startup .card-img-top img {
   height: 200px;
 }
+.page.startup-list .results .startup .card-img-top .gradientpic {
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background: linear-gradient(to bottom, rgba(2, 20, 71, 0), rgba(1, 8, 25, 0.6));
+}
+.page.startup-list .results .startup .card-img-top .gradientpic .card-title {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-family: 'Raleway';
+  font-size: 24px;
+  font-weight: 200;
+  color: #FAFDD4;
+  letter-spacing: 0.99px;
+  white-space: nowrap;
+}
 .page.startup-list .results .startup .card-block {
   padding: 15px 0;
   position: absolute;
@@ -9276,8 +9320,8 @@ footer .brand {
 }
 .page.startup-list .results .startup .card-block .card-title {
   font-size: 24px;
-  font-weight: 300;
-  margin-top: 40px;
+  font-weight: 200;
+  margin-top: 20px;
   white-space: nowrap;
   text-overflow: ellipsis;
   text-align: center;
