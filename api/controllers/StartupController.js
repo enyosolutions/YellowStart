@@ -236,7 +236,7 @@ module.exports = {
 
 
                         //startupColl.findAndModify({lunaId: oldStartup.id}, newStartup, {
-                        startupColl.findAndModify({lunaId: oldStartup.id}, {$set: {lastModifiedAt: new Date()}}, {
+                        startupColl.findAndModify({id: oldStartup.id}, {$set: {lastModifiedAt: new Date(), lunaId: oldStartup.id}}, {
                                 upsert: false,
                                 new: false
                             }, function (err, start) {
