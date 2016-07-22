@@ -236,6 +236,7 @@ module.exports = {
 
 
                         //startupColl.findAndModify({lunaId: oldStartup.id}, newStartup, {
+                        console.log(oldStartup.id, typeof(oldStartup.id));
                         startupColl.findAndModify({lunaId: oldStartup.id}, {
                                 $set: {
                                     lastModifiedAt: new Date(),
@@ -245,6 +246,7 @@ module.exports = {
                                 upsert: false,
                                 new: false
                             }, function (err, start) {
+                                console.log('TROUVÉ  une startup');
                                 if (start && start.value && start.value._id) {
                                     var _id = start.value._id + '';
                                     start = start.value;
