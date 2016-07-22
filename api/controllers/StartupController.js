@@ -248,7 +248,7 @@ module.exports = {
                                 if (start && start.value && start.value._id) {
                                     var _id = start.value._id + '';
                                     start = start.value;
-                                    // console.log('count', _id, startupCache[start.lunaId].StartupName, startupCache[start.lunaId].ContactEmail);
+                                    console.log('count', _id, startupCache[start.lunaId].StartupName, startupCache[start.lunaId].ContactEmail);
                                     var lunStartup = startupCache[start.lunaId];
                                     console.log('NEW STARTUP', start.startupName, lunStartup.ContactEmail, start.createdAt);
                                     if (lunStartup) {
