@@ -247,9 +247,11 @@ module.exports = {
                                 new: false
                             }, function (err, start) {
                                 console.log('TROUVÉ  une startup', start._id);
-                                if (start && start.value && start.value._id) {
-                                    var _id = start.value._id + '';
-                                    start = start.value;
+                                if (start) {
+                                    if (start.value && start.value._id) {
+                                        start = start.value;
+                                    }
+                                    var _id = start._id + '';
                                     console.log('count', _id, startupCache[start.lunaId].StartupName, startupCache[start.lunaId].ContactEmail);
                                     var lunStartup = startupCache[start.lunaId];
                                     console.log('NEW STARTUP', start.startupName, lunStartup.ContactEmail, start.createdAt);
@@ -268,11 +270,12 @@ module.exports = {
                                                 startupCache[start.lunaId] = null;
                                             });
                                     }
+
                                 }
                             },
                             function (err) {
-                                if(err.result)
-                                console.log(err.result);
+                                if (err.result)
+                                    console.log(err.result);
                             }
                         );
                     }
