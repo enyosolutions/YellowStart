@@ -92,8 +92,7 @@
             <div class="col-md-6">
                 <select class="form-control day" ng-model="startup.mainTag"
                         ng-change="mainTagChanged(startup.mainTag, '{{ startup.mainTag }}');">
-                    <option ng-repeat='n in ["3d-printing"
-                    ,"automobile"
+                    <option ng-repeat='n in ["3d-printing","automobile"
                     ,"b2b"
                     ,"big-data"
                     ,"cleantech"
@@ -120,11 +119,11 @@
                     ,"smart-city"
                     ,"transport"
                     ,"voyage"
-                    ,"e-commerce",
-                    "e-sante",
-                    "rh",
-                    "software",
-                    "social-media",
+                    ,"e-commerce"
+                    ,"e-sante"
+                    ,"rh"
+                    ,"software"
+                    ,"social-media"
                     ,"wip"
                     ]
                     ' value="{{ n }}">{{ tagsList[n] || n }}
