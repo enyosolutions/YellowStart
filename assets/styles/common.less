@@ -145,6 +145,7 @@ body {
 /*
  * Loading screen
  */
+
 body.unlocked {
   overflow: auto;
 }
@@ -181,7 +182,13 @@ body.unlocked {
  */
 .top-navigation {
   display: block;
+  position: absolute;
+  left: 50%;
+  margin-left: -450px;
+  width: 940px;
   height: 110px;
+  background: transparent;
+  border: 0;
   .transition(height 50ms linear);
 
   &.top-navigation-default.small {
@@ -203,7 +210,8 @@ body.unlocked {
       }
     }
 
-    li.dropdown.notifications {
+    li.dropdown {
+      margin-top: 10px;
       position: relative;
       top: -2px;
     }
@@ -216,11 +224,6 @@ body.unlocked {
       span.menulabel {
         display: none;
       }
-      
-      .badge {
-        padding: 3px 7px;
-        font-size: normal;
-      }
     }
 
 
@@ -229,7 +232,34 @@ body.unlocked {
       padding: 15px 30px 17px 0;
     }
   }
-  z-index: 1000;
+
+  .bigBadge {
+    position: relative;
+    top: -10px;
+    padding: 12px 10px;
+    font-weight: 200;
+    font-size: 14px;
+    background-color: #7e98e3;
+    line-height: 1;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+    border-radius: 130px;
+  }      
+
+  .badge {
+    margin-top: -15px;
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    padding: 2px 4px;
+    font-weight: normal;
+    font-size: 11px;
+    background-color: #ff01a2;
+    z-index: 2000;
+  }
+
+  z-index: 3000;
 
   // brand
   .brand {
@@ -399,23 +429,8 @@ body.unlocked {
       padding: 0;
 
 
-      .orange {
-        background: #fff;
-        border-bottom-color: @brand-primary;
-        a {
-          color: #FF6500 !important;
-        }
-      }
-
-      .blue {
-        background: #0547FD;
-
-        a {
-          color: #ffffff !important;
-        }
-      }
-
       li {
+        margin-top: 30px;
         display: inline-block;
         margin-right: -4px;
         list-style-type: none;
@@ -426,18 +441,8 @@ body.unlocked {
         font-size: 10px;
         line-height: 12px;
 
-        border-left: 1px solid #EAEAEA;
+        color: #fff;
 
-
-        &:hover {
-          border-bottom: 3px solid @brand-info;
-        }
-
-        &.orange:hover {
-          border-bottom: 3px solid @brand-primary;
-        }
-
-        
         &.notifications {
           .dropdown-menu {
             li {
@@ -455,11 +460,9 @@ body.unlocked {
         }
         a {
           display: inline-block;
-          padding: 22px 10px 27px 10px;
 
           font-weight: 400;
-          color: #73737f;
-          background-color: #fff;
+          color: #fff;
           text-align: center;
 
 
@@ -609,7 +612,6 @@ body.unlocked {
  * Page
  */
 .page {
-  padding-top: 100px;
   min-height: 100%;
   margin-bottom: -100px;
 }
