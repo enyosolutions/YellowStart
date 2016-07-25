@@ -832,6 +832,8 @@ footer {
   position: absolute;
   z-index: 10;
 
+  opacity: 0;
+
   top: 0;
   margin-top: 0px;
   left: 0;
@@ -840,11 +842,21 @@ footer {
 
   border: none !important;
   background: rgba(0,0,0,.5);
+  -webkit-transition: 100ms linear all;
+  transition: 100ms linear all;
+
+  &:hover {
+    opacity: 100;
+  }
 }
 
 .slick-next {
   left: auto;
   right: 0;
+}
+
+.slick-prev {
+  left: -15%;
 }
 
 .slick-prev:after,
