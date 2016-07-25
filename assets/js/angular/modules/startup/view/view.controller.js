@@ -142,6 +142,10 @@ angular.module('start.controllers')
             });
         };
 
+        function requestAnalysis() {
+            NotificationService.requestAnalysis($scope.startup._id);
+        };
+
         function initialize(latitude, longitude, infoboxContent) {
             console.log(latitude, longitude);
             console.log(latitude + 0.5900);

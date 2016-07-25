@@ -29,6 +29,13 @@ module.exports = {
         NotificationService.sendStartupPublished(req.query.startupId);
         return resp.json({});
     },
+    requestAnalysis: function (req, resp) {
+        if (req.query.startupId === undefined) {
+            return resp.json({error: 'There was an error, no search parameters are provided'})
+        }
+        NotificationService.sendRequestAnalysis(req.query.startupId);
+        return resp.json({});
+    },
     newComment: function (req, resp) {
         console.log('new comment '  + req.query.startupId);
         if (req.query.startupId === undefined) {

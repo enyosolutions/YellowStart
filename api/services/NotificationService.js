@@ -24,6 +24,31 @@ module.exports = {
         });
     },
 
+    sendRequestAnalysis: function (startupId) {
+        Monk.get('startup').find({_id: startupId}).then(function (startups) {
+            if (startups && startups.length > 0) {
+                var startup = startups[0];
+                var notifCollection = Monk.get("user-notification");
+                var notification = {
+                    label: "Demande d'analyse de startup : " + startup.startupName,
+                    url: '#/startup/' + startup._id + '/view',
+                    status: 'new',
+                    createdAt: new Date()
+                };
+
+                Monk.get("user").find({bookmarks: startup._id}).then(function (coll) {
+                    if (coll && coll.length > 0) {
+                        for (var i in coll) {
+                            notification.userId = coll[i]._id;
+                            notifCollection.insert(notification);
+                        }
+                    }
+                });
+            }
+        });
+    },
+
+
     sendNewComment: function (startupId) {
         var notifCollection = Monk.get("user-notification");
         Monk.get('startup').find({_id: startupId}).then(function (startups) {
