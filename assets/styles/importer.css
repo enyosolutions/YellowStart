@@ -8259,11 +8259,17 @@ body.unlocked {
  */
 .top-navigation {
   display: block;
+  position: absolute;
+  left: 50%;
+  margin-left: -450px;
+  width: 940px;
   height: 110px;
+  background: transparent;
+  border: 0;
   -webkit-transition: height 50ms linear;
   -o-transition: height 50ms linear;
   transition: height 50ms linear;
-  z-index: 1000;
+  z-index: 3000;
 }
 .top-navigation.top-navigation-default.small {
   -webkit-transition: height 50ms linear;
@@ -8283,7 +8289,8 @@ body.unlocked {
 .top-navigation.top-navigation-default.small .search-form button {
   padding: 22px 0 22px 10px;
 }
-.top-navigation.top-navigation-default.small li.dropdown.notifications {
+.top-navigation.top-navigation-default.small li.dropdown {
+  margin-top: 10px;
   position: relative;
   top: -2px;
 }
@@ -8296,13 +8303,33 @@ body.unlocked {
 .top-navigation.top-navigation-default.small .navigation li a span.menulabel {
   display: none;
 }
-.top-navigation.top-navigation-default.small .navigation li a .badge {
-  padding: 3px 7px;
-  font-size: normal;
-}
 .top-navigation.top-navigation-default.small .brand {
   width: 120px;
   padding: 15px 30px 17px 0;
+}
+.top-navigation .bigBadge {
+  position: relative;
+  top: -10px;
+  padding: 12px 10px;
+  font-weight: 200;
+  font-size: 14px;
+  background-color: #7e98e3;
+  line-height: 1;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: center;
+  border-radius: 130px;
+}
+.top-navigation .badge {
+  margin-top: -15px;
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  padding: 2px 4px;
+  font-weight: normal;
+  font-size: 11px;
+  background-color: #ff01a2;
+  z-index: 2000;
 }
 .top-navigation .brand {
   width: 150px;
@@ -8437,20 +8464,8 @@ body.unlocked {
   margin: 0;
   padding: 0;
 }
-.top-navigation.top-navigation-default .navigation .orange {
-  background: #fff;
-  border-bottom-color: #ff6500;
-}
-.top-navigation.top-navigation-default .navigation .orange a {
-  color: #FF6500 !important;
-}
-.top-navigation.top-navigation-default .navigation .blue {
-  background: #0547FD;
-}
-.top-navigation.top-navigation-default .navigation .blue a {
-  color: #ffffff !important;
-}
 .top-navigation.top-navigation-default .navigation li {
+  margin-top: 30px;
   display: inline-block;
   margin-right: -4px;
   list-style-type: none;
@@ -8459,13 +8474,7 @@ body.unlocked {
   text-align: center;
   font-size: 10px;
   line-height: 12px;
-  border-left: 1px solid #EAEAEA;
-}
-.top-navigation.top-navigation-default .navigation li:hover {
-  border-bottom: 3px solid #0031f7;
-}
-.top-navigation.top-navigation-default .navigation li.orange:hover {
-  border-bottom: 3px solid #ff6500;
+  color: #fff;
 }
 .top-navigation.top-navigation-default .navigation li.notifications .dropdown-menu li {
   margin-right: 0;
@@ -8479,10 +8488,8 @@ body.unlocked {
 }
 .top-navigation.top-navigation-default .navigation li a {
   display: inline-block;
-  padding: 22px 10px 27px 10px;
   font-weight: 400;
-  color: #73737f;
-  background-color: #fff;
+  color: #fff;
   text-align: center;
 }
 .top-navigation.top-navigation-default .navigation li a span.menulabel {
@@ -8592,7 +8599,6 @@ body.unlocked {
  * Page
  */
 .page {
-  padding-top: 100px;
   min-height: 100%;
   margin-bottom: -100px;
 }
