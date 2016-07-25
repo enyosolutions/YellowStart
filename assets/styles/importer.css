@@ -8772,17 +8772,17 @@ footer .brand {
 .slick-next {
   position: absolute;
   z-index: 10;
-  top: 43%;
-  margin-top: -50px;
-  left: 5%;
-  height: 50px;
-  width: 50px;
+  top: 0;
+  margin-top: 0px;
+  left: 0;
+  height: 245px;
+  width: 60px;
   border: none !important;
-  background: #0031f7;
+  background: rgba(0, 0, 0, 0.5);
 }
 .slick-next {
   left: auto;
-  right: 4%;
+  right: 0;
 }
 .slick-prev:after,
 .slick-next:before {
@@ -9087,11 +9087,10 @@ footer .brand {
   overflow: hidden;
 }
 .page.startup-list .home .section-title {
-  font-size: 65px;
-  text-align: center;
-  font-weight: 800;
-  color: #081433;
-  padding: 20px 0;
+  font-size: 27px;
+  font-weight: 400;
+  color: #000000;
+  padding: 15px 0;
 }
 .page.startup-list .home .slick-list {
   overflow: visible;
@@ -9132,92 +9131,28 @@ footer .brand {
 .page.startup-list .home .startups-wrapper .startups-list .startup .thumbnail img {
   width: 100%;
 }
-.page.startup-list .home .startups-wrapper .startups-list .startup .thumbnail .gradientpic {
-  width: 100%;
-  height: 200px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  background: linear-gradient(to bottom, rgba(2, 20, 71, 0), rgba(1, 8, 25, 0.6));
-}
-.page.startup-list .home .startups-wrapper .startups-list .startup .thumbnail .gradientpic .title {
-  position: absolute;
-  top: 35%;
-  left: 0;
-  width: 100%;
-  text-align: center;
+.page.startup-list .home .startups-wrapper .startups-list .startup .title {
   font-family: 'Raleway';
-  font-size: 24px;
-  font-weight: 200;
-  color: #FAFDD4;
-  letter-spacing: 0.99px;
-  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  letter-spacing: 0.89px;
+  margin: 14px 0 0 5px;
+  text-transform: uppercase;
 }
-.page.startup-list .home .startups-wrapper .startups-list .startup .mask {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: rgba(255, 101, 0, 0.95);
-  color: white;
-  text-align: center;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: 200ms ease-out all;
-  transition: 200ms ease-out all;
-}
-.page.startup-list .home .startups-wrapper .startups-list .startup .mask:focus {
-  outline: none;
-}
-.page.startup-list .home .startups-wrapper .startups-list .startup .mask .title {
-  font-family: 'Raleway';
-  font-size: 24px;
-  font-weight: 200;
-  color: #FAFDD4;
-  letter-spacing: 0.99px;
-  text-align: center;
-  margin-top: 35px;
-}
-.page.startup-list .home .startups-wrapper .startups-list .startup .mask .tag-list {
+.page.startup-list .home .startups-wrapper .startups-list .startup .tag-list {
   display: block;
   height: 45px;
   word-break: break-all;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-left: 5px;
 }
-.page.startup-list .home .startups-wrapper .startups-list .startup .mask .tag-list .tags {
-  margin: 0 5px;
-  color: #FAFDD4;
-  font-weight: 300;
-  font-size: 13px;
-}
-.page.startup-list .home .startups-wrapper .startups-list .startup .mask .action {
-  display: inline-block;
-  text-align: center;
-  margin: 0 auto 0 auto;
-  background-color: transparent;
-  border: 1px solid #FAFDD4;
-  color: #FAFDD4;
-}
-.page.startup-list .home .startups-wrapper .startups-list .startup:hover .thumbnail {
-  /* width: 105%; */
-  -ms-transform: scale(1.06, 1.06);
-  /* IE 9 */
-  -webkit-transform: scale(1.06, 1.06);
-  /* Safari */
-  transform: scale(1.06, 1.06);
-}
-.page.startup-list .home .startups-wrapper .startups-list .startup:hover .mask {
-  opacity: 1;
-  visibility: visible;
-  -ms-transform: scale(1.06, 1.06);
-  /* IE 9 */
-  -webkit-transform: scale(1.06, 1.06);
-  /* Safari */
-  transform: scale(1.06, 1.06);
+.page.startup-list .home .startups-wrapper .startups-list .startup .tag-list .tags {
+  color: #a9acbb;
+  font-weight: 400;
+  font-size: 12px;
 }
 .page.startup-list .heading {
   display: block;
