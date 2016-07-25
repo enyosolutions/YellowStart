@@ -8778,6 +8778,7 @@ footer .brand {
 .slick-next {
   position: absolute;
   z-index: 10;
+  opacity: 0;
   top: 0;
   margin-top: 0px;
   left: 0;
@@ -8785,10 +8786,19 @@ footer .brand {
   width: 60px;
   border: none !important;
   background: rgba(0, 0, 0, 0.5);
+  -webkit-transition: 100ms linear all;
+  transition: 100ms linear all;
+}
+.slick-prev:hover,
+.slick-next:hover {
+  opacity: 100;
 }
 .slick-next {
   left: auto;
   right: 0;
+}
+.slick-prev {
+  left: -15%;
 }
 .slick-prev:after,
 .slick-next:before {
@@ -9105,6 +9115,7 @@ footer .brand {
   display: block;
   margin: 0 auto;
   width: 100%;
+  padding-left: 13%;
   /* max-width: 1280px; */
 }
 .page.startup-list .home .startups-wrapper .startups-list {
