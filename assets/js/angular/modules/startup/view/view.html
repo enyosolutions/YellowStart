@@ -1,4 +1,5 @@
-<section class="splash" style="background-image: url({{ startup.fullPicture ? startup.fullPicture : (startup.mainTag ? ('/images/startup/header/' + startup.mainTag + '.jpg') : '/images/background-big.jpg') }})">
+<section class="splash"
+         style="background-image: url({{ startup.fullPicture ? startup.fullPicture : (startup.mainTag ? ('/images/startup/header/' + startup.mainTag + '.jpg') : '/images/background-big.jpg') }})">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -24,12 +25,15 @@
         <div class="row">
             <div class="col-md-offset-1 col-md-10 startup-info">
                 <div class="creator-section text-center">
-                    <img  ng-if="startupCreator" ng-src="{{ startupCreator.picture }}" class="creator-image img-circle" alt=""/>
-                    <img  ng-if="!startupCreator" src="/images/placeholder-user.png" class="creator-image img-circle" alt=""/>
+                    <img ng-if="startupCreator" ng-src="{{ startupCreator.picture }}" class="creator-image img-circle"
+                         alt=""/>
+                    <img ng-if="!startupCreator" src="/images/placeholder-user.png" class="creator-image img-circle"
+                         alt=""/>
 
                     <div class="creator-label">Sourcé par</div>
-                    <div class="creator-info" ng-if="startupCreator"><span class="creator-name">{{ startupCreator.firstname }} {{ startupCreator.lastname }}</span> - <span
-                            class="creator-company">{{ startupCreator.role }}</span></div>
+                    <div class="creator-info" ng-if="startupCreator"><span class="creator-name">{{ startupCreator.firstname }} {{ startupCreator.lastname }}</span>
+                        - <span
+                                class="creator-company">{{ startupCreator.role }}</span></div>
                     <div class="creator-info" ng-if="!startupCreator"><span class="creator-name">Kevin Aserraf</span> - <span
                             class="creator-company">Start'inPost</span></div>
                 </div>
@@ -39,7 +43,7 @@
                             ng-src="{{ ::remoteHost }}{{ startup.logo }}"
                             class="" ng-if='startup.logo' alt=""/></div>
                     <a href="{{ startup.websiteUrl }}" target="_blank" class=" startup-website link">{{
-                         displayWebsiteUrl
+                        displayWebsiteUrl
                         }}</a>
 
                     <p class="intro">
@@ -86,17 +90,20 @@
                     <div id="picturesCarousel" class="carousel slide" data-ride="carousel">
 
                         <!-- Wrapper for slides -->
-                        <div class="carousel-inner" role="listbox" >
+                        <div class="carousel-inner" role="listbox">
                             <div class="item active" ng-if="startup.picture">
                                 <img ng-src="{{ ::remoteHost }}{{ startup.picture }}" alt="startup picture">
                             </div>
 
-                            <div class="item" document-slider ng-if="startup.youtubeId" ng-class="{active: !startup.picture}">
-                                <iframe class="youtube-iframe" ng-src="{{ iframeUrl(startup.youtubeId) }}" frameborder="0"
+                            <div class="item" document-slider ng-if="startup.youtubeId"
+                                 ng-class="{active: !startup.picture}">
+                                <iframe class="youtube-iframe" ng-src="{{ iframeUrl(startup.youtubeId) }}"
+                                        frameborder="0"
                                         allowfullscreen></iframe>
                             </div>
 
-                            <div class="item" ng-repeat="image in startup.images" ng-class="{active: $index === 0 && !startup.picture && !startup.youtubeId}">
+                            <div class="item" ng-repeat="image in startup.images"
+                                 ng-class="{active: $index === 0 && !startup.picture && !startup.youtubeId}">
                                 <img ng-src="{{ ::remoteHost }}{{ image.file }}" alt="{{ image.name }}">
                             </div>
 
@@ -104,11 +111,13 @@
                         </div>
 
                         <!-- Left and right controls -->
-                        <a class="left carousel-control" data-target="#picturesCarousel" role="button" data-slide="prev">
+                        <a class="left carousel-control" data-target="#picturesCarousel" role="button"
+                           data-slide="prev">
                             <span class="icon-arrowLeft" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                         </a>
-                        <a class="right carousel-control" data-target="#picturesCarousel" role="button" data-slide="next">
+                        <a class="right carousel-control" data-target="#picturesCarousel" role="button"
+                           data-slide="next">
                             <span class="icon-arrowRight" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                         </a>
@@ -189,21 +198,32 @@
 <!-- sip-note -->
 <div class="sip-note">
     <div class="container">
-        <div class="col-sm-offset-2 col-sm-4">
-            <img src="/images/la-note-sip.png"  data-rjs="2" alt=""/>
+
+        <div class="col-sm-offset-2 col-sm-8 text-center request-evaluation" ng-if="!startup.sipScore" >
+            <img src="/images/la-note-sip.png" data-rjs="2" alt=""/>
+            <p class="evaluation text-center">
+                Vous souhaitez que Start’in Post vous livre une analyse sur mesure de cette start-up?
+                <br/>
+                Lancez votre demande dès maintenant !
+            </p>
+            <button class="btn btn-primary ">Je veux une analyse</button>
+        </div>
+        <div class="col-sm-offset-2 col-sm-4" ng-if="startup.sipScore">
+            <img src="/images/la-note-sip.png" data-rjs="2" alt=""/>
 
             <div class="note">
                 {{ startup.sipScore || '0' }}/10
             </div>
 
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4" ng-if="startup.sipScore">
             <p class="evaluation">
                 {{ startup.sipAnalysis }}
                 <br>
                 <span class="badge primary">{{ startup.sipStatus || 'Statut Seed' }}</span>
             </p>
         </div>
+
     </div>
 </div>
 
@@ -223,7 +243,8 @@
                 <div class="startup card fixed-card">
                     <div class="card-img-top">
                         <a href="#/startup/{{ relatedStartup._id }}/view">
-                            <img ng-src="{{ ::remoteHost }}{{ relatedStartup.picture ? relatedStartup.picture : (relatedStartup.mainTag ? ('/images/startup/thumbnail/' + relatedStartup.mainTag + '.jpg') : '/images/placeholder.jpg') }}" alt="{{ relatedStartup.picture }}">
+                            <img ng-src="{{ ::remoteHost }}{{ relatedStartup.picture ? relatedStartup.picture : (relatedStartup.mainTag ? ('/images/startup/thumbnail/' + relatedStartup.mainTag + '.jpg') : '/images/placeholder.jpg') }}"
+                                 alt="{{ relatedStartup.picture }}">
                         </a>
                     </div>
                     <div class="card-block">

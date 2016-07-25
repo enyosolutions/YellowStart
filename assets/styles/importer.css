@@ -9851,6 +9851,16 @@ footer .brand {
   padding: 80px 0;
   text-align: center;
 }
+.page.startup-view .sip-note .request-evaluation img {
+  margin-bottom: 36px;
+}
+.page.startup-view .sip-note .request-evaluation .evaluation {
+  font-weight: 300;
+  font-size: 24px;
+  color: #FAFDD4;
+  text-align: center;
+  margin-bottom: 42px;
+}
 .page.startup-view .sip-note .note {
   display: block;
   margin: 30px 0;
