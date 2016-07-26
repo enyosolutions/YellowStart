@@ -240,27 +240,19 @@
         <div class="inner row">
             <div class="col-md-4" ng-repeat="relatedStartup in relatedStartups">
                 <!-- startup -->
-                <div class="startup card fixed-card">
+                <div class="startup-generic-card card fixed-card">
                     <div class="card-img-top">
                         <a href="#/startup/{{ relatedStartup._id }}/view">
                             <img ng-src="{{ ::remoteHost }}{{ relatedStartup.picture ? relatedStartup.picture : (relatedStartup.mainTag ? ('/images/startup/thumbnail/' + relatedStartup.mainTag + '.jpg') : '/images/placeholder.jpg') }}"
                                  alt="{{ relatedStartup.picture }}">
                         </a>
                     </div>
-                    <div class="card-block">
-                        <h4 class="card-title">{{ relatedStartup.startupName }}</h4>
-
-                        <div class="card-link-section">
-                            <a href="#/startup?tag={{tag}}" class="card-link text-info"
-                               ng-repeat="tag in relatedStartup.tags">
-                                #{{ tag }}
-                            </a>
-                        </div>
-                        <div class="button-wrapper">
-                            <a class="btn btn-primary-outline btn-lg" href="#/startup/{{ relatedStartup._id }}/view">
-                                Voir la fiche
-                            </a>
-                        </div>
+                    <h4 class="card-title">{{ relatedStartup.startupName }}</h4>
+                    <div class="card-link-section">
+                        <a href="#/startup?tag={{tag}}" class="card-link text-info"
+                           ng-repeat="tag in relatedStartup.tags">
+                            #{{ tag }}
+                        </a>
                     </div>
                 </div>
             </div>

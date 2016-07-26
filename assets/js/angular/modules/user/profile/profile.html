@@ -8,7 +8,6 @@
                     Editer ma photo de profil
                 </a>
                 <img class="picture" alt="{{ globals.user.firstname }}" src="{{ globals.user.picture  ?  globals.user.picture : 'http://dummyimage.com/230x230/cecece/ffffff&text=Ajouter' }}" />
-                <img class="status" alt="" src="http://dummyimage.com/80x80/ff6500/ffffff?text={{ globals.user.branch }}" />
             </div>
 
             <!-- data -->
@@ -38,14 +37,70 @@
 
 <section class="container">
     <div class="row">
+        <!-- notifications projets -->
+        <div class="starredProjects">
+            <!-- heading -->
+            <div class="heading">
+                <h1 class="title">
+                    X notifications
+                </h1>
+                <div class="sort">
+                    <div class="dropdown">
+                        <button class="btn btn-primary-alternate dropdown-toggle" type="button" id="sort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Trier
+                            <span class="caret"></span>
+                        </button>
+
+                        <ul class="dropdown-menu" aria-labelledby="sort">
+                            <li>
+                                <a ng-click="sortByName()">Date</a>
+                                <a ng-click="sortByCreatedDate()">Type</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- results -->
+            <div class="results">
+                <div class="container">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <!-- notifications -->
+                        <div class="notification-card blue card fixed-card">
+                            <h4 class="card-title">Nouvel utilisateur à activer Kevin Asseraf</h4>
+                            <button href="#" class="button blue">
+                                ACTIVER
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <!-- notifications -->
+                        <div class="notification-card orange card fixed-card">
+                            <h4 class="card-title">Demande d’anlayse sur TakeEatEasy</h4>
+                            <button href="#" class="button orange">
+                                POSTER UNE ANALYSE
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <!-- notifications -->
+                        <div class="notification-card blue card fixed-card">
+                            <h4 class="card-title">Nouvel utilisateur à activer Kevin Asseraf</h4>
+                            <button href="#" class="button blue">
+                                ACTIVER
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <!-- starred projets -->
         <div class="starredProjects">
             <!-- heading -->
             <div class="heading">
                 <h1 class="title">
-                    Projets suivis
-
-                    <img alt="" src="/images/icons/star-alt.png" />
+                    X projets suivis
                 </h1>
 
                 <div class="sort">
@@ -59,8 +114,6 @@
                             <li>
                                 <a ng-click="sortByName()">Nom</a>
                                 <a ng-click="sortByCreatedDate()">Date de création</a>
-                                <a ng-click="sortByCreatedDate()">Les plus vues</a>
-                                <a ng-click="sortByBookmarks()">Les plus bookmarkées</a>
                             </li>
                         </ul>
                     </div>
@@ -71,26 +124,18 @@
             <div class="results">
                 <div class="container">
                     <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="startup in starredStartups">
-                        <!-- startup -->
-                        <div class="startup card fixed-card">
+                        <!-- notifications -->
+                        <div class="startup-generic-card card fixed-card">
                             <div class="card-img-top">
                                 <a href="#/startup/{{ startup._id }}/view">
                                     <img src="{{ ::remoteHost }}{{ startup.picture && startup.picture.length > 0 ? startup.picture : (startup.mainTag ? ('/images/startup/thumbnail/' + startup.mainTag + '.jpg') : '/images/placeholder.jpg') }}" alt="{{ startup.startupName }}">
                                 </a>
                             </div>
-                            <div class="card-block">
-                                <h4 class="card-title">{{ startup.startupName }}</h4>
-
-                                <div class="card-link-section">
-                                <a href="#/startup?tag={{ tag }}" class="card-link text-info" ng-repeat="tag in startup.tags">
-                                    #{{tag }}
-                                </a>
-                                </div>
-                                <div class="button-wrapper">
-                                    <a class="btn btn-primary-outline" href="#/startup/{{ startup._id }}/view">
-                                        Voir la fiche
-                                    </a>
-                                </div>
+                            <h4 class="card-title">{{ startup.startupName }}</h4>
+                            <div class="card-link-section">
+                            <a href="#/startup?tag={{ tag }}" class="card-link text-info" ng-repeat="tag in startup.tags">
+                                #{{tag }}
+                            </a>
                             </div>
                         </div>
                     </div>
