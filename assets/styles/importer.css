@@ -9149,11 +9149,16 @@ footer .brand {
   -moz-border-radius: 0;
   border-radius: 0;
   overflow: hidden;
-  -webkit-transition: 200ms ease-out all;
-  transition: 200ms ease-out all;
+  -webkit-transition: 60ms ease-out all;
+  transition: 60ms ease-out all;
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup .thumbnail img {
   width: 100%;
+}
+.page.startup-list .home .startups-wrapper .startups-list .startup .thumbnail:hover {
+  width: 106%;
+  height: 210px;
+  margin: -10px 0 0 -9px;
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup .title {
   font-family: 'Raleway';

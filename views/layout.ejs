@@ -118,7 +118,7 @@
                 </a>
             </li>
             <li class="dropdown" ng-class="{dropdown: globals.user.roles.indexOf('ADMIN') !== -1}" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
-                <a id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" fadeOut>
+                <a id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" fadeOut href="#/user/profile">
                     <span class="badge">{{ notifications.length || 0 }}</span>
                     <span class="bigBadge">##</span>
                 </a>
