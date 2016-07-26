@@ -178,6 +178,16 @@ body.unlocked {
 }
 
 /*
+ * Cas de la HP
+ */
+body.transparent {
+  .page.startup-list .home .startups-wrapper .startup-list, .page.startup-list .home .startups-wrapper .startups-list {
+    padding-top: 0;
+  }
+}
+
+
+/*
  * Top navigation
  */
 .top-navigation {
@@ -187,8 +197,10 @@ body.unlocked {
   margin-left: -450px;
   width: 940px;
   height: 110px;
-  background: transparent;
   border: 0;
+
+  background: transparent;
+
   .transition(height 50ms linear);
 
   &.top-navigation-default.small {

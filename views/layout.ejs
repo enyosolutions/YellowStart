@@ -44,7 +44,7 @@
 </head>
 
 <body ng-app="startApp" class="<%= locals.page && page.class ? page.class : '' %>  {{ $state.current.name }} "
-      ng-class="{unlocked: unlocked}"
+      ng-class="{unlocked: unlocked , transparent: $state.current.name == 'home' }"
       id="<%= locals.page && page.id ? page.id : '' %>">
 <!-- loading-screen -->
 <div class="loading-screen" ng-class="{fade: startFade}" loading-screen>
@@ -52,7 +52,7 @@
 </div>
 
 <!-- login -->
-<div class="top-navigation top-navigation-login navbar navbar-default navbar-fixed-top" ng-if="['user-register','user-reset'].indexOf($state.current.name) !== -1">
+<div class="top-navigation top-navigation-login navbar navbar-default navbar-fixed-top" ng-if="['user-register','user-reset'].indexOf($state.current.name) !== -1" ng-class="{transparent: $state.current.name == 'home' }">
     <div class="container">
         <a href="#/" class="brand">
             <img src="/images/logo.svg" alt="Yellow Starter"/>
@@ -122,6 +122,7 @@
                     <span class="badge">{{ notifications.length || 0 }}</span>
                     <span class="bigBadge">##</span>
                 </a>
+                    <!--
                     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="notificationsDropdown" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
                         <li>
                             <a href="#/user/profile" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
@@ -145,6 +146,7 @@
                         </li>
 
                     </ul>
+                -->
             </li>
             <li class="" ng-show="globals.user.roles.indexOf('ADMIN') === -1">
                 <a id="favorites" href="#/user/profile" aria-haspopup="true" aria-expanded="true" fadeOut>

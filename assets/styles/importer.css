@@ -8255,6 +8255,13 @@ body.unlocked {
   opacity: 0;
 }
 /*
+ * Cas de la HP
+ */
+body.transparent .page.startup-list .home .startups-wrapper .startup-list,
+body.transparent .page.startup-list .home .startups-wrapper .startups-list {
+  padding-top: 0;
+}
+/*
  * Top navigation
  */
 .top-navigation {
@@ -8264,8 +8271,8 @@ body.unlocked {
   margin-left: -450px;
   width: 940px;
   height: 110px;
-  background: transparent;
   border: 0;
+  background: transparent;
   -webkit-transition: height 50ms linear;
   -o-transition: height 50ms linear;
   transition: height 50ms linear;
@@ -9122,7 +9129,7 @@ footer .brand {
   display: block;
   width: 100%;
   height: 280px;
-  padding: 0 0 80px 0;
+  padding: 100px 0 80px 0;
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup {
   display: inline-block;
@@ -9351,6 +9358,7 @@ footer .brand {
  * View
  */
 .page.startup-view {
+  padding-top: 100px;
   /*
    * Splash
    */
