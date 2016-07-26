@@ -9,8 +9,8 @@
 <section class="home">
     <div class="container">
         <div class="row">
-            <h2 class="section-title">Les nouvelles</h2>star
-        </div>o
+            <h2 class="section-title">Les nouvelles</h2>
+        </div>
     </div>
 
     <div class="startups-wrapper">
@@ -23,7 +23,7 @@
                 <h4 class="title">{{ startup.startupName }}</h4>
                 <div class="tag-list">
                     <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
-                        #{{ tag }},
+                        #{{ tag }}{{ (!$last) ? ',' :'' }}
                     </a>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                 <h4 class="title">{{ startup.startupName }}</h4>
                 <div class="tag-list">
                     <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
-                        #{{ tag }},
+                        #{{ tag }}{{ (!$last) ? ',' :'' }}
                     </a>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                 <h4 class="title">{{ startup.startupName }}</h4>
                 <div class="tag-list">
                     <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
-                        #{{ tag }},
+                        #{{ tag }}{{ (!$last) ? ',' :'' }}
                     </a>
                 </div>
             </div>
@@ -91,7 +91,7 @@
                 <h4 class="title">{{ startup.startupName }}</h4>
                 <div class="tag-list">
                     <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
-                        #{{ tag }},
+                        #{{ tag }}{{ (!$last) ? ',' :'' }}
                     </a>
                 </div>
             </div>
@@ -114,7 +114,7 @@
                 <h4 class="title">{{ startup.startupName }}</h4>
                 <div class="tag-list">
                     <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
-                        #{{ tag }},
+                        #{{ tag }}{{ (!$last) ? ',' :'' }}
                     </a>
                 </div>
             </div>
