@@ -29,8 +29,45 @@ module.exports = {
         NotificationService.sendStartupPublished(req.query.startupId);
         return resp.json({});
     },
+    requestAnalysis: function (req, resp) {
+        if (req.query.startupId === undefined) {
+            return resp.json({error: 'There was an error, no search parameters are provided'})
+        }
+        NotificationService.sendRequestAnalysis(req.query.startupId);
+
+
+        Monk.get('startup').find({_id: req.query.startupId}).then(function (startups) {
+                if (startups && startups.length > 0) {
+                    var startup = startups[0];
+                    var notifCollection = Monk.get("user-notification");
+                    var notification = {
+                        label: "Demande d'analyse de startup : " + startup.startupName,
+                        url: '#/startup/' + startup._id + '/view',
+                        status: 'new',
+                        createdAt: new Date()
+                    };
+
+                    Monk.get("user").find({roles: 'ADMIN'}).then(function (coll) {
+                        if (coll && coll.length > 0) {
+                            for (var i in coll) {
+                                MailService.sendAnalysisRequested(coll[i].email, {
+                                    user: coll[i],
+                                    fromUser: req.query.fromEmail,
+                                    startupName: startup.startupName
+                                });
+                            }
+                        }
+                    })
+                    ;
+
+                }
+                return resp.json({});
+            }
+        )
+        ;
+    },
     newComment: function (req, resp) {
-        console.log('new comment '  + req.query.startupId);
+        console.log('new comment ' + req.query.startupId);
         if (req.query.startupId === undefined) {
             return resp.json({error: 'There was an error, no search parameters are provided'})
         }
@@ -38,11 +75,11 @@ module.exports = {
         return resp.json({});
     },
     clear: function (req, resp) {
-        console.log('new comment '  + req.query.userId);
+        console.log('new comment ' + req.query.userId);
         if (req.query.userId === undefined) {
             return resp.json({error: 'There was an error, no search parameters are provided'})
         }
-        Monk.get("user-notification").remove({userId: req.query.userId}).then(function(err){
+        Monk.get("user-notification").remove({userId: req.query.userId}).then(function (err) {
             console.log(err);
             return resp.json({});
         });

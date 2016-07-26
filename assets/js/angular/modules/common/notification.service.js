@@ -23,6 +23,10 @@
                         method: 'GET',
                         params: {action: 'startupPublished'}
                     },
+                    requestAnalysis: {
+                        method: 'GET',
+                        params: {action: 'requestAnalysis'}
+                    },
                     newComment: {
                         method: 'GET',
                         params: {action: 'newComment'}

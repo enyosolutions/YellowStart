@@ -8,7 +8,7 @@
  * Controller of the startApp
  */
 angular.module('start.controllers')
-    .controller('ViewStartupCtrl', function ($scope, $rootScope, $stateParams, $window, $timeout, $sce, Startup, StartupComment, StartupContact, UserService, NotificationService) {
+    .controller('ViewStartupCtrl', function ($scope, $rootScope, $stateParams, $window, $timeout, $sce, $ngBootbox, Startup, StartupComment, StartupContact, UserService, NotificationService) {
         $scope.pageClass = 'startup-view';
 
         $scope.iframeUrl = function (src) {
@@ -142,6 +142,15 @@ angular.module('start.controllers')
             });
         };
 
+        // REQUEST AN ANALYSIS FROM STARTINPOST
+         $scope.requestAnalysis = function() {
+            NotificationService.requestAnalysis({startupId: $scope.startup._id, fromEmail: $rootScope.globals.user.email}).$promise.then(
+                function(){$ngBootbox.alert("<h3>Demande d'analyse envoyée</h3>" );}
+            );
+        };
+
+
+        //INITIALIZE GOOGLE MAPS.
         function initialize(latitude, longitude, infoboxContent) {
             console.log(latitude, longitude);
             console.log(latitude + 0.5900);

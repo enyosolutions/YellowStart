@@ -16,14 +16,14 @@
     <div class="startups-wrapper">
         <div class="startups-list">
             <div class="startup" ng-repeat="startup in recentStartupList" startup-slider>
-                <div class="thumbnail" href="#/startup/{{ startup._id }}/view">
+                <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
                     <img src="{{ ::remoteHost }}{{ startup.picture ? startup.picture : (startup.mainTag ? ('/images/startup/thumbnail/' + startup.mainTag + '.jpg') : '/images/placeholder.jpg') }}"
                          alt="{{ startup.startupName }}">
-                </div>
+                </a>
                 <h4 class="title">{{ startup.startupName }}</h4>
                 <div class="tag-list">
                     <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
-                        #{{ tag }},
+                        #{{ tag }}{{ (!$last) ? ',' :'' }}
                     </a>
                 </div>
             </div>
@@ -39,14 +39,14 @@
     <div class="startups-wrapper">
         <div class="startups-list">
             <div class="startup" ng-repeat="startup in mostViewedStartupList" startup-slider>
-                <div class="thumbnail" href="#/startup/{{ startup._id }}/view">
+                <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
                     <img src="{{ ::remoteHost }}{{ startup.picture ? startup.picture : (startup.mainTag ? ('/images/startup/thumbnail/' + startup.mainTag + '.jpg') : '/images/placeholder.jpg') }}"
                          alt="{{ startup.startupName }}">
-                </div>
+                </a>
                 <h4 class="title">{{ startup.startupName }}</h4>
                 <div class="tag-list">
                     <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
-                        #{{ tag }},
+                        #{{ tag }}{{ (!$last) ? ',' :'' }}
                     </a>
                 </div>
             </div>
@@ -61,14 +61,14 @@
     <div class="startups-wrapper">
         <div class="startups-list" startup-slider>
             <div class="startup" ng-repeat="startup in bestScoreStartupList" startup-slider>
-                <div class="thumbnail" href="#/startup/{{ startup._id }}/view">
+                <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
                     <img src="{{ ::remoteHost }}{{ startup.picture ? startup.picture : (startup.mainTag ? ('/images/startup/thumbnail/' + startup.mainTag + '.jpg') : '/images/placeholder.jpg') }}"
                          alt="{{ startup.startupName }}">
-                </div>
+                </a>
                 <h4 class="title">{{ startup.startupName }}</h4>
                 <div class="tag-list">
                     <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
-                        #{{ tag }},
+                        #{{ tag }}{{ (!$last) ? ',' :'' }}
                     </a>
                 </div>
             </div>
@@ -84,14 +84,14 @@
     <div class="startups-wrapper">
         <div class="startups-list">
             <div class="startup" ng-repeat="startup in mostBookmarkedStartupList" startup-slider>
-                <div class="thumbnail" href="#/startup/{{ startup._id }}/view">
+                <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
                     <img src="{{ ::remoteHost }}{{ startup.picture ? startup.picture : (startup.mainTag ? ('/images/startup/thumbnail/' + startup.mainTag + '.jpg') : '/images/placeholder.jpg') }}"
                          alt="{{ startup.startupName }}">
-                </div>
+                </a>
                 <h4 class="title">{{ startup.startupName }}</h4>
                 <div class="tag-list">
                     <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
-                        #{{ tag }},
+                        #{{ tag }}{{ (!$last) ? ',' :'' }}
                     </a>
                 </div>
             </div>
@@ -107,14 +107,14 @@
     <div class="startups-wrapper">
         <div class="startups-list">
             <div class="startup" ng-repeat="startup in lessViewedStartupList" startup-slider>
-                <div class="thumbnail" href="#/startup/{{ startup._id }}/view">
+                <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
                     <img src="{{ ::remoteHost }}{{ startup.picture ? startup.picture : (startup.mainTag ? ('/images/startup/thumbnail/' + startup.mainTag + '.jpg') : '/images/placeholder.jpg') }}"
                          alt="{{ startup.startupName }}">
-                </div>
+                </a>
                 <h4 class="title">{{ startup.startupName }}</h4>
                 <div class="tag-list">
                     <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
-                        #{{ tag }},
+                        #{{ tag }}{{ (!$last) ? ',' :'' }}
                     </a>
                 </div>
             </div>

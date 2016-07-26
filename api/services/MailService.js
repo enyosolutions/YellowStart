@@ -44,6 +44,16 @@ module.exports = {
         });
     },
 
+    sendAnalysisRequested: function (email, data) {
+        var data  = data || {};
+        data.title = "Demande d'analyse de startup : " + dtat.startupName;
+        data.layout = 'emailTemplate.ejs';
+        sails.hooks.views.render("emails/startup-analysis-requested", data, function (err, html) {
+            if (err) return console.log(err);
+            MailService.sendMail(email, "Rapport d'activité", html);
+        });
+    },
+
     sendAccountActivated: function (email, data) {
         var data  = data || {};
         data.title = "Bienvenue dans Yellow Start";
