@@ -8901,19 +8901,18 @@ footer .brand {
 /*
  * Profile
  */
+.page.user-profile {
+  padding-top: 100px;
+}
 .page.user-profile .splash {
   height: auto;
-  padding: 0;
-  position: relative;
 }
 .page.user-profile .splash .container {
   height: 100%;
-  position: relative;
 }
 .page.user-profile .splash .user .avatar {
-  position: absolute;
-  left: 0;
-  bottom: -65px;
+  display: inline-block;
+  width: 156px;
   border: 6px solid #FCFCFC;
   -webkit-border-radius: 999px;
   -moz-border-radius: 999px;
@@ -8935,9 +8934,9 @@ footer .brand {
   cursor: pointer;
   position: absolute;
   z-index: 2;
-  width: 230px;
-  height: 230px;
-  padding: 110px 0;
+  width: 145px;
+  height: 145px;
+  padding: 55px 0;
   text-align: center;
   text-decoration: none;
   color: #ffffff;
@@ -8948,11 +8947,10 @@ footer .brand {
 }
 .page.user-profile .splash .user .data {
   display: block;
-  text-align: left;
-  margin: 140px 0 30px 280px;
+  text-align: center;
 }
 .page.user-profile .splash .user .data .name {
-  font-size: 42px;
+  font-size: 25px;
   font-weight: 500;
 }
 .page.user-profile .splash .user .actions {

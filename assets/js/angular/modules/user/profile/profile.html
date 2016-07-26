@@ -1,3 +1,8 @@
+
+
+
+
+
 <section class="splash small container-fluid">
     <div class="container">
         <!-- user -->
@@ -5,11 +10,10 @@
             <!-- avatar -->
             <div class="avatar">
                 <a data-target="#userProfileModal" data-toggle="modal" class="overlay">
-                    Editer ma photo de profil
+                    Changer la photo
                 </a>
                 <img class="picture" alt="{{ globals.user.firstname }}" src="{{ globals.user.picture  ?  globals.user.picture : 'http://dummyimage.com/230x230/cecece/ffffff&text=Ajouter' }}" />
             </div>
-
             <!-- data -->
             <div class="data">
                 <h1 class="name">{{ globals.user.firstname }} {{ globals.user.lastname }}</h1>
@@ -22,10 +26,6 @@
                 <p>
                     {{ globals.user.phonenumber }}
                 </p>
-            </div>
-
-            <!-- actions -->
-            <div class="actions">
                 <button class="btn btn-alternate" data-target="#userProfileModal" data-toggle="modal">
                     <i class="fa fa-cog"></i>
                     Editer mon profil
@@ -34,6 +34,23 @@
         </div>
     </div>
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <section class="container">
     <div class="row">
