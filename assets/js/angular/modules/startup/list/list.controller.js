@@ -18,7 +18,6 @@ angular.module('start.controllers')
         $scope.slides = HomeSlider.query();
         var query = {'publishedOnly': 1};
 
-        $scope.barIsFocused = true;
 
         // global search function
         $scope.search = function (q) {
@@ -117,7 +116,7 @@ angular.module('start.controllers')
 
 
         $scope.barFocused = function () {
-            console.log('bar focus');
+            console.log('bar focus function call');
             $rootScope.barIsFocused = true;
         };
 
@@ -131,20 +130,17 @@ angular.module('start.controllers')
             $rootScope.minified = open || true;
         };
 
-        $scope.clickOnUpload = function () {
-            $timeout(function() {
-                angular.element('#search_value').triggerHandler('focus');
-            }, 100);
-        };
+
 
         $window.focusOnClick = function(){
             console.log('HOME');
             $timeout(function() {
-                console.log('TIMEOUT');
                 $rootScope.barIsFocused = true;
+                console.log('TIMEOUT', $rootScope.barIsFocused);
+
                 console.log(angular.element('#search_value'));
                 angular.element('#search_value').triggerHandler('focus');
-                $('#search_value').focus().focus();
+                $('#search_value').addClass('nav-focus').focus();
             }, 100);
         };
 

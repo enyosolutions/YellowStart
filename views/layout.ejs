@@ -74,13 +74,15 @@
 
 <!-- default -->
 <div id="navbar-main" class="top-navigation top-navigation-default navbar navbar-default" ng-if="['user-register','user-reset'].indexOf($state.current.name) === -1"
+     ng-class="{'nav-focus': barIsFocus}"
         >
     <div class="container">
         <a href="#/" class="brand">
-            <img src="/images/logo.svg" alt="Yellow Starter"/>
+            <img ng-class="{hide: $state.is('home')}" src="/images/logo.svg" alt="Yellow Starter"/>
+            <img ng-class="{hide: ! $state.is('home')}" ng-src="/images/logo-white.svg" alt="Yellow Starter"/>
         </a>
 
-        <div class="search-form">
+        <div class="search-form {{ barIsFocused }}" ng-class="{'nav-focus': barIsFocus}">
             <form ng-submit="search(listStartup.searchName)" ng-controller="ListStartupCtrl as listStartup">
                 <button class="btn btn-link button search-icon" type="submit">
                     <i class="icon icon-search"></i>
