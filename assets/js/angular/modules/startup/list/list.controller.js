@@ -9,7 +9,7 @@
  */
 angular.module('start.controllers')
 
-    .controller('ListStartupCtrl', function ($scope, $rootScope, $state, $stateParams, $location, $timeout, $routeParams, Startup, Crawler, HomeSlider, CONFIG) {
+    .controller('ListStartupCtrl', function ($scope, $rootScope, $state, $stateParams, $location, $window, $timeout, $routeParams, Startup, Crawler, HomeSlider, CONFIG) {
         $scope.recentStartupList = {};
         $scope.pageClass = 'startup-list';
         $scope.currentPage = 0;
@@ -17,6 +17,8 @@ angular.module('start.controllers')
         $scope.q = '';
         $scope.slides = HomeSlider.query();
         var query = {'publishedOnly': 1};
+
+        $scope.barIsFocused = true;
 
         // global search function
         $scope.search = function (q) {
@@ -115,9 +117,11 @@ angular.module('start.controllers')
 
 
         $scope.barFocused = function () {
+            console.log('bar focus');
             $rootScope.barIsFocused = true;
         };
 
+        $window.barFocused = $scope.barFocused;
 
         $scope.barBlurred = function () {
             $rootScope.barIsFocused = false;
@@ -127,6 +131,22 @@ angular.module('start.controllers')
             $rootScope.minified = open || true;
         };
 
+        $scope.clickOnUpload = function () {
+            $timeout(function() {
+                angular.element('#search_value').triggerHandler('focus');
+            }, 100);
+        };
+
+        $window.focusOnClick = function(){
+            console.log('HOME');
+            $timeout(function() {
+                console.log('TIMEOUT');
+                $rootScope.barIsFocused = true;
+                console.log(angular.element('#search_value'));
+                angular.element('#search_value').triggerHandler('focus');
+                $('#search_value').focus().focus();
+            }, 100);
+        };
 
         if ($stateParams.tag) {
             $scope.searchTitle = $stateParams.tag;

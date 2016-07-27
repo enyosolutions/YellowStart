@@ -41,6 +41,7 @@ module.exports = {
                     if (coll && coll.length > 0) {
                         for (var i in coll) {
                             notification.userId = coll[i]._id;
+                            console.log('NOTIFICATION:', notification);
                             notifCollection.insert(notification);
                         }
                     }
@@ -49,13 +50,11 @@ module.exports = {
         });
     },
 
-
     sendNewComment: function (startupId) {
         var notifCollection = Monk.get("user-notification");
         Monk.get('startup').find({_id: startupId}).then(function (startups) {
             if (startups && startups.length > 0) {
                 var startup = startups[0];
-
                 var notification = {
                     label: 'Nouveau commentaire publié sur la fiche de ' + startup.startupName,
                     url: '#/startup/' + startup._id  +'/view',

@@ -50,7 +50,7 @@ module.exports = {
         data.layout = 'emailTemplate.ejs';
         sails.hooks.views.render("emails/startup-analysis-requested", data, function (err, html) {
             if (err) return console.log(err);
-            MailService.sendMail(email, "Rapport d'activité", html);
+            MailService.sendMail(email, data.title, html);
         });
     },
 
