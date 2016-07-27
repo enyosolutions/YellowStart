@@ -8257,18 +8257,18 @@ body.unlocked {
 /*
  * Cas de la HP
  */
-body.transparent .page.startup-list .home .startups-wrapper .startup-list,
-body.transparent .page.startup-list .home .startups-wrapper .startups-list {
-  padding-top: 0;
+body.home .page {
+  margin-top: -110px;
 }
 /*
  * Top navigation
  */
 .top-navigation {
   display: block;
-  position: absolute;
+  position: relative;
   left: 50%;
   margin-left: -450px;
+  margin-bottom: 0;
   width: 940px;
   height: 110px;
   border: 0;
@@ -9381,7 +9381,7 @@ footer .brand {
  * View
  */
 .page.startup-view {
-  padding-top: 100px;
+  padding-top: 0;
   /*
    * Splash
    */
