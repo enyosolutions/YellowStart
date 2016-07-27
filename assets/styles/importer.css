@@ -9579,7 +9579,7 @@ footer .brand {
 }
 .page.startup-view .startup-info #resume {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 .page.startup-view .startup-info #resume * {
   text-align: center;
@@ -9603,7 +9603,6 @@ footer .brand {
   line-height: 34px;
 }
 .page.startup-view .startup-info #resume .description {
-  margin: 40px 0;
   text-align: left;
   font-size: 14px;
   line-height: 24px;
