@@ -123,6 +123,7 @@ angular.module('start.controllers')
         $window.barFocused = $scope.barFocused;
 
         $scope.barBlurred = function () {
+            console.log('bar blurred');
             $rootScope.barIsFocused = false;
         };
 
@@ -130,17 +131,14 @@ angular.module('start.controllers')
             $rootScope.minified = open || true;
         };
 
-
-
         $window.focusOnClick = function(){
             console.log('HOME');
             $timeout(function() {
                 $rootScope.barIsFocused = true;
-                console.log('TIMEOUT', $rootScope.barIsFocused);
-
-                console.log(angular.element('#search_value'));
-                angular.element('#search_value').triggerHandler('focus');
-                $('#search_value').addClass('nav-focus').focus();
+                //angular.element('#search_value').triggerHandler('focus');
+                $('#search_value').focus().focus();
+                $('#navbar-main').addClass('nav-focus');
+                $scope.$apply();
             }, 100);
         };
 

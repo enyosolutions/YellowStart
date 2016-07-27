@@ -73,7 +73,7 @@
 </div>
 
 <!-- default -->
-<div id="navbar-main" class="top-navigation top-navigation-default navbar navbar-default" ng-if="['user-register','user-reset'].indexOf($state.current.name) === -1"
+<div id="navbar-main" class="top-navigation top-navigation-default navbar navbar-default {{barIsFocus}}" ng-if="['user-register','user-reset'].indexOf($state.current.name) === -1"
      ng-class="{'nav-focus': barIsFocus}"
         >
     <div class="container">
@@ -116,7 +116,7 @@
 
         <ul id="navigation" class="navigation">
             <li>
-                <a ng-click="barFocused();"  onclick="focusOnClick()">
+                <a onclick="focusOnClick()">
                     <i class="icon icon-search"></i>
                 </a>
             </li>
