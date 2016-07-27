@@ -28,6 +28,7 @@ angular.module('start.controllers')
 
         $scope.searchAutocomplete = function (selection) {
             console.log('AUTOCOMPLETE SELECTED', selection);
+            $rootScope.barBlurred();
             if (selection) {
                 if (selection.originalObject.type === 'startup') {
                     $state.go('startup-view', {_id: selection.originalObject.id});
@@ -51,7 +52,6 @@ angular.module('start.controllers')
                             $scope.search($scope.searchName);
                             break;
                     }
-                    $scope.barBlurred();
                 }
             }
         };
@@ -115,14 +115,16 @@ angular.module('start.controllers')
         };
 
 
-        $scope.barFocused = function () {
+        $rootScope.barFocused = function () {
+            console.log('Focus callback function call');
             console.log('bar focus function call');
+            $('#search_value').focus();
             $rootScope.barIsFocused = true;
         };
 
-        $window.barFocused = $scope.barFocused;
+      //  $window.barFocused = $scope.barFocused;
 
-        $scope.barBlurred = function () {
+        $rootScope.barBlurred = function () {
             console.log('bar blurred');
             $rootScope.barIsFocused = false;
         };
@@ -136,7 +138,7 @@ angular.module('start.controllers')
             $timeout(function() {
                 $rootScope.barIsFocused = true;
                 //angular.element('#search_value').triggerHandler('focus');
-                $('#search_value').focus().focus();
+                $('#search_value').focus();
                 $('#navbar-main').addClass('nav-focus');
                 $scope.$apply();
             }, 100);

@@ -73,8 +73,8 @@
 </div>
 
 <!-- default -->
-<div id="navbar-main" class="top-navigation top-navigation-default navbar navbar-default {{barIsFocus}}" ng-if="['user-register','user-reset'].indexOf($state.current.name) === -1"
-     ng-class="{'nav-focus': barIsFocus}"
+<div id="navbar-main" class="top-navigation top-navigation-default navbar navbar-default {{ barIsFocused }}" ng-if="['user-register','user-reset'].indexOf($state.current.name) === -1"
+     ng-class="{'nav-focus': barIsFocused}"
         >
     <div class="container">
         <a href="#/" class="brand">
@@ -82,12 +82,8 @@
             <img ng-class="{hide: ! $state.is('home')}" ng-src="/images/logo-white.svg" alt="Yellow Starter"/>
         </a>
 
-        <div class="search-form {{ barIsFocused }}" ng-class="{'nav-focus': barIsFocus}">
+        <div class="search-form ">
             <form ng-submit="search(listStartup.searchName)" ng-controller="ListStartupCtrl as listStartup">
-                <button class="btn btn-link button search-icon" type="submit">
-                    <i class="icon icon-search"></i>
-                </button>
-
                 <input class="url form-control hidden" name="website" ng-model="listStartup.searchName" type="text"
                        placeholder="Rechercher une start-up" ng-focus="{'navbar-main':top-navigation-default}" />
                 
@@ -98,7 +94,6 @@
                                   text-no-results=""
                                   selected-object="searchAutocomplete"
                                   input-changed="searchAutocompleteCHG"
-                                  focus-in="barFocused()"
                                   focus-out="barBlurred()"
                                   remote-url="{{ ::remoteHost }}/api/crawler/autocomplete?q="
                                   remote-url-data-field="body"
@@ -110,13 +105,12 @@
                                   input-class="url form-control"/>
 
                 <input class="btn btn-primary" type="submit" value="Faou">
-
             </form>
         </div>
 
         <ul id="navigation" class="navigation">
             <li>
-                <a onclick="focusOnClick()">
+                <a ng-click="barFocused()">
                     <i class="icon icon-search"></i>
                 </a>
             </li>
@@ -170,7 +164,6 @@
         </button>
     </div>
 </div>
-
 <div ui-view class="page {{ pageClass }}"></div>
 <!--
 

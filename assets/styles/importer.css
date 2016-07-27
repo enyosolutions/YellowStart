@@ -8370,44 +8370,51 @@ body.home .top-navigation .navigation li a .icon {
   height: auto;
   font-size: 12px !important;
 }
-.top-navigation.top-navigation-default.nav-focus .search-form {
-  width: 50%;
-  overflow: visible !important;
-}
 .top-navigation.top-navigation-default .container {
   position: relative;
 }
 .top-navigation.top-navigation-default .search-form {
   float: left;
-  position: relative;
-  width: 0;
-  overflow: hidden;
+  width: 830px;
+  overflow: visible !important;
+  position: fixed;
+  top: 150px;
+  left: 50%;
+  margin-left: -415px;
+  visibility: hidden;
+  opacity: 0;
 }
 .top-navigation.top-navigation-default .search-form input {
   display: block;
-  width: 300px;
-  height: 109px;
+  width: 830px;
+  height: 80px;
   padding: 47px 25px 47px 40px;
   font-size: 17px;
   font-weight: 200;
   color: #73737f;
   border: none;
   border-radius: 0;
+  font-size: 30px;
+  /* color: #73737F;
+        position: fixed;
+        width: 830px;
+        height: 109px; */
+  z-index: 10;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
   position: static;
   -webkit-transition: 100ms linear all;
   transition: 100ms linear all;
-}
-.top-navigation.top-navigation-default .search-form input:focus {
-  font-size: 30px;
-  color: #73737F;
-  position: fixed;
-  width: 830px;
-  height: 109px;
-  z-index: 10;
-  border-right: 1px #eaeaea solid;
+  /*    &:focus {
+          font-size: 30px;
+          color: #73737F;
+          position: fixed;
+          width: 830px;
+          height: 109px;
+          z-index: 10;
+          border-right: 1px #eaeaea solid;
+        }*/
 }
 .top-navigation.top-navigation-default .search-form button {
   position: absolute;
@@ -8441,7 +8448,7 @@ body.home .top-navigation .navigation li a .icon {
   border: 0;
   min-width: 830px;
   top: 115px;
-  left: -1px;
+  left: 0px;
   -wekbit-transition: none;
   transition: none;
 }
@@ -8481,6 +8488,10 @@ body.home .top-navigation .navigation li a .icon {
 .top-navigation.top-navigation-default .search-form .angucomplete-dropdown .angucomplete-description {
   color: #D9D9DE;
   font-size: 13px;
+}
+.top-navigation.top-navigation-default.nav-focus .search-form {
+  visibility: visible;
+  opacity: 1;
 }
 .top-navigation.top-navigation-default .navigation {
   position: absolute;
