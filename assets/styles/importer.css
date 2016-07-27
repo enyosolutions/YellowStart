@@ -8901,19 +8901,22 @@ footer .brand {
 /*
  * Profile
  */
+.page.user-profile {
+  padding-top: 100px;
+}
 .page.user-profile .splash {
   height: auto;
-  padding: 0;
-  position: relative;
 }
 .page.user-profile .splash .container {
   height: 100%;
-  position: relative;
+}
+.page.user-profile .splash .user {
+  margin-top: -65px;
+  margin-bottom: 20px;
 }
 .page.user-profile .splash .user .avatar {
-  position: absolute;
-  left: 0;
-  bottom: -65px;
+  display: inline-block;
+  width: 156px;
   border: 6px solid #FCFCFC;
   -webkit-border-radius: 999px;
   -moz-border-radius: 999px;
@@ -8935,9 +8938,9 @@ footer .brand {
   cursor: pointer;
   position: absolute;
   z-index: 2;
-  width: 230px;
-  height: 230px;
-  padding: 110px 0;
+  width: 145px;
+  height: 145px;
+  padding: 55px 0;
   text-align: center;
   text-decoration: none;
   color: #ffffff;
@@ -8948,11 +8951,10 @@ footer .brand {
 }
 .page.user-profile .splash .user .data {
   display: block;
-  text-align: left;
-  margin: 140px 0 30px 280px;
+  text-align: center;
 }
 .page.user-profile .splash .user .data .name {
-  font-size: 42px;
+  font-size: 25px;
   font-weight: 500;
 }
 .page.user-profile .splash .user .actions {
@@ -8986,43 +8988,43 @@ footer .brand {
   position: relative;
   width: 300px;
   height: 200px;
-  border: none !important;
   border-radius: 0;
   text-align: center;
   padding: 40px 20px 0 20px;
 }
 .page.user-profile .starredProjects .results .notification-card.blue {
-  background-color: #0547FD;
+  border: 1px #0547FD solid;
   -webkit-transition: 60ms ease-out all;
   transition: 60ms ease-out all;
-}
-.page.user-profile .starredProjects .results .notification-card.blue:hover {
-  background-color: #0563FD;
 }
 .page.user-profile .starredProjects .results .notification-card.orange {
-  background-color: #FF6500;
+  border: 1px #FF6500 solid;
   -webkit-transition: 60ms ease-out all;
   transition: 60ms ease-out all;
-}
-.page.user-profile .starredProjects .results .notification-card.orange:hover {
-  background-color: #FF7900;
 }
 .page.user-profile .starredProjects .results .notification-card .card-title {
   font-family: 'Raleway';
   font-size: 18px;
   font-weight: 300;
   line-height: 30px;
-  color: #FAFDD4;
   padding-bottom: 20px;
 }
 .page.user-profile .starredProjects .results .notification-card .btn {
-  background-color: #FAFDD4 !important;
+  color: #FAFDD4;
 }
 .page.user-profile .starredProjects .results .notification-card .btn.blue {
-  color: #0547FD;
+  background-color: #0547FD !important;
+}
+.page.user-profile .starredProjects .results .notification-card .btn.blue:hover {
+  background-color: #FAFDD4 !important;
+  color: #0547FD !important;
 }
 .page.user-profile .starredProjects .results .notification-card .btn.orange {
-  color: #FF6500;
+  background-color: #FF6500 !important;
+}
+.page.user-profile .starredProjects .results .notification-card .btn.orange:hover {
+  background-color: #FAFDD4 !important;
+  color: #FF6500 !important;
 }
 @media screen and (max-width: 768px) {
   .page.user-profile .user .avatar {
@@ -9400,7 +9402,7 @@ footer .brand {
   padding: 0 0 0 0;
 }
 .page.startup-view .splash .logo {
-  width: 300px;
+  width: 240px;
 }
 .page.startup-view .splash .title {
   font-size: 65px;
@@ -9469,7 +9471,7 @@ footer .brand {
   border-color: #ff6500;
 }
 .page.startup-view .sidebar-wall .actions {
-  margin: 30px 0 0 0;
+  margin: 50px 0 0 0;
 }
 .page.startup-view .sidebar-wall .actions .action {
   width: 130px;
@@ -9521,7 +9523,7 @@ footer .brand {
   font-size: 52px;
   line-height: 48px;
   font-weight: 800;
-  text-shadow: -1px -1px 0px #ffffff, 0px -1px 0px #ffffff, 1px -1px 0px #ffffff, -1px 0px 0px #ffffff, 1px 0px 0px #ffffff, -1px 1px 0px #ffffff, 0px 1px 0px #ffffff, 1px 1px 0px #ffffff;
+  text-shadow: -1px -1px 0px #ffffff, r 0px -1px 0px #ffffff, 1px -1px 0px #ffffff, -1px 0px 0px #ffffff, 1px 0px 0px #ffffff, -1px 1px 0px #ffffff, 0px 1px 0px #ffffff, 1px 1px 0px #ffffff;
 }
 .page.startup-view .sidebar-wall .actions .action .text-lock {
   position: relative;
@@ -9577,6 +9579,7 @@ footer .brand {
 }
 .page.startup-view .startup-info #resume {
   text-align: center;
+  margin-bottom: 50px;
 }
 .page.startup-view .startup-info #resume * {
   text-align: center;
@@ -9605,6 +9608,9 @@ footer .brand {
   font-size: 14px;
   line-height: 24px;
   white-space: pre-line;
+}
+.page.startup-view .startup-info #documents-area {
+  margin: 40px 0 30px 0;
 }
 .page.startup-view .startup-info #documents-area .media {
   padding: 15px 20px;
@@ -9741,8 +9747,8 @@ footer .brand {
 }
 .page.startup-view .images-section .item {
   width: 100%;
-  height: 401px;
-  max-height: 401px;
+  height: 365px;
+  max-height: 365px;
   overflow: hidden;
 }
 .page.startup-view .images-section .item img {
@@ -9759,12 +9765,13 @@ footer .brand {
   height: 50px;
   width: 50px;
   background: none;
-  background-color: #0031f7;
+  color: #0031f7;
   bottom: -80px;
   top: auto;
   opacity: 1;
   font-size: 2em;
   padding-top: 6px;
+  text-shadow: none;
   -webkit-transition: 100ms linear all;
   -o-transition: 100ms linear all;
   transition: 100ms linear all;
@@ -9772,7 +9779,7 @@ footer .brand {
 .page.startup-view .images-section .carousel-control:hover,
 .page.startup-view .images-section .carousel-control:focus {
   opacity: 1;
-  background-color: #ff6500;
+  color: #ff6500;
 }
 .page.startup-view .images-section .carousel-control.left {
   left: 40%;
@@ -9895,6 +9902,7 @@ footer .brand {
   text-decoration: none;
 }
 .page.startup-view .sip-note {
+  margin-top: 40px;
   background: #0547fd;
   padding: 80px 0;
   text-align: center;
@@ -9904,10 +9912,18 @@ footer .brand {
 }
 .page.startup-view .sip-note .request-evaluation .evaluation {
   font-weight: 300;
-  font-size: 24px;
+  font-size: 18px;
   color: #FAFDD4;
   text-align: center;
   margin-bottom: 42px;
+}
+.page.startup-view .sip-note .request-evaluation .btn {
+  padding: 15px 20px 12px 20px;
+  font-size: 15px;
+  vertical-align: middle;
+  font-weight: normal;
+  background: #ff6500;
+  color: #FAFDD4;
 }
 .page.startup-view .sip-note .note {
   display: block;
@@ -10004,11 +10020,11 @@ footer .brand {
 }
 .page.startup-view .related .title {
   display: block;
-  margin: 0 0 70px 0;
-  font-family: 'Raleway', sans-serif;
-  font-size: 54px;
-  font-weight: 800;
-  color: #081433;
+  margin: 0 0 30px 0;
+  font-size: 27px;
+  font-weight: 400;
+  color: #000000;
+  padding: 15px 0;
 }
 .page.startup-view .related .startup {
   border: none !important;

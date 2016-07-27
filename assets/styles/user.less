@@ -74,24 +74,25 @@
  * Profile
  */
 .page.user-profile {
+
+  padding-top: 100px;
+
   // User
   .splash {
     height: auto;
-    padding: 0;
-    position: relative;
 
     .container {
       height: 100%;
-      position: relative;
     }
 
     .user {
+      margin-top: -65px;
+      margin-bottom: 20px;
+
       // avatar
       .avatar {
-        position: absolute;
-        left: 0;
-        bottom: -65px;
-
+        display: inline-block;
+        width: 156px;
         border: 6px solid #FCFCFC;
 
         -webkit-border-radius: 999px;
@@ -121,10 +122,10 @@
           position: absolute;
           z-index: 2;
 
-          width: 230px;
-          height: 230px;
+          width: 145px;
+          height: 145px;
 
-          padding: 110px 0;
+          padding: 55px 0;
 
           text-align: center;
           text-decoration: none;
@@ -140,11 +141,10 @@
       // data
       .data {
         display: block;
-        text-align: left;
-        margin: 140px 0 30px 280px;
+        text-align: center;
 
         .name {
-          font-size: 42px;
+          font-size: 25px;
           font-weight: 500;
         }
       }
@@ -192,27 +192,20 @@
         position: relative;
         width: 300px;
         height: 200px;
-        border: none !important;
         border-radius: 0;
         text-align: center;
         padding: 40px 20px 0 20px;
 
         &.blue {
-          background-color: #0547FD;
+          border: 1px #0547FD solid;
           -webkit-transition: 60ms ease-out all;
           transition: 60ms ease-out all;
-        }
-        &.blue:hover {
-          background-color: #0563FD;
         }
 
         &.orange {
-          background-color: #FF6500;
+          border: 1px #FF6500 solid;
           -webkit-transition: 60ms ease-out all;
           transition: 60ms ease-out all;
-        }
-        &.orange:hover {
-          background-color: #FF7900;
         }
 
         .card-title {
@@ -220,17 +213,24 @@
           font-size: 18px;
           font-weight: 300;
           line-height: 30px;
-          color: #FAFDD4;
           padding-bottom: 20px;
         }
 
         .btn {
-            background-color: #FAFDD4 !important;
+            color: #FAFDD4;
           &.blue {
-            color: #0547FD;
+            background-color: #0547FD !important;
+          }
+          &.blue:hover {
+            background-color: #FAFDD4 !important;
+            color: #0547FD !important;
           }
           &.orange {
-            color: #FF6500;
+            background-color: #FF6500 !important;
+          }
+          &.orange:hover {
+            background-color: #FAFDD4 !important;
+            color: #FF6500 !important;
           }
         }
       }
