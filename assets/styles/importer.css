@@ -9100,6 +9100,8 @@ footer .brand {
   width: 300px;
   border: none !important;
   text-align: left;
+  border-radius: 0 !important;
+  overflow: hidden;
 }
 .startup-generic-card .card-img-top {
   display: block;
@@ -9112,8 +9114,8 @@ footer .brand {
   -moz-border-radius: 0;
   border-radius: 0;
   overflow: hidden;
-  -webkit-transition: 60ms ease-out all;
-  transition: 60ms ease-out all;
+  -webkit-transition: 120ms ease-out all;
+  transition: 120ms ease-out all;
 }
 .startup-generic-card .card-img-top img {
   height: 100%;
