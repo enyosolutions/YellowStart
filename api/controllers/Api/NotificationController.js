@@ -35,7 +35,7 @@ module.exports = {
         }
         NotificationService.sendRequestAnalysis(req.query.startupId);
 
-
+        console.log('REQUEST ANALYSIS', req.query);
         Monk.get('startup').findOne({_id: req.query.startupId}).then(function (startup) {
                 if (startup) {
 

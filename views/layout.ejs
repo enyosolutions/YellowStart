@@ -94,6 +94,7 @@
                                   text-no-results=""
                                   selected-object="searchAutocomplete"
                                   input-changed="searchAutocompleteCHG"
+
                                   focus-out="barBlurred()"
                                   remote-url="{{ ::remoteHost }}/api/crawler/autocomplete?q="
                                   remote-url-data-field="body"
@@ -117,7 +118,7 @@
             <li ng-class="{dropdown: globals.user.roles.indexOf('ADMIN') !== -1}" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
                 <a id="profileDropdown" aria-haspopup="true" aria-expanded="true" fadeOut href="#/user/profile">
                     <span class="badge">{{ notifications.length || 0 }}</span>
-                    <span class="bigBadge">##</span>
+                    <span class="bigBadge">{{ globals.user.firstname | limitTo : 1 }}{{ globals.user.lastname | limitTo : 1 }}</span>
                 </a>
                     <!--
                     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="notificationsDropdown" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">

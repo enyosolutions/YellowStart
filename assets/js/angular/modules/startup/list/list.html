@@ -32,33 +32,24 @@
         <div class="results">
             <div class="container">
                 <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="startup in searchedStartups">
-                    <!-- startup -->
-                    <div class="startup card fixed-card">
-                        <div class="card-img-top">
-                            <a href="#/startup/{{ startup._id }}/view">
-                                <img ng-src="{{ ::remoteHost }}{{ startup.picture ? startup.picture : (startup.mainTag ? ('/images/startup/thumbnail/' + startup.mainTag + '.jpg') : '/images/placeholder.jpg') }}"
-                                     alt="{{ startup.startupName }}">
-                            </a>
-                            <div class="gradientpic">
-                                <h4 class="card-title">{{ startup.startupName }}</h4>
-                            </div>
-                        </div>
-                        <div class="card-block">
-                            <h4 class="card-title">{{ startup.startupName }}</h4>
 
-                            <div class="card-link-section">
-                                <a href="#/startup?tag={{ tag }}" class="card-link text-info"
-                                   ng-repeat="tag in startup.tags">
-                                    #{{tag }}
+                        <!-- startup -->
+                        <div class="startup-generic-card card fixed-card">
+                            <div class="card-img-top">
+                                <a href="#/startup/{{ startup._id }}/view">
+                                    <img ng-src="{{ ::remoteHost }}{{ startup.picture ? startup.picture : (startup.mainTag ? ('/images/startup/thumbnail/' + startup.mainTag + '.jpg') : '/images/placeholder.jpg') }}"
+                                         alt="{{ startup.picture }}">
                                 </a>
                             </div>
-                            <div class="button-wrapper">
-                                <a class="btn btn-primary-outline" href="#/startup/{{ startup._id }}/view">
-                                    Voir la fiche
+                            <h4 class="card-title">{{ startup.startupName }}</h4>
+                            <div class="card-link-section">
+                                <a href="#/startup?tag={{tag}}" class="card-link text-info"
+                                   ng-repeat="tag in startup.tags">
+                                    #{{ tag }}
                                 </a>
                             </div>
                         </div>
-                    </div>
+
                 </div>
             </div>
         </div>

@@ -8449,6 +8449,7 @@ body.home .top-navigation .navigation li a .icon {
   min-width: 830px;
   top: 115px;
   left: 0px;
+  margin-top: -21px;
   -wekbit-transition: none;
   transition: none;
 }
@@ -8934,7 +8935,7 @@ footer .brand {
  * Profile
  */
 .page.user-profile {
-  padding-top: 100px;
+  padding-top: 0px;
 }
 .page.user-profile .splash {
   height: auto;

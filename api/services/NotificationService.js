@@ -25,9 +25,10 @@ module.exports = {
     },
 
     sendRequestAnalysis: function (startupId) {
-        Monk.get('startup').find({_id: startupId}).then(function (startups) {
-            if (startups && startups.length > 0) {
-                var startup = startups[0];
+        console.log('analysis service');
+        Monk.get('startup').findOne({_id: startupId}).then(function (startup) {
+            if (startup) {
+
                 var notifCollection = Monk.get("user-notification");
                 var notification = {
                     label: "Demande d'analyse de startup : " + startup.startupName,
@@ -36,7 +37,7 @@ module.exports = {
                     createdAt: new Date()
                 };
 
-
+                console.log('analysis service');
                 Monk.get("user").find({roles: 'ADMIN' }).then(function (coll) {
                     if (coll && coll.length > 0) {
                         for (var i in coll) {

@@ -32,7 +32,6 @@ angular.module('start.controllers')
             if (selection) {
                 if (selection.originalObject.type === 'startup') {
                     $state.go('startup-view', {_id: selection.originalObject.id});
-                    $scope.$broadcast('angucomplete-alt:clearInput');
                 }
                 else {
                     switch (selection.originalObject.type) {
@@ -48,11 +47,12 @@ angular.module('start.controllers')
                         case 'button':
                             $scope.searchName = selection.originalObject.title;
                             selection.title = selection.originalObject.title;
-                            $scope.$broadcast('angucomplete-alt:changeInput', 'search', selection.title);
+                            // $scope.$broadcast('angucomplete-alt:changeInput', 'search', selection.title);
                             $scope.search($scope.searchName);
                             break;
                     }
                 }
+                $scope.$broadcast('angucomplete-alt:clearInput');
             }
         };
 
