@@ -80,6 +80,7 @@
   .home {
     padding-top: 20px;
     overflow: hidden;
+    background-color: #f2f2f2;
 
     .section-title {
       font-size: 27px;
@@ -96,20 +97,21 @@
       display: block;
       margin: 0 auto;
       width: 100%;
-      padding-left: 13%;
+      padding: 0 0 30px 40px;
       /* max-width: 1280px; */
 
       .startups-list {
         display: block;
         width: 100%;
         height: 280px;
-        padding: 0px 0 80px 0;
       }
 
       // pagination
 
       // element
       .startups-list .startup {
+        overflow: hidden;
+        background-color: #fff;
         display: inline-block;
         vertical-align: top;
         position: relative;
@@ -131,12 +133,13 @@
           border-radius: 0;
 
           overflow: hidden;
-          -webkit-transition: 60ms ease-out all;
-          transition: 60ms ease-out all;
 
           img {
             width: 100%;
           }
+
+          -webkit-transition: 120ms ease-out all;
+          transition: 120ms ease-out all;
 
         &:hover {
           width: 106%;
@@ -152,18 +155,18 @@
           font-weight: 500;
           color: #000000;
           letter-spacing: 0.89px;
-          margin: 14px 0 0 5px;
+          margin: 14px 0 0 15px;
           text-transform: uppercase;
         }
         
         .tag-list {
           display: block;
-          height: 45px;
+          height: 30px;
           word-break: break-all;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-          margin-left: 5px;
+          margin-left: 15px;
 
           .tags {
             color: #a9acbb;
