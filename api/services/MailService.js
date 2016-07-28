@@ -48,8 +48,10 @@ module.exports = {
         var data  = data || {};
         data.title = "Demande d'analyse de startup : " + dtat.startupName;
         data.layout = 'emailTemplate.ejs';
+        console.log(data.title);
         sails.hooks.views.render("emails/startup-analysis-requested", data, function (err, html) {
             if (err) return console.log(err);
+            console.log(email, html);
             MailService.sendMail(email, data.title, html);
         });
     },

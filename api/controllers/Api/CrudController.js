@@ -14,6 +14,7 @@ module.exports = {
         var skip = req.query.skip ? req.query.skip : 20;
         var options = {limit: skip, skip: startPage * skip};
         if (req.query) {
+            console.log(req.param('endpoint'), req.query);
             if (req.query.query) {
                 query = req.query.query;
             }
@@ -21,10 +22,9 @@ module.exports = {
                 options['sort'] = options.sort;
             }
         }
-        console.log(options);
+        console.log('QUERY:',query, 'OPTIONS:', options);
         Monk.get(req.param('endpoint')).find(query, options)
             .on('success', function (data) {
-                data.statusCode = 200;
                 resp.json({body: data});
             })
             .on('error', function (err) {

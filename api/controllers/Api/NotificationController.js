@@ -22,6 +22,7 @@ module.exports = {
 
 
     },
+
     startupPublished: function (req, resp) {
         if (req.query.startupId === undefined) {
             return resp.json({error: 'There was an error, no search parameters are provided'})
@@ -29,36 +30,18 @@ module.exports = {
         NotificationService.sendStartupPublished(req.query.startupId);
         return resp.json({});
     },
+
     requestAnalysis: function (req, resp) {
         if (req.query.startupId === undefined) {
             return resp.json({error: 'There was an error, no search parameters are provided'})
         }
-        NotificationService.sendRequestAnalysis(req.query.startupId);
+        NotificationService.sendRequestAnalysis(req.query.startupId, req.query.fromEmail);
 
         console.log('REQUEST ANALYSIS', req.query);
-        Monk.get('startup').findOne({_id: req.query.startupId}).then(function (startup) {
-                if (startup) {
 
-                    Monk.get("user").find({roles: 'ADMIN'}).then(function (coll) {
-                        if (coll && coll.length > 0) {
-                            for (var i in coll) {
-                                console.log('USER', coll[i].firstname);
-                                MailService.sendAnalysisRequested(coll[i].email, {
-                                    user: coll[i],
-                                    fromUser: req.query.fromEmail,
-                                    startupName: startup.startupName
-                                });
-                            }
-                        }
-                    })
-                    ;
-
-                }
-                return resp.json({});
-            }
-        )
-        ;
+        return resp.json({});
     },
+
     newComment: function (req, resp) {
         console.log('new comment ' + req.query.startupId);
         if (req.query.startupId === undefined) {
@@ -67,6 +50,7 @@ module.exports = {
         NotificationService.sendNewComment(req.query.startupId);
         return resp.json({});
     },
+
     clear: function (req, resp) {
         console.log('new comment ' + req.query.userId);
         if (req.query.userId === undefined) {

@@ -9,6 +9,7 @@ module.exports = {
                     label: 'Nouvelle startup publiée : ' + startup.startupName,
                     url: '#/startup/' + startup._id + '/view',
                     status: 'new',
+                    type:'startup',
                     createdAt: new Date()
                 };
 
@@ -24,29 +25,39 @@ module.exports = {
         });
     },
 
-    sendRequestAnalysis: function (startupId) {
-        console.log('analysis service');
+    sendRequestAnalysis: function (startupId, fromEmail) {
+        console.log('analysis service', startupId);
         Monk.get('startup').findOne({_id: startupId}).then(function (startup) {
             if (startup) {
-
                 var notifCollection = Monk.get("user-notification");
                 var notification = {
-                    label: "Demande d'analyse de startup : " + startup.startupName,
+                    label: "Demande d'analyse sur " + startup.startupName,
                     url: '#/startup/' + startup._id + '/view',
                     status: 'new',
+                    type: "startup",
                     createdAt: new Date()
                 };
 
-                console.log('analysis service');
-                Monk.get("user").find({roles: 'ADMIN' }).then(function (coll) {
+                Monk.get("user").find({roles: 'ADMIN'}).then(function (coll) {
                     if (coll && coll.length > 0) {
                         for (var i in coll) {
-                            notification.userId = coll[i]._id;
+                            console.log('Envoi des notifs ');
+                            console.log('USER', coll[i].firstname);
+                            notification.userId = coll[i]._id + "";
                             console.log('NOTIFICATION:', notification);
                             notifCollection.insert(notification);
+
+                            console.log('Envoi des mails ');
+                            MailService.sendAnalysisRequested(coll[i].email, {
+                                user: coll[i],
+                                fromUser: fromEmail,
+                                startupName: startup.startupName
+                            });
                         }
                     }
-                });
+                })
+                ;
+
             }
         });
     },
@@ -58,8 +69,9 @@ module.exports = {
                 var startup = startups[0];
                 var notification = {
                     label: 'Nouveau commentaire publié sur la fiche de ' + startup.startupName,
-                    url: '#/startup/' + startup._id  +'/view',
+                    url: '#/startup/' + startup._id + '/view',
                     status: 'new',
+                    type: "startup",
                     createdAt: new Date()
                 };
                 Monk.get("user").find({bookmarks: startupId}).then(function (coll) {
@@ -67,8 +79,9 @@ module.exports = {
                     if (coll && coll.length > 0) {
                         for (var i in coll) {
                             notification.userId = coll[i]._id + '';
-                            notifCollection.insert(notification).error(function(err){
-                                console.log(err);});
+                            notifCollection.insert(notification).error(function (err) {
+                                console.log(err);
+                            });
                         }
                     }
                     else {
@@ -93,6 +106,7 @@ module.exports = {
                     label: 'Nouvel utilisateur à activer : ' + user.firstname + ' ' + user.lastname,
                     url: '#/admin/startup/user',
                     status: 'new',
+                    type: "user",
                     createdAt: new Date()
                 };
                 userCollection.find({roles: 'ADMIN'}).then(function (coll) {
