@@ -38,7 +38,7 @@
             <!-- heading -->
             <div class="heading">
                 <h1 class="title">
-                    {{ notifications.length }} notifications
+                    {{ notifications.length  || 0 }} notifications
                 </h1>
             </div>
             <!-- results -->
@@ -63,7 +63,7 @@
             <!-- heading -->
             <div class="heading">
                 <h1 class="title">
-                    {{ starredStartups.length }} projets suivis
+                    {{ starredStartups.length || 0 }} projets suivis
                 </h1>
 
                 <div class="sort">
@@ -73,7 +73,7 @@
                             <span class="caret"></span>
                         </button>
 
-                        <ul class="dropdown-menu" aria-labelledby="sort">
+                        <ul class="dropdown-menu dropdown-left" aria-labelledby="sort">
                             <li>
                                 <a ng-click="sortByName()">Nom</a>
                                 <a ng-click="sortByCreatedDate()">Date de création</a>
