@@ -8820,12 +8820,12 @@ footer .brand {
   z-index: 10;
   opacity: 0;
   top: 0;
-  margin-top: 0px;
+  margin-top: -15px;
   left: 0;
-  height: 245px;
+  height: 290px;
   width: 60px;
   border: none !important;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 63, 254, 0.5);
   -webkit-transition: 100ms linear all;
   transition: 100ms linear all;
 }
@@ -9161,6 +9161,7 @@ footer .brand {
 .page.startup-list .home {
   padding-top: 20px;
   overflow: hidden;
+  background-color: #f2f2f2;
 }
 .page.startup-list .home .section-title {
   font-size: 27px;
@@ -9175,16 +9176,17 @@ footer .brand {
   display: block;
   margin: 0 auto;
   width: 100%;
-  padding-left: 13%;
+  padding: 0 0 30px 40px;
   /* max-width: 1280px; */
 }
 .page.startup-list .home .startups-wrapper .startups-list {
   display: block;
   width: 100%;
   height: 280px;
-  padding: 0px 0 80px 0;
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup {
+  overflow: hidden;
+  background-color: #fff;
   display: inline-block;
   vertical-align: top;
   position: relative;
@@ -9202,8 +9204,8 @@ footer .brand {
   -moz-border-radius: 0;
   border-radius: 0;
   overflow: hidden;
-  -webkit-transition: 60ms ease-out all;
-  transition: 60ms ease-out all;
+  -webkit-transition: 120ms ease-out all;
+  transition: 120ms ease-out all;
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup .thumbnail img {
   width: 100%;
@@ -9219,17 +9221,17 @@ footer .brand {
   font-weight: 500;
   color: #000000;
   letter-spacing: 0.89px;
-  margin: 14px 0 0 5px;
+  margin: 14px 0 0 15px;
   text-transform: uppercase;
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup .tag-list {
   display: block;
-  height: 45px;
+  height: 30px;
   word-break: break-all;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-left: 5px;
+  margin-left: 15px;
 }
 .page.startup-list .home .startups-wrapper .startups-list .startup .tag-list .tags {
   color: #a9acbb;
