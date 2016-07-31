@@ -8,7 +8,7 @@
  * @docs        :: http://waterlock.ninja/documentation
  */
 
-var extend = require('extend');
+
 module.exports = {
     create: function (req, res) {
         /* if (req.body.password !== req.body.confirmPassword) {
@@ -81,6 +81,7 @@ module.exports = {
         });
     },
     update: function (req, res) {
+        var extend = require('extend');
         console.log(req.body);
         User.findOne({id: req.params.id}, function (err, user) {
             if (!user) {

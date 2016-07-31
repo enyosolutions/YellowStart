@@ -15,19 +15,21 @@
 module.exports = function(grunt) {
 
 	grunt.config.set('watch', {
-		api: {
+        assets: {
+            // When assets are changed:
+            tasks: ['less', 'syncAssets' , 'linkAssets'],
+            // Assets to watch:
+            files: ['assets/**/*', 'tasks/pipeline.js', '!**/node_modules/**']
+
+
+
+        },
+        api: {
 
 			// API files to watch:
 			files: ['api/**/*', '!**/node_modules/**']
-		},
-		assets: {
-
-			// Assets to watch:
-			files: ['assets/**/*', 'tasks/pipeline.js', '!**/node_modules/**'],
-
-			// When assets are changed:
-			tasks: ['less', 'syncAssets' , 'linkAssets']
 		}
+
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-watch');

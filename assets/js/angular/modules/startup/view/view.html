@@ -63,14 +63,14 @@
                     </p>
                 </div>
 
-                <hr/ ng-if="startup.documents.length > 0 ">
+                <hr ng-if="startup.documents.length > 0 "/>
 
                 <!-- documents list -->
 
                 <div class="" id="documents-area">
 
                     <div class="media" ng-repeat="document in startup.documents">
-                        <a href="{{ document.file }}">
+                        <a href="{{ document.file }}" target="_blank">
                             <div class="media-left">
                                 <i class="icon-start-ico-{{ document.extension | lowercase }}">
                                 </i>

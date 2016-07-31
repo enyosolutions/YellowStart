@@ -8281,53 +8281,53 @@ body.home .top-navigation .navigation li a .icon {
   transition: height 50ms linear;
   /*
 
-  &.top-navigation-default.small {
-    .transition(height 50ms linear);
-    height: 65px;
+    &.top-navigation-default.small {
+      .transition(height 50ms linear);
+      height: 65px;
 
-    .search-form {
-      float: left;
-      position: relative;
-      overflow: visible;
-      width: 50%;
+      .search-form {
+        float: left;
+        position: relative;
+        overflow: visible;
+        width: 50%;
 
-      input {
-        height: 65px;
-        padding: 27px 25px 22px 40px;
+        input {
+          height: 65px;
+          padding: 27px 25px 22px 40px;
+        }
+
+        button {
+          padding: 22px 0 22px 10px;
+        }
       }
 
-      button {
-        padding: 22px 0 22px 10px;
+      li.dropdown {
+        margin-top: 10px;
+        position: relative;
+        top: -2px;
       }
-    }
 
-    li.dropdown {
-      margin-top: 10px;
-      position: relative;
-      top: -2px;
-    }
-
-    .navigation li a {
-      padding: 15px 10px 15px 9px;
-      i {
-        */
+      .navigation li a {
+        padding: 15px 10px 15px 9px;
+        i {
+          */
   /*font-size: 2.4em;*/
   /*
 
+        }
+        span.menulabel {
+          display: none;
+        }
       }
-      span.menulabel {
-        display: none;
+
+
+      .brand {
+        width: 120px;
+        padding: 15px 30px 17px 0;
       }
     }
 
-
-    .brand {
-      width: 120px;
-      padding: 15px 30px 17px 0;
-    }
-  }
-
-*/
+  */
   z-index: 3000;
 }
 .top-navigation .bigBadge {
@@ -8407,14 +8407,14 @@ body.home .top-navigation .navigation li a .icon {
   -webkit-transition: 100ms linear all;
   transition: 100ms linear all;
   /*    &:focus {
-          font-size: 30px;
-          color: #73737F;
-          position: fixed;
-          width: 830px;
-          height: 109px;
-          z-index: 10;
-          border-right: 1px #eaeaea solid;
-        }*/
+              font-size: 30px;
+              color: #73737F;
+              position: fixed;
+              width: 830px;
+              height: 109px;
+              z-index: 10;
+              border-right: 1px #eaeaea solid;
+            }*/
 }
 .top-navigation.top-navigation-default .search-form button {
   position: absolute;
@@ -8581,6 +8581,11 @@ body.home .top-navigation .navigation li a .icon {
   border: none;
 }
 @media screen and (max-width: 768px) {
+  .top-navigation {
+    left: 0;
+    margin-left: 0;
+    width: 100%;
+  }
   .top-navigation.top-navigation-login {
     position: static;
     height: auto;
@@ -8602,7 +8607,7 @@ body.home .top-navigation .navigation li a .icon {
     margin: 0 0 15px 0;
   }
   .top-navigation.top-navigation-default .navigation {
-    display: none;
+    display: block;
   }
   .top-navigation.top-navigation-default .navigation.collapse.in {
     display: block;
@@ -8626,12 +8631,16 @@ body.home .top-navigation .navigation li a .icon {
   .top-navigation.top-navigation-default .navigation.collapse.in .dropdown-menu .divider {
     display: none;
   }
+  .top-navigation.top-navigation-default .search-form input {
+    width: 90%;
+    margin-left: 5%;
+  }
 }
 @media screen and (max-width: 640px) {
-  .top-navigation-default .brand {
+  .top-navigation.top-navigation-default .brand {
     border: none;
   }
-  .top-navigation-default .search-form {
+  .top-navigation.top-navigation-default .navigation {
     display: none;
   }
 }
@@ -8728,6 +8737,11 @@ footer .brand {
 @media screen and (max-width: 1024px) {
   .cycle-pager {
     right: 15px !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .cycle-slider-home {
+    top: -110px;
   }
 }
 .cycle-slider-media {
