@@ -8,13 +8,9 @@
 
 <section class="home">
 
-    <div class="container">
-        <div class="row">
-            <h2 class="section-title">Les nouvelles</h2>
-        </div>
-    </div>
 
     <div class="startups-wrapper">
+        <h2 class="section-title">Les nouvelles</h2>
         <div class="startups-list">
             <div class="startup" ng-repeat="startup in recentStartupList" startup-slider>
                 <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
@@ -31,13 +27,9 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <h2 class="section-title">Les plus vues</h2>
-        </div>
-    </div>
 
     <div class="startups-wrapper">
+        <h2 class="section-title">Les plus vues</h2>
         <div class="startups-list">
             <div class="startup" ng-repeat="startup in mostViewedStartupList" startup-slider>
                 <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
@@ -54,12 +46,8 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <h2 class="section-title">Les mieux notées</h2>
-        </div>
-    </div>
     <div class="startups-wrapper">
+        <h2 class="section-title">Les mieux notées</h2>
         <div class="startups-list" startup-slider>
             <div class="startup" ng-repeat="startup in bestScoreStartupList" startup-slider>
                 <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
@@ -77,12 +65,8 @@
     </div>
 
 
-    <div class="container">
-        <div class="row">
-            <h2 class="section-title">Les plus suivies</h2>
-        </div>
-    </div>
     <div class="startups-wrapper">
+        <h2 class="section-title">Les plus suivies</h2>
         <div class="startups-list">
             <div class="startup" ng-repeat="startup in mostBookmarkedStartupList" startup-slider>
                 <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
@@ -99,13 +83,8 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <h2 class="section-title">Les méconnues</h2>
-        </div>
-    </div>
-
     <div class="startups-wrapper">
+        <h2 class="section-title">Les méconnues</h2>
         <div class="startups-list">
             <div class="startup" ng-repeat="startup in lessViewedStartupList" startup-slider>
                 <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
@@ -120,6 +99,8 @@
                 </div>
             </div>
         </div>
+        <br>
+        <br>
     </div>
 
 </section>
