@@ -116,7 +116,7 @@
                     <i class="icon icon-search"></i>
                 </a>
             </li>
-            <li ng-class="{dropdown: globals.user.roles.indexOf('ADMIN') !== -1}" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
+            <li>
                 <a id="profileDropdown" aria-haspopup="true" aria-expanded="true" fadeOut href="#/user/profile">
                     <span class="badge">{{ notifications.length || 0 }}</span>
                     <span class="bigBadge">{{ globals.user.firstname | limitTo : 1 }}{{ globals.user.lastname | limitTo : 1 }}</span>
@@ -146,12 +146,6 @@
 
                     </ul>
                 -->
-            </li>
-            <li class="" ng-show="globals.user.roles.indexOf('ADMIN') === -1">
-                <a id="favorites" href="#/user/profile" aria-haspopup="true" aria-expanded="true" fadeOut>
-                    <i class="icon icon-account"></i>
-                    <span class="menulabel">Mon<br/>profil</span>
-                </a>
             </li>
             <li>
                 <a href="#/startup/new" fadeOut>
