@@ -7,6 +7,8 @@
   width: 300px;
   border: none !important;
   text-align: left;
+  border-radius: 0 !important;
+  overflow: hidden;
 
   .card-img-top {
     display: block;
@@ -23,13 +25,14 @@
     border-radius: 0;
 
     overflow: hidden;
-    -webkit-transition: 60ms ease-out all;
-    transition: 60ms ease-out all;
 
 
     img {
       height: 100%;
     }
+
+    -webkit-transition: 120ms ease-out all;
+    transition: 120ms ease-out all;
 
     &:hover {
       width: 104%;
@@ -167,6 +170,7 @@
           overflow: hidden;
           text-overflow: ellipsis;
           margin-left: 15px;
+          margin-right: 15px;
 
           .tags {
             color: #a9acbb;
@@ -609,6 +613,7 @@
     top: -120px;
     background: #FFF;
     padding: 0 80px;
+    margin-bottom: -120px;
 
     .creator-section {
       position: relative;
@@ -866,6 +871,7 @@
 
   .images-section {
     width: 100%;
+    margin-bottom: 120px;
 
 
     .item {
