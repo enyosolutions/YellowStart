@@ -8851,7 +8851,7 @@ footer .brand {
   right: 0;
 }
 .slick-prev {
-  left: -15%;
+  left: -50px;
 }
 .slick-prev:after,
 .slick-next:before {
