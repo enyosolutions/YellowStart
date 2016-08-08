@@ -13,7 +13,7 @@ module.exports = {
                     createdAt: new Date()
                 };
 
-                Monk.get("user").find({bookmarks: startup._id}).then(function (coll) {
+                Monk.get("user").find({bookmarks: startup._id} + '').then(function (coll) {
                     if (coll && coll.length > 0) {
                         for (var i in coll) {
                             notification.userId = coll[i]._id;

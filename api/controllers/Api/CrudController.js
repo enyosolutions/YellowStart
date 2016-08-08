@@ -39,14 +39,16 @@ module.exports = {
         }
         Monk.get(req.param('endpoint')).find({_id: req.param('id')})
             .on('success', function (data) {
-                resp.json(data[0]);
+                resp.json({body:data[0]});
                 var id = req.token ? req.token.id : 'ANONYMOUS';
+
                 Monk.get('access-logs').insert({
                     userId: id,
                     itemId: req.param('id'),
                     itemCollection: req.param('endpoint'),
                     action: 'view'
                 });
+
                 if(req.param('endpoint') === 'startup') {
                     Monk.get(req.param('endpoint')).update({_id: req.param('id')}, {$inc: {'meta.views':1}});
                 }
