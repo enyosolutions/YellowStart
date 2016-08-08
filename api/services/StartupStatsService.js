@@ -17,13 +17,13 @@ module.exports = {
                         }
                     }
                 ], {}, function (err, results) {
-                    console.log(results);
                     for (var i in results) {
-                        console.log(results[i]._id, results[i].count);
-                        startupCollection.findAndModify({_id: (results[i]._id)}, {$set: {'meta.bookmarks': results[i].count}}).success(function(out){
-                            console.log(out.result);}).error(function (err) {
-                            console.warn(err);
-                        });
+                        startupCollection.findAndModify({_id: (results[i]._id)}, {$set: {'meta.bookmarks': results[i].count}}).success(function (out) {
+                            console.log(out.result);
+                        })
+                            .error(function (err) {
+                                console.warn(err);
+                            });
                     }
                 }
             );

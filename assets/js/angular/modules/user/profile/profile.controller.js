@@ -27,6 +27,10 @@ angular.module('start.controllers').controller("ProfileCtrl", function ($scope, 
         }
     };
 
+    if(false){
+        $scope.requestedStartups = Startup.query({'analysisRequested': 1});
+    }
+
     $scope.updateProfile = function(){
         $rootScope.globals.user.$update();
     };

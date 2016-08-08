@@ -32,7 +32,6 @@ angular.module('start.controllers')
                         '<div class="name" style="max-height:60px; line-height:1.5; overflow: hidden;">' + $scope.startup.startupName + '</div> ' +
                         '<div class="address">' + ($scope.startup.address ? $scope.startup.address : '' ) + '</div> ' +
                         '<div class="phone">' + (contact.phonenumber ? contact.phonenumber : "") + '</div> ' +
-
                         (contact.email ?
                         '<div class="email"><a target="_blank" href="mailto:' + contact.email + '" >' + contact.email + '</a></div> '
                             : "" ) +
@@ -143,6 +142,8 @@ angular.module('start.controllers')
 
         // REQUEST AN ANALYSIS FROM STARTINPOST
          $scope.requestAnalysis = function() {
+             $scope.startup.analysisRequest = 1;
+             $scope.startup.$update();
             NotificationService.requestAnalysis({startupId: $scope.startup._id, fromEmail: $rootScope.globals.user.email}).$promise.then(
                 function(){$ngBootbox.alert("<h3>Demande d'analyse envoyée</h3>" );}
             );

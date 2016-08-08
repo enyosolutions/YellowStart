@@ -91,7 +91,7 @@
                     <img ng-src="{{ ::remoteHost }}{{ startup.picture ? startup.picture : (startup.mainTag ? ('/images/startup/thumbnail/' + startup.mainTag + '.jpg') : '/images/placeholder.jpg') }}"
                          alt="{{ startup.startupName }}">
                 </a>
-                <h4 class="title">{{ startup.startupName }} {{—statup.}}</h4>
+                <h4 class="title">{{ startup.startupName }}</h4>
                 <div class="tag-list">
                     <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
                         #{{ tag }}{{ (!$last) ? ',' :'' }}
