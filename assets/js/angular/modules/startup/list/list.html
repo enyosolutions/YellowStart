@@ -1,9 +1,41 @@
 <section class="container">
     <div class="row">
+
+
+    <div class="inlinesearch">
+        <div class="search-form">
+            <form ng-submit="search(listStartup.searchName)" ng-controller="ListStartupCtrl as listStartup">
+                <input class="url form-control hidden" name="website" ng-model="listStartup.searchName" type="text"
+                       placeholder="Rechercher une start-up" ng-focus="{'navbar-main':top-navigation-default}" />
+                
+                <angucomplete-alt id="search"
+                                  placeholder="ex : winicar, #delivery, fintech …"
+                                  pause="400"
+                                  text-searching="..."
+                                  text-no-results=""
+                                  selected-object="searchAutocomplete"
+                                  input-changed="searchAutocompleteCHG"
+
+                                  focus-out="barBlurred()"
+                                  remote-url="{{ ::remoteHost }}/api/crawler/autocomplete?q="
+                                  remote-url-data-field="body"
+                                  remote-url-response-formatter="appendMoreButtons"
+                                  minlength="1"
+                                  title-field="label"
+                                  description-field="subLabel"
+
+                                  input-class="url form-control"/>
+
+                <input class="btn btn-primary" type="submit" value="Faou">
+            </form>
+        </div>
+    </div>
+
+
         <!-- heading -->
         <div class="heading">
             <h1 class="result-indicator">
-                {{ searchTitle }}
+                <!-- {{ searchTitle }} -->
             </h1>
 
             <div class="sort">
