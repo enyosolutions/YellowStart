@@ -19,8 +19,6 @@ module.exports = {
             }
             return resp.json({});
         });
-
-
     },
 
     startupPublished: function (req, resp) {
