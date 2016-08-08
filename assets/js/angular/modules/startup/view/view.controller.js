@@ -27,7 +27,7 @@ angular.module('start.controllers')
                     $scope.startupContacts = res;
                     if (res.length > 0) {
                         var contact = res[0];
-                        content = '<div class="startup-map-infowindow" style="width: 195px;height: 295px;overflow:hidden;">' +
+                        content = '<div class="startup-map-infowindow" style="width: 315px;height: 295px; overflow:hidden;">' +
                         '<div class="inner">' +
                         '<div class="name" style="max-height:60px; line-height:1.5; overflow: hidden;">' + $scope.startup.startupName + '</div> ' +
                         '<div class="address">' + ($scope.startup.address ? $scope.startup.address : '' ) + '</div> ' +
@@ -40,7 +40,7 @@ angular.module('start.controllers')
 
                     }
                     else {
-                        content = '<div class="startup-map-infowindow" style="width: 195px;height:265px;">' +
+                        content = '<div class="startup-map-infowindow" style="width: 310px;height:265px;">' +
                         '<div class="inner">' +
                         '<div class="address">' + ($scope.startup.address ? $scope.startup.address : '' ) + '</div> ' +
                         '</div>' +
