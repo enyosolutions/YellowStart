@@ -142,7 +142,7 @@ angular.module('start.controllers')
 
         // REQUEST AN ANALYSIS FROM STARTINPOST
          $scope.requestAnalysis = function() {
-             $scope.startup.analysisRequest = 1;
+             $scope.startup.analysisRequested = true;
              $scope.startup.$update();
             NotificationService.requestAnalysis({startupId: $scope.startup._id, fromEmail: $rootScope.globals.user.email}).$promise.then(
                 function(){$ngBootbox.alert("<h3>Demande d'analyse envoyée</h3>" );}

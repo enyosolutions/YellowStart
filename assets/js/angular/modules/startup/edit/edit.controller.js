@@ -397,6 +397,11 @@ angular.module('start.controllers')
                     $scope.startup.youtubeId =
                         Utils.getYoutubeIds($scope.startup.videoPresentation)[1];
                 }
+
+                if($scope.startup.analysisRequested && $scope.startup.sipScore != '' && $scope.startup.sipAnalysis != '' ){
+                    $scope.startup.analysisRequested = false;
+                }
+
                 $scope.startup.$update();
                 if ($scope.startup.status != 'published') {
                     $localstorage.setObject('startupDraft', {

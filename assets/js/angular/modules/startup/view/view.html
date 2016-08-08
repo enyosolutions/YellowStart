@@ -196,14 +196,26 @@
 <div class="sip-note">
     <div class="container">
 
-        <div class="col-sm-offset-2 col-sm-8 text-center request-evaluation" ng-if="!startup.sipScore" >
+        <div class="col-sm-offset-2 col-sm-8 text-center request-evaluation" ng-if="!startup.sipScore && !startup.analysisRequested" >
             <img src="/images/la-note-sip.png" data-rjs="2" alt=""/>
             <p class="evaluation text-center">
                 Vous souhaitez que Start’in Post vous livre une analyse sur mesure de cette start-up? Lancez votre demande dès maintenant !
             </p>
             <button class="btn btn-primary" ng-click="requestAnalysis()">JE SOUHAITE UNE ANALYSE</button>
         </div>
-        <div class="col-sm-offset-2 col-sm-4" ng-if="startup.sipScore">
+
+        <div class="col-sm-offset-2 col-sm-8 text-center request-evaluation evaluation-ongoing" ng-if="!startup.sipScore && startup.analysisRequested " >
+            <img src="/images/la-note-sip.png" data-rjs="2" alt=""/>
+            <p class="evaluation text-center">
+                Une demande d'analyse est en cours. Ajoutez {{ startup.startupName }} à vos favoris, pour savoir quand l'analyse aura été faite.
+            </p>
+            <button ng-click="bookmarkStartup()" class="action btn btn-link btn-lg btn-icon">
+                <i ng-class="{'icon-start-bt-follow': !isBookmarked, 'icon-start-bt-unfollow': isBookmarked}">
+                </i> Ajouter aux favoris
+            </button>
+        </div>
+
+        <div class="col-sm-offset-2 col-sm-4" ng-if="startup.sipScore  && !startup.analysisRequested">
             <img src="/images/la-note-sip.png" data-rjs="2" alt=""/>
 
             <div class="note">

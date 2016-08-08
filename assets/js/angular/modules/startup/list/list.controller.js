@@ -136,12 +136,12 @@ angular.module('start.controllers')
         $window.focusOnClick = function(){
             console.log('HOME');
             $timeout(function() {
-                $rootScope.barIsFocused = true;
-                //angular.element('#search_value').triggerHandler('focus');
+               // angular.element('#search_value').triggerHandler('focus');
                 $('#search_value').focus();
-                $('#navbar-main').addClass('nav-focus');
+                // $('#navbar-main').addClass('nav-focus');
+                // $rootScope.barIsFocused = true;
                 $scope.$apply();
-            }, 100);
+            }, 200);
         };
 
         if ($stateParams.tag) {
