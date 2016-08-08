@@ -8670,7 +8670,7 @@ footer {
   padding: 30px 0;
 }
 footer .copyright {
-  margin: 0;
+  margin: 10px 0 0 0;
   padding: 0;
   float: left;
   color: #ffffff;
@@ -8839,6 +8839,7 @@ footer .brand {
   width: 60px;
   border: none !important;
   background: rgba(0, 63, 254, 0.5);
+  outline-style: none;
   -webkit-transition: 100ms linear all;
   transition: 100ms linear all;
 }
