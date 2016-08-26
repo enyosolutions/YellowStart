@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('start.controllers').controller("ProfileCtrl", function ($scope, $rootScope, Startup, $log, $localstorage, $ngBootbox, UserService, CONFIG) {
+angular.module('start.controllers').controller("ProfileCtrl", function ($scope, $state, Auth, $rootScope, Startup, $log, $localstorage, $ngBootbox, UserService, CONFIG) {
 
     $scope.pictureZone = {
         addedFile: function (file, error) {
@@ -29,6 +29,11 @@ angular.module('start.controllers').controller("ProfileCtrl", function ($scope, 
 
     if(false){
         $scope.requestedStartups = Startup.query({'analysisRequested': 1});
+    }
+
+    $scope.logout = function(){
+        Auth.logout();
+        $state.go('user-register');
     }
 
     $scope.updateProfile = function(){

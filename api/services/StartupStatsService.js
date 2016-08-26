@@ -18,8 +18,9 @@ module.exports = {
                     }
                 ], {}, function (err, results) {
                     for (var i in results) {
-                        startupCollection.findAndModify({_id: (results[i]._id)}, {$set: {'meta.bookmarks': results[i].count}}).success(function (out) {
-                            console.log(out.result);
+                        startupCollection.findAndModify({_id: (results[i]._id)}, {$set: {'meta.bookmarks': results[i].count}})
+                            .success(function (out) {
+                            console.log(out);
                         })
                             .error(function (err) {
                                 console.warn(err);
