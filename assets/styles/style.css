@@ -231,6 +231,9 @@ section#map-section .address {
 .form-group {
   overflow: visible;
 }
+.modal {
+    z-index: 3000;
+}
 .modal-content .form-group {
   overflow: scroll;
 }

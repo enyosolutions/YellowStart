@@ -8730,6 +8730,7 @@ footer .brand {
   line-height: 26px;
   text-align: center;
   color: #fafdd4;
+  cursor: pointer;
 }
 .cycle-slider-home .cycle-pager span.cycle-pager-active {
   font-size: 80px;
