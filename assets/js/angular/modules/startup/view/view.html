@@ -42,7 +42,7 @@ style="background-image: url({{ startup.fullPicture ? startup.fullPicture : (sta
                                 <div class="startup-logo"><img
                                     ng-src="{{ ::remoteHost }}{{ startup.logo }}"
                                     class="" ng-if='startup.logo' alt=""/></div>
-                                    <a href="{{ ( startup.websiteUrl.indexOf('http:') !== 0 ?  '': 'http://'  ) }}{{ startup.websiteUrl }}" target="_blank" class=" startup-website link">{{
+                                    <a href="{{ ( startup.websiteUrl.indexOf('http') === 0 ?  '': 'http://'  ) }}{{ startup.websiteUrl }}" target="_blank" class=" startup-website link">{{
                                         displayWebsiteUrl
                                     }}</a>
 
