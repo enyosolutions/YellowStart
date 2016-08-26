@@ -16,7 +16,7 @@ module.exports = {
         var tagCollection = Monk.get('tag');
         var results = [];
         var tag = req.query.q.replace(/#/g,'');
-        tag = req.query.q.replace(/\-/g,'\-');
+        tag = tag.replace(/\-/g,'\-');
 
         console.log(tag);
         tagCollection.find({label: {$regex: tag, $options: 'i'}}, {limit: 10}).success(function (col) {
