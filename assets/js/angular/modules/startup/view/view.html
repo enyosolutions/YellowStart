@@ -208,11 +208,11 @@ style="background-image: url({{ startup.fullPicture ? startup.fullPicture : (sta
             <div class="evaluation-ongoing {{ startup.sipScore + ' , ' +  startup.sipAnalysis + ' , ' + !startup.analysisRequested  }} " ng-class="{ hide: !startup.analysisRequested }">
                <img src="/images/la-note-sip.png" data-rjs="2" alt=""/>
                <p class="evaluation text-center">
-                   Demande d'analyse par Startin'Post en cours. Ajoutez {{ startup.startupName }} à vos favoris, pour savoir quand l'analyse aura été faite.
+                   Demande d'analyse par Startin'Post en cours.<br>
+                   Ajoutez {{ startup.startupName }} à vos favoris pour savoir quand l'analyse aura été écrite.
                </p>
                <button ng-click="bookmarkStartup()" class="action btn btn-link btn-lg btn-icon">
-                    <i ng-class="{'icon-start-bt-follow': !isBookmarked, 'icon-start-bt-unfollow': isBookmarked}">
-                    </i> Ajouter aux favoris
+                    AJOUTER AUX FAVORIS
                 </button>
             </div>
 

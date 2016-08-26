@@ -8027,7 +8027,7 @@ section#map-section .address {
 }
 input.ng-invalid:not(.ng-pristine),
 textarea.ng-invalid:not(.ng-pristine) {
-  border: 2px solid red;
+  border: 1px solid red;
 }
 .ng-valid:not(.ng-pristine) {
   border-color: #469408;
@@ -8729,6 +8729,7 @@ footer .brand {
   line-height: 26px;
   text-align: center;
   color: #fafdd4;
+  cursor: pointer;
 }
 .cycle-slider-home .cycle-pager span.cycle-pager-active {
   font-size: 80px;
@@ -8902,7 +8903,7 @@ footer .brand {
   margin-bottom: 40px;
 }
 .page.user-registration .form-control {
-  height: 40px;
+  height: 50px;
   border-radius: 6px;
 }
 .page.user-registration .left {
@@ -9015,6 +9016,10 @@ footer .brand {
   min-height: 200px;
   width: 200px;
   margin-bottom: 60px;
+}
+.page.user-profile .form-control {
+  height: 50px;
+  margin-bottom: 20px;
 }
 .page.user-profile .starredProjects .heading {
   display: block;
@@ -9677,6 +9682,7 @@ footer .brand {
   margin-bottom: 50px;
   font-weight: 200;
   display: block;
+  outline: 0;
 }
 .page.startup-view .startup-info #resume .intro {
   font-size: 24px;
