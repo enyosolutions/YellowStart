@@ -1,4 +1,3 @@
-
 <section class="splash small container-fluid">
     <div class="container">
         <!-- user -->
@@ -8,17 +7,21 @@
                 <a data-target="#userProfileModal" data-toggle="modal" class="overlay">
                     Changer la photo
                 </a>
-                <img class="picture" alt="{{ globals.user.firstname }}" src="{{ globals.user.picture  ?  globals.user.picture : 'http://dummyimage.com/230x230/cecece/ffffff&text=Ajouter' }}" />
+                <img class="picture" alt="{{ globals.user.firstname }}"
+                     src="{{ globals.user.picture  ?  globals.user.picture : 'http://dummyimage.com/230x230/cecece/ffffff&text=Ajouter' }}"/>
             </div>
             <!-- data -->
             <div class="data">
                 <h1 class="name">{{ globals.user.firstname }} {{ globals.user.lastname }}</h1>
+
                 <p>
-                    {{ globals.user.role }} {{ globals.user.company }} - {{ globals.user.roles[0] }}
+                    {{ globals.user.role }} {{ globals.user.company }}
                 </p>
+
                 <p>
                     {{ globals.user.email }}
                 </p>
+
                 <p>
                     {{ globals.user.phonenumber }}
                 </p>
@@ -26,12 +29,14 @@
                     <i class="fa fa-cog"></i>
                     Editer mon profil
                 </button>
-                <a href="#/admin">
-                    <button class="btn btn-alternate">
-                        <i class="fa fa-bars"></i>
-                        Accéder à l'administration
-                    </button>
+                <a href="#/admin" ng-if="globals.user.roles.indexOf('ADMIN')> -1" class="btn btn-alternate">
+                    <i class="fa fa-bars"></i>
+                    Accéder à l'administration
                 </a>
+                <button class="btn btn-alternate" ng-click="logout()">
+                    <i class="fa fa-sign-out"></i>
+                    Déconnexion
+                </button>
             </div>
         </div>
     </div>
@@ -44,7 +49,7 @@
             <!-- heading -->
             <div class="heading">
                 <h1 class="title">
-                    {{ notifications.length  || 0 }} notifications
+                    {{ notifications.length || 0 }} notifications
                 </h1>
             </div>
             <!-- results -->
@@ -52,9 +57,11 @@
                 <div class="container">
                     <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="notification in notifications">
                         <!-- notifications -->
-                        <div class="notification-card  card fixed-card" ng-class="::{orange: notification.type == 'startup', blue: !notification.type == 'startup' }">
+                        <div class="notification-card  card fixed-card"
+                             ng-class="::{orange: notification.type == 'startup', blue: !notification.type == 'startup' }">
                             <h4 class="card-title">{{ notification.label }}</h4>
-                            <a href="{{ notification.url }}" class="btn blue" ng-class="::{orange: notification.type == 'startup', blue: !notification.type == 'startup' }">
+                            <a href="{{ notification.url }}" class="btn blue"
+                               ng-class="::{orange: notification.type == 'startup', blue: !notification.type == 'startup' }">
                                 {{ notification.type == 'startup' ? 'POSTER UNE ANALYSE' : 'VOIR' }}
                             </a>
                         </div>
@@ -74,7 +81,8 @@
 
                 <div class="sort">
                     <div class="dropdown">
-                        <button class="btn  dropdown-toggle" type="button" id="sort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <button class="btn  dropdown-toggle" type="button" id="sort" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="true">
                             Trier
                             <span class="caret"></span>
                         </button>
@@ -94,17 +102,20 @@
                 <div class="container">
                     <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="startup in starredStartups">
                         <!-- notifications -->
-                        <div class="startup-generic-card card fixed-card" >
+                        <div class="startup-generic-card card fixed-card">
                             <div class="card-img-top">
                                 <a href="#/startup/{{ startup._id }}/view">
-                                    <img src="{{ ::remoteHost }}{{ startup.picture && startup.picture.length > 0 ? startup.picture : (startup.mainTag ? ('/images/startup/thumbnail/' + startup.mainTag + '.jpg') : '/images/placeholder.jpg') }}" alt="{{ startup.startupName }}">
+                                    <img src="{{ ::remoteHost }}{{ startup.picture && startup.picture.length > 0 ? startup.picture : (startup.mainTag ? ('/images/startup/thumbnail/' + startup.mainTag + '.jpg') : '/images/placeholder.jpg') }}"
+                                         alt="{{ startup.startupName }}">
                                 </a>
                             </div>
                             <h4 class="card-title">{{ startup.startupName }}</h4>
+
                             <div class="card-link-section">
-                            <a href="#/startup?tag={{ tag }}" class="card-link text-info" ng-repeat="tag in startup.tags">
-                                #{{tag }}
-                            </a>
+                                <a href="#/startup?tag={{ tag }}" class="card-link text-info"
+                                   ng-repeat="tag in startup.tags">
+                                    #{{tag }}
+                                </a>
                             </div>
                         </div>
                     </div>

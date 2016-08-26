@@ -13,7 +13,6 @@ module.exports = {
     },
 
     sendActivitySummary: function (email, data) {
-
         var data = data || {title: "Bienvenue dans Yellow Start", user: {firstname: 'faou'}};
         data.layout = 'emailTemplate.ejs';
         sails.hooks.views.render("emails/activate-user", data, function (err, html) {
