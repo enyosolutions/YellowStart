@@ -144,9 +144,9 @@ angular.module('start.controllers')
          $scope.requestAnalysis = function() {
              $scope.startup.analysisRequested = true;
              $scope.startup.$update();
-            NotificationService.requestAnalysis({startupId: $scope.startup._id, fromEmail: $rootScope.globals.user.email}).$promise.then(
-                function(){$ngBootbox.alert("<h3>Demande d'analyse envoyée</h3>" );}
-            );
+//            NotificationService.requestAnalysis({startupId: $scope.startup._id, fromEmail: $rootScope.globals.user.email}).$promise.then(
+//                function(){$ngBootbox.alert("<h3>Demande d'analyse envoyée</h3>" );}
+//            );
         };
 
 

@@ -426,6 +426,11 @@ angular.module('start.controllers')
             if ($scope.startup._id && checkRequiredFields()) {
                 $scope.startup.status = 'published';
                 $scope.startup.publishedAt = new Date();
+
+                 if($scope.startup.analysisRequested && $scope.startup.sipScore != '' && $scope.startup.sipAnalysis != '' ){
+                    $scope.startup.analysisRequested = false;
+                }
+
                 $scope.startup.$update().then(function (res) {
                     $location.path('/startup/' + $scope.startup._id + '/view');
                 })
