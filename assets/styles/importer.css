@@ -6812,11 +6812,10 @@ button.close {
 .modal-content {
   position: relative;
   background-color: #ffffff;
-  border: 1px solid #999999;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  border: 0;
+  border-radius: 0;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   background-clip: padding-box;
   outline: 0;
 }
@@ -6880,8 +6879,8 @@ button.close {
     margin: 30px auto;
   }
   .modal-content {
-    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   }
   .modal-sm {
     width: 300px;
@@ -8028,7 +8027,7 @@ section#map-section .address {
 }
 input.ng-invalid:not(.ng-pristine),
 textarea.ng-invalid:not(.ng-pristine) {
-  border: 2px solid red;
+  border: 1px solid red;
 }
 .ng-valid:not(.ng-pristine) {
   border-color: #469408;
@@ -8904,7 +8903,7 @@ footer .brand {
   margin-bottom: 40px;
 }
 .page.user-registration .form-control {
-  height: 40px;
+  height: 50px;
   border-radius: 6px;
 }
 .page.user-registration .left {
@@ -9009,6 +9008,18 @@ footer .brand {
   position: absolute;
   right: 0;
   bottom: 30px;
+}
+.page.user-profile .dropzone {
+  border-radius: 400px;
+  background-color: transparent;
+  padding: 10px;
+  min-height: 200px;
+  width: 200px;
+  margin-bottom: 60px;
+}
+.page.user-profile .form-control {
+  height: 50px;
+  margin-bottom: 20px;
 }
 .page.user-profile .starredProjects .heading {
   display: block;
@@ -9671,6 +9682,7 @@ footer .brand {
   margin-bottom: 50px;
   font-weight: 200;
   display: block;
+  outline: 0;
 }
 .page.startup-view .startup-info #resume .intro {
   font-size: 24px;

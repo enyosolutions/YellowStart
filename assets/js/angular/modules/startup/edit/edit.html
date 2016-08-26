@@ -49,7 +49,9 @@
 <div role="tabpanel" class="tab-pane fade active in" id="resume">
     <div class="form-body form-horizontal">
         <p class="intro">Aucun des champs n’est obligatoire. Cependant, nous vous recommandons d’en remplir le
-            maximum afin de proposer la fiche la plus complète.
+            maximum afin de proposer la fiche la plus complète.<br>
+            <br>
+            <strong>Vos modifications sont sauvegardées automatiquement.</strong>
         </p>
 
         <div class="form-group">
@@ -191,25 +193,25 @@
                        ng-blur="saveStartup()"/>
             </div>
         </div>
-
+<!--
         <hr>
 
         <div class="form-group text-center">
             <div class="btn-group">
                 <button type="button" class="btn btn-primary-outline" ng-click="closeStartup()">
-                    Continuer plus tard
+                    ANNULER
                 </button>
                 <button type="button" class="btn btn-primary" data-target="#documents"
-                        data-toggle="tab">Etape suivante
+                        data-toggle="tab">SAUVEGARDER CES MODIFICATIONS
                 </button>
             </div>
         </div>
+-->
     </div>
 </div>
 <div role="tabpanel" class="tab-pane fade " id="documents">
     <div class="form-body">
-        <p class="intro">Aucun des champs n’est obligatoire. Cependant, nous vous recommandons d’en remplir le
-            maximum afin de proposer la fiche la plus complète.
+        <p class="intro">Nous vous conseillons de respecter les consignes indiquées pour chaque document afin d'avoir une fiche start-up lisible et complète.
         </p>
 
         <div class="form-group">
@@ -304,7 +306,7 @@
                        ng-blur="saveStartup()"/>
             </div>
         </div>
-
+<!--
 
         <div class="form-group text-center">
             <div class="btn-group">
@@ -317,13 +319,15 @@
                 </button>
             </div>
         </div>
+
+-->
+
     </div>
 </div>
 <div role="tabpanel" class="tab-pane fade " id="contact">
 
     <div class="form-body">
-        <p class="intro">Aucun des champs n’est obligatoire. Cependant, nous vous recommandons d’en remplir le
-            maximum afin de proposer la fiche la plus complète.
+        <p class="intro">Vous indiquez ici quel est le contact de la start-up. Les visiteurs de la fiche pourront lui envoyer un email ou le contacter par téléphone.
         </p>
 
         <div class="contact-form existing-contact" ng-repeat="contact in startupContacts">

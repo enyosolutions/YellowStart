@@ -17,14 +17,7 @@
                 <p>
                     {{ globals.user.role }} {{ globals.user.company }}
                 </p>
-
-                <p>
-                    {{ globals.user.email }}
-                </p>
-
-                <p>
-                    {{ globals.user.phonenumber }}
-                </p>
+                <br>
                 <button class="btn btn-alternate" data-target="#userProfileModal" data-toggle="modal">
                     <i class="fa fa-cog"></i>
                     Editer mon profil
@@ -175,22 +168,8 @@
                                    required/>
                             <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">L'adresse email est obligatoire</span>
                         </div>
-                        <div class="form-group  col-xs-12"
-                             ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
-                            <label for="branche">Branche</label>
-                            <input type="text" name="branche" id="branche" class="form-control"
-                                   ng-model="globals.user.branch"
-                                   required/>
-                            <span ng-show="form.branch.$dirty && form.branch.$error.required" class="help-block"></span>
-                        </div>
-                        <div class="form-group  col-xs-12"
-                             ng-class="{ 'has-error': form.company.$dirty && form.company.$error.required }">
-                            <label for="email">Société</label>
-                            <input type="text" name="company" id="company" class="form-control"
-                                   ng-model="globals.user.company"
-                                   required/>
-                            <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">L'adresse email est obligatoire</span>
-                        </div>
+
+
                         <div class="form-group  col-xs-12"
                              ng-class="{ 'has-error': form.company.$dirty && form.company.$error.required }">
                             <label for="email">Fonction</label>
@@ -199,14 +178,56 @@
                                    required/>
                             <span ng-show="form.role.$dirty && form.role.$error.required" class="help-block">La fonction est obligatoire</span>
                         </div>
-                        <div class="form-group  col-xs-12"
-                             ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
-                            <label for="password">Mot de passe</label>
-                            <input type="password" name="password" id="password" class="form-control"
-                                   ng-model="globals.user.password"
-                                   required/>
-                            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Le mot de passe est obligatoire</span>
+
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group  col-xs-12"
+                                     ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+                                    <label for="branche">Branche</label>
+                                    <input type="text" name="branche" id="branche" class="form-control"
+                                           ng-model="globals.user.branch"
+                                           required/>
+                                    <span ng-show="form.branch.$dirty && form.branch.$error.required" class="help-block"></span>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group  col-xs-12"
+                                     ng-class="{ 'has-error': form.company.$dirty && form.company.$error.required }">
+                                    <label for="email">Société</label>
+                                    <input type="text" name="company" id="company" class="form-control"
+                                           ng-model="globals.user.company"
+                                           required/>
+                                    <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">L'adresse email est obligatoire</span>
+                                </div>
+                            </div>
                         </div>
+
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group  col-xs-12"
+                                     ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                                    <label for="password">Nouveau mot de passe</label>
+                                    <input type="password" name="password" id="password" class="form-control"
+                                           ng-model="globals.user.password"
+                                           required/>
+                                    <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Le mot de passe est obligatoire</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group  col-xs-12"
+                                     ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                                    <label for="password">Confirmer le mot de passe</label>
+                                    <input type="password" name="password" id="password" class="form-control"
+                                           ng-model="globals.user.password"
+                                           required/>
+                                    <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Le mot de passe est obligatoire</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        
                     </div>
                 </div>
                 <div class="modal-footer">
