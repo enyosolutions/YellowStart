@@ -6812,11 +6812,10 @@ button.close {
 .modal-content {
   position: relative;
   background-color: #ffffff;
-  border: 1px solid #999999;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  border: 0;
+  border-radius: 0;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   background-clip: padding-box;
   outline: 0;
 }
@@ -6880,8 +6879,8 @@ button.close {
     margin: 30px auto;
   }
   .modal-content {
-    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   }
   .modal-sm {
     width: 300px;
@@ -9008,6 +9007,14 @@ footer .brand {
   position: absolute;
   right: 0;
   bottom: 30px;
+}
+.page.user-profile .dropzone {
+  border-radius: 400px;
+  background-color: transparent;
+  padding: 10px;
+  min-height: 200px;
+  width: 200px;
+  margin-bottom: 60px;
 }
 .page.user-profile .starredProjects .heading {
   display: block;
