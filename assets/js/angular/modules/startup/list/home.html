@@ -14,7 +14,7 @@
         <div class="startups-list">
             <div class="startup" ng-repeat="startup in recentStartupList" startup-slider>
                 <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
-                    <img ng-src="{{ ::remoteHost }}{{ startup.picture ? startup.picture : (startup.mainTag ? ('/images/startup/thumbnail/' + startup.mainTag + '.jpg') : '/images/placeholder.jpg') }}"
+                    <img ng-src="{{ startup.picture ? startup.picture : (startup.mainTag ? ('/images/startup/thumbnail/' + startup.mainTag + '.jpg') : '/images/placeholder.jpg') }}"
                          alt="{{ startup.startupName }}">
                 </a>
                 <h4 class="title">{{ startup.startupName }}</h4>
