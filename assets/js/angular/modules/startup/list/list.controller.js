@@ -17,6 +17,7 @@ angular.module('start.controllers')
         $scope.q = '';
         $scope.slides = HomeSlider.query();
         var query = {'publishedOnly': 1};
+        var $searchInput = $('#search_value');
 
 
         // global search function
@@ -117,9 +118,12 @@ angular.module('start.controllers')
 
         $rootScope.barFocused = function () {
             console.log('Focus callback function call');
-            console.log('bar focus function call');
-            $('#search_value').focus();
+
             $rootScope.barIsFocused = true;
+            $timeout(function(){
+                console.log('bar focus function call');
+                $searchInput.focus();
+            },500)
         };
 
       //  $window.barFocused = $scope.barFocused;

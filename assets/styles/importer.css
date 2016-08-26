@@ -8022,7 +8022,10 @@ section#map-section .address {
 .form-group {
   overflow: visible;
 }
-.modal-content .form-group {
+.modal {
+  z-index: 3500;
+}
+.modal .modal-content .form-group {
   /*overflow: scroll;*/
 }
 input.ng-invalid:not(.ng-pristine),

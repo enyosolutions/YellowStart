@@ -330,11 +330,14 @@ section#more-startups {
   overflow: visible;
 }
 
-.modal-content {
-  .form-group {
-    /*overflow: scroll;*/
-  }
+.modal {
+  z-index: 3500;
 
+  .modal-content {
+    .form-group {
+      /*overflow: scroll;*/
+    }
+  }
 }
 
 input.ng-invalid:not(.ng-pristine),
@@ -377,9 +380,8 @@ textarea.ng-invalid:not(.ng-pristine) {
 }
 
 .selectize-control {
-  margin-bottom: 52px;      
+  margin-bottom: 52px;
 }
-
 
 .selectize-control.multi .selectize-input > div {
   padding: 6px;

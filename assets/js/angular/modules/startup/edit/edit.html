@@ -5,7 +5,7 @@
         <!-- <div><img class="logo" src="assets/img/logo.png"></div> -->
 
         <h1>
-            {{ startup.startupName ? startup.startupName :'Soumettre une start-up' }}
+            <a href="#/startup/{{ startup._id }}/view">{{ startup.startupName ? startup.startupName :'Soumettre une start-up' }}</a>
         </h1>
     </div>
 </section>
