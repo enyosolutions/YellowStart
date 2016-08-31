@@ -26,7 +26,7 @@
                                     <button class="btn btn-primary-outline badge pull-right"
                                             ng-click="deleteSlide($index)">
                                         <i class="fa fa-close"></i></button>
-                                    <img class="src" src="{{ slide.picture }}" alt=""/>
+                                    <img class="src" src="{{ ::remoteHost }}{{ slide.picture }}" alt=""/>
                                     <p><strong>Url:</strong> {{ slide.targetUrl }}</p>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
                                     <button class="btn btn-primary-outline badge pull-right"
                                             ng-click="deleteMobileSlide($index)">
                                         <i class="fa fa-close"></i></button>
-                                    <img class="src" src="{{ slide.picture }}" alt=""/>
+                                    <img class="src" src="{{ ::remoteHost }}{{ slide.picture }}" alt=""/>
                                     <p><strong>Url:</strong> {{ slide.targetUrl }}</p>
                                 </div>
                             </div>
