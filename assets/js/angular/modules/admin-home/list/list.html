@@ -33,6 +33,27 @@
                         </div>
                     </div>
                 </div>
+
+
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong>Slides de la home mobile</strong>
+                            <a class="btn btn-primary-outline pull-right btn-sm" data-target="#mobileSlideForm" data-toggle="modal">Ajouter</a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-4" ng-repeat="slide in mobileSlides">
+                                <div class="thumbnail">
+                                    <button class="btn btn-primary-outline badge pull-right"
+                                            ng-click="deleteMobileSlide($index)">
+                                        <i class="fa fa-close"></i></button>
+                                    <img class="src" src="{{ slide.picture }}" alt=""/>
+                                    <p><strong>Url:</strong> {{ slide.targetUrl }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-3">
                     <div class="panel panel-default">
                         <div class="panel-heading">Start-ups</div>
@@ -58,6 +79,60 @@
     </div>
 
 
+    <div id="mobileSlideForm" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="fa-3x">&times;</span>
+                    </button>
+
+                    <h4 class="modal-title">Ajouter une slide mobile</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-1">
+                                <label>Image</label>
+
+                                <form class="dropzone"
+                                      method="post"
+                                      enctype="multipart/form-data"
+                                      ng-dropzone
+                                      dropzone="mobilePictureZone.dropzone"
+                                      dropzone-config="mobilePictureZone.dropzoneConfig"
+                                      event-handlers="{ 'addedfile': mobilePictureZone.addedFile, 'error': mobilePictureZone.error,
+                                       'success': mobilePictureZone.success }">
+                                    <input type="hidden" name="_id" value="{{ startup._id }}"/>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-1">
+                                <label>Url de destination</label>
+                                <input class="form-control" ng-model="newMobileSlide.targetUrl" type="url" required/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-link" data-dismiss="modal">
+                        Annuler
+                    </button>
+
+                    <button type="button" class="btn btn-primary" ng-click="createMobileSlide()"
+                            data-dismiss="modal">
+                        Ajouter
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
     <div id="slideForm" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -66,7 +141,7 @@
                         <span aria-hidden="true" class="fa-3x">&times;</span>
                     </button>
 
-                    <h4 class="modal-title">Ajouter un slide</h4>
+                    <h4 class="modal-title">Ajouter une slide</h4>
                 </div>
 
                 <div class="modal-body">
