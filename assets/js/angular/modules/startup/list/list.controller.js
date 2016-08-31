@@ -189,6 +189,19 @@ angular.module('start.controllers')
         };
     })
 
+        .directive('homeSlider2', function () {
+        return function (scope, element) {
+            if (scope.$last) {
+                element.parent().cycle({
+                    slides: '.slide',
+                    pager: '> .cycle-pager',
+                    maxZ: 100
+                });
+            }
+        };
+    })
+
+
     .directive('startupSlider', function () {
         return function (scope, element) {
             if (scope.$last) {
