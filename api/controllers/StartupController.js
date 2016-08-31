@@ -7,11 +7,12 @@
 
 module.exports = {
 
-    'home': function (req, res, next) {
+    'home': function (req, res) {
         var MobileDetect = require('mobile-detect'),
             md = new MobileDetect(req.headers['user-agent']);
         return res.view('homepage', {
-            deviceOS: md.os()
+            deviceOS: md.os(),
+            isMobile: (md.mobile()) ? 'mobile' : 'desktop'
         });
     },
 

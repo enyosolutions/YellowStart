@@ -32,7 +32,7 @@ angular
     .run(function (editableOptions, $state, $rootScope, $interval, Auth, $localstorage, $ngBootbox, Notification, NotificationService, CONFIG) {
         editableOptions.theme = 'bs3';
         $rootScope.$state = $state;
-        $rootScope.globals = {};
+        $rootScope.globals = {isMobile: angular.element('body').hasClass('mobile') };
         $rootScope.remoteHost = CONFIG.baseUrl;
 
         $rootScope.$on("$routeChangeSuccess", function (event, currentRoute, previousRoute) {

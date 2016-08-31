@@ -44,7 +44,7 @@
     <link rel="stylesheet" href="/styles/importer.css">
 </head>
 
-<body ng-app="startApp" class="<%= deviceOS %> <%= locals.page && page.class ? page.class : '' %>  {{ $state.current.name }} "
+<body ng-app="startApp" class="<%= deviceOS + " " + isMobile  %> <%= locals.page && page.class ? page.class : '' %>  {{ $state.current.name }} "
       ng-class="{unlocked: unlocked , transparent: $state.current.name == 'home' }"
       id="<%= locals.page && page.id ? page.id : '' %>">
 <!-- loading-screen -->
