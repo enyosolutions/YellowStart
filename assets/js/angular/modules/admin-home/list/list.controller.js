@@ -38,7 +38,7 @@ angular.module('start.controllers').controller("AdminHomeCtrl", function ($scope
     $scope.createMobileSlide = function () {
         var slide = new HomeMobileSlider($scope.newMobileSlide);
         slide.$save();
-        $scope.slides.push(slide);
+        $scope.mobileSlides.push(slide);
         $scope.dropZone.removeAllFiles(true);
         $scope.newMobileSlide = {};
     };
@@ -91,7 +91,7 @@ angular.module('start.controllers').controller("AdminHomeCtrl", function ($scope
             acceptedFiles: 'image/*',
             headers: {'Authorization': 'Bearer ' + $localstorage.get('auth_token')},
             init: function(){
-                $scope.dropZone = this;
+                $scope.mobileDropZone = this;
             }
         }
     };
