@@ -7,6 +7,14 @@
 
 module.exports = {
 
+    'home': function (req, res, next) {
+        var MobileDetect = require('mobile-detect'),
+            md = new MobileDetect(req.headers['user-agent']);
+        return res.view('homepage', {
+            deviceOS: md.os()
+        });
+    },
+
     'list': function (req, res, next) {
 
         var out = {};
@@ -478,7 +486,7 @@ module.exports = {
                             console.log('Image cropped');
                             startupCollection.update({_id: id}, startup).then(function () {
                                 images['picture'] = startup.picture;
-                                if(images.fullPicture)
+                                if (images.fullPicture)
                                     res.json(200, {body: images});
                             });
                         });
@@ -493,7 +501,7 @@ module.exports = {
                             console.log('Image cropped');
                             startupCollection.update({_id: id}, startup).then(function () {
                                 images['fullPicture'] = startup.fullPicture;
-                                if(images.picture)
+                                if (images.picture)
                                     res.json(200, {body: images});
                             });
                         });
