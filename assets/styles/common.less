@@ -198,9 +198,6 @@ body.unlocked {
  * Cas de la HP
  */
 body.home {
-  .page {
-    margin-top: -110px;
-  }
 
   .top-navigation {
     .navigation {
@@ -589,6 +586,7 @@ body.home {
 
     // burger menu
     .navbar-toggle {
+      display: none;
       position: absolute;
       top: 15px;
       right: 0;
@@ -616,6 +614,7 @@ body.home {
         margin: 15px auto;
 
         border: none;
+        width:120px;
       }
 
       .form-login {
@@ -637,7 +636,7 @@ body.home {
           display: block;
           width: 100%;
 
-          top: 100px;
+          top: 98px;
           background: #ffffff;
 
           li {
@@ -673,14 +672,44 @@ body.home {
 }
 
 @media screen and (max-width: 640px) {
+  .navbar-toggle {
+    display: block!important;
+  }
   .top-navigation {
+    ul#navigation li {
+      border-top: 1px solid #c1ccfb;
+      margin-top: 0;
+      padding: 15px 0;
+      height: 85px;
+    }
+    height:100px;
     &.top-navigation-default {
       .brand {
         border: none;
+        width:120px;
       }
-
       .navigation {
         display: none;
+      }
+    }
+    #profileDropdown {
+      position: relative;
+      width: 60px;
+      height: 60px;
+
+      .bigBadge, .badge {
+        position: absolute;
+      }
+      .badge {
+        margin-top: 0;
+        top: 35px;
+        left: 8px;
+      }
+
+      .bigBadge {
+        top: 7px;
+        left: 10px;
+        height: 40px;
       }
     }
   }
@@ -738,6 +767,7 @@ footer {
       float: none !important;
 
       text-align: center;
+      display: none;
     }
 
     .brand {
@@ -746,6 +776,11 @@ footer {
 
       float: none !important;
       width: auto;
+    }
+    img.pull-right {
+      float:none !important;
+      margin: 0px auto;
+      display: block;
     }
   }
 }
@@ -807,7 +842,12 @@ footer {
 
 @media screen and (max-width: 768px) {
   .cycle-slider-home {
-    top: -110px;
+    height: 100vh;
+    margin-bottom: -110px;
+
+    .slider {
+      height: 100%;
+    }
   }
 }
 
