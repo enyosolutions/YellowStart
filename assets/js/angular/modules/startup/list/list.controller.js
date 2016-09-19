@@ -7,6 +7,9 @@
  * # AboutCtrl
  * Controller of the startApp
  */
+
+
+
 angular.module('start.controllers')
 
     .controller('ListStartupCtrl', function ($scope, $rootScope, $state, $stateParams, $location, $window, $timeout, $routeParams, Startup, Crawler, HomeSlider, HomeMobileSlider, CONFIG) {
