@@ -19,6 +19,12 @@ angular
                 controller: 'ListStartupCtrl',
                 data: {access: "USER"}
             })
+            .state('home-mobile', {
+                url: '/home-mobile',
+                templateUrl: '/js/angular/modules/startup/list/home-mobile.html',
+                controller: 'ListStartupCtrl',
+                data: {access: "USER"}
+            })
             .state('startup-new', {
                 url: '/startup/new',
                 templateUrl: '/js/angular/modules/startup/edit/edit.html',
