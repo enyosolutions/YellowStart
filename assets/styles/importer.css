@@ -8259,9 +8259,6 @@ body.unlocked {
 /*
  * Cas de la HP
  */
-body.home .page {
-  margin-top: -110px;
-}
 body.home .top-navigation .navigation li a .icon {
   color: #fff;
 }
@@ -8577,6 +8574,7 @@ body.home .top-navigation .navigation li a .icon {
   color: #ffffff;
 }
 .top-navigation.top-navigation-default .navbar-toggle {
+  display: none;
   position: absolute;
   top: 15px;
   right: 0;
@@ -8599,6 +8597,7 @@ body.home .top-navigation .navigation li a .icon {
     padding: 0;
     margin: 15px auto;
     border: none;
+    width: 120px;
   }
   .top-navigation.top-navigation-login .form-login {
     display: block;
@@ -8614,7 +8613,7 @@ body.home .top-navigation .navigation li a .icon {
   .top-navigation.top-navigation-default .navigation.collapse.in {
     display: block;
     width: 100%;
-    top: 100px;
+    top: 98px;
     background: #ffffff;
   }
   .top-navigation.top-navigation-default .navigation.collapse.in li {
@@ -8639,11 +8638,43 @@ body.home .top-navigation .navigation li a .icon {
   }
 }
 @media screen and (max-width: 640px) {
+  .navbar-toggle {
+    display: block!important;
+  }
+  .top-navigation {
+    height: 100px;
+  }
+  .top-navigation ul#navigation li {
+    border-top: 1px solid #c1ccfb;
+    margin-top: 0;
+    padding: 15px 0;
+    height: 85px;
+  }
   .top-navigation.top-navigation-default .brand {
     border: none;
+    width: 120px;
   }
   .top-navigation.top-navigation-default .navigation {
     display: none;
+  }
+  .top-navigation #profileDropdown {
+    position: relative;
+    width: 60px;
+    height: 60px;
+  }
+  .top-navigation #profileDropdown .bigBadge,
+  .top-navigation #profileDropdown .badge {
+    position: absolute;
+  }
+  .top-navigation #profileDropdown .badge {
+    margin-top: 0;
+    top: 35px;
+    left: 8px;
+  }
+  .top-navigation #profileDropdown .bigBadge {
+    top: 7px;
+    left: 10px;
+    height: 40px;
   }
 }
 /*
@@ -8689,12 +8720,18 @@ footer .brand {
     width: 100%;
     float: none !important;
     text-align: center;
+    display: none;
   }
   footer .brand {
     display: block;
     margin: 30px auto 0 auto;
     float: none !important;
     width: auto;
+  }
+  footer img.pull-right {
+    float: none !important;
+    margin: 0px auto;
+    display: block;
   }
 }
 /*
@@ -8744,7 +8781,11 @@ footer .brand {
 }
 @media screen and (max-width: 768px) {
   .cycle-slider-home {
-    top: -110px;
+    height: 100vh;
+    margin-bottom: -110px;
+  }
+  .cycle-slider-home .slider {
+    height: 100%;
   }
 }
 .cycle-slider-media {
@@ -8990,7 +9031,7 @@ footer .brand {
   z-index: 2;
   width: 145px;
   height: 145px;
-  padding: 55px 0;
+  line-height: 145px;
   text-align: center;
   text-decoration: none;
   color: #ffffff;
@@ -9190,7 +9231,7 @@ footer .brand {
    */
 }
 .page.startup-list .home {
-  padding-top: 20px;
+  padding-top: 110px;
   overflow: hidden;
   background-color: #f2f2f2;
 }
@@ -9282,7 +9323,7 @@ footer .brand {
 }
 .page.startup-list .heading .sort {
   position: absolute;
-  top: 70px !important;
+  top: 0px !important;
   right: 0;
 }
 .page.startup-list .heading .numb {
@@ -10227,8 +10268,8 @@ footer .brand {
   .section-title,
   .related .title,
   .know-startup .title {
-    font-size: 36px !important;
-    line-height: 36px !important;
+    font-size: 28px !important;
+    line-height: 28px !important;
   }
   .page.startup-view .splash .subtitle {
     padding: 0 20px;
@@ -10329,8 +10370,27 @@ footer .brand {
   color: #999;
 }
 @media screen and (max-width: 768px) {
+  .top-navigation {
+    height: 98px!important;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+  }
+  .page {
+    min-height: 100%;
+    margin-bottom: -140px;
+    padding-bottom: 40px;
+  }
+  .home .page {
+    min-height: 100%;
+    margin-bottom: -100px;
+    padding-bottom: 0px;
+  }
   .page.startup-view .startup-info {
     padding: 0 30px;
+  }
+  .page.startup-list .home .startups-wrapper {
+    padding-bottom: 0;
   }
   .page.edit-page .nav,
   .page.startup-edit .nav {
@@ -10345,5 +10405,88 @@ footer .brand {
   .page.edit-page .nav li:last-child,
   .page.startup-edit .nav li:last-child {
     margin-bottom: 0;
+  }
+  .navbar-default .navbar-toggle:hover,
+  .navbar-default .navbar-toggle:focus {
+    background: none;
+  }
+  .home .navbar-default .navbar-toggle .icon-bar {
+    background: #fff;
+  }
+  .navbar-default .navbar-toggle .icon-bar {
+    background: #0031f7;
+  }
+  .startup-generic-card {
+    display: block;
+    margin: 0 auto;
+  }
+  .page.user-profile .starredProjects .heading .title,
+  .page.user-profile .starredProjects .heading .sort {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .page.user-profile .starredProjects .heading .title {
+    font-size: 28px;
+  }
+  .page.user-profile .starredProjects .heading .sort {
+    float: right;
+  }
+  .page.user-profile .starredProjects .heading {
+    padding: 70px 8vw 15px;
+  }
+  .dropdown-menu {
+    left: inherit;
+    right: 0;
+  }
+  .dropdown-menu li a {
+    padding: 10px 20px;
+  }
+  .cycle-desktop {
+    display: none;
+  }
+  .cycle-mobile {
+    display: block;
+  }
+  body.home .top-navigation .navigation li a .icon {
+    color: #0031f7;
+  }
+  .startup-view .top-navigation {
+    background: #fff;
+  }
+  .page.startup-view {
+    /*    .startup-map-infowindow {
+      width: 250px!important;
+    }*/
+  }
+  .page.startup-view .startup-info #resume .startup-website,
+  .page.startup-view .startup-info #resume .intro {
+    font-size: 20px;
+    line-height: 32px;
+  }
+  .page.startup-view .splash .title {
+    margin: 200px 0 30px 0;
+  }
+  .page.startup-view .sidebar-wall {
+    padding-top: 0;
+  }
+  .page.startup-view .sidebar-wall .actions .action {
+    width: 29vw;
+    padding: 4vw;
+  }
+  .page.startup-view .sip-note .request-evaluation .evaluation {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .page.startup-view .sip-note .request-evaluation img {
+    width: 150px;
+  }
+  .page.startup-view .know-startup {
+    padding: 70px 0;
+  }
+}
+@media screen and (max-width: 769px) {
+  .cycle-mobile {
+    display: block;
   }
 }
