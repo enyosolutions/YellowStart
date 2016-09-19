@@ -21,7 +21,7 @@ angular.module('start.controllers').controller("ProfileCtrl", function ($scope, 
             paramName: "file",
             parallelUploads: 1,
             maxFileSize: 10,
-            dictDefaultMessage: "Glissez une image pour l'ajouter",
+            dictDefaultMessage: "Glissez pour ajouter image ou cliquer pour parcourir",
             acceptedFiles: 'image/*',
             headers: {'Authorization': 'Bearer ' + $localstorage.get('auth_token')}
         }
