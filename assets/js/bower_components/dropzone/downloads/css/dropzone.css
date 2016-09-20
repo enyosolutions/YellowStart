@@ -140,9 +140,9 @@
 .dropzone-previews .dz-preview .dz-error-message {
   display: none;
   position: absolute;
-  top: -5px;
-  left: -20px;
-  background: rgba(245,245,245,0.8);
+  bottom: -10px;
+  left: -15px;
+  background: rgba(245,245,245,0.95);
   padding: 8px 10px;
   color: #800;
   min-width: 140px;
