@@ -330,13 +330,13 @@
         <p class="intro">Vous indiquez ici quel est le contact de la start-up. Les visiteurs de la fiche pourront lui envoyer un email ou le contacter par téléphone.
         </p>
 
-        <div class="contact-form existing-contact" ng-repeat="contact in startupContacts">
+        <div class="contact-form existing-contact">
             <div class="form-group">
                 <div class="col-md-6">
                     <label>Prénom</label>
                 </div>
                 <div class="col-md-6">
-                    <input class="form-control" ng-model="contact.firstname" type="text" required/>
+                    <input class="form-control" ng-model="startup.contact.firstname" type="text" required/>
                 </div>
             </div>
 
@@ -345,7 +345,7 @@
                     <label>Nom</label>
                 </div>
                 <div class="col-md-6">
-                    <input class="form-control" type="text" ng-model="contact.lastname" required/>
+                    <input class="form-control" type="text" ng-model="startup.contact.lastname" required/>
                 </div>
             </div>
 
@@ -354,7 +354,7 @@
                     <label>Adresse mail</label>
                 </div>
                 <div class="col-md-6">
-                    <input class="form-control" type="email" ng-model="contact.email" required/>
+                    <input class="form-control" type="email" ng-model="startup.contact.email" required/>
                 </div>
             </div>
 
@@ -363,7 +363,7 @@
                     <label>Numero de téléphone</label>
                 </div>
                 <div class="col-md-6">
-                    <input class="form-control" ng-model="contact.phonenumber" type="text"/>
+                    <input class="form-control" ng-model="startup.contact.phonenumber" type="text"/>
                 </div>
             </div>
             <div class="form-group">
@@ -371,7 +371,7 @@
                     <label>LinkedIn</label>
                 </div>
                 <div class="col-md-6">
-                    <input type="url" class="form-control" ng-model="contact.linkedIn"/>
+                    <input type="url" class="form-control" ng-model="startup.contact.linkedIn"/>
                 </div>
             </div>
             <div class="form-group">
@@ -379,7 +379,7 @@
                     <label>Role</label>
                 </div>
                 <div class="col-md-6">
-                    <input class="form-control" ng-model="contact.role" type="text"/>
+                    <input class="form-control" ng-model="startup.contact.role" type="text"/>
                 </div>
             </div>
 
@@ -388,94 +388,11 @@
                     <label>Contexte / Origine du contact</label>
                 </div>
                 <div class="col-md-6">
-                    <textarea class="form-control" ng-model="contact.origin"></textarea>
+                    <textarea class="form-control" ng-model="startup.contact.origin"></textarea>
                 </div>
             </div>
         </div>
 
-
-        <center ng-if="startupContacts.length > 0">
-            <hr/>
-            <button class="btn btn-primary-outline text-center" type="button" data-toggle="collapse"
-                    data-target="#new-contact-form"
-                    aria-expanded="false" aria-controls="collapseExample" ng-if="startupContacts.length > 0">
-                AJOUTER UN AUTRE CONTACT
-            </button>
-            <hr/>
-        </center>
-
-        <div class="new-contact collapse in" id="new-contact-form" ng-class="{collapsed: startupContacts.length > 0}">
-            <div class="form-group">
-                <div class="col-md-6">
-                    <label>Prénom</label>
-                </div>
-                <div class="col-md-6">
-                    <input class="form-control" ng-model="newContact.firstname" type="text" required/>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-6">
-                    <label>Nom</label>
-                </div>
-                <div class="col-md-6">
-                    <input class="form-control" type="text" ng-model="newContact.lastname" required/>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-6">
-                    <label>Adresse mail</label>
-                </div>
-                <div class="col-md-6">
-                    <input class="form-control" type="email" ng-model="newContact.email" required/>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-6">
-                    <label>Numero de téléphone</label>
-                </div>
-                <div class="col-md-6">
-                    <input class="form-control" ng-model="newContact.phonenumber" type="text"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-6">
-                    <label>LinkedIn</label>
-                </div>
-                <div class="col-md-6">
-                    <input type="url" class="form-control" ng-model="newContact.linkedIn"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-6">
-                    <label>Role</label>
-                </div>
-                <div class="col-md-6">
-                    <input class="form-control" ng-model="newContact.role" type="text"/>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-6">
-                    <label>Contexte / Origine du contact</label>
-                </div>
-                <div class="col-md-6">
-                    <textarea class="form-control" ng-model="newContact.origin"></textarea>
-                </div>
-            </div>
-
-            <div class="form-group">
-
-                <button type="button" class="btn btn-primary pull-right" ng-click="saveContact(newContact._id)"
-                        >
-                    Créer
-                </button>
-            </div>
-
-
-        </div>
         <div class="clearfix"></div>
         <div class="form-group text-center">
             <div class="btn-group">
@@ -483,36 +400,6 @@
                     Publier
                 </button>
             </div>
-        </div>
-    </div>
-</div>
-<div role="tabpanel" class="tab-pane fade " id="equipe">
-    <div class="form-body">
-        <div class="col-md-12">
-            <ul class="list-group">
-                <li class="list-group-item" ng-repeat="contact in startupContacts">
-                    {{ contact.firstname }} {{ contact.lastname }} - <span
-                        class="label label-info">{{ contact.role }}</span>
-                    <button class="btn btn-primary-outline badge" ng-click="deleteMember(index)">
-                        <i class="fa fa-close"></i></button>
-                </li>
-            </ul>
-
-        </div>
-
-
-        <div class="text-center">
-            <button type="button" ng-class="{in: startup && startup._id}"
-                    data-toggle="modal"
-                    data-target="#contactModal"
-                    class="btn btn-link-info fade"><i
-                    class="fa fa-plus fa-2x"></i><br/>Ajouter un Membre
-            </button>
-        </div>
-        <div class="form-group text-center">
-            <button type="button" class="btn btn-primary-outline" ng-click="publishStartup()">
-                Publier
-            </button>
         </div>
     </div>
 </div>
@@ -575,37 +462,4 @@
 </div>
 </div>
 
-<div id="contactModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true" class="fa-3x">&times;</span>
-                </button>
-
-                <h4 class="modal-title">Ajouter un contact</h4>
-            </div>
-
-            <div class="modal-body">
-                <div class="row">
-
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default btn-link" data-dismiss="modal">
-                    Annuler
-                </button>
-
-                <button type="button" class="btn btn-primary" ng-click="saveContact(newContact._id)"
-                        data-dismiss="modal">
-                    Créer
-                </button>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
 </section>
