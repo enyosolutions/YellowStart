@@ -37,6 +37,9 @@ angular.module('start.controllers')
 
                         }
                     }
+                if (!res.contact) {
+                    $scope.startup.contact = {};
+                }
                     if (res.creationDate) {
                         var d = res.creationDate.split('-');
                         if (res.creationDate.length >= 3) {
@@ -53,7 +56,7 @@ angular.module('start.controllers')
             ;
 
             // Load the contacts
-            $scope.startupContacts = StartupContact.query({'query[startupId]': $scope.startup._id});
+            // $scope.startupContacts = StartupContact.query({'query[startupId]': $scope.startup._id});
         }
         else {
             var draft = $localstorage.getObject('startupDraft');

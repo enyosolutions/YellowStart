@@ -8,7 +8,8 @@
  * Controller of the startApp
  */
 angular.module('start.controllers')
-    .controller('ViewStartupCtrl', function ($scope, $rootScope, $stateParams, $window, $timeout, $sce, $ngBootbox, Startup, StartupComment, StartupContact, UserService, NotificationService) {
+    .controller('ViewStartupCtrl', function ($scope, $rootScope, $stateParams, $window, $timeout, $sce, $ngBootbox,
+                                             Startup, StartupComment, StartupContact, UserService, NotificationService) {
         $scope.pageClass = 'startup-view';
 
         $scope.iframeUrl = function (src) {

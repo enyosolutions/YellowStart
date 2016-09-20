@@ -141,8 +141,8 @@ style="background-image: url({{ startup.fullPicture ? startup.fullPicture : (sta
                             <i ng-class="{'icon-start-bt-follow': !isBookmarked, 'icon-start-bt-unfollow': isBookmarked}">
                             </i>
                         </button>
-                        <a class="action btn" href="mailto:{{ startupContacts[0].email}}"
-                        ng-show="startupContacts[0] && startupContacts[0]">
+                        <a class="action btn" href="mailto:{{ startup.contact.email }}"
+                        ng-show="startup.contact">
                         <i class="icon-start-bt-contact"></i>
                     </a>
                     <a class="action btn" href="#/startup/{{startup._id}}/edit" data-toggle="modal"

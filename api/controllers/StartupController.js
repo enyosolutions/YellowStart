@@ -11,7 +11,7 @@ module.exports = {
         var MobileDetect = require('mobile-detect'),
             md = new MobileDetect(req.headers['user-agent']);
         return res.view('homepage', {
-            deviceOS: md.os(),
+            deviceOS: md.os() || 'desktop',
             isMobile: (md.mobile()) ? 'mobile' : 'desktop'
         });
     },
