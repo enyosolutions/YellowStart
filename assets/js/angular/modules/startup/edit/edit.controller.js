@@ -37,9 +37,7 @@ angular.module('start.controllers')
 
                         }
                     }
-                if (!res.contact) {
-                    $scope.startup.contact = {};
-                }
+
                     if (res.creationDate) {
                         var d = res.creationDate.split('-');
                         if (res.creationDate.length >= 3) {
@@ -51,12 +49,23 @@ angular.module('start.controllers')
                             };
                         }
                     }
+
+
+                    if (!res.contact) {
+                        $scope.startup.contact = {};
+                        $scope.startupContacts = StartupContact.query({'query[startupId]': $scope.startup._id}).$promise.
+                            then(function (res) {
+                            if(res.length > 0){
+                                $scope.startup.contact = res[0];
+                            }
+                        });
+                    }
                 }
+
             )
             ;
 
-            // Load the contacts
-            // $scope.startupContacts = StartupContact.query({'query[startupId]': $scope.startup._id});
+
         }
         else {
             var draft = $localstorage.getObject('startupDraft');
@@ -401,7 +410,7 @@ angular.module('start.controllers')
                         Utils.getYoutubeIds($scope.startup.videoPresentation)[1];
                 }
 
-                if($scope.startup.analysisRequested && $scope.startup.sipScore != '' && $scope.startup.sipAnalysis != '' ){
+                if ($scope.startup.analysisRequested && $scope.startup.sipScore != '' && $scope.startup.sipAnalysis != '') {
                     $scope.startup.analysisRequested = false;
                 }
 
@@ -430,7 +439,7 @@ angular.module('start.controllers')
                 $scope.startup.status = 'published';
                 $scope.startup.publishedAt = new Date();
 
-                 if($scope.startup.analysisRequested && $scope.startup.sipScore != '' && $scope.startup.sipAnalysis != '' ){
+                if ($scope.startup.analysisRequested && $scope.startup.sipScore != '' && $scope.startup.sipAnalysis != '') {
                     $scope.startup.analysisRequested = false;
                 }
 

@@ -21,7 +21,7 @@ angular.module('start.controllers')
             $scope.startup.$get().then(function () {
                 UserService.GetById($scope.startup.createdBy).then(function(res){
                     console.log(res);
-                    $scope.startupCreator = res.data;
+                    $scope.startupCreator = res.data.body;
                 });
                 $scope.startupContacts = StartupContact.query({'query[startupId]': $stateParams._id}).$promise.then(function (res) {
                     var content;

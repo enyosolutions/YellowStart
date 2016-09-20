@@ -8233,7 +8233,7 @@ body {
 /*
  * Loading screen
  */
-body.unlocked {
+body.unlocked:not(.modal-open) {
   overflow: auto;
 }
 .loading-screen {
@@ -9063,7 +9063,7 @@ footer .brand {
   padding: 10px;
   min-height: 200px;
   width: 200px;
-  margin-bottom: 60px;
+  margin: 0 auto 60px;
 }
 .page.user-profile .form-control {
   height: 50px;
