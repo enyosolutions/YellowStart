@@ -8265,13 +8265,17 @@ body.home .top-navigation .navigation li a .icon {
 /*
  * Top navigation
  */
+body.home .top-navigation {
+  position: absolute;
+}
 .top-navigation {
-  display: block;
   position: relative;
+  display: block;
   left: 50%;
   margin-left: -485px;
   margin-bottom: 0;
-  width: 940px;
+  width: 100%;
+  max-width: 940px;
   height: 110px;
   border: 0;
   background: transparent;
@@ -9718,7 +9722,7 @@ footer .brand {
   margin-bottom: 35px;
 }
 .page.startup-view .startup-info #resume .startup-logo img {
-  width: 60%;
+  width: 40%;
 }
 .page.startup-view .startup-info #resume .startup-website {
   text-decoration: underline;

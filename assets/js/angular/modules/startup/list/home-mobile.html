@@ -1,0 +1,123 @@
+<!-- <section class="cycle-desktop cycle-slider-home">
+    <div class="slide" ng-repeat="slide in slides" home-slider>
+        <a class="href" href="{{slide.targetUrl}}"><img alt="" ng-src="{{ ::remoteHost }}{{slide.picture}}"/></a>
+    </div>
+
+    <div class="cycle-pager"></div>
+</section> -->
+
+
+<section class="cycle-mobile cycle-slider-home">
+    <div class="slide"  home-slider2>
+        <a class="href" href="{{slide.targetUrl}}"><img alt="" src="/images/carousel/cults-mobile.jpg"/></a>
+    </div>
+    <div class="slide"  home-slider2>
+        <a class="href" href="{{slide.targetUrl}}"><img alt="" Src="/images/carousel/heuritech-mobile.jpg"/></a>
+    </div>
+    <div class="slide"  home-slider2>
+        <a class="href" href="{{slide.targetUrl}}"><img alt="" src="/images/carousel/souscritoo-mobile.jpg"/></a>
+    </div>
+    <div class="slide"  home-slider2>
+        <a class="href" href="{{slide.targetUrl}}"><img alt="" ng-src="/images/carousel/tivipedia-mobile.jpg"/></a>
+    </div>
+
+
+    <div class="cycle-pager"></div>
+</section>
+
+<section class="home">
+
+
+    <div class="startups-wrapper">
+        <h2 class="section-title">Les nouvelles</h2>
+        <div class="startups-list">
+            <div class="startup" ng-repeat="startup in recentStartupList" startup-slider>
+                <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
+                    <img ng-src="{{ startup.picture ? startup.picture : (startup.mainTag ? ('/images/startup/thumbnail/' + startup.mainTag + '.jpg') : '/images/placeholder.jpg') }}"
+                         alt="{{ startup.startupName }}">
+                </a>
+                <h4 class="title">{{ startup.startupName }}</h4>
+                <div class="tag-list">
+                    <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
+                        #{{ tag }}{{ (!$last) ? ',' :'' }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="startups-wrapper">
+        <h2 class="section-title">Les plus vues</h2>
+        <div class="startups-list">
+            <div class="startup" ng-repeat="startup in mostViewedStartupList" startup-slider>
+                <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
+                    <img ng-src="{{ ::remoteHost }}{{ startup.picture ? startup.picture : (startup.mainTag ? ('/images/startup/thumbnail/' + startup.mainTag + '.jpg') : '/images/placeholder.jpg') }}"
+                         alt="{{ startup.startupName }}">
+                </a>
+                <h4 class="title">{{ startup.startupName }}</h4>
+                <div class="tag-list">
+                    <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
+                        #{{ tag }}{{ (!$last) ? ',' :'' }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="startups-wrapper">
+        <h2 class="section-title">Les mieux notées</h2>
+        <div class="startups-list" startup-slider>
+            <div class="startup" ng-repeat="startup in bestScoreStartupList" startup-slider>
+                <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
+                    <img ng-src="{{ startup.picture ? startup.picture : (startup.mainTag ? ('/images/startup/thumbnail/' + startup.mainTag + '.jpg') : '/images/placeholder.jpg') }}"
+                         alt="{{ startup.startupName }}">
+                </a>
+                <h4 class="title">{{ startup.startupName }}</h4>
+                <div class="tag-list">
+                    <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
+                        #{{ tag }}{{ (!$last) ? ',' :'' }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="startups-wrapper">
+        <h2 class="section-title">Les plus suivies</h2>
+        <div class="startups-list">
+            <div class="startup" ng-repeat="startup in mostBookmarkedStartupList" startup-slider>
+                <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
+                    <img ng-src="{{ startup.picture ? startup.picture : (startup.mainTag ? ('/images/startup/thumbnail/' + startup.mainTag + '.jpg') : '/images/placeholder.jpg') }}"
+                         alt="{{ startup.startupName }}">
+                </a>
+                <h4 class="title">{{ startup.startupName }}</h4>
+                <div class="tag-list">
+                    <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
+                        #{{ tag }}{{ (!$last) ? ',' :'' }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="startups-wrapper">
+        <h2 class="section-title">Les méconnues</h2>
+        <div class="startups-list">
+            <div class="startup" ng-repeat="startup in lessViewedStartupList" startup-slider>
+                <a class="thumbnail" href="#/startup/{{ startup._id }}/view">
+                    <img ng-src="{{ startup.picture ? startup.picture : (startup.mainTag ? ('/images/startup/thumbnail/' + startup.mainTag + '.jpg') : '/images/placeholder.jpg') }}"
+                         alt="{{ startup.startupName }}">
+                </a>
+                <h4 class="title">{{ startup.startupName }}</h4>
+                <div class="tag-list">
+                    <a href="#/startup?tag={{ tag }}" class="tags" ng-repeat="tag in startup.tags">
+                        #{{ tag }}{{ (!$last) ? ',' :'' }}
+                    </a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+
+</section>
