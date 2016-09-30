@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head>
+
+  <head>
     <title>Yellow Starter</title>
 
     <!-- Viewport mobile tag for sensible mobile support -->
@@ -8,24 +9,24 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="pinterest" content="nopin" />
-    <link href="/images/icons/yellow_starter.png" rel="icon" type="image/png"/>
+    <link href="/images/icons/yellow_starter.png" rel="icon" type="image/png" />
 
     <!--
         Stylesheets and Preprocessors
         ==============================
 
         You can always bring in CSS files manually with `<link>` tags, or asynchronously
-        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage 
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage
         of Sails' conventional asset pipeline (boilerplate Gruntfile).
 
         By default, stylesheets from your `assets/styles` folder are included
         here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
         are supported. In production, your styles will be minified and concatenated into
         a single file.
-        
+
         To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
         For example, here are a few things you could do:
-            
+
             + Change the order of your CSS files
             + Import stylesheets from other directories
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
@@ -40,86 +41,63 @@
     <link rel="stylesheet" href="/js/bower_components/jqcloud2/dist/jqcloud.min.css">
     <link rel="stylesheet" href="/styles/font-awesome.css">
     <link rel="stylesheet" href="/styles/importer.css">
-</head>
+  </head>
 
-<body ng-app="startApp" class="<%= deviceOS + " " + isMobile  %> <%= locals.page && page.class ? page.class : '' %>  {{ $state.current.name }} "
-      ng-class="{unlocked: unlocked , transparent: $state.current.name == 'home' }"
-      id="<%= locals.page && page.id ? page.id : '' %>">
-<!-- loading-screen -->
-<div class="loading-screen" ng-class="{fade: startFade}" loading-screen>
-    <img src="/images/icons/loading.gif" width="64" />
-</div>
+  <body ng-app="startApp" class="<%= deviceOS + " " + isMobile  %> <%= locals.page && page.class ? page.class : '' %>  {{ $state.current.name }} " ng-class="{unlocked: unlocked , transparent: $state.current.name == 'home' }" id="<%= locals.page && page.id ? page.id : '' %>">
+    <!-- loading-screen -->
+    <div class="loading-screen" ng-class="{fade: startFade}" loading-screen>
+      <img src="/images/icons/loading.gif" width="64" />
+    </div>
 
-<!-- login -->
-<div class="top-navigation top-navigation-login navbar navbar-default navbar-fixed-top" ng-if="['user-register','user-reset'].indexOf($state.current.name) !== -1" ng-class="{transparent: $state.current.name == 'home' }">
-    <div class="container">
+    <!-- login -->
+    <div class="top-navigation top-navigation-login navbar navbar-default navbar-fixed-top" ng-if="['user-register','user-reset'].indexOf($state.current.name) !== -1" ng-class="{transparent: $state.current.name == 'home' }">
+      <div class="container">
         <a href="#/" class="brand">
-            <img src="/images/logo.svg" alt="Yellow Starter"/>
+          <img src="/images/logo.svg" alt="Yellow Starter" />
         </a>
 
-        <form class="form-login form-inline" ng-controller="RegisterCtrl as Register"
-              ng-submit="login(Register.email, Register.password)">
-            <input class="url form-control" name="email" ng-model="Register.email" type="email" required
-                   placeholder="Adresse E-mail"/>
-            <input class="url form-control" name="password" ng-model="Register.password" type="password" required
-                   placeholder="Mot de passe"/>
+        <form class="form-login form-inline" ng-controller="RegisterCtrl as Register" ng-submit="login(Register.email, Register.password)">
+          <input class="url form-control" name="email" ng-model="Register.email" type="email" required placeholder="Adresse E-mail" />
+          <input class="url form-control" name="password" ng-model="Register.password" type="password" required placeholder="Mot de passe" />
 
-            <button class="btn btn-primary-outline" type="submit">Connexion</button>
-            <br/>
-            <button class="btn btn-link btn-forgot pull-right" type="button" ng-click="resetPassword()">Mot de passe oublié ?</button>
+          <button class="btn btn-primary-outline" type="submit">Connexion</button>
+          <br/>
+          <button class="btn btn-link btn-forgot pull-right" type="button" ng-click="resetPassword()">Mot de passe oublié ?</button>
         </form>
+      </div>
     </div>
-</div>
 
-<!-- default -->
-<div id="navbar-main" class="top-navigation top-navigation-default navbar navbar-default {{ barIsFocused }}" ng-if="['user-register','user-reset'].indexOf($state.current.name) === -1"
-     ng-class="{'nav-focus': barIsFocused}"
-        >
-    <div class="container">
+    <!-- default -->
+    <div id="navbar-main" class="top-navigation top-navigation-default navbar navbar-default {{ barIsFocused }}" ng-if="['user-register','user-reset'].indexOf($state.current.name) === -1" ng-class="{'nav-focus': barIsFocused}">
+      <div class="container">
         <a href="#/" class="brand">
-            <img ng-class="{hide: $state.is('home')}" src="/images/logo.svg" alt="Yellow Starter"/>
-            <img ng-class="{hide: ! $state.is('home')}" ng-src="/images/logo-white.svg" alt="Yellow Starter"/>
+          <img ng-class="{hide: $state.is('home')}" src="/images/logo.svg" alt="Yellow Starter" />
+          <img ng-class="{hide: ! $state.is('home')}" ng-src="/images/logo-white.svg" alt="Yellow Starter" />
         </a>
 
         <div class="search-form ">
-            <form ng-submit="search(listStartup.searchName)" ng-controller="ListStartupCtrl as listStartup">
-                <input class="url form-control hidden" name="website" ng-model="listStartup.searchName" type="text"
-                       placeholder="Rechercher une start-up" ng-focus="{'navbar-main':top-navigation-default}" />
-                
-                <angucomplete-alt id="search"
-                                  placeholder="ex : winicar, #delivery, fintech …"
-                                  pause="400"
-                                  text-searching="..."
-                                  text-no-results=""
-                                  selected-object="searchAutocomplete"
-                                  input-changed="searchAutocompleteCHG"
+          <form ng-submit="search(listStartup.searchName)" ng-controller="ListStartupCtrl as listStartup">
+            <input class="url form-control hidden" name="website" ng-model="listStartup.searchName" type="text" placeholder="Rechercher une start-up" ng-focus="{'navbar-main':top-navigation-default}" />
 
-                                  focus-out="barBlurred()"
-                                  remote-url="{{ ::remoteHost }}/api/crawler/autocomplete?q="
-                                  remote-url-data-field="body"
-                                  remote-url-response-formatter="appendMoreButtons"
-                                  minlength="1"
-                                  title-field="label"
-                                  description-field="subLabel"
+            <angucomplete-alt id="search" placeholder="ex : winicar, #delivery, fintech …" pause="400" text-searching="..." text-no-results="" selected-object="searchAutocomplete" input-changed="searchAutocompleteCHG" focus-out="barBlurred()" remote-url="{{ ::remoteHost }}/api/crawler/autocomplete?q="
+                remote-url-data-field="body" remote-url-response-formatter="appendMoreButtons" minlength="1" title-field="label" description-field="subLabel" input-class="url form-control" />
 
-                                  input-class="url form-control"/>
-
-                <input class="btn btn-primary" type="submit" value="Faou">
-            </form>
+            <input class="btn btn-primary" type="submit" value="Faou">
+          </form>
         </div>
 
-        <ul id="navigation" class="navigation"                              >
-            <li>
-                <a ng-click="barFocused()">
-                    <i class="icon icon-search"></i>
-                </a>
-            </li>
-            <li>
-                <a id="profileDropdown" aria-haspopup="true" aria-expanded="true" fadeOut href="#/user/profile">
-                    <span class="badge">{{ notifications.length || 0 }}</span>
-                    <span class="bigBadge">{{ globals.user.firstname | limitTo : 1 }}{{ globals.user.lastname | limitTo : 1 }}</span>
-                </a>
-                    <!--
+        <ul id="navigation" class="navigation">
+          <li>
+            <a ng-click="barFocused()">
+              <i class="icon icon-search"></i>
+            </a>
+          </li>
+          <li>
+            <a id="profileDropdown" aria-haspopup="true" aria-expanded="true" fadeOut href="#/user/profile">
+              <span class="badge">{{ notifications.length || 0 }}</span>
+              <span class="bigBadge">{{ globals.user.firstname | limitTo : 1 }}{{ globals.user.lastname | limitTo : 1 }}</span>
+            </a>
+            <!--
                     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="notificationsDropdown" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
                         <li>
                             <a href="#/user/profile" ng-show="globals.user.roles.indexOf('ADMIN') !== -1">
@@ -144,22 +122,22 @@
 
                     </ul>
                 -->
-            </li>
-            <li>
-                <a href="#/startup/new" fadeOut>
-                    <i class="icon icon-add"></i>
-                </a>
-            </li>
+          </li>
+          <li>
+            <a href="#/startup/new" fadeOut>
+              <i class="icon icon-add"></i>
+            </a>
+          </li>
         </ul>
         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navigation">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
+      </div>
     </div>
-</div>
-<div ui-view class="page {{ pageClass }}"></div>
-<!--
+    <div ui-view class="page {{ pageClass }}"></div>
+    <!--
 
 <div class="row" id="results-section">
     <div class="col-xs-12 col-sm-6 col-md-3" ng-controller="SearchStartupCtrl" ng-repeat="startup in searchedStartups">
@@ -187,7 +165,7 @@
 </div>
 -->
 
-<!--
+    <!--
 
     Client-side Templates
     ========================
@@ -209,84 +187,88 @@
           stringfile before they're served.
 -->
 
-<!--TEMPLATES-->
+    <!--TEMPLATES-->
 
-<!--TEMPLATES END-->
+    <!--TEMPLATES END-->
 
 
-<footer class="footer">
-    <div class="container">
+    <footer class="footer">
+      <div class="container">
         <p class="text-muted pull-left copyright">© La Poste 2016 – Tous droits réservés</p>
 
-        <img class="pull-right" src="/images/logo-laposte.png" height="40" alt="laposte"/>
-    </div>
-</footer>
+        <img class="pull-right" src="/images/logo-laposte.png" height="40" alt="laposte" />
+      </div>
+    </footer>
 
-<script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-2.0.0.min.js"></script>
-<script>window.jQuery || document.write('<script src="/js/bower_components/jquery/dist/jquery.min.js">\x3C/script>')</script>
-<script src="//maps.googleapis.com/maps/api/js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/angular.min.js"></script>
-<script src="/js/angular.fr-FR.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-2.0.0.min.js"></script>
+    <script>
+      window.jQuery || document.write('<script src="/js/bower_components/jquery/dist/jquery.min.js">\x3C/script>')
 
-
-<!--<script src="/js/dependencies/sails.io.js"></script>-->
-<script src="/js/bower_components/moment/min/moment-with-locales.min.js"></script>
-<script src="/js/bower_components/angular-animate/angular-animate.min.js"></script>
-<script src="/js/bower_components/angular-cookies/angular-cookies.min.js"></script>
-<script src="/js/bower_components/angular-resource/angular-resource.min.js"></script>
-<script src="/js/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-<script src="/js/bower_components/angular-route/angular-route.min.js"></script>
-<script src="/js/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-<script src="/js/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-<script src="/js/bower_components/angular-touch/angular-touch.min.js"></script>
-<script src="/js/bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
-<script src="/js/bower_components/dropzone/downloads/dropzone.min.js"></script>
-<script src="/js/bower_components/angular-dropzone/lib/angular-dropzone.js"></script>
-<script src="/js/bower_components/angular-datepicker/dist/angular-datepicker.min.js"></script>
-<script src="/js/bower_components/angucomplete-alt/dist/angucomplete-alt.min.js"></script>
-<script src="/js/bower_components/jquery.cycle2/index.js"></script>
-<script src="/js/bower_components/slick-carousel/slick/slick.min.js"></script>
-<script src="/js/bower_components/angular-jqcloud/angular-jqcloud.js"></script>
-<script src="/js/bower_components/jqcloud2/dist/jqcloud.min.js"></script>
-<script src="/js/bower_components/js-info-bubble/src/infobubble.js"></script>
-
-<script src="/js/bower_components/bootbox/bootbox.js"></script>
-<script src="/js/bower_components/ngBootbox/dist/ngBootbox.min.js"></script>
-
-<script type="text/javascript" src="/js/bower_components/selectize/dist/js/standalone/selectize.min.js"></script>
-<script type="text/javascript" src="/js/bower_components/angular-selectize2/dist/angular-selectize.js"></script>
-
-<script src="/js/angular/app.modules.js"></script>
-<script src="/js/angular/app.js"></script>
-<script src="/js/angular/app.routes.js"></script>
-
-<script src="/js/angular/modules/admin-home/list/list.controller.js"></script>
-<script src="/js/angular/modules/admin-startup/list/list.controller.js"></script>
-<script src="/js/angular/modules/admin-luna-startup/list/list.controller.js"></script>
-<script src="/js/angular/modules/admin-user/list/list.controller.js"></script>
-<script src="/js/angular/modules/admin-tag/list/list.controller.js"></script>
-
-<script src="/js/angular/modules/startup/view/view.controller.js"></script>
-<script src="/js/angular/modules/startup/edit/edit.controller.js"></script>
-<script src="/js/angular/modules/startup/list/list.controller.js"></script>
-<script src="/js/angular/modules/startup/tagcloud/tagcloud.controller.js"></script>
-<script src="/js/angular/modules/startup/search/search.controller.js"></script>
-
-<script src="/js/angular/modules/user/reset/reset.controller.js"></script>
-<script src="/js/angular/modules/user/register/register.controller.js"></script>
-<script src="/js/angular/modules/user/profile/profile.controller.js"></script>
-
-<script src="/js/angular/modules/common/resources.js"></script>
-<script src="/js/angular/modules/common/startup.service.js"></script>
-<script src="/js/angular/modules/common/notification.service.js"></script>
-<script src="/js/angular/modules/common/authentication.service.js"></script>
-<script src="/js/angular/modules/common/authinterceptor.service.js"></script>
-<script src="/js/angular/modules/common/user.service.js"></script>
-<script src="/js/angular/modules/common/utils.service.js"></script>
+    </script>
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyC2G-iXXZQsCPe7m2w7coe1MEbe1ghxsaQ"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular.fr-FR.js"></script>
 
 
-<script src="/js/dependencies/homepage.js"></script>
-<script src="/js/dependencies/main.js"></script>
-</body>
+    <!--<script src="/js/dependencies/sails.io.js"></script>-->
+    <script src="/js/bower_components/moment/min/moment-with-locales.min.js"></script>
+    <script src="/js/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="/js/bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="/js/bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="/js/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="/js/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="/js/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/js/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="/js/bower_components/angular-touch/angular-touch.min.js"></script>
+    <script src="/js/bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
+    <script src="/js/bower_components/dropzone/downloads/dropzone.min.js"></script>
+    <script src="/js/bower_components/angular-dropzone/lib/angular-dropzone.js"></script>
+    <script src="/js/bower_components/angular-datepicker/dist/angular-datepicker.min.js"></script>
+    <script src="/js/bower_components/angucomplete-alt/dist/angucomplete-alt.min.js"></script>
+    <script src="/js/bower_components/jquery.cycle2/index.js"></script>
+    <script src="/js/bower_components/slick-carousel/slick/slick.min.js"></script>
+    <script src="/js/bower_components/angular-jqcloud/angular-jqcloud.js"></script>
+    <script src="/js/bower_components/jqcloud2/dist/jqcloud.min.js"></script>
+    <script src="/js/bower_components/js-info-bubble/src/infobubble.js"></script>
+
+    <script src="/js/bower_components/bootbox/bootbox.js"></script>
+    <script src="/js/bower_components/ngBootbox/dist/ngBootbox.min.js"></script>
+
+    <script type="text/javascript" src="/js/bower_components/selectize/dist/js/standalone/selectize.min.js"></script>
+    <script type="text/javascript" src="/js/bower_components/angular-selectize2/dist/angular-selectize.js"></script>
+
+    <script src="/js/angular/app.modules.js"></script>
+    <script src="/js/angular/app.js"></script>
+    <script src="/js/angular/app.routes.js"></script>
+
+    <script src="/js/angular/modules/admin-home/list/list.controller.js"></script>
+    <script src="/js/angular/modules/admin-startup/list/list.controller.js"></script>
+    <script src="/js/angular/modules/admin-luna-startup/list/list.controller.js"></script>
+    <script src="/js/angular/modules/admin-user/list/list.controller.js"></script>
+    <script src="/js/angular/modules/admin-tag/list/list.controller.js"></script>
+
+    <script src="/js/angular/modules/startup/view/view.controller.js"></script>
+    <script src="/js/angular/modules/startup/edit/edit.controller.js"></script>
+    <script src="/js/angular/modules/startup/list/list.controller.js"></script>
+    <script src="/js/angular/modules/startup/tagcloud/tagcloud.controller.js"></script>
+    <script src="/js/angular/modules/startup/search/search.controller.js"></script>
+
+    <script src="/js/angular/modules/user/reset/reset.controller.js"></script>
+    <script src="/js/angular/modules/user/register/register.controller.js"></script>
+    <script src="/js/angular/modules/user/profile/profile.controller.js"></script>
+
+    <script src="/js/angular/modules/common/resources.js"></script>
+    <script src="/js/angular/modules/common/startup.service.js"></script>
+    <script src="/js/angular/modules/common/notification.service.js"></script>
+    <script src="/js/angular/modules/common/authentication.service.js"></script>
+    <script src="/js/angular/modules/common/authinterceptor.service.js"></script>
+    <script src="/js/angular/modules/common/user.service.js"></script>
+    <script src="/js/angular/modules/common/utils.service.js"></script>
+
+
+    <script src="/js/dependencies/homepage.js"></script>
+    <script src="/js/dependencies/main.js"></script>
+  </body>
+
 </html>
