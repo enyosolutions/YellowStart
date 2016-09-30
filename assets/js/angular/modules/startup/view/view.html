@@ -78,7 +78,7 @@
 
 
           <!-- slider -->
-          <div class="images-section" ng-if="startup.picture.length > 0 || startup.images.length > 0 || startup.youtubeId.length > 0">
+          <div class="images-section" ng-if="startup.images.length > 0 || startup.youtubeId.length > 0">
             <div id="picturesCarousel" class="carousel slide" data-ride="carousel">
 
               <!-- Wrapper for slides -->
@@ -95,7 +95,7 @@
 
 
               <!-- Left and right controls -->
-              <div ng-if="startup.images.length >= 1">
+              <div ng-if="(startup.images.length + startup.youtubeId.length) > 1">
                 <a class="left carousel-control" data-target="#picturesCarousel" role="button" data-slide="prev">
                   <span class="icon-arrowLeft" aria-hidden="true"></span>
                   <span class="sr-only">Previous</span>
