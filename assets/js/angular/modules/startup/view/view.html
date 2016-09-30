@@ -83,11 +83,11 @@
 
               <!-- Wrapper for slides -->
               <div class="carousel-inner" role="listbox">
-                <div class="item" document-slider ng-if="startup.youtubeId" ng-class="{active: !startup.picture}">
+                <div class="item" document-slider ng-if="startup.youtubeId" ng-class="{active: startup.youtubeId}">
                   <iframe class="youtube-iframe" ng-src="{{ iframeUrl(startup.youtubeId) }}" frameborder="0" allowfullscreen></iframe>
                 </div>
 
-                <div class="item" ng-repeat="image in startup.images" ng-class="{active: $index === 0 && !startup.picture && !startup.youtubeId}">
+                <div class="item" ng-repeat="image in startup.images" ng-class="{active: !startup.youtubeId}">
                   <img ng-src="{{ ::remoteHost }}{{ image.file }}" alt="{{ image.name }}">
                 </div>
 
