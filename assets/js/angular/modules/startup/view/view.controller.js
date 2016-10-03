@@ -19,22 +19,30 @@ angular.module('start.controllers')
         if ($stateParams._id) {
             $scope.startup = new Startup({_id: $stateParams._id});
             $scope.startup.$get().then(function () {
+
+                if (!$scope.startup.contact) {
+                    $scope.startup.contact = {};
+                    $scope.startupContacts = StartupContact.query({'query[startupId]': $scope.startup._id}).$promise.
+                    then(function (res) {
+                        if(res.length > 0){
+                            $scope.startup.contact = res[0];
+                        }
+                    });
+                }
+
+
                 UserService.GetById($scope.startup.createdBy).then(function(res){
-                    console.log(res);
                     $scope.startupCreator = res.data.body;
                 });
-                $scope.startupContacts = StartupContact.query({'query[startupId]': $stateParams._id}).$promise.then(function (res) {
                     var content;
-                    $scope.startupContacts = res;
-                    if (res.length > 0) {
-                        var contact = res[0];
+                    if ($scope.startup.contact) {
                         content = '<div class="startup-map-infowindow" style="width: 315px;height: 295px; overflow:hidden;">' +
                         '<div class="inner">' +
                         '<div class="name" style="max-height:60px; line-height:1.5; overflow: hidden;">' + $scope.startup.startupName + '</div> ' +
                         '<div class="address">' + ($scope.startup.address ? $scope.startup.address : '' ) + '</div> ' +
-                        '<div class="phone">' + (contact.phonenumber ? contact.phonenumber : "") + '</div> ' +
-                        (contact.email ?
-                        '<div class="email"><a target="_blank" href="mailto:' + contact.email + '" >' + contact.email + '</a></div> '
+                        '<div class="phone">' + ($scope.startup.contact.phonenumber ? contact.phonenumber : "") + '</div> ' +
+                        ($scope.startup.contact.email ?
+                        '<div class="email"><a target="_blank" href="mailto:' + $scope.startup.contact.email + '" >' + $scope.startup.contact.email + '</a></div> '
                             : "" ) +
                         '</div>' +
                         '</div>';
@@ -49,7 +57,7 @@ angular.module('start.controllers')
                     }
                     $scope.displayWebsiteUrl = $scope.startup.websiteUrl.replace(/http(s)?:\/\//i, '');
                     initGooglemaps($scope.startup.address, content);
-                });
+
 
             });
 
