@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/styles/importer.css">
   </head>
 
-  <body ng-app="startApp" class="<%= deviceOS + " " + isMobile  %> <%= locals.page && page.class ? page.class : '' %>  {{ $state.current.name }} " ng-class="{unlocked: unlocked , transparent: $state.current.name == 'home' }" id="<%= locals.page && page.id ? page.id : '' %>">
+  <body ng-app="startApp" class="<%= deviceOS  ? deviceOS + " " + isMobile : '' %> <%= locals.page && page.class ? page.class : '' %>  {{ $state.current.name }} " ng-class="{unlocked: unlocked , transparent: $state.current.name == 'home' }" id="<%= locals.page && page.id ? page.id : '' %>">
     <!-- loading-screen -->
     <div class="loading-screen" ng-class="{fade: startFade}" loading-screen>
       <img src="/images/icons/loading.gif" width="64" />
@@ -53,7 +53,7 @@
     <div class="top-navigation top-navigation-login navbar navbar-default navbar-fixed-top" ng-if="['user-register','user-reset'].indexOf($state.current.name) !== -1" ng-class="{transparent: $state.current.name == 'home' }">
       <div class="container">
         <a href="#/" class="brand">
-          <img src="/images/logo.svg" alt="Yellow Starter" />
+          <img src="/images/logo_bleu.svg" alt="Yellow Starter" />
         </a>
 
         <form class="form-login form-inline" ng-controller="RegisterCtrl as Register" ng-submit="login(Register.email, Register.password)">
@@ -71,8 +71,8 @@
     <div id="navbar-main" class="top-navigation top-navigation-default navbar navbar-default {{ barIsFocused }}" ng-if="['user-register','user-reset'].indexOf($state.current.name) === -1" ng-class="{'nav-focus': barIsFocused}">
       <div class="container">
         <a href="#/" class="brand">
-          <img ng-class="{hide: $state.is('home')}" src="/images/logo.svg" alt="Yellow Starter" />
-          <img ng-class="{hide: ! $state.is('home')}" ng-src="/images/logo-white.svg" alt="Yellow Starter" />
+          <img ng-class="{hide: $state.is('home')}" src="/images/logo_jaune.svg" alt="Yellow Starter" />
+          <img ng-class="{hide: ! $state.is('home')}" ng-src="/images/logo_bleu.svg" alt="Yellow Starter" />
         </a>
 
         <div class="search-form ">

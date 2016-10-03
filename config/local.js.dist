@@ -1,0 +1,24 @@
+module.exports = {
+    siteUrl: 'http://start.dev:8080',
+    mongoUrl: 'mongodb://localhost/start',
+    mongo: {
+        host: 'localhost',
+        port: 27017,
+        database: 'start',
+        user: 'start',
+        password: 'start'
+    },
+    mail: {
+        protocol: 'SMTP',
+        options:{
+            host: 'gator3285.hostgator.com',
+            secure: true,
+            port: 465,
+            auth: {
+                user: 'alerts@kenweego.com',
+                pass: 'onaimelachoucroute'
+            }
+        },
+        from: 'alerts@kenweego.com'
+    }
+};
