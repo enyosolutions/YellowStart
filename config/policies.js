@@ -53,6 +53,6 @@ module.exports.policies = {
     '*': ['isAuthorized'], // Everything resctricted here,
     'UserController': {'create': true, getByToken: true, reset:true},
     'AuthController': {'login': true, 'forgot': true},
-    'StartupController': {'home': true}
+    'StartupController': {'home': true, 'gitrefresh' : true}
 
 };
