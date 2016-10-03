@@ -556,6 +556,15 @@ module.exports = {
                 res.json(404, {error: 'Startup not found'});
             }
         });
+    },
+
+    gitrefresh: function(req,res){
+        var exec = require('child_process').exec;
+        var cmd = 'git pull && touch .reboot';
+
+        exec(cmd, function(error, stdout, stderr) {
+            res.send('<pre>' + JSON.stringify({result: stdout, error: stderr}));
+        });
     }
 }
 ;
