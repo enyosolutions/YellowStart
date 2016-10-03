@@ -127,7 +127,7 @@ angular.module('start.controllers')
                 $timeout(function () {
                     console.log('bar focus function call');
                     $searchInput.focus();
-                }, 500);
+                }, 300);
             }
         };
 
@@ -150,7 +150,7 @@ angular.module('start.controllers')
                 // $('#navbar-main').addClass('nav-focus');
                 // $rootScope.barIsFocused = true;
                 $scope.$apply();
-            }, 200);
+            }, 250);
         };
 
         if ($stateParams.tag) {
