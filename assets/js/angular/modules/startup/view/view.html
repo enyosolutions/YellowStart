@@ -1,165 +1,143 @@
-<section class="splash"
-style="background-image: url({{ startup.fullPicture ? startup.fullPicture : (startup.mainTag ? ('/images/startup/header/' + startup.mainTag + '.jpg') : '/images/background-big.jpg') }})">
-<div class="container">
+<section class="splash" style="background-image: url({{ startup.fullPicture ? startup.fullPicture : (startup.mainTag ? ('/images/startup/header/' + startup.mainTag + '.jpg') : '/images/background-big.jpg') }})">
+  <div class="container">
     <div class="row">
-        <div class="col-sm-12">
-            <h1 class="title">
+      <div class="col-sm-12">
+        <h1 class="title">
                 {{ startup.startupName}}
             </h1>
 
-            <ul class="startup-tags">
-                <li class="tag" ng-repeat="tag in startup.tags">
-                    <a href="#/startup?tag={{ tag }}">#{{ tag }}</a>
-                </li>
-            </ul>
+        <ul class="startup-tags">
+          <li class="tag" ng-repeat="tag in startup.tags">
+            <a href="#/startup?tag={{ tag }}">#{{ tag }}</a>
+          </li>
+        </ul>
 
-        </div>
+      </div>
     </div>
-</div>
+  </div>
 </section>
 
 <section>
-    <!-- generic -->
-    <div class="generic">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-offset-1 col-md-10 startup-info">
-                    <div class="creator-section text-center">
-                        <img ng-if="startupCreator" ng-src="{{ startupCreator.picture }}" class="creator-image img-circle"
-                        alt=""/>
-                        <img ng-if="!startupCreator" src="/images/placeholder-user.png" class="creator-image img-circle"
-                        alt=""/>
+  <!-- generic -->
+  <div class="generic">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-1 col-md-10 startup-info">
+          <div class="creator-section text-center">
+            <img ng-if="startupCreator" ng-src="{{ startupCreator.picture }}" class="creator-image img-circle" alt="" />
+            <img ng-if="!startupCreator" src="/images/placeholder-user.png" class="creator-image img-circle" alt="" />
 
-                        <div class="creator-label">Sourcé par</div>
-                        <div class="creator-info" ng-if="startupCreator"><span class="creator-name">{{ startupCreator.firstname }} {{ startupCreator.lastname }}</span>
-                            - <span
-                            class="creator-company">{{ startupCreator.role }}</span></div>
-                            <div class="creator-info" ng-if="!startupCreator"><span class="creator-name">Kevin Aserraf</span> - <span
-                                class="creator-company">Start'inPost</span></div>
-                            </div>
-                            <!-- resume -->
-                            <div class="" id="resume">
-                                <div class="startup-logo"><img
-                                    ng-src="{{ ::remoteHost }}{{ startup.logo }}"
-                                    class="" ng-if='startup.logo' alt=""/></div>
-                                    <a href="{{ ( startup.websiteUrl.indexOf('http') === 0 ?  '': 'http://'  ) }}{{ startup.websiteUrl }}" target="_blank" class=" startup-website link">{{
+            <div class="creator-label">Sourcé par</div>
+            <div class="creator-info" ng-if="startupCreator"><span class="creator-name">{{ startupCreator.firstname }} {{ startupCreator.lastname }}</span> - <span class="creator-company">{{ startupCreator.role }}</span></div>
+            <div class="creator-info" ng-if="!startupCreator"><span class="creator-name">Kevin Aserraf</span> - <span class="creator-company">Start'inPost</span></div>
+          </div>
+          <!-- resume -->
+          <div class="" id="resume">
+            <div class="startup-logo"><img ng-src="{{ ::remoteHost }}{{ startup.logo }}" class="" ng-if='startup.logo' alt="" /></div>
+            <a href="{{ ( startup.websiteUrl.indexOf('http') === 0 ?  '': 'http://'  ) }}{{ startup.websiteUrl }}" target="_blank" class=" startup-website link">{{
                                         displayWebsiteUrl
                                     }}</a>
 
-                                    <p class="intro">
-                                        {{ startup.projectTweet }}
-                                    </p>
+            <p class="intro">
+              {{ startup.projectTweet }}
+            </p>
 
-                                    <p class="description">
-                                        {{ startup.marketClients }}
-                                    </p>
+            <p class="description">
+              {{ startup.marketClients }}
+            </p>
 
-                                    <p class="description">
-                                        {{ startup.offerServices }}
-                                    </p>
+            <p class="description">
+              {{ startup.offerServices }}
+            </p>
 
-                                    <p class="description">
-                                        {{ startup.offerBusiness }}
-                                    </p>
-                                </div>
+            <p class="description">
+              {{ startup.offerBusiness }}
+            </p>
+          </div>
 
-                                <hr ng-if="startup.documents.length > 0 "/>
+          <hr ng-if="startup.documents.length > 0 " />
 
-                                <!-- documents list -->
+          <!-- documents list -->
 
-                                <div class="" id="documents-area">
+          <div class="" id="documents-area">
 
-                                    <div class="media" ng-repeat="document in startup.documents">
-                                        <a href="{{ document.file }}" target="_blank">
-                                            <div class="media-left">
-                                                <i class="icon-start-ico-{{ document.extension | lowercase }}">
+            <div class="media" ng-repeat="document in startup.documents">
+              <a href="{{ document.file }}" target="_blank">
+                <div class="media-left">
+                  <i class="icon-start-ico-{{ document.extension | lowercase }}">
                                                 </i>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="media-heading">Télécharger</h4>
-
-                                                <p class="text-primary title">{{ document.name }}</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-
-
-                                <!-- slider -->
-                                <div class="images-section" ng-if="startup.picture.length > 0 || startup.images.length > 0 || startup.youtubeId.length > 0">
-                                    <div id="picturesCarousel" class="carousel slide" data-ride="carousel">
-
-                                        <!-- Wrapper for slides -->
-                                        <div class="carousel-inner" role="listbox">
-                                            <div class="item active" ng-if="startup.picture">
-                                                <img ng-src="{{ ::remoteHost }}{{ startup.picture }}" alt="startup picture">
-                                            </div>
-
-                                            <div class="item" document-slider ng-if="startup.youtubeId"
-                                            ng-class="{active: !startup.picture}">
-                                            <iframe class="youtube-iframe" ng-src="{{ iframeUrl(startup.youtubeId) }}"
-                                            frameborder="0"
-                                            allowfullscreen></iframe>
-                                        </div>
-
-                                        <div class="item" ng-repeat="image in startup.images"
-                                        ng-class="{active: $index === 0 && !startup.picture && !startup.youtubeId}">
-                                        <img ng-src="{{ ::remoteHost }}{{ image.file }}" alt="{{ image.name }}">
-                                    </div>
-
-
-                                </div>
-
-
-                                <!-- Left and right controls -->
-                                <div ng-if="startup.picture.length > 1 || startup.images.length > 1">
-                                    <a class="left carousel-control" data-target="#picturesCarousel" role="button"
-                                    data-slide="prev">
-                                    <span class="icon-arrowLeft" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="right carousel-control" data-target="#picturesCarousel" role="button"
-                                data-slide="next">
-                                <span class="icon-arrowRight" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-
-
-                    </div>
                 </div>
+                <div class="media-body">
+                  <h4 class="media-heading">Télécharger</h4>
+
+                  <p class="text-primary title">{{ document.name }}</p>
+                </div>
+              </a>
             </div>
+          </div>
 
 
-            <!-- wall -->
-            <div class="col-md-1">
-                <!-- sidebar -->
-                <div class="sidebar-wall">
+          <!-- slider -->
+          <div class="images-section" ng-if="startup.images.length > 0 || startup.youtubeId.length > 0">
+            <div id="picturesCarousel" class="carousel slide" data-ride="carousel">
 
-                    <div class="actions">
-                        <button ng-click="bookmarkStartup()" class="action btn btn-link">
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <div class="item" document-slider ng-if="startup.youtubeId" ng-class="{active: startup.youtubeId}">
+                  <iframe class="youtube-iframe" ng-src="{{ iframeUrl(startup.youtubeId) }}" frameborder="0" allowfullscreen></iframe>
+                </div>
+
+                <div class="item" ng-repeat="image in startup.images" ng-class="{active: !startup.youtubeId}">
+                  <img ng-src="{{ ::remoteHost }}{{ image.file }}" alt="{{ image.name }}">
+                </div>
+
+              </div>
+
+
+              <!-- Left and right controls -->
+              <div ng-if="(startup.images.length + startup.youtubeId.length) > 1">
+                <a class="left carousel-control" data-target="#picturesCarousel" role="button" data-slide="prev">
+                  <span class="icon-arrowLeft" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" data-target="#picturesCarousel" role="button" data-slide="next">
+                  <span class="icon-arrowRight" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- wall -->
+        <div class="col-md-1">
+          <!-- sidebar -->
+          <div class="sidebar-wall">
+
+            <div class="actions">
+              <button ng-click="bookmarkStartup()" class="action btn btn-link">
                             <i ng-class="{'icon-start-bt-follow': !isBookmarked, 'icon-start-bt-unfollow': isBookmarked}">
                             </i>
                         </button>
-                        <a class="action btn" href="mailto:{{ startup.contact.email }}"
-                        ng-show="startup.contact">
-                        <i class="icon-start-bt-contact"></i>
-                    </a>
-                    <a class="action btn" href="#/startup/{{startup._id}}/edit" data-toggle="modal"
-                    ng-show="startup.status === 'draft' || globals.user.roles.indexOf('ADMIN') !== -1">
-                    <i class="icon-start-bt-edit"></i>
-                </a>
-                <a class="action btn" data-toggle="modal" data-target="#documentsModal"
-                ng-if=" startup.documents.length">
+              <a class="action btn" href="mailto:{{ startup.contact.email }}" ng-show="startup.contact">
+                <i class="icon-start-bt-contact"></i>
+              </a>
+              <a class="action btn" href="#/startup/{{startup._id}}/edit" data-toggle="modal" ng-show="startup.status === 'draft' || globals.user.roles.indexOf('ADMIN') !== -1">
+                <i class="icon-start-bt-edit"></i>
+              </a>
+              <a class="action btn" data-toggle="modal" data-target="#documentsModal" ng-if=" startup.documents.length">
                 <span class="count">{{ startup.documents.length }}</span>
 
                 <div class="text-lock">Documents</div>
-            </a>
+              </a>
+            </div>
+          </div>
         </div>
-    </div>
-</div>
 
-            <!--
+        <!--
 
             <a data-toggle="modal" data-target="#commentModal" ng-if="comments.length < 1">
                 <img src="/images/Wall_S.png" alt="comment" class="nocomment-image"  />
@@ -187,61 +165,59 @@ style="background-image: url({{ startup.fullPicture ? startup.fullPicture : (sta
 
         -->
 
+      </div>
     </div>
-</div>
-</div>
+  </div>
 
 
-<!-- sip-note -->
-<div class="sip-note">
+  <!-- sip-note -->
+  <div class="sip-note" style="margin-top:0px">
     <div class="container">
 
-        <div class="col-sm-offset-2 col-sm-8 text-center request-evaluation"  >
-            <div class="request-evaluation" ng-class="{hide: (startup.sipScore && startup.sipAnalysis)  || startup.analysisRequested}">
-                <img src="/images/la-note-sip.png" data-rjs="2" alt=""/>
-                <p class="evaluation text-center">
-                    Vous souhaitez que Start’in Post vous livre une analyse sur mesure de cette start-up? Lancez votre demande dès maintenant !
-                </p>
-                <button class="btn btn-primary" ng-click="requestAnalysis()">JE SOUHAITE UNE ANALYSE</button>
-            </div>
+      <div class="text-center request-evaluation">
+        <div class="request-evaluation" ng-class="{hide: (startup.sipScore && startup.sipAnalysis)  || startup.analysisRequested}">
+          <img src="/images/la-note-sip.png" data-rjs="2" alt="" />
+          <p class="evaluation text-center">
+            Vous souhaitez que Start’in Post vous livre une analyse sur mesure de cette start-up? Lancez votre demande dès maintenant !
+          </p>
+          <button class="btn btn-primary" ng-click="requestAnalysis()">JE SOUHAITE UNE ANALYSE</button>
+        </div>
 
-            <div class="evaluation-ongoing {{ startup.sipScore + ' , ' +  startup.sipAnalysis + ' , ' + !startup.analysisRequested  }} " ng-class="{ hide: !startup.analysisRequested }">
-               <img src="/images/la-note-sip.png" data-rjs="2" alt=""/>
-               <p class="evaluation text-center">
-                   Demande d'analyse par Startin'Post en cours.<br>
-                   Ajoutez {{ startup.startupName }} à vos favoris pour savoir quand l'analyse aura été écrite.
-               </p>
-               <button ng-click="bookmarkStartup()" class="action btn btn-link btn-lg btn-icon">
+        <div class="evaluation-ongoing {{ startup.sipScore + ' , ' +  startup.sipAnalysis + ' , ' + !startup.analysisRequested  }} " ng-class="{ hide: !startup.analysisRequested }">
+          <img src="/images/la-note-sip.png" data-rjs="2" alt="" />
+          <p class="evaluation text-center">
+            Demande d'analyse par Startin'Post en cours.<br> Ajoutez {{ startup.startupName }} à vos favoris pour savoir quand l'analyse aura été écrite.
+          </p>
+          <button ng-click="bookmarkStartup()" class="action btn btn-link btn-lg btn-icon">
                     AJOUTER AUX FAVORIS
                 </button>
-            </div>
-
-            <div ng-class="{hide: !startup.sipScore || !startup.sipAnalysis}">
-                <img src="/images/la-note-sip.png" data-rjs="2" alt=""/>
-
-                <div class="note">
-                    {{ startup.sipScore || '0' }}/10
-                </div>
-                <div class="col-sm-4">
-                    <p class="evaluation">
-                        {{ startup.sipAnalysis }}
-                        <br>
-                        <span class="badge primary">{{ startup.sipStatus || 'Statut Seed' }}</span>
-                    </p>
-                </div>
-            </div>
         </div>
+
+        <div ng-class="{hide: !startup.sipScore || !startup.sipAnalysis}" style=" display: inline-flex; justify-content: center;">
+          <div class="col-xs-12 col-sm-6" style="align-self: center;">
+            <img src="/images/la-note-sip.png" data-rjs="2" alt="" style="margin-bottom: 0px;" />
+
+            <div class="note" style="margin-top: 0px;">
+              {{ startup.sipScore || '0' }}/10
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <p class="evaluation" style="margin-bottom: 0px; text-align: left; font-size: 14px; line-height: 26px;">
+              {{ startup.sipAnalysis }}
+              <br>
+              <span class="badge primary">{{ startup.sipStatus || 'Statut Seed' }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-<div class="col-sm-offset-2 col-sm-8 text-center request-evaluation evaluation-ongoing" ng-class="hide:!startup.sipScore && startup.analysisRequested " >
+  </div>
 
-</div>
+  <div class="col-sm-offset-2 col-sm-8 text-center request-evaluation evaluation-ongoing" ng-class="hide:!startup.sipScore && startup.analysisRequested ">
+  </div>
 
-<div class="col-sm-offset-2 col-sm-4" ng-if="startup.sipScore  && !startup.analysisRequested">
-
-
-</div>
-</div>
+  <div class="col-sm-offset-2 col-sm-4" ng-if="startup.sipScore  && !startup.analysisRequested">
+  </div>
 
 <!-- map -->
 <div id="map" class="map" ng-if="startup.address && startup.address.length > 0" data-address="{{ startup.address }}"></div>
@@ -249,106 +225,103 @@ style="background-image: url({{ startup.fullPicture ? startup.fullPicture : (sta
 <!-- related -->
 <div class="related">
     <div class="container">
-        <h3 class="title">
+      <h3 class="title">
             Start-ups du même thème
         </h3>
 
-        <div class="inner row">
-            <div class="col-sm-4" ng-repeat="relatedStartup in relatedStartups">
-                <!-- startup -->
-                <div class="startup-generic-card card fixed-card">
-                    <div class="card-img-top">
-                        <a href="#/startup/{{ relatedStartup._id }}/view">
-                            <img ng-src="{{ ::remoteHost }}{{ relatedStartup.picture ? relatedStartup.picture : (relatedStartup.mainTag ? ('/images/startup/thumbnail/' + relatedStartup.mainTag + '.jpg') : '/images/placeholder.jpg') }}"
-                            alt="{{ relatedStartup.picture }}">
-                        </a>
-                    </div>
-                    <h4 class="card-title">{{ relatedStartup.startupName }}</h4>
-                    <div class="card-link-section">
-                        <a href="#/startup?tag={{tag}}" class="card-link text-info"
-                        ng-repeat="tag in relatedStartup.tags">
+      <div class="inner row">
+        <div class="col-sm-4" ng-repeat="relatedStartup in relatedStartups">
+          <!-- startup -->
+          <div class="startup-generic-card card fixed-card">
+            <div class="card-img-top">
+              <a href="#/startup/{{ relatedStartup._id }}/view">
+                <img ng-src="{{ ::remoteHost }}{{ relatedStartup.picture ? relatedStartup.picture : (relatedStartup.mainTag ? ('/images/startup/thumbnail/' + relatedStartup.mainTag + '.jpg') : '/images/placeholder.jpg') }}" alt="{{ relatedStartup.picture }}">
+              </a>
+            </div>
+            <h4 class="card-title">{{ relatedStartup.startupName }}</h4>
+            <div class="card-link-section">
+              <a href="#/startup?tag={{tag}}" class="card-link text-info" ng-repeat="tag in relatedStartup.tags">
                         #{{ tag }}
                     </a>
-                </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-</div>
+  </div>
 
-<!-- know-startup -->
-<div class="know-startup">
+  <!-- know-startup -->
+  <div class="know-startup">
     <div class="container">
-        <span class="title">Vous connaissez une start-up ?</span>
+      <span class="title">Vous connaissez une start-up ?</span>
 
-        <a href="#/startup/new" class="btn btn-outline-primary">
+      <a href="#/startup/new" class="btn btn-outline-primary">
             JE SOUMETS UNE START-UP
         </a>
     </div>
-</div>
+  </div>
 </section>
 
 <div id="commentModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
+  <div class="modal-dialog">
+    <div class="modal-content">
 
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                     aria-hidden="true" class="fa-3x">&times;</span></button>
-                    <h4 class="modal-title">Ajouter un commentaire</h4>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col-md-5">
+        <h4 class="modal-title">Ajouter un commentaire</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row">
+            <div class="form-group">
+              <div class="col-md-5">
 
-                                </div>
-                                <div class="col-md-12">
-                                    <label>Votre commentaire</label>
-                                    <textarea class="form-control" ng-model="newCommentText" type="text"
-                                    rows="8"/></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default btn-link" data-dismiss="modal">Annuler</button>
-                            <button type="button" class="btn btn-primary"
-                            ng-click="saveComment(newCommentText)"
-                            data-dismiss="modal">Créer
-                        </button>
-                    </div>
-
-                </form>
+              </div>
+              <div class="col-md-12">
+                <label>Votre commentaire</label>
+                <textarea class="form-control" ng-model="newCommentText" type="text" rows="8" /></textarea>
+              </div>
             </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-link" data-dismiss="modal">Annuler</button>
+            <button type="button" class="btn btn-primary" ng-click="saveComment(newCommentText)" data-dismiss="modal">Créer
+                        </button>
+          </div>
+
+        </form>
+      </div>
+      <!-- /.modal-content -->
     </div>
+    <!-- /.modal-dialog -->
+  </div>
 </div>
 
 <div id="documentsModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
+  <div class="modal-dialog">
+    <div class="modal-content">
 
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                     aria-hidden="true" class="fa-3x">&times;</span></button>
-                    <h3 class="modal-title">Les documents de la startup</h3>
-                </div>
-                <div class="modal-body">
-                    <ul class="list-group">
-                        <li class="list-group-item" ng-repeat="document in startup.documents">
-                            <a href="{{ document.file }}" _target="blank">
+        <h3 class="modal-title">Les documents de la startup</h3>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="document in startup.documents">
+            <a href="{{ document.file }}" _target="blank">
                                 {{ document.name }} - <span
                                 class="label label-info pull-right">{{ document.type | limitTo :7}}...</span>
                             </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+          </li>
+        </ul>
+      </div>
     </div>
+  </div>
+</div>
 
-    <script>
-    </script>
+<script>
+
+
+</script>
