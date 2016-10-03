@@ -176,7 +176,7 @@ angular.module('start.controllers')
                 streetViewControl: false,
                 overviewMapControl: false,
                 navigationControl: false,
-                draggable: true,
+                draggable: false,
                 center: latLng2
             };
 
