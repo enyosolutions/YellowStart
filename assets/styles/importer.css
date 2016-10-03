@@ -10380,6 +10380,9 @@ footer .brand {
     z-index: 100;
     top: 0;
   }
+  body.user-register .top-navigation {
+    height: auto !important;
+  }
   .page {
     min-height: 100%;
     margin-bottom: -140px;
