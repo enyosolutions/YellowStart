@@ -40,8 +40,7 @@
 ################################################
 
 config/local.js
-
-
+assets/js/angular/local.js
 
 
 
