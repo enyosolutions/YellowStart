@@ -40,7 +40,7 @@ angular.module('start.controllers')
                         '<div class="inner">' +
                         '<div class="name" style="max-height:60px; line-height:1.5; overflow: hidden;">' + $scope.startup.startupName + '</div> ' +
                         '<div class="address">' + ($scope.startup.address ? $scope.startup.address : '' ) + '</div> ' +
-                        '<div class="phone">' + ($scope.startup.contact.phonenumber ? contact.phonenumber : "") + '</div> ' +
+                        '<div class="phone">' + ($scope.startup.contact.phonenumber ? $scope.startup.contact.phonenumber : "") + '</div> ' +
                         ($scope.startup.contact.email ?
                         '<div class="email"><a target="_blank" href="mailto:' + $scope.startup.contact.email + '" >' + $scope.startup.contact.email + '</a></div> '
                             : "" ) +
