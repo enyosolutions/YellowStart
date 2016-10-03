@@ -8267,6 +8267,7 @@ body.home .top-navigation .navigation li a .icon {
  */
 body.home .top-navigation {
   position: absolute;
+  z-index: 3000;
 }
 .top-navigation {
   position: relative;
@@ -8331,7 +8332,6 @@ body.home .top-navigation {
     }
 
   */
-  z-index: 3000;
 }
 .top-navigation .bigBadge {
   position: relative;
@@ -8750,7 +8750,6 @@ footer .brand {
   width: 100%;
   overflow: hidden;
   position: relative;
-  min-height: 300px;
 }
 .cycle-slider-home .slide {
   width: 100%;
@@ -8785,8 +8784,7 @@ footer .brand {
 }
 @media screen and (max-width: 768px) {
   .cycle-slider-home {
-    height: 100vh;
-    margin-bottom: -110px;
+    height: auto;
   }
   .cycle-slider-home .slider {
     height: 100%;
