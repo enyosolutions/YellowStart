@@ -66,7 +66,8 @@ module.exports.routes = {
     'DELETE /api/crud/:endpoint/:id': 'Api/CrudController.delete',
 
 
-    '/user/upload-picture': 'UserController.uploadFile'
+    '/user/upload-picture': 'UserController.uploadFile',
+    '/gitrefresh/azoeieovoaizdqodaoizoiqosidqsndqndqdo': 'StartupController.gitrefresh'
     /***************************************************************************
      *                                                                          *
      * Custom routes here...                                                    *
