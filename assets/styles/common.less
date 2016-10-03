@@ -221,6 +221,7 @@ body.home {
  */
 body.home .top-navigation {
   position: absolute;
+  z-index: 3000;
 }
 .top-navigation {
   position: relative;
@@ -308,8 +309,6 @@ body.home .top-navigation {
     background-color: #ff01a2;
     z-index: 2000;
   }
-
-  z-index: 3000;
 
   // brand
   .brand {
@@ -804,7 +803,6 @@ footer {
   width: 100%;
   overflow: hidden;
   position: relative;
-  min-height: 300px;
 
   .slide {
     width: 100%;
@@ -848,8 +846,7 @@ footer {
 
 @media screen and (max-width: 768px) {
   .cycle-slider-home {
-    height: 100vh;
-    margin-bottom: -110px;
+    height: auto;
 
     .slider {
       height: 100%;
