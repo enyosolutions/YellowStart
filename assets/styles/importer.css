@@ -8578,6 +8578,11 @@ body.home .top-navigation {
   right: 0;
   border: none;
 }
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .top-navigation .brand {
+    padding: 0 30px 30px 0;
+  }
+}
 @media screen and (max-width: 768px) {
   .top-navigation {
     left: 0;
