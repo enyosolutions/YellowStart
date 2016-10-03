@@ -58,7 +58,7 @@ module.exports.connections = {
   ***************************************************************************/
   mongoStart: {
     adapter: 'sails-mongo',
-    host: '192.168.16.29',
+    host: 'localhost',
     port: 27017,
     user: 'start',
     password: 'start',
