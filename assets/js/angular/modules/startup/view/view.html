@@ -25,7 +25,7 @@
         <div class="col-md-offset-1 col-md-10 startup-info">
           <div class="creator-section text-center">
             <img ng-if="startupCreator" ng-src="{{ startupCreator.picture }}" class="creator-image img-circle" alt="" />
-            <img ng-if="!startupCreator" src="/images/placeholder-user.png" class="creator-image img-circle" alt="" />
+            <img ng-if="!startupCreator" src="/images/placeholder-user.png" class="creator-image img-circle" alt=""  data-rjs="3" />
 
             <div class="creator-label">Sourcé par</div>
             <div class="creator-info" ng-if="startupCreator"><span class="creator-name">{{ startupCreator.firstname }} {{ startupCreator.lastname }}</span> - <span class="creator-company">{{ startupCreator.role }}</span></div>
@@ -33,7 +33,7 @@
           </div>
           <!-- resume -->
           <div class="" id="resume">
-            <div class="startup-logo"><img ng-src="{{ ::remoteHost }}{{ startup.logo }}" class="" ng-if='startup.logo' alt="" /></div>
+            <div class="startup-logo"><img ng-src="{{ ::remoteHost }}{{ startup.logo }}" class="" ng-if='startup.logo' alt="" data-rjs="3" /></div>
             <a href="{{ ( startup.websiteUrl.indexOf('http') === 0 ?  '': 'http://'  ) }}{{ startup.websiteUrl }}" target="_blank" class=" startup-website link">{{
                                         displayWebsiteUrl
                                     }}</a>
