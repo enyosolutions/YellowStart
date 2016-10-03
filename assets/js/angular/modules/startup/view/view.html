@@ -184,7 +184,7 @@
         </div>
 
         <div class="evaluation-ongoing {{ startup.sipScore + ' , ' +  startup.sipAnalysis + ' , ' + !startup.analysisRequested  }} " ng-class="{ hide: !startup.analysisRequested }">
-          <img src="/images/la-note-sip.png" data-rjs="2" alt="" />
+          <img src="/images/la-note-sip@2x.png" data-rjs="2" alt="" />
           <p class="evaluation text-center">
             Demande d'analyse par Startin'Post en cours.<br> Ajoutez {{ startup.startupName }} à vos favoris pour savoir quand l'analyse aura été écrite.
           </p>
@@ -193,7 +193,7 @@
                 </button>
         </div>
 
-        <div ng-class="{hide: !startup.sipScore || !startup.sipAnalysis}" style=" display: inline-flex; justify-content: center;">
+        <div ng-class="{hide: (!startup.sipScore || !startup.sipAnalysis) }" style=" display: inline-flex; justify-content: center;">
           <div class="col-xs-12 col-sm-6" style="align-self: center;">
             <img src="/images/la-note-sip.png" data-rjs="2" alt="" style="margin-bottom: 0px;" />
 
@@ -213,7 +213,7 @@
     </div>
   </div>
 
-  <div class="col-sm-offset-2 col-sm-8 text-center request-evaluation evaluation-ongoing" ng-class="hide:!startup.sipScore && startup.analysisRequested ">
+  <div class="col-sm-offset-2 col-sm-8 text-center request-evaluation evaluation-ongoing" ng-class="hide: (!startup.sipScore && startup.analysisRequested)">
   </div>
 
   <div class="col-sm-offset-2 col-sm-4" ng-if="startup.sipScore  && !startup.analysisRequested">
