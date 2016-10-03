@@ -88,12 +88,12 @@
 
         <ul id="navigation" class="navigation">
           <li>
-            <a ng-click="barFocused()">
+            <a data-toggle="collapse" data-target="#navigation" ng-click="barFocused()">
               <i class="icon icon-search"></i>
             </a>
           </li>
           <li>
-            <a id="profileDropdown" aria-haspopup="true" aria-expanded="true" fadeOut href="#/user/profile">
+            <a data-toggle="collapse" data-target="#navigation" id="profileDropdown" aria-haspopup="true" aria-expanded="true" fadeOut href="#/user/profile">
               <span class="badge">{{ notifications.length || 0 }}</span>
               <span class="bigBadge">{{ globals.user.firstname | limitTo : 1 }}{{ globals.user.lastname | limitTo : 1 }}</span>
             </a>
@@ -124,7 +124,7 @@
                 -->
           </li>
           <li>
-            <a href="#/startup/new" fadeOut>
+            <a data-toggle="collapse" data-target="#navigation" href="#/startup/new" fadeOut>
               <i class="icon icon-add"></i>
             </a>
           </li>
