@@ -411,7 +411,7 @@
             </div>
             <div class="col-md-12">
                 <select class="form-control" type="number" ng-model="startup.sipScore"
-                        ng-blur="saveStartup(startup.sipScore);">
+                        ng-blur="saveStartup();">
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -434,20 +434,20 @@
             </div>
             <div class="col-md-12">
                 <select class="form-control" type="number" ng-model="startup.sipStatus"
-                        ng-blur="saveStartup(startup.sipScore);">
+                        ng-blur="saveStartup();">
                     <option value=""></option>
-                    <option value="">Pre-launch : projet en pré-lancement</option>
-                    <option value="">Seed : début d’activité et de CA</option>
-                    <option value="">Series A : 1ère levée de fonds 800K€->5M€</option>
+                    <option value="pre-launch">Pre-launch : projet en pré-lancement</option>
+                    <option value="seed">Seed : début d’activité et de CA</option>
+                    <option value="seriesA">Series A : 1ère levée de fonds 800K€->5M€</option>
 
-                    <option value="">Series B : 2e levée de fonds > 5M€</option>
+                    <option value="SeriesB">Series B : 2e levée de fonds > 5M€</option>
                 </select>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-12">
                 <label>L'avis Start in post</label>
-                <sub>Lorem upsum parabelmmu ista blah blah</sub>
+                <sub></sub>
             </div>
             <div class="col-md-12">
                 <textarea class="form-control" type="text" ng-model="startup.sipAnalysis"
