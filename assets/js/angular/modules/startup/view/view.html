@@ -176,7 +176,7 @@
 
       <div class="text-center request-evaluation">
         <div class="request-evaluation" ng-class="{hide: (startup.sipScore && startup.sipAnalysis)  || startup.analysisRequested}">
-          <img src="/images/la-note-sip.png" data-rjs="2" alt="" />
+          <img src="/images/la-note-sip@2x.png" data-rjs="2" alt="" />
           <p class="evaluation text-center">
             Vous souhaitez que Start’in Post vous livre une analyse sur mesure de cette start-up? Lancez votre demande dès maintenant !
           </p>
@@ -193,7 +193,8 @@
                 </button>
         </div>
 
-        <div ng-class="{hide: !startup.sipScore || !startup.sipAnalysis}" style="display: inline-block; vertical-align: middle;">
+
+        <div ng-class="{'hide': (!startup.sipScore || !startup.sipAnalysis) }" style="display: inline-block; vertical-align: middle;">
           <div class="col-xs-12 col-sm-6" style="align-self: center;">
             <img src="/images/la-note-sip.png" data-rjs="2" alt="" style="margin-bottom: 0px;" />
 
