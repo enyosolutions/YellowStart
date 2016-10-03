@@ -21,7 +21,7 @@ module.exports = {
         tagCollection.find({label: {$regex: tag, $options: 'i'}}, {limit: 10}).success(function (col) {
             if (col && col.length > 0) {
                 results = col.map(function (e) {
-                    return {label: '#' + e.label, type: 'tag', subLabel:'',  id: e._id};
+                    return {label: '#' + e.label, type: 'tag', subLabel:'',  id: e.slug};
                 });
             }
 

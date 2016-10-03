@@ -45,8 +45,9 @@ angular.module('start.controllers')
                             $scope.search(selection.title);
                             break;
                         case 'tag':
+                            console.log(selection);
                             $scope.searchName = selection.title;
-                            $state.go('startup-list', {tag: $scope.searchName});
+                            $state.go('startup-list', {tag: selection.originalObject.id});
                             break;
                         case 'button':
                             $scope.searchName = selection.originalObject.title;

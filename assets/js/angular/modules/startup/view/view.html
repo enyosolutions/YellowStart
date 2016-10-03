@@ -244,7 +244,7 @@ style="background-image: url({{ startup.fullPicture ? startup.fullPicture : (sta
 </div>
 
 <!-- map -->
-<div id="map" class="map" ng-if="startup.address" data-address="{{ startup.address }}"></div>
+<div id="map" class="map" ng-if="startup.address && startup.address.length > 0" data-address="{{ startup.address }}"></div>
 
 <!-- related -->
 <div class="related">
