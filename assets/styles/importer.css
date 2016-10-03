@@ -8628,6 +8628,9 @@ body.home .top-navigation {
     padding-top: 10px;
     padding-bottom: 10px;
   }
+  .top-navigation.top-navigation-default .navigation.collapse.in li a .icon {
+    color: #0031f7;
+  }
   .top-navigation.top-navigation-default .navigation.collapse.in .dropdown-menu {
     position: static;
     width: 100%;
