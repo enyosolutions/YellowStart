@@ -9912,10 +9912,10 @@ footer .brand {
   color: #ff6500;
 }
 .page.startup-view .images-section .carousel-control.left {
-  left: 40%;
+  left: 30%;
 }
 .page.startup-view .images-section .carousel-control.right {
-  right: 40%;
+  right: 30%;
 }
 .page.startup-view .document-section {
   width: 100%;
@@ -10475,6 +10475,9 @@ footer .brand {
   .page.startup-view .sidebar-wall .actions .action {
     width: 29vw;
     padding: 4vw;
+  }
+  .page.startup-view .sidebar-wall .actions .action:nth-child(3) {
+    display: none;
   }
   .page.startup-view .sip-note .request-evaluation .evaluation {
     font-size: 14px;
