@@ -10419,13 +10419,9 @@ footer .brand {
   }
   .page.edit-page .nav li,
   .page.startup-edit .nav li {
-    width: 50%;
+    width: 25%;
     margin: 0 -5px 20px 0;
     text-align: center;
-  }
-  .page.edit-page .nav li:last-child,
-  .page.startup-edit .nav li:last-child {
-    margin-bottom: 0;
   }
   .navbar-default .navbar-toggle:hover,
   .navbar-default .navbar-toggle:focus {
