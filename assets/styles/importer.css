@@ -8789,6 +8789,7 @@ footer .brand {
 @media screen and (max-width: 768px) {
   .cycle-slider-home {
     height: auto;
+    max-height: 900px;
   }
   .cycle-slider-home .slider {
     height: 100%;
