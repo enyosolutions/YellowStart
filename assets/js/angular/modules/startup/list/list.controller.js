@@ -214,29 +214,23 @@ angular.module('start.controllers')
                     variableWidth: true,
                     speed: 300,
                     centerMode: false,
-                    slidesToShow: 5,
+                    slidesToShow: 4,
                     slidesToScroll: 1,
                     responsive: [
                       {
                         breakpoint: 1300,
                         settings: {
-                          slidesToShow: 4
+                          slidesToShow: 3
                         }
                       },
                       {
                         breakpoint: 1024,
                         settings: {
-                          slidesToShow: 3
-                        }
-                      },
-                      {
-                        breakpoint: 600,
-                        settings: {
                           slidesToShow: 2
                         }
                       },
                       {
-                        breakpoint: 480,
+                        breakpoint: 600,
                         settings: {
                           slidesToShow: 1
                         }
