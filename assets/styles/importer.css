@@ -8789,6 +8789,7 @@ footer .brand {
 @media screen and (max-width: 768px) {
   .cycle-slider-home {
     height: auto;
+    max-height: 900px;
   }
   .cycle-slider-home .slider {
     height: 100%;
@@ -9516,6 +9517,14 @@ footer .brand {
   .page.startup-list .slick-prev,
   .page.startup-list .slick-next {
     display: none !important;
+  }
+  .page.startup-view .sidebar-wall {
+    text-align: center;
+  }
+  .page.edit-page .form-body .form-group:nth-child(6) sub,
+  .page.edit-page .form-body .form-group:nth-child(7) sub,
+  .page.edit-page .form-body .form-group:nth-child(8) sub {
+    display: none;
   }
 }
 /*
@@ -10414,13 +10423,9 @@ footer .brand {
   }
   .page.edit-page .nav li,
   .page.startup-edit .nav li {
-    width: 50%;
+    width: 25%;
     margin: 0 -5px 20px 0;
     text-align: center;
-  }
-  .page.edit-page .nav li:last-child,
-  .page.startup-edit .nav li:last-child {
-    margin-bottom: 0;
   }
   .navbar-default .navbar-toggle:hover,
   .navbar-default .navbar-toggle:focus {

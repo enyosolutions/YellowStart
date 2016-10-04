@@ -432,6 +432,24 @@
       display: none !important;
     }
   }
+
+  .page.startup-view {
+    .sidebar-wall {
+      text-align: center;
+    }
+  }
+
+  .page.edit-page {
+    .form-body {
+      .form-group:nth-child(6),
+      .form-group:nth-child(7),
+      .form-group:nth-child(8) {
+        sub {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
 /*
@@ -1555,14 +1573,9 @@
       text-align: left;
 
       li {
-        width: 50%;
+        width: 25%;
         margin: 0 -5px 20px 0;
-
         text-align: center;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
       }
     }
   }
