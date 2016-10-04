@@ -9520,6 +9520,11 @@ footer .brand {
   .page.startup-view .sidebar-wall {
     text-align: center;
   }
+  .page.edit-page .form-body .form-group:nth-child(6) sub,
+  .page.edit-page .form-body .form-group:nth-child(7) sub,
+  .page.edit-page .form-body .form-group:nth-child(8) sub {
+    display: none;
+  }
 }
 /*
  * View
