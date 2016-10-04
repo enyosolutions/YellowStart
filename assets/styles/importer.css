@@ -9550,7 +9550,7 @@ footer .brand {
 }
 .page.startup-view .splash {
   height: auto;
-  min-height: 524px;
+  min-height: 475px;
   position: relative;
   background-position: center;
   padding: 0 0 0 0;
@@ -10397,7 +10397,6 @@ footer .brand {
 @media screen and (max-width: 768px) {
   .top-navigation {
     height: 98px!important;
-    position: absolute;
     z-index: 100;
     top: 0;
   }
@@ -10489,7 +10488,7 @@ footer .brand {
     line-height: 32px;
   }
   .page.startup-view .splash .title {
-    margin: 200px 0 30px 0;
+    margin: 140px 0 30px 0;
   }
   .page.startup-view .sidebar-wall {
     padding-top: 0;
