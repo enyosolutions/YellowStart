@@ -7894,6 +7894,9 @@ label {
   font-weight: 700;
   color: #FAFDD4;
 }
+.splash h1 a {
+  color: #FAFDD4;
+}
 .splash h2 {
   font-size: 1.5em;
   font-weight: 100;
@@ -8639,8 +8642,8 @@ body.home .top-navigation {
     display: none;
   }
   .top-navigation.top-navigation-default .search-form input {
-    width: 90%;
-    margin-left: 5%;
+    width: 50%;
+    margin-left: 25%;
   }
 }
 @media screen and (max-width: 640px) {
