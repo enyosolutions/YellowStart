@@ -5776,6 +5776,9 @@ a.thumbnail.active {
   padding: 9px;
   color: #0f2105;
 }
+.thumbnail p {
+  overflow: auto;
+}
 .alert {
   padding: 15px;
   margin-bottom: 21px;
@@ -8944,6 +8947,16 @@ footer .brand {
   padding-left: 15px !important;
   padding-right: 15px !important;
 }
+.result-indicator .pull-right {
+  margin-bottom: 25px;
+}
+@media screen and (max-width: 768px) {
+  .result-indicator .pull-right {
+    float: none !important;
+    margin-top: 25px;
+    text-align: center;
+  }
+}
 /*
  * Register form
  */
@@ -9547,7 +9560,7 @@ footer .brand {
 }
 .page.startup-view .splash {
   height: auto;
-  min-height: 524px;
+  min-height: 475px;
   position: relative;
   background-position: center;
   padding: 0 0 0 0;
@@ -10394,7 +10407,6 @@ footer .brand {
 @media screen and (max-width: 768px) {
   .top-navigation {
     height: 98px!important;
-    position: absolute;
     z-index: 100;
     top: 0;
   }
@@ -10486,7 +10498,7 @@ footer .brand {
     line-height: 32px;
   }
   .page.startup-view .splash .title {
-    margin: 200px 0 30px 0;
+    margin: 140px 0 30px 0;
   }
   .page.startup-view .sidebar-wall {
     padding-top: 0;
