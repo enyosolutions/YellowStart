@@ -9513,6 +9513,10 @@ footer .brand {
   .page.startups-list .startup .card-img-top {
     max-height: none !important;
   }
+  .page.startup-list .slick-prev,
+  .page.startup-list .slick-next {
+    display: none !important;
+  }
 }
 /*
  * View
