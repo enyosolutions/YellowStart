@@ -9517,6 +9517,9 @@ footer .brand {
   .page.startup-list .slick-next {
     display: none !important;
   }
+  .page.startup-view .sidebar-wall {
+    text-align: center;
+  }
 }
 /*
  * View
