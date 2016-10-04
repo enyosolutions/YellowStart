@@ -7894,6 +7894,9 @@ label {
   font-weight: 700;
   color: #FAFDD4;
 }
+.splash h1 a {
+  color: #FAFDD4;
+}
 .splash h2 {
   font-size: 1.5em;
   font-weight: 100;
