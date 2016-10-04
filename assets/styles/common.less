@@ -675,12 +675,12 @@ body.home .top-navigation {
         }
       }
 
-      .search-form {
+      /*.search-form {
         input {
           width: 50%;
           margin-left: 25%;
         }
-      }
+      }*/
     }
   }
 }
@@ -1058,6 +1058,25 @@ footer {
       float: none !important;
       margin-top: 25px;
       text-align: center;
+    }
+  }
+  .top-navigation{
+    &.top-navigation-default{
+      &.nav-focus {
+        .search-form {
+          float: none;
+          width: 80%;
+          margin-left: 0;
+          left:10%;
+        }
+        input.url{
+          width: 100%;
+        }
+        .angucomplete-dropdown {
+          min-width: 100%;
+          width: 100%;
+        }
+      }
     }
   }
 }

@@ -8616,6 +8616,14 @@ body.home .top-navigation {
   .top-navigation.top-navigation-login .form-login input {
     margin: 0 0 15px 0;
   }
+  .top-navigation.top-navigation-default {
+    /*.search-form {
+        input {
+          width: 50%;
+          margin-left: 25%;
+        }
+      }*/
+  }
   .top-navigation.top-navigation-default .navigation {
     display: block;
   }
@@ -8643,10 +8651,6 @@ body.home .top-navigation {
   }
   .top-navigation.top-navigation-default .navigation.collapse.in .dropdown-menu .divider {
     display: none;
-  }
-  .top-navigation.top-navigation-default .search-form input {
-    width: 50%;
-    margin-left: 25%;
   }
 }
 @media screen and (max-width: 640px) {
@@ -8955,6 +8959,19 @@ footer .brand {
     float: none !important;
     margin-top: 25px;
     text-align: center;
+  }
+  .top-navigation.top-navigation-default.nav-focus .search-form {
+    float: none;
+    width: 80%;
+    margin-left: 0;
+    left: 10%;
+  }
+  .top-navigation.top-navigation-default.nav-focus input.url {
+    width: 100%;
+  }
+  .top-navigation.top-navigation-default.nav-focus .angucomplete-dropdown {
+    min-width: 100%;
+    width: 100%;
   }
 }
 /*
