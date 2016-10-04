@@ -10402,6 +10402,9 @@ footer .brand {
   .page.startup-view .startup-info {
     padding: 0 30px;
   }
+  .startup-list .page.startup-list {
+    margin-top: 75px;
+  }
   .page.startup-list .home .startups-wrapper {
     padding-bottom: 0;
   }
