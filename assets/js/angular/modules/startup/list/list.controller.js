@@ -126,7 +126,7 @@ angular.module('start.controllers')
                 $rootScope.barIsFocused = true;
                 $timeout(function () {
                     console.log('bar focus function call');
-                    $searchInput.focus();
+                    $searchInput.focus().select();
                 }, 300);
             }
         };
