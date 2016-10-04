@@ -70,9 +70,15 @@
     <!-- default -->
     <div id="navbar-main" class="top-navigation top-navigation-default navbar navbar-default {{ barIsFocused }}" ng-if="['user-register','user-reset'].indexOf($state.current.name) === -1" ng-class="{'nav-focus': barIsFocused}">
       <div class="container">
-        <a href="#/" class="brand">
-          <img ng-class="{'hide': $state.is('home')}" ng-src="/images/logo_bleu.svg" alt="Yellow Starter" />
-          <img ng-class="{'hide': !$state.is('home')}" ng-src="/images/logo_jaune.svg" alt="Yellow Starter" />
+        <!-- DESKTOP LOGO -->
+        <a href="#/" class="brand" ng-if="!globals.isMobile">
+          <img ng-class="{hide: $state.is('home')}" src="/images/logo_bleu.svg" alt="Yellow Starter" />
+          <img ng-class="{hide: !$state.is('home')}" ng-src="/images/logo_jaune.svg" alt="Yellow Starter" />
+        </a>
+
+        <!-- MOBILE LOGO -->
+        <a href="#/" class="brand" ng-if="globals.isMobile">
+          <img ng-src="/images/logo_jaune.svg" alt="Yellow Starter" />
         </a>
 
         <div class="search-form ">
@@ -188,7 +194,7 @@
 -->
 
     <!--TEMPLATES-->
-    
+
     <!--TEMPLATES END-->
 
 
