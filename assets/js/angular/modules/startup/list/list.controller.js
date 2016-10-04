@@ -18,7 +18,7 @@ angular.module('start.controllers')
         $scope.currentPage = 0;
         $scope.remoteHost = CONFIG.baseUrl;
         $scope.q = '';
-        $scope.slides = $rootScope.globals.isMobile ? HomeMobileSlider.query() : HomeSlider.query();
+        $scope.slides = $rootScope.globals.isMobile && (!$rootScope.globals.isLandscape) ? HomeMobileSlider.query() : HomeSlider.query();
         var query = {'publishedOnly': 1};
         var $searchInput = $('#search_value');
 
