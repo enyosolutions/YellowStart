@@ -23,7 +23,7 @@ module.exports = {
         tagCollection.find({label: {$regex: tag, $options: 'i'}}, {limit: 10}).success(function (col) {
             if (col && col.length > 0) {
                 results = col.map(function (e) {
-                    return {label: '#' + e.label, type: 'tag', subLabel:'', slug: e.slug, field: 'fieldtest' ,  id: e.slug};
+                    return {label: '#' + e.label, type: 'tag', subLabel:'', slug: e.slug, id: e.slug};
                 });
             }
 

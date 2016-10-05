@@ -56,7 +56,7 @@
           <img src="/images/logo_bleu.svg" alt="Yellow Starter" />
         </a>
 
-        <form class="form-login form-inline" ng-controller="RegisterCtrl as Register" ng-submit="login(Register.email, Register.password)">
+        <form class="form-login form-inline" ng-controller="RegisterCtrl as Register" ng-submit="login(Register.email, Register.password)">re
           <input class="url form-control" name="email" ng-model="Register.email" type="email" required placeholder="Adresse E-mail" />
           <input class="url form-control" name="password" ng-model="Register.password" type="password" required placeholder="Mot de passe" />
 
@@ -76,11 +76,11 @@
           <img ng-class="{hide: !$state.is('home')}" ng-src="/images/logo_jaune.svg" alt="Yellow Starter" />
         </a>
 
-        <!-- MOBILE LOGO -->
+        <!-- MOBILE LOGO
         <a href="#/" class="brand" ng-if="globals.isMobile">
           <img ng-src="/images/logo_jaune.svg" alt="Yellow Starter" />
         </a>
-
+ -->
         <div class="search-form ">
           <form ng-submit="search(listStartup.searchName)" ng-controller="ListStartupCtrl as listStartup">
             <input class="url form-control hidden" name="website" ng-model="listStartup.searchName" type="text" placeholder="Rechercher une start-up" ng-focus="{'navbar-main':top-navigation-default}" />
