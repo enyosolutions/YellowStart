@@ -22,7 +22,8 @@ module.exports = {
         var query = {};
         var startPage = req.query.page != undefined ? req.query.page : 0;
         var status = req.query.status ? req.query.status : undefined;
-        var options = {limit: req.query.limit ? req.query.limit : 12, skip: startPage * 4};
+        var pageSize = req.query.limit ? req.query.limit : 12;
+        var options = {limit: pageSize, skip: startPage * pageSize};
 
 
         // Query preparation
@@ -568,4 +569,3 @@ module.exports = {
     }
 }
 ;
-
