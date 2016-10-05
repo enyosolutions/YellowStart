@@ -28,7 +28,7 @@ angular.module('start.controllers').controller("AdminStartupListCtrl", function(
     };
 
     $scope.search = function () {
-        $scope.query = angular.extend({page: 0}, {search: $scope.searchInput}, $scope.query));
+        $scope.query = angular.extend({page: 0}, {search: $scope.searchInput}, $scope.query);
         $scope.startups = Startup.query($scope.query);
         return;
     };
