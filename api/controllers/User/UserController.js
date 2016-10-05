@@ -26,6 +26,7 @@ module.exports = {
                 query = {$or: [{startupName: {$regex: q, $options: 'i'}}, {websiteUrl: {$regex: q, $options: 'i'}}, {tags: {$regex: q, $options: 'i'}}]};
                 console.dir('startup search', q, JSON.stringify(query, false, null));
             }
+
             if (req.query.sort){
                 options['sort'] = {};
                 for (var i in req.query.sort) {
