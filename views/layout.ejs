@@ -81,7 +81,7 @@
           <img ng-src="/images/logo_jaune.svg" alt="Yellow Starter" />
         </a>
 
-        <div class="search-form ">
+        <div class="search-form" style="z-index:1;">
           <form ng-submit="search(listStartup.searchName)" ng-controller="ListStartupCtrl as listStartup">
             <input class="url form-control hidden" name="website" ng-model="listStartup.searchName" type="text" placeholder="Rechercher une start-up" ng-focus="{'navbar-main':top-navigation-default}" />
 
