@@ -71,7 +71,7 @@
     <div id="navbar-main" class="top-navigation top-navigation-default navbar navbar-default {{ barIsFocused }}" ng-if="['user-register','user-reset'].indexOf($state.current.name) === -1" ng-class="{'nav-focus': barIsFocused}">
       <div class="container">
         <!-- DESKTOP LOGO -->
-        <a href="#/" class="brand" ng-if="!globals.isMobile">
+        <a href="#/" class="brand">
           <img ng-class="{hide: $state.is('home')}" src="/images/logo_bleu.svg" alt="Yellow Starter" />
           <img ng-class="{hide: !$state.is('home')}" ng-src="/images/logo_jaune.svg" alt="Yellow Starter" />
         </a>
@@ -208,7 +208,6 @@
     </footer>
 
     <script src="/js/bower_components/jquery/dist/jquery.min.js"></script>
-
     <script src="/js/angular/local.js"></script>
 
 
@@ -280,5 +279,11 @@
 
 
     <script src="/js/dependencies/retina.min.js"></script>
+
+    <script>
+      $(document).on('click',function(){
+        $('.collapse').collapse('hide');
+      })
+    </script>
   </body>
 </html>
