@@ -27,8 +27,9 @@ angular.module('start.controllers').controller("AdminTagListCtrl", function($sco
     };
 
     $scope.search = function () {
+        var query = {label: {$regex: $scope.searchInput, $options: 'i'}};
         $scope.currentPage = 0;
-        $scope.query = angular.extend({}, $scope.query, {page: $scope.currentPage}, {search: $scope.searchInput});
+        $scope.query = angular.extend({}, $scope.query, {page: $scope.currentPage}, {query: query});
         $scope.tags = Tag.query($scope.query);
         return;
     };
