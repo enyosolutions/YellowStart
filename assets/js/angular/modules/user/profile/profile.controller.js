@@ -57,6 +57,10 @@ angular.module('start.controllers').controller("ProfileCtrl", function ($scope, 
         $scope.starredStartups = Startup.query(angular.extend({ 'sort[meta.bookmarks]': -1}, {ids: $rootScope.globals.user.bookmarks}));
     };
 
+    $scope.sortByNoteSip = function () {
+        $scope.starredStartups = Startup.query(angular.extend({'sort[sipScore]': -1}, {ids: $rootScope.globals.user.bookmarks}));
+    };
+
     $scope.pageClass = 'user-profile';
     console.log($rootScope.globals.user);
     $scope.starredStartups = Startup.query({ids: $rootScope.globals.user.bookmarks});
