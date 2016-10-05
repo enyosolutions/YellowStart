@@ -47,6 +47,7 @@ angular.module('start.controllers')
                         case 'tag':
                             console.log(selection);
                             $scope.searchName = selection.title;
+                            delete $stateParams.search;
                             $state.go('startup-list', {tag: selection.originalObject.id});
                             break;
                         case 'button':

@@ -7,6 +7,7 @@
 
 module.exports = {
     autocomplete: function (req, resp) {
+        console.log("REQUEST TO AUTOCOMPLETE");
         console.log(req.query.q);
         if (req.query.q === undefined) {
             return resp.json({error: 'There was an error, no search parameters are provided'})
@@ -22,7 +23,7 @@ module.exports = {
         tagCollection.find({label: {$regex: tag, $options: 'i'}}, {limit: 10}).success(function (col) {
             if (col && col.length > 0) {
                 results = col.map(function (e) {
-                    return {label: '#' + e.label, type: 'tag', subLabel:'',  id: e.slug};
+                    return {label: '#' + e.label, type: 'tag', subLabel:'', slug: e.slug, field: 'fieldtest' ,  id: e.slug};
                 });
             }
 
@@ -31,10 +32,10 @@ module.exports = {
                 startupName: {$regex: req.query.q, $options: 'i'}
             }, {limit: 10}).success(function (col2) {
                 if (col2 && col2.length > 0) {
-                    results = results.concat(col2.map(function (e) {
-                        var out = {label: e.startupName, id: e._id, type: 'startup'};
-                        if(e && e.tags){
-                            out.subLabel =  e.tags.map(function(t){return '#' + t;}).join(' ');
+                    results = results.concat(col2.map(function (e2) {
+                        var out = {label: e2.startupName, id: e2._id, type: 'startup' };
+                        if(e2 && e2.tags){
+                            out.subLabel =  e2.tags.map(function(t){return '#' + t;}).join(' ');
                         }
                         return out;
                     }));
