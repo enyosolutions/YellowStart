@@ -61,7 +61,7 @@ angular.module('start.controllers').controller("AdminHomeCtrl", function ($scope
             url: CONFIG.baseUrl + "/api/admin/upload-picture",
             parallelUploads: 1,
             maxFileSize: 10,
-            dictDefaultMessage: "Cliquez ou Glissez une image pour l'ajouter",
+            dictDefaultMessage: "Cliquez ou Glissez une image pour l'ajouter. La taille de cette image doit être de 2880px par 1430px.",
             acceptedFiles: 'image/*',
             headers: {'Authorization': 'Bearer ' + $localstorage.get('auth_token')},
             init: function(){
@@ -87,7 +87,7 @@ angular.module('start.controllers').controller("AdminHomeCtrl", function ($scope
             url: CONFIG.baseUrl + "/api/admin/upload-picture",
             parallelUploads: 1,
             maxFileSize: 10,
-            dictDefaultMessage: "Cliquez ou Glissez une image pour l'ajouter",
+            dictDefaultMessage: "Cliquez ou Glissez une image pour l'ajouter. La taille de cette image doit être de 750px par 1334px.",
             acceptedFiles: 'image/*',
             headers: {'Authorization': 'Bearer ' + $localstorage.get('auth_token')},
             init: function(){
