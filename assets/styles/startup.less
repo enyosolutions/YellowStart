@@ -562,6 +562,69 @@
    * Tab: Sidebar
    */
   .sidebar-wall {
+    padding-top: 150px;
+    .media {
+      &:first-child {
+        padding-top: 0;
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+
+      padding: 20px 0;
+      border-bottom: 1px solid #e3edef;
+
+      .media-heading {
+        color: #292B2C;
+        line-height: 2;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .media-object {
+        margin-right: 20px;
+      }
+
+      .meta {
+        font-size: 12px;
+        line-height: 16px;
+
+        .date {
+          color: #666C6F;
+          font-weight: 600;
+        }
+      }
+
+      .stack-zone {
+        position: relative;
+        display: block;
+        .stacked {
+          position: absolute;
+          right: 8px;
+          bottom: -12px;
+        }
+      }
+
+      .contact {
+        display: block;
+        margin: 20px 0 0 0;
+
+        color: #666c6f;
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        i {
+          font-size: 20px;
+          vertical-align: top;
+        }
+
+        &:hover {
+          color: #ff6500;
+          text-decoration: none;
+        }
+      }
+    }
     .actions {
       margin: 50px 0 0 0;
 
@@ -1049,75 +1112,6 @@
     margin: 50px 0 0 0;
   }
 
-  // wall
-  .sidebar-wall {
-    padding-top: 150px;
-    .media {
-      &:first-child {
-        padding-top: 0;
-      }
-      &:last-child {
-        border-bottom: none;
-      }
-
-      padding: 20px 0;
-      border-bottom: 1px solid #e3edef;
-
-      .media-heading {
-        color: #292B2C;
-        line-height: 2;
-        font-size: 20px;
-        font-weight: bold;
-      }
-      .media-object {
-        margin-right: 20px;
-      }
-
-      .meta {
-        font-size: 12px;
-        line-height: 16px;
-
-        .date {
-          color: #666C6F;
-          font-weight: 600;
-        }
-      }
-
-      .stack-zone {
-        position: relative;
-        display: block;
-        .stacked {
-          position: absolute;
-          right: 8px;
-          bottom: -12px;
-        }
-      }
-
-      .contact {
-        display: block;
-        margin: 20px 0 0 0;
-
-        color: #666c6f;
-        font-size: 12px;
-        line-height: 20px;
-        font-weight: 600;
-        text-transform: uppercase;
-
-        i {
-          font-size: 20px;
-          vertical-align: top;
-        }
-
-        &:hover {
-          color: #ff6500;
-          text-decoration: none;
-        }
-      }
-    }
-  }
-
-
-
   .sip-note {
     margin-top: 40px;
     background: #0547fd;
@@ -1405,6 +1399,14 @@
 
 }
 
+@media screen and (max-width: 1000px) {
+  .page.startup-view {
+    .sidebar-wall {
+      padding-top: 0;
+    }
+  }
+}
+
 @media screen and (max-width: 768px) {
   .section-title,
   .related .title,
@@ -1412,8 +1414,40 @@
     font-size: 28px !important;
     line-height: 28px !important;
   }
-
   .page.startup-view {
+    .startup-info #resume {
+      .startup-website, .intro {
+        font-size: 20px;
+        line-height: 32px;
+      }
+    }
+    .splash .title {
+          margin: 140px 0 30px 0;
+    }
+    .sidebar-wall {
+      padding-top: 0;
+
+      .actions .action {
+        width: 29vw;
+        padding: 4vw;
+      }
+
+      .actions .action:nth-child(3) {
+        display: none;
+      }
+    }
+    .sip-note .request-evaluation {
+      .evaluation {
+        font-size: 14px;
+        line-height: 24px;
+      }
+      img {
+        width: 150px;
+      }
+    }
+    .know-startup {
+      padding: 70px 0;
+    }
     .splash {
       .subtitle {
         padding: 0 20px;
@@ -1627,41 +1661,6 @@
   .startup-view .top-navigation {
     background: transparent;
   }
-
-  .page.startup-view {
-    .startup-info #resume {
-      .startup-website, .intro {
-        font-size: 20px;
-        line-height: 32px;
-      }
-    }
-    .splash .title {
-          margin: 140px 0 30px 0;
-    }
-    .sidebar-wall {
-      padding-top: 0;
-
-      .actions .action {
-        width: 29vw;
-        padding: 4vw;
-      }
-
-      .actions .action:nth-child(3) {
-        display: none;
-      }
-    }
-    .sip-note .request-evaluation {
-      .evaluation {
-        font-size: 14px;
-        line-height: 24px;
-      }
-      img {
-        width: 150px;
-      }
-    }
-    .know-startup {
-      padding: 70px 0;
-    }
 /*    .startup-map-infowindow {
       width: 250px!important;
     }*/
