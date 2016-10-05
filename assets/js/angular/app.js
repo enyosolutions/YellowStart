@@ -34,7 +34,6 @@ angular
         $rootScope.globals = {isMobile: angular.element('body').hasClass('mobile'), isLandscape: window.innerWidth > window.innerHeight };
         $rootScope.remoteHost = CONFIG.baseUrl;
 
-        console.log(window._config );
         $rootScope.$on("$routeChangeSuccess", function (event, currentRoute, previousRoute) {
             console.log('routechange success');
         });
