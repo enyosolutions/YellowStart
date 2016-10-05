@@ -142,6 +142,40 @@ module.exports = {
             }
         });
 
+    },
+
+    'removeFile': function (req, res, next) {
+        console.log('upload files', req.token);
+        var id = req.token.id;
+
+        var userCollection = Monk.get('user');
+        userCollection.find({_id: id}).then(function (col) {
+            if (col && col.length > 0) {
+                var user = col[0];
+                var fs = require('fs');
+                fs.unlink(sails.config.appPath + '/assets' + user.picture, function (err) {
+                    if (err) {
+                        return res.negotiate(err);
+                    }
+
+                    // Save the "fd" and the url where the avatar for a user can be accessed
+
+                    delete user.picture ;
+
+                    userCollection.update({_id: id}, user).then(function () {
+                        res.json(200, {body: user});
+                    });
+                });
+            }
+            else {
+                console.log('User not found');
+                res.json(404, {error: 'User not found'});
+            }
+            
+            
+            
+        });
+
     }
 
 };

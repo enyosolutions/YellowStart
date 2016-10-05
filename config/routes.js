@@ -70,6 +70,7 @@ module.exports.routes = {
 
 
     '/user/upload-picture': 'UserController.uploadFile',
+    '/user/delete-picture': 'UserController.removeFile',
     '/gitrefresh/azoeieovoaizdqodaoizoiqosidqsndqndqdo': 'StartupController.gitrefresh'
     /***************************************************************************
      *                                                                          *

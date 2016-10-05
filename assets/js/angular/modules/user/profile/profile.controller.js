@@ -1,11 +1,17 @@
 'use strict';
 
-angular.module('start.controllers').controller("ProfileCtrl", function ($scope, $state, Auth, $rootScope, Startup, $log, $localstorage, $ngBootbox, UserService, CONFIG) {
+angular.module('start.controllers').controller("ProfileCtrl", function ($scope, $state, Auth, $rootScope, Startup, $log, $localstorage, $ngBootbox, $http, UserService, CONFIG) {
 
     $scope.pictureZone = {
         addedFile: function (file, error) {
         },
 
+        removedFile: function (file) {
+            $http.post('/user/delete-picture');
+            $rootScope.globals.user.picture = '';
+            return true;
+        },
+        
         error: function (file, errorMessage) {
             $log.log(errorMessage);
             $ngBootbox.alert("<h2 class='text-center text-danger'>" + errorMessage + "</h2>");
@@ -21,6 +27,8 @@ angular.module('start.controllers').controller("ProfileCtrl", function ($scope, 
             paramName: "file",
             parallelUploads: 1,
             maxFileSize: 10,
+            maxFiles: 1,
+            addRemoveLinks: true,
             dictDefaultMessage: "Glissez pour ajouter image ou cliquer pour parcourir",
             acceptedFiles: 'image/*',
             headers: {'Authorization': 'Bearer ' + $localstorage.get('auth_token')}
@@ -37,7 +45,6 @@ angular.module('start.controllers').controller("ProfileCtrl", function ($scope, 
     }
 
     $scope.updateProfile = function(){
-        console.log($rootScope.globals.user);
         UserService.Update($rootScope.globals.user);
     };
 
