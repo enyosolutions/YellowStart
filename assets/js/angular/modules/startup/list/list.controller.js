@@ -218,6 +218,7 @@ angular.module('start.controllers')
                     centerMode: false,
                     slidesToShow: 4,
                     slidesToScroll: 1,
+                    swipeToSlide: true,
                     responsive: [
                       {
                         breakpoint: 1300,
