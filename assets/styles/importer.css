@@ -9662,6 +9662,62 @@ footer .brand {
   color: #333333;
   border-color: #ff6500;
 }
+.page.startup-view .sidebar-wall {
+  padding-top: 150px;
+}
+.page.startup-view .sidebar-wall .media {
+  padding: 20px 0;
+  border-bottom: 1px solid #e3edef;
+}
+.page.startup-view .sidebar-wall .media:first-child {
+  padding-top: 0;
+}
+.page.startup-view .sidebar-wall .media:last-child {
+  border-bottom: none;
+}
+.page.startup-view .sidebar-wall .media .media-heading {
+  color: #292B2C;
+  line-height: 2;
+  font-size: 20px;
+  font-weight: bold;
+}
+.page.startup-view .sidebar-wall .media .media-object {
+  margin-right: 20px;
+}
+.page.startup-view .sidebar-wall .media .meta {
+  font-size: 12px;
+  line-height: 16px;
+}
+.page.startup-view .sidebar-wall .media .meta .date {
+  color: #666C6F;
+  font-weight: 600;
+}
+.page.startup-view .sidebar-wall .media .stack-zone {
+  position: relative;
+  display: block;
+}
+.page.startup-view .sidebar-wall .media .stack-zone .stacked {
+  position: absolute;
+  right: 8px;
+  bottom: -12px;
+}
+.page.startup-view .sidebar-wall .media .contact {
+  display: block;
+  margin: 20px 0 0 0;
+  color: #666c6f;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.page.startup-view .sidebar-wall .media .contact i {
+  font-size: 20px;
+  vertical-align: top;
+}
+.page.startup-view .sidebar-wall .media .contact:hover {
+  color: #ff6500;
+  text-decoration: none;
+}
 .page.startup-view .sidebar-wall .actions {
   margin: 50px 0 0 0;
 }
@@ -10039,62 +10095,6 @@ footer .brand {
 .page.startup-view .cycle-slider-media {
   margin: 50px 0 0 0;
 }
-.page.startup-view .sidebar-wall {
-  padding-top: 150px;
-}
-.page.startup-view .sidebar-wall .media {
-  padding: 20px 0;
-  border-bottom: 1px solid #e3edef;
-}
-.page.startup-view .sidebar-wall .media:first-child {
-  padding-top: 0;
-}
-.page.startup-view .sidebar-wall .media:last-child {
-  border-bottom: none;
-}
-.page.startup-view .sidebar-wall .media .media-heading {
-  color: #292B2C;
-  line-height: 2;
-  font-size: 20px;
-  font-weight: bold;
-}
-.page.startup-view .sidebar-wall .media .media-object {
-  margin-right: 20px;
-}
-.page.startup-view .sidebar-wall .media .meta {
-  font-size: 12px;
-  line-height: 16px;
-}
-.page.startup-view .sidebar-wall .media .meta .date {
-  color: #666C6F;
-  font-weight: 600;
-}
-.page.startup-view .sidebar-wall .media .stack-zone {
-  position: relative;
-  display: block;
-}
-.page.startup-view .sidebar-wall .media .stack-zone .stacked {
-  position: absolute;
-  right: 8px;
-  bottom: -12px;
-}
-.page.startup-view .sidebar-wall .media .contact {
-  display: block;
-  margin: 20px 0 0 0;
-  color: #666c6f;
-  font-size: 12px;
-  line-height: 20px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-.page.startup-view .sidebar-wall .media .contact i {
-  font-size: 20px;
-  vertical-align: top;
-}
-.page.startup-view .sidebar-wall .media .contact:hover {
-  color: #ff6500;
-  text-decoration: none;
-}
 .page.startup-view .sip-note {
   margin-top: 40px;
   background: #0547fd;
@@ -10327,12 +10327,45 @@ footer .brand {
   background: #fafdd4;
   color: #ff6500;
 }
+@media screen and (max-width: 1000px) {
+  .page.startup-view .sidebar-wall {
+    padding-top: 0;
+  }
+}
 @media screen and (max-width: 768px) {
   .section-title,
   .related .title,
   .know-startup .title {
     font-size: 28px !important;
     line-height: 28px !important;
+  }
+  .page.startup-view .startup-info #resume .startup-website,
+  .page.startup-view .startup-info #resume .intro {
+    font-size: 20px;
+    line-height: 32px;
+  }
+  .page.startup-view .splash .title {
+    margin: 140px 0 30px 0;
+  }
+  .page.startup-view .sidebar-wall {
+    padding-top: 0;
+  }
+  .page.startup-view .sidebar-wall .actions .action {
+    width: 29vw;
+    padding: 4vw;
+  }
+  .page.startup-view .sidebar-wall .actions .action:nth-child(3) {
+    display: none;
+  }
+  .page.startup-view .sip-note .request-evaluation .evaluation {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .page.startup-view .sip-note .request-evaluation img {
+    width: 150px;
+  }
+  .page.startup-view .know-startup {
+    padding: 70px 0;
   }
   .page.startup-view .splash .subtitle {
     padding: 0 20px;
@@ -10515,39 +10548,9 @@ footer .brand {
   .startup-view .top-navigation {
     background: transparent;
   }
-  .page.startup-view {
-    /*    .startup-map-infowindow {
+  /*    .startup-map-infowindow {
       width: 250px!important;
     }*/
-  }
-  .page.startup-view .startup-info #resume .startup-website,
-  .page.startup-view .startup-info #resume .intro {
-    font-size: 20px;
-    line-height: 32px;
-  }
-  .page.startup-view .splash .title {
-    margin: 140px 0 30px 0;
-  }
-  .page.startup-view .sidebar-wall {
-    padding-top: 0;
-  }
-  .page.startup-view .sidebar-wall .actions .action {
-    width: 29vw;
-    padding: 4vw;
-  }
-  .page.startup-view .sidebar-wall .actions .action:nth-child(3) {
-    display: none;
-  }
-  .page.startup-view .sip-note .request-evaluation .evaluation {
-    font-size: 14px;
-    line-height: 24px;
-  }
-  .page.startup-view .sip-note .request-evaluation img {
-    width: 150px;
-  }
-  .page.startup-view .know-startup {
-    padding: 70px 0;
-  }
 }
 @media screen and (max-width: 769px) {
   .cycle-mobile {
