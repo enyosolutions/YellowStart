@@ -2,9 +2,9 @@
 
 angular.module('start.controllers').controller("AdminStartupListCtrl", function($scope, $location, Startup) {
 
-    $scope.currentPage = 0;
-    $scope.startups = Startup.query({page:$scope.currentPage});
     var query = {'sort[startupName]':1};
+    $scope.currentPage = 0;
+    $scope.startups = Startup.query(angular.extend({page: $scope.currentPage}, query));
     $scope.prevPage = function () {
         if ($scope.currentPage > 0) {
             $scope.currentPage--;
