@@ -46,7 +46,7 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="tag in tags track by tag._id">
-                        <td>{{ tag.name  }}</td>
+                        <td>{{ tag.label }}</td>
                         <td>{{ tag.slug }}</td>
                         <td>{{ tag.createdAt | date : longDate }}</td>
                         <td>

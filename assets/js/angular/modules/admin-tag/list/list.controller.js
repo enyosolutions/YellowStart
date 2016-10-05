@@ -3,7 +3,7 @@
 angular.module('start.controllers').controller("AdminTagListCtrl", function($scope, $location, Tag) {
 
     $scope.currentPage = 0;
-    $scope.query = {'sort[name]':1, page: $scope.currentPage};
+    $scope.query = {'sort[label]':1, page: $scope.currentPage};
     $scope.tags = Tag.query($scope.query);
 
     $scope.prevPage = function () {
