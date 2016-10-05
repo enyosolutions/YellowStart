@@ -31,7 +31,7 @@ angular
     .run(function (editableOptions, $state, $rootScope, $interval, Auth, $localstorage, $ngBootbox, Notification, NotificationService, CONFIG) {
         editableOptions.theme = 'bs3';
         $rootScope.$state = $state;
-        $rootScope.globals = {isMobile: angular.element('body').hasClass('mobile') };
+        $rootScope.globals = {isMobile: angular.element('body').hasClass('mobile'), isLandscape: window.innerWidth > window.innerHeight };
         $rootScope.remoteHost = CONFIG.baseUrl;
 
         console.log(window._config );

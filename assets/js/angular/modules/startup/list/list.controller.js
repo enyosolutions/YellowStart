@@ -18,7 +18,7 @@ angular.module('start.controllers')
         $scope.currentPage = 0;
         $scope.remoteHost = CONFIG.baseUrl;
         $scope.q = '';
-        $scope.slides = $rootScope.globals.isMobile ? HomeMobileSlider.query() : HomeSlider.query();
+        $scope.slides = $rootScope.globals.isMobile && (!$rootScope.globals.isLandscape) ? HomeMobileSlider.query() : HomeSlider.query();
         var query = {'publishedOnly': 1};
         var $searchInput = $('#search_value');
 
@@ -121,13 +121,13 @@ angular.module('start.controllers')
         };
 
 
-        $rootScope.barFocused = function () {
+        $rootScope.barFocused = function (e) {
             console.log('Focus callback function call');
             if (!$state.is('startup-list')) {
                 $rootScope.barIsFocused = true;
                 $timeout(function () {
                     console.log('bar focus function call');
-                    $searchInput.focus();
+                    $searchInput.focus().select();
                 }, 300);
             }
         };
