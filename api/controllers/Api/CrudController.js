@@ -19,7 +19,10 @@ module.exports = {
                 query = req.query.query;
             }
             if (req.query.sort) {
-                options['sort'] = options.sort;
+                options['sort'] = {};
+                for (var i in req.query.sort) {
+                    options['sort'][i] = parseInt(req.query.sort[i]);
+                }
             }
         }
         console.log('QUERY:',query, 'OPTIONS:', options);
@@ -158,4 +161,3 @@ module.exports = {
             });
     }
 };
-
