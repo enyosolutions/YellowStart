@@ -3,7 +3,7 @@
 angular.module('start.controllers').controller("AdminStartupListCtrl", function($scope, $location, Startup) {
 
     $scope.currentPage = 0;
-        $scope.query = {'sort[startupName]':1, page: $scope.currentPage};
+    $scope.query = {'sort[startupName]':1, page: $scope.currentPage};
     $scope.startups = Startup.query($scope.query);
 
     $scope.prevPage = function () {
@@ -28,7 +28,8 @@ angular.module('start.controllers').controller("AdminStartupListCtrl", function(
     };
 
     $scope.search = function () {
-        $scope.query = angular.extend({}, $scope.query, {page: 0}, {search: $scope.searchInput});
+        $scope.currentPage = 0;
+        $scope.query = angular.extend({}, $scope.query, {page: $scope.currentPage}, {search: $scope.searchInput});
         $scope.startups = Startup.query($scope.query);
         return;
     };
