@@ -2,21 +2,23 @@
 
 angular.module('start.controllers').controller("AdminStartupListCtrl", function($scope, $location, Startup) {
 
-    var query = {'sort[startupName]':1};
+    $scope.query = {'sort[startupName]':1};
     $scope.currentPage = 0;
-    $scope.startups = Startup.query(angular.extend({page: $scope.currentPage}, query));
+    $scope.startups = Startup.query(angular.extend({page: $scope.currentPage}, $scope.query));
 
     $scope.prevPage = function () {
         if ($scope.currentPage > 0) {
             $scope.currentPage--;
         }
-        $scope.startups = Startup.query(angular.extend({page: $scope.currentPage}, query));
+        $scope.query = angular.extend({page: $scope.currentPage}, $scope.query);
+        $scope.startups = Startup.query($scope.query);
     };
 
 
     $scope.nextPage = function () {
         $scope.currentPage++;
-        $scope.startups = Startup.query(angular.extend({page: $scope.currentPage}, query));
+        $scope.query = angular.extend({page: $scope.currentPage}, $scope.query);
+        $scope.startups = Startup.query($scope.query);
     };
 
     $scope.deleteStartup = function(index){
@@ -25,9 +27,9 @@ angular.module('start.controllers').controller("AdminStartupListCtrl", function(
         $scope.startups.splice(index, 1);
     };
 
-
     $scope.search = function () {
-        $scope.startups = Startup.query(angular.extend({page: 0}, {search: $scope.searchInput}, query));
+        $scope.query = angular.extend({page: 0}, {search: $scope.searchInput}, $scope.query));
+        $scope.startups = Startup.query($scope.query);
         return;
     };
 

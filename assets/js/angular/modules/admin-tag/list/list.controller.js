@@ -2,20 +2,22 @@
 
 angular.module('start.controllers').controller("AdminTagListCtrl", function($scope, $location, Tag) {
 
-    var query = {'sort[name]':1};
+    $scope.query = {'sort[name]':1};
     $scope.currentPage = 0;
-    $scope.tags = Tag.query(angular.extend({page: $scope.currentPage}, query));
+    $scope.tags = Tag.query(angular.extend({page: $scope.currentPage}, $scope.query));
 
     $scope.prevPage = function () {
         if ($scope.currentPage > 0) {
             $scope.currentPage--;
         }
-        $scope.tags = Tag.query(angular.extend({page: $scope.currentPage}, query));
+        $scope.query = angular.extend({page: $scope.currentPage}, $scope.query);
+        $scope.tags = Tag.query($scope.query);
     };
 
     $scope.nextPage = function () {
         $scope.currentPage++;
-        $scope.tags = Tag.query(angular.extend({page: $scope.currentPage}, query));
+        $scope.query = angular.extend({page: $scope.currentPage}, $scope.query);
+        $scope.tags = Tag.query($scope.query);
     };
 
     $scope.deleteTag = function(index){
@@ -25,7 +27,8 @@ angular.module('start.controllers').controller("AdminTagListCtrl", function($sco
     };
 
     $scope.search = function () {
-        $scope.startups = Tag.query(angular.extend({page: 0}, {search: $scope.searchInput}, query));
+        $scope.query = angular.extend({page: 0}, {search: $scope.searchInput}, $scope.query);
+        $scope.tags = Tag.query($scope.query);
         return;
     };
 
