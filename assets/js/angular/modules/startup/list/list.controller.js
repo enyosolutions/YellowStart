@@ -120,7 +120,7 @@ angular.module('start.controllers')
         };
 
 
-        $rootScope.barFocused = function () {
+        $rootScope.barFocused = function (e) {
             console.log('Focus callback function call');
             if (!$state.is('startup-list')) {
                 $rootScope.barIsFocused = true;

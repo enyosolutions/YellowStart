@@ -8973,6 +8973,12 @@ footer .brand {
     min-width: 100%;
     width: 100%;
   }
+  .mobile .top-navigation.top-navigation-default .navbar-toggle {
+    display: block!important;
+  }
+  .mobile .top-navigation.top-navigation-default .navigation {
+    display: none;
+  }
 }
 /*
  * Register form
@@ -10433,7 +10439,7 @@ footer .brand {
   .page {
     min-height: 100%;
     /* margin-bottom: -140px;*/
-    padding-bottom: 40px;
+    /*padding-bottom: 40px;*/
   }
   .home .page {
     min-height: 100%;
