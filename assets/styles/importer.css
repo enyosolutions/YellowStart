@@ -10330,6 +10330,7 @@ footer .brand {
 @media screen and (max-width: 1000px) {
   .page.startup-view .sidebar-wall {
     padding-top: 0;
+    text-align: center;
   }
 }
 @media screen and (max-width: 768px) {
