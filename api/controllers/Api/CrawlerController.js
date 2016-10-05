@@ -18,6 +18,7 @@ module.exports = {
         var tag = req.query.q.replace(/#/g,'').replace(/\-/g,'\\-');
 
         console.log(tag);
+        
         tagCollection.find({label: {$regex: tag, $options: 'i'}}, {limit: 10}).success(function (col) {
             if (col && col.length > 0) {
                 results = col.map(function (e) {

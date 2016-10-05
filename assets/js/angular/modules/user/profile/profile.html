@@ -3,12 +3,13 @@
         <!-- user -->
         <div class="user">
             <!-- avatar -->
-            <div class="avatar">
+            <div class="avatar" alt="{{ globals.user.firstname }}"
+                 background:url({{ globals.user.picture  ?  globals.user.picture : 'http://dummyimage.com/230x230/cecece/ffffff&text=Ajouter' }}) top center;background-size:cover
+            >
                 <a data-target="#userProfileModal" data-toggle="modal" class="overlay">
                     Changer la photo
                 </a>
-                <img class="picture" alt="{{ globals.user.firstname }}"
-                     src="{{ globals.user.picture  ?  globals.user.picture : 'http://dummyimage.com/230x230/cecece/ffffff&text=Ajouter' }}"/>
+
             </div>
             <!-- data -->
             <div class="data">

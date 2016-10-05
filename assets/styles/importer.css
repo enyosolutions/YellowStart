@@ -9017,11 +9017,14 @@ footer .brand {
 }
 .page.user-profile .splash .user .avatar {
   display: inline-block;
-  width: 156px;
+  width: 145px;
+  height: 145px;
   border: 6px solid #FCFCFC;
   -webkit-border-radius: 999px;
   -moz-border-radius: 999px;
   border-radius: 999px;
+  position: relative;
+  overflow: hidden;
 }
 .page.user-profile .splash .user .avatar img.picture {
   width: 145px;
@@ -9049,6 +9052,8 @@ footer .brand {
   -webkit-border-radius: 999px;
   -moz-border-radius: 999px;
   border-radius: 999px;
+  top: 0;
+  left: 0;
 }
 .page.user-profile .splash .user .data {
   display: block;

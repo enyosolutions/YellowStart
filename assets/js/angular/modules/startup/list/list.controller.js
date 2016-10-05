@@ -53,6 +53,7 @@ angular.module('start.controllers')
                             $scope.searchName = selection.originalObject.title;
                             selection.title = selection.originalObject.title;
                             // $scope.$broadcast('angucomplete-alt:changeInput', 'search', selection.title);
+                            delete $stateParams.tag;
                             $scope.search($scope.searchName);
                             break;
                     }
