@@ -83,7 +83,7 @@ module.exports = {
     update: function (req, res) {
         var extend = require('extend');
         console.log(req.body);
-        User.findOne({id: req.params.id}, function (err, user) {
+        User.findOne({_id: req.params.id}, function (err, user) {
             if (!user) {
                 return res.json(401, {error: "Il n'y a pas de compte avec cet identifiant"});
             }

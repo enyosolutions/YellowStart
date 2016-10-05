@@ -37,7 +37,8 @@ angular.module('start.controllers').controller("ProfileCtrl", function ($scope, 
     }
 
     $scope.updateProfile = function(){
-        $rootScope.globals.user.$update();
+        console.log($rootScope.globals.user);
+        UserService.Update($rootScope.globals.user);
     };
 
     $scope.sortByName = function () {

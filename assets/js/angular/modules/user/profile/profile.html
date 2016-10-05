@@ -4,7 +4,9 @@
         <div class="user">
             <!-- avatar -->
             <div class="avatar" alt="{{ globals.user.firstname }}"
-                 background:url({{ globals.user.picture  ?  globals.user.picture : 'http://dummyimage.com/230x230/cecece/ffffff&text=Ajouter' }}) top center;background-size:cover
+                 style="background:url(  {{ globals.user.picture  ?
+                   globals.user.picture : 'http://dummyimage.com/230x230/cecece/ffffff&text=Ajouter' }} ) top center;background-size:cover"
+
             >
                 <a data-target="#userProfileModal" data-toggle="modal" class="overlay">
                     Changer la photo
