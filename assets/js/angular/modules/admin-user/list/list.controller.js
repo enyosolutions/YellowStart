@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('start.controllers').controller("AdminUserListCtrl", function($scope, $location, $filter, Auth, AdminUser, UserService, NotificationService,  $ngBootbox) {
-    $scope.users = AdminUser.query({'sort[firstname]':1});
+    $scope.users = AdminUser.query({'sort[firstname]':1, skip: 0});
     $scope.currentUser = {};
     $scope.activateUser = function(index){
         $scope.users[index].isActive = true;
