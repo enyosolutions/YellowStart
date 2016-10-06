@@ -72,17 +72,17 @@ angular
             .state('admin-home', {
                 url: '/admin', templateUrl: '/js/angular/modules/admin-home/list/list.html',
                 controller: 'AdminHomeCtrl',
-                data: {access: "USER"}
+                data: {access: "ADMIN"}
             })
             .state('admin-user', {
                 url: '/admin/user', templateUrl: '/js/angular/modules/admin-user/list/list.html',
                 controller: 'AdminUserListCtrl',
-                data: {access: "USER"}
+                data: {access: "ADMIN"}
             })
             .state('admin-startup', {
                 url: '/admin/startup', templateUrl: '/js/angular/modules/admin-startup/list/list.html',
                 controller: 'AdminStartupListCtrl',
-                data: {access: "USER"}
+                data: {access: "ADMIN"}
             })
             .state('admin-luna-startup', {
                 url: '/admin/luna-startup', templateUrl: '/js/angular/modules/admin-luna-startup/list/list.html',

@@ -57,7 +57,7 @@ angular.module('start.controllers').controller("RegisterCtrl", function ($scope,
                     if (response.error) {
                         $ngBootbox.alert(response.error);
                     }
-                    else if (!esponse.user.isActive ){
+                    else if (!response.user.isActive ){
                         $ngBootbox.alert("Votre compte n'a pas encore été activé. Il devrait l'être d'ici quelques heures.");
                     }
                     console.log(response);
