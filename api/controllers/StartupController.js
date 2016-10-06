@@ -412,30 +412,56 @@ module.exports = {
         var fileId = req.body.fileId;
 
         var startupCollection = Monk.get('startup');
+
+        console.log(fileId, sails.config.appPath + '/assets' + fileId);
         startupCollection.find({_id: id}).then(function (col) {
             if (col && col.length > 0) {
                 var startup = col[0];
+                console.log(startup.startupName);
+                
+                var fs = require('fs') ;
                 isDoc = false;
+                console.log(startup.images.length);
                 for (var i = 0; i < startup.documents.length; i++) {
-
+                    console.log('searching for documents');
                     if (startup.documents[i].file === fileId) {
                         startup.documents.splice(i, 1);
+                        fs.unlink(sails.config.appPath + '/assets' + fileId, function (err) {
+                            if (err) {
+                                console.log(err);
+                            }
+
+                            startupCollection.update({_id: id}, startup).then(function (out) {
+                                console.log(out);
+                                res.json(200, {body: startup});
+                            });
+                        });
+
                         isDoc = true;
                         break;
                     }
                 }
                 if (!isDoc) {
                     for (var i = 0; i < startup.images.length; i++) {
+                        console.log('searching for images');
                         if (startup.images[i].file === fileId) {
                             startup.images.splice(i, 1);
+                            fs.unlink(sails.config.appPath + '/assets' + fileId, function (err) {
+                                if (err) {
+                                    console.log(err);
+                                }
+
+                                startupCollection.update({_id: id}, startup).then(function (out) {
+                                    console.log(out);
+                                    res.json(200, {body: startup});
+                                });
+                            });
                             break;
                         }
                     }
                 }
 
-                startupCollection.update({_id: id}, startup).then(function () {
-                    res.json(200, {body: startup});
-                });
+
             }
             else {
                 console.log('Startup not found');
