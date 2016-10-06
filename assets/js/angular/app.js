@@ -42,7 +42,6 @@ angular
         if (user) {
             $rootScope.globals.user = user;
             Auth.refresh().success(function (response) {
-                console.log(response);
                 $rootScope.globals.user = response.user;
                 $rootScope.notifications = Notification.query({'query[userId]': $rootScope.globals.user._id});
                 $interval(function () {

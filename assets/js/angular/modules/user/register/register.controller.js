@@ -37,13 +37,11 @@ angular.module('start.controllers').controller("RegisterCtrl", function ($scope,
                     else {
                         $ngBootbox.alert("une erreur s'est produite lors de l'inscription. Merci de vérifier les informations que vous avez saisies.");
                     }
-                    console.log(response);
                 });
         }
     };
 
     $scope.login = function (email, password) {
-        console.log(email);
         $scope.dataLoading = true;
 
         Auth.login(email, password)
@@ -58,6 +56,9 @@ angular.module('start.controllers').controller("RegisterCtrl", function ($scope,
                 else {
                     if (response.error) {
                         $ngBootbox.alert(response.error);
+                    }
+                    else if (!esponse.user.isActive ){
+                        $ngBootbox.alert("Votre compte n'a pas encore été activé. Il devrait l'être d'ici quelques heures.");
                     }
                     console.log(response);
                 }

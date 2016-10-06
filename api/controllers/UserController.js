@@ -27,8 +27,7 @@ module.exports = {
                 // If user created successfuly we return user and token as response
                 if (user) {
                     // NOTE: payload is { id: user.id}
-                    var token = jwToken.issue({id: user.id});
-                    res.json(200, {user: user, token: jwToken.issue({id: token})});
+                    res.json(200, {user: user});
                     MailService.sendAccountCreationEmail(user.email, {user: user});
                     NotificationService.sendNewUser(user.id);
                     Monk.get('user').find({roles: 'ADMIN'}).then(function (coll) {
