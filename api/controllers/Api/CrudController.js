@@ -92,7 +92,7 @@ module.exports = {
                     var collection = Monk.get(req.param('endpoint'));
                     var original = data[0];
                     var data = extend(true, {}, original, req.body, {lastModifiedAt: new Date()});
-                    collection.update({_id: data._id}, data)
+                    collection.update({_id: data._id}, data, {multi:false})
                         .on('success', function (d) {
                             data.statusCode = 200;
                             resp.json(data.statusCode, {body: data});
@@ -124,7 +124,7 @@ module.exports = {
                     var collection = Monk.get(req.param('endpoint'));
                     var original = data[0];
                     var data = extend(true, {}, original, req.body, {lastModifiedAt: new Date()});
-                    collection.update({_id: data._id}, data).then(function (d) {
+                    collection.update({_id: data._id}, data, {multi: false}).then(function (d) {
                         data.statusCode = 200;
                         resp.json(data.statusCode, {body: d});
                         var id = req.token ? req.token.id : 'ANONYMOUS';

@@ -207,6 +207,17 @@ angular.module('start.controllers')
         };
     })
 
+    .directive('targetClick', function ($window) {
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                element.bind('click', function(e) {
+                    angular.element(attrs.targetClick).trigger('click');
+                    $('body').animate({scrollTop :0}, '200');
+                });
+            }
+        };
+    })
 
     .directive('startupSlider', function () {
         return function (scope, element) {
