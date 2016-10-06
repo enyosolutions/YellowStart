@@ -99,6 +99,7 @@
                             <select multiple name="roles" id="roles" class="form-control" ng-model="currentUser.roles"
                                     required>
                                 <option value="USER">USER</option>
+                                <option value="MODERATOR">MODERATOR</option>
                                 <option value="ADMIN">ADMIN</option>
                             </select>
                             <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block"></span>
@@ -108,7 +109,7 @@
                              ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
                             <label for="email">Adresse E-mail</label>
                             <input type="text" name="email" id="email" class="form-control"
-                                   ng-model="globals.user.email"
+                                   ng-model="currentUser.email"
                                    required/>
                             <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">L'adresse E-mail est obligatoire</span>
                         </div>

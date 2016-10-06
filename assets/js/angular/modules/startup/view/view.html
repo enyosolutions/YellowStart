@@ -125,7 +125,7 @@
               <a class="action btn" href="mailto:{{ startup.contact.email }}" ng-show="startup.contact">
                 <i class="icon-start-bt-contact"></i>
               </a>
-              <a class="action btn" href="#/startup/{{startup._id}}/edit" data-toggle="modal" ng-show="startup.status === 'draft' || globals.user.roles.indexOf('ADMIN') !== -1">
+              <a class="action btn" href="#/startup/{{startup._id}}/edit" data-toggle="modal" ng-show="(startup.status === 'draft') || globals.user.roles.indexOf('MODERATOR') !== -1 || globals.user.roles.indexOf('ADMIN') !== -1">
                 <i class="icon-start-bt-edit"></i>
               </a>
               <a class="action btn" data-toggle="modal" data-target="#documentsModal" ng-if=" startup.documents.length">
