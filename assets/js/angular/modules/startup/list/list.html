@@ -1,5 +1,5 @@
 <section class="container">
-    <div class="row">
+    <div class="">
 
 
     <div class="inlinesearch">
@@ -37,8 +37,8 @@
             <h1 class="result-indicator">
                 <!-- {{ searchTitle }} -->
             </h1>
-
-            <div class="sort">
+            <div class="numb">{{ searchedStartups.length }} résultat(s)</div>
+            <div class="sort" style="position: absolute; top: 0px !important; right: 0;">
                 <div class="dropdown">
                     <button class="btn btn-primary-alternate dropdown-toggle" type="button" id="sort"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -57,7 +57,6 @@
                     </ul>
                 </div>
             </div>
-            <div class="numb">{{ searchedStartups.length }} résultat(s)</div>
         </div>
 
         <!-- results -->
